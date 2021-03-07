@@ -513,7 +513,6 @@ public class ChatMessages {
 			1st Replace: strips json
 			2nd Replace: strips colors using <color name> (Note: this regex expr repalce any two words surrounded by <> such as <any text>)
 			3rd Replace: strips colors & or §
-			4th Replace: strips colors using hex codes
 		*/
 		plain = plain.replaceAll("<(link|url|run command|suggest command|tooltip):(.*?)>", "$2").replaceAll("<\\w+? ?\\w+?>", "").replaceAll("(?i)[&§][0-9a-folkrnm]", "");
 
