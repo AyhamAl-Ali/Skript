@@ -506,10 +506,18 @@ public class ChatMessages {
 		}
 		String plain = sb.toString();
 		
-		// To be extra safe, strip <, >, § and &; protects against bugs in parser
+		// To be extra safe, strip valid <, >, §, & and hex codes <#123456>; protects against bugs in parser
 		if (Utils.HEX_SUPPORTED) // Strip '§x'
 			plain = plain.replace("§x", "");
-		plain = plain.replace("<", "").replace(">", "").replace("§", "").replace("&", "");
+		/*
+			1st Replace: strips json
+			2nd Replace: strips colors using <color name> (Note: this regex expr repalce any two words surrounded by <> such as <any text>)
+			3rd Replace: strips colors & or §
+			4th Replace: strips colors using hex codes
+		*/
+		plain = plain.replaceAll("<(link|url|run command|suggest command|tooltip):(.*?)>", "$2").replaceAll("<\\w+? ?\\w+?>", "").replaceAll("(?i)[&§][0-9a-folkrnm]", "").replaceAll("(?i)<#[0-9a-z]{6}>", "");
+
+
 		assert plain != null;
 		return plain;
 	}
