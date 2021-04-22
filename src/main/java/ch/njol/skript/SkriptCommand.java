@@ -180,11 +180,19 @@ public class SkriptCommand implements CommandExecutor {
 					String pathDiff = Skript.getInstance().getDataFolder().toPath().toAbsolutePath()
 					.resolve(Skript.SCRIPTSFOLDER).relativize(f.toPath().toAbsolutePath()).toString();
 					
+					String argsJoined = StringUtils.join(args, " ", 1, args.length);
+					
 					// Whether it is a file or directory don't allow reload if it starts with - or .
-					if (pathDiff.matches("(?m)(^(.|-).*|.*\\\\(.|-).*|.*/(.|-).*)")) { // Checks if any of parent directories starts with - or .
-						info(sender, "reload.script disabled", StringUtils.join(args, " ", 1, args.length), StringUtils.join(args, " ", 1, args.length));
-						return true;
-					}
+					if (f.isDirectory())
+						if (pathDiff.matches("(?m)(^(.|-).*|.*\\\\(.|-).*|.*/(.|-).*)")) { // Checks if any of parent directories starts with - or .
+							info(sender, "reload.script disabled", argsJoined, argsJoined);
+							return true;
+						}
+					else // TODO exclude file name and extension from this match bec we don't want to ignore script files that begins with a dot
+						if (pathDiff.matches("(?m)(^(.|-).*|.*\\\\(.|-).*|.*/(.|-).*)")) { // Checks if any of parent directories starts with - or .
+							info(sender, "reload.script disabled", argsJoined, argsJoined);
+							return true;
+						}
 					
 					if (!f.isDirectory()) {
 						reloading(sender, "script", f.getName());
