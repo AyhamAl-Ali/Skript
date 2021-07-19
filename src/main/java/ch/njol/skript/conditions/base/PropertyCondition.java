@@ -142,6 +142,10 @@ public abstract class PropertyCondition<T> extends Condition implements Checker<
 		return PropertyType.BE;
 	}
 	
+	protected Expression<? extends T> getExpr() {
+		return expr;
+	}
+	
 	/**
 	 * Sets the expression this condition checks a property of. No reference to the expression should be kept.
 	 *
