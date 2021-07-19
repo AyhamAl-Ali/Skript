@@ -142,7 +142,7 @@ public abstract class PropertyCondition<T> extends Condition implements Checker<
 		return PropertyType.BE;
 	}
 	
-	protected Expression<? extends T> getExpr() {
+	public final Expression<? extends T> getExpr() {
 		return expr;
 	}
 	
