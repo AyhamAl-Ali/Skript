@@ -19,6 +19,8 @@
 package ch.njol.skript.lang.util;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 
 import org.bukkit.event.Event;
@@ -49,7 +51,30 @@ public abstract class SimpleExpression<T> implements Expression<T> {
 	
 	private int time = 0;
 	
+	@Nullable
+	private Expression<?>[] exprs;
+	
 	protected SimpleExpression() {}
+	
+	/**
+	 * Set the expressions of the registered expression's syntax in the {@link Expression#init} method
+	 * This is useful when having multiple expressions in the syntax and you need to get one of them later in other methods without creating a private field for it.
+	 * 
+	 * @param exprs
+	 */
+	protected void setExprs(final Expression<?>[] exprs) {
+		this.exprs = exprs;
+	}
+
+	/**
+	 * This is useful when having multiple expressions in the registered expression's syntax and you need to get one or more of them in other methods without creating a private field for them.
+	 * This will return null if {@link SimpleExpression#setExprs} was not used in the {@link Expression#init} method or if the syntax does not have expressions.
+	 * 
+	 * @return All the expressions used in the registered expression's syntax
+	 */
+	public ArrayList<Expression<?>> getExprs() {
+		return new ArrayList<>(Arrays.asList(exprs));
+	}
 	
 	@Override
 	@Nullable

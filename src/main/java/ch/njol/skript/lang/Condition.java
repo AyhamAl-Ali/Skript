@@ -35,8 +35,31 @@ import ch.njol.util.Checker;
 public abstract class Condition extends Statement {
 	
 	private boolean negated = false;
+
+	@Nullable
+	private Expression<?>[] exprs;
 	
 	protected Condition() {}
+	
+	/**
+	 * Set the expressions of the registered condition's syntax in the {@link Condition#init} method
+	 * This is useful when having multiple expressions in the syntax and you need to get one of them later in other methods without creating a private field for it.
+	 * 
+	 * @param exprs
+	 */
+	protected final void setExprs(final Expression<?>[] exprs) {
+		this.exprs = exprs;
+	}
+	
+	/**
+	 * This is useful when having multiple expressions in the registered condition's syntax and you need to get one or more of them in other methods without creating a private field for them.
+	 * This will return null if {@link Condition#setExprs} was not used in the {@link Condition#init} method or if the syntax does not have expressions.
+	 * 
+	 * @return All the expressions used in the registered expression's syntax
+	 */
+	public final Expression<?>[] getExprs() {
+		return exprs;
+	}
 	
 	/**
 	 * Checks whether this condition is satisfied with the given event. This should not alter the event or the world in any way, as conditions are only checked until one returns

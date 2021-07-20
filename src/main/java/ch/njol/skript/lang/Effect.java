@@ -36,8 +36,31 @@ import ch.njol.skript.log.SkriptLogger;
  * @see Skript#registerEffect(Class, String...)
  */
 public abstract class Effect extends Statement {
+
+	@Nullable
+	private Expression<?>[] exprs;
 	
 	protected Effect() {}
+	
+	/**
+	 * Set the expressions of the registered effect's syntax in the {@link Effect#init} method
+	 * This is useful when having multiple expressions in the syntax and you need to get one of them later in other methods without creating a private field for it.
+	 * 
+	 * @param exprs
+	 */
+	protected final void setExprs(final Expression<?>[] exprs) {
+		this.exprs = exprs;
+	}
+	
+	/**
+	 * This is useful when having multiple expressions in the registered effect's syntax and you need to get one or more of them in other methods without creating a private field for them.
+	 * This will return null if {@link Effect#setExprs} was not used in the {@link Effect#init} method or if the syntax does not have expressions.
+	 * 
+	 * @return All the expressions used in the registered expression's syntax
+	 */
+	public final Expression<?>[] getExprs() {
+		return exprs;
+	}
 	
 	/**
 	 * Executes this effect.

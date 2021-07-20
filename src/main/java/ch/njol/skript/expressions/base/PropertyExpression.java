@@ -30,6 +30,10 @@ import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.skript.registrations.Converters;
 import ch.njol.util.Kleenean;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+
 /**
  * Represents an expression which represents a property of another one. Remember to set the expression with {@link #setExpr(Expression)} in
  * {@link SyntaxElement#init(Expression[], int, Kleenean, ParseResult) init()}.
@@ -55,6 +59,8 @@ public abstract class PropertyExpression<F, T> extends SimpleExpression<T> {
 	@SuppressWarnings("null")
 	private Expression<? extends F> expr;
 	
+	private Expression<?> exprs;
+	
 	/**
 	 * Sets the expression this expression represents a property of. No reference to the expression should be kept.
 	 * 
@@ -64,8 +70,31 @@ public abstract class PropertyExpression<F, T> extends SimpleExpression<T> {
 		this.expr = expr;
 	}
 	
+	/**
+	 * @return the property's expression this expression represents a property of
+	 */
 	public final Expression<? extends F> getExpr() {
 		return expr;
+	}
+	
+	/**
+	 * Set the expressions of the registered expression's syntax in the {@link Expression#init} method
+	 * This is useful when having multiple expressions in the syntax and you need to get one of them later in other methods without creating a private field for it.
+	 * 
+	 * @param exprs
+	 */
+	protected final void setExprs(final Expression<? extends F> exprs) {
+		this.exprs = exprs;
+	}
+	
+	/**
+	 * This is useful when having multiple expressions in the registered expression's syntax and you need to get one or more of them in other methods without creating a private field for them.
+	 * This will return null if {@link SimpleExpression#setExprs} was not used in the {@link Expression#init} method or if the syntax does not have expressions.
+	 * 
+	 * @return All the expressions used in the registered expression's syntax
+	 */
+	public final ArrayList<Expression<?>> getExprs() {
+		return new ArrayList<>(Arrays.asList(exprs));
 	}
 	
 	@Override
