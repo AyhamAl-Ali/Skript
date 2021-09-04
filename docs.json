@@ -1,5 +1,5 @@
 {
-  "skriptVersion" : "2.6-beta1",
+  "skriptVersion" : "2.6-beta2",
 
   "classes" : [
     {
@@ -4482,8 +4482,8 @@ One can also use the type of the argument instead of its index to address the ar
   "id" : "ExprArrowKnockbackStrength",
   "name" : "Arrow Knockback Strength",
   "patterns" : [
-    "[the] [the] arrow knockback strength of %<a href='./classes.html#projectile'>projectiles</a>%",
-"%<a href='./classes.html#projectile'>projectiles</a>%'[s] [the] arrow knockback strength",
+    "[the] arrow knockback strength of %<a href='./classes.html#projectile'>projectiles</a>%",
+"%<a href='./classes.html#projectile'>projectiles</a>%'[s] arrow knockback strength",
 
     "pattern_end"
   ],
@@ -5978,6 +5978,19 @@ The vanilla Minecraft client will use lowercase language / country pairs separat
   "examples" : "send \"%last attacker of event-entity%\""
 },
 {
+  "id" : "ExprLastColor",
+  "name" : "Last Color",
+  "patterns" : [
+    "[the] last color[s] of %<a href='./classes.html#string'>texts</a>%",
+"%<a href='./classes.html#string'>texts</a>%'[s] last color[s]",
+
+    "pattern_end"
+  ],
+  "since" : "INSERT VERSION",
+  "description" : "The colors used at the end of a string. The colors of the returned string will be formatted with their symbols.",
+  "examples" : "set {_color} to the last colors of \"<red>hey<blue>yo\""
+},
+{
   "id" : "ExprLastDamage",
   "name" : "Last Damage",
   "patterns" : [
@@ -6288,7 +6301,7 @@ Please note that the location of an entity is at it's feet, use <a href='#ExprEy
     "pattern_end"
   ],
   "since" : "2.1.1",
-  "description" : "A 'me' expression that can be used in effect commands only.",
+  "description" : "A 'me' expression that can be used in players' effect commands only.",
   "examples" : "!heal me\\n!kick myself\\n!give a diamond axe to me"
 },
 {
@@ -6361,13 +6374,13 @@ Please note that the location of an entity is at it's feet, use <a href='#ExprEy
   "id" : "ExprName",
   "name" : "Name / Display Name / Tab List Name",
   "patterns" : [
-    "[the] (name[s]|(display|nick|chat|custom)[ ]name[s]) of %<a href='./classes.html#player'>players</a>/<a href='./classes.html#entity'>entities</a>/<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#inventory'>inventories</a>/<a href='./classes.html#slot'>slots</a>/<a href='./classes.html#gamerule'>gamerules</a>%",
-"%<a href='./classes.html#player'>players</a>/<a href='./classes.html#entity'>entities</a>/<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#inventory'>inventories</a>/<a href='./classes.html#slot'>slots</a>/<a href='./classes.html#gamerule'>gamerules</a>%'[s] (name[s]|(display|nick|chat|custom)[ ]name[s])",
+    "[the] (name[s]|(display|nick|chat|custom)[ ]name[s]) of %<a href='./classes.html#offlineplayer'>offline players</a>/<a href='./classes.html#entity'>entities</a>/<a href='./classes.html#block'>blocks</a>/<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#inventory'>inventories</a>/<a href='./classes.html#slot'>slots</a>/<a href='./classes.html#gamerule'>gamerules</a>%",
+"%<a href='./classes.html#offlineplayer'>offline players</a>/<a href='./classes.html#entity'>entities</a>/<a href='./classes.html#block'>blocks</a>/<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#inventory'>inventories</a>/<a href='./classes.html#slot'>slots</a>/<a href='./classes.html#gamerule'>gamerules</a>%'[s] (name[s]|(display|nick|chat|custom)[ ]name[s])",
 
     "pattern_end"
   ],
   "since" : "before 2.1, 2.2-dev20 (inventory name), 2.4 (non-living entity support, changeable inventory name)",
-  "description" : "Represents the Minecraft account, display or tab list name of a player, or the custom name of an item, entity, inventory, or gamerule.
+  "description" : "Represents the Minecraft account, display or tab list name of a player, or the custom name of an item, entity, block, inventory, or gamerule.
 
 <ul>
     <li><strong>Players</strong>
@@ -6410,7 +6423,7 @@ Please note that the location of an entity is at it's feet, use <a href='#ExprEy
     "pattern_end"
   ],
   "since" : "before 2.1, 2.2-dev20 (inventory name), 2.4 (non-living entity support, changeable inventory name)",
-  "description" : "Represents the Minecraft account, display or tab list name of a player, or the custom name of an item, entity, inventory, or gamerule.
+  "description" : "Represents the Minecraft account, display or tab list name of a player, or the custom name of an item, entity, block, inventory, or gamerule.
 
 <ul>
     <li><strong>Players</strong>
@@ -7200,8 +7213,8 @@ Please note that changing a player's speed will change their FOV just like potio
   "id" : "ExprTimePlayed",
   "name" : "Time Played",
   "patterns" : [
-    "[the] time played of %<a href='./classes.html#player'>players</a>%",
-"%<a href='./classes.html#player'>players</a>%'[s] time played",
+    "[the] time played of %<a href='./classes.html#offlineplayer'>offline players</a>%",
+"%<a href='./classes.html#offlineplayer'>offline players</a>%'[s] time played",
 
     "pattern_end"
   ],
@@ -7637,7 +7650,7 @@ This can only be set in a <a href='events.html#server_list_ping'>server list pin
   "id" : "ExprXOf",
   "name" : "X of Item",
   "patterns" : [
-    "%<a href='./classes.html#number'>number</a>% of %<a href='./classes.html#itemstack'>item stacks</a>/<a href='./classes.html#entitytype'>entity type</a>%",
+    "%<a href='./classes.html#number'>number</a>% of %<a href='./classes.html#itemstack'>item stacks</a>/<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#entitytype'>entity type</a>%",
 
     "pattern_end"
   ],

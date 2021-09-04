@@ -136,8 +136,6 @@ function versionCompare(base, target) { // Return -1, 0, 1
   base = base.replaceAll(versionComparePattern, "$1").replaceAll(/[^0-9]/gi, "");
   target = target.replaceAll(versionComparePattern, "$1").replaceAll(/[^0-9]/gi, "");
 
-  console.log(">> " + base + " | " + target)
-
   base = parseInt(base) < 100 ? parseInt(base) * 10 : parseInt(base); // convert ten's to hundred's to fix (2.5.1+ not triggering 2.6 by converting 26 -> 260)
   target = parseInt(target) < 100 ? parseInt(target) * 10 : parseInt(target);
 
@@ -152,6 +150,8 @@ function versionCompare(base, target) { // Return -1, 0, 1
 var content = document.getElementById("content");
 if (content) {
   content.insertAdjacentHTML('afterbegin', `<span><input id="search-bar" type="text" placeholder="🔍 Search the docs (filters: v:2.5.3 v:2.2+ v:2.4-)"><span id="search-bar-after" style="display: none;">0 ${resultsFoundText}</span></span>`);
+} else {
+  content = document.getElementById("content-no-docs")
 }
 
 var searchBar = document.getElementById("search-bar");
@@ -170,14 +170,10 @@ if (searchBar) {
 
       let versionAndUp = searchValue.replaceAll(versionPattern, "$2") == "+" == true;
       let versionAndDown = searchValue.replaceAll(versionPattern, "$2") == "-" == true;
-      console.log("1: " + version);
-      console.log("2: " + versionAndUp);
-      console.log("3: " + versionAndDown);
       searchValue = searchValue.replaceAll(versionPattern, "") // Don't include filters in the search
       searchValue = searchValue.replaceAll(/( ){2,}/gi, " ") // Filter duplicate spaces
       
       searchValue = searchValue.replaceAll(/[^a-zA-Z0-9 ]/gi, ""); // Filter none alphabet and digits to avoid regex errors
-      console.log("4: " + searchValue);
 
       allElements.forEach((e) => {
         let patterns = document.querySelectorAll(`#${e.id} .item-details .skript-code-block`);
@@ -210,12 +206,16 @@ if (searchBar) {
           } else {
             versionFound = true;
           }
-          // console.log(versionFound);
           if ((regex.test(pattern.textContent.replaceAll("[ ]", " ")) || regex.test(name) || searchValue == "") && versionFound) { // Replacing '[ ]' will improve some searching cases such as 'off[ ]hand'
             pass = true
             break; // Performance
           }
+
+          versionFound = false; // Reset
         }
+
+        // if (version == "") // Make sure to reset versionFound
+        //   versionFound = false;
 
         // Filter
         let sideNavItem = document.querySelectorAll(`#nav-contents a[href="#${e.id}"]`)[0];
@@ -230,11 +230,11 @@ if (searchBar) {
             sideNavItem.style.display = "none";
         }
 
-        pass = false; // reset
+        pass = false; // Reset
       })
 
       searchResultBox = document.getElementById("search-bar-after");
-      if (searchValue != "") {
+      if (count > 0) {
         searchResultBox.textContent = `${count} ${resultsFoundText}`
         searchResultBox.style.display = null;
       } else {
@@ -260,23 +260,28 @@ if (searchBar) {
 
 // Auto load DarkMode from cookies
 if (getCookie("darkMode") != "true") {
-  content.insertAdjacentHTML('beforeend', `<img src="./assets/light-on-dark.svg" id="theme-switch">`);
+  content.insertAdjacentHTML('beforeend', `<img style="z-index: 99;" src="./assets/light-on-dark.svg" id="theme-switch">`);
   document.body.setAttribute('data-theme', 'white')
 } else {
-  content.insertAdjacentHTML('beforeend', `<img src="./assets/light-off.svg" id="theme-switch">`);
+  content.insertAdjacentHTML('beforeend', `<img style="z-index: 99;" src="./assets/light-off.svg" id="theme-switch">`);
 }
 
-document.getElementById('theme-switch').addEventListener('click', function(event) {
-  if (document.body.getAttribute("data-theme") == null) {
-    document.body.setAttribute('data-theme', 'white');
-    event.target.src = "./assets/light-on-dark.svg";
-    setCookie("darkMode", "false", 99);
-  } else {
-    event.target.src = "./assets/light-off.svg";
-    document.body.removeAttribute('data-theme');
-    setCookie("darkMode", "true", 99);
-  }
-});
+setTimeout(() => {
+  var themeSwitcher = document.getElementById('theme-switch');
+  console.log(themeSwitcher);
+  themeSwitcher.addEventListener('click', (event) => {
+    console.log("1");
+    if (document.body.getAttribute("data-theme") == null) {
+      document.body.setAttribute('data-theme', 'white');
+      event.target.src = "./assets/light-on-dark.svg";
+      setCookie("darkMode", "false", 99);
+    } else {
+      event.target.src = "./assets/light-off.svg";
+      document.body.removeAttribute('data-theme');
+      setCookie("darkMode", "true", 99);
+    }
+  });
+}, 200); // For some reason this wouldn't work in index.html (only) unless I add some delay o.O
 // Dark Mode <>
 
 // <> Placeholders
@@ -301,7 +306,7 @@ function setCookie(cname, cvalue, exdays) {
   const d = new Date();
   d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
   let expires = "expires="+d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/; SameSite=None; Secure";
 }
 
 function getCookie(cname) {
@@ -322,14 +327,14 @@ function getCookie(cname) {
 // Cookies </>
 
 // <> HighlightJS 
-document.addEventListener("DOMContentLoaded", function(event) { 
-  setTimeout(() => {
-    document.querySelectorAll('div .skript-code-block').forEach(el => { // This lags the docs pages due to the huge amount of elements being parsed, we can disable this if lag is so bad for some people or keep it because it looks AMAZING!
-      hljs.highlightElement(el);
-    });
-    document.querySelectorAll('pre.code').forEach(el => { // Apply the code formatting on the same <pre> not the <code> inside to not break the styling
-      hljs.highlightElement(el);
-    });
-  }, 100);
-});
+// document.addEventListener("DOMContentLoaded", function(event) { 
+//   setTimeout(() => {
+//     document.querySelectorAll('div .skript-code-block').forEach(el => { // This lags the docs pages due to the huge amount of elements being parsed, we can disable this if lag is so bad for some people or keep it because it looks AMAZING!
+//       hljs.highlightElement(el);
+//     });
+//     document.querySelectorAll('pre.code').forEach(el => { // Apply the code formatting on the same <pre> not the <code> inside to not break the styling
+//       hljs.highlightElement(el);
+//     });
+//   }, 100);
+// });
 // HighlightJS </>

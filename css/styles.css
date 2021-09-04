@@ -1,11 +1,11 @@
 :root {
     --font-color: white;
-    --box-font-color: black;
     --bg-color: #1e1e1e;
+
     --search-color: white;
     --search-bg-color: rgba(0, 0, 0, 0.55);
 
-    --table-row-color: rgba(0, 0, 0, 0.2);
+    --table-row-color: rgba(38, 38, 38, 0.3);
     --table-row2-color: rgba(0, 0, 0, 0.3);
     --table-side-color: rgba(114, 114, 114, 0.1);
     --table-side2-color: rgba(116, 116, 116, 0.05);
@@ -13,21 +13,30 @@
 
     --code-bg-color: rgba(99, 99, 99, 0.2);
 
+    --sidebar-items-bg: rgba(0, 0, 0, .2);
+
     --element-bottom-border: rgba(255, 255, 255, .2);
 
-    --link-color: rgb(27, 145, 255);
-    --link-hover-color: rgba(27, 145, 255, .8);
-    --link-visited-color: rgba(27, 145, 255, .6);
+    --link-color: #ffad32;
+    --link-hover-color: #dd8500;
+    --link-visited-color: #ff9800;
+
+    --table-shadow: 0 0 20px rgba(0, 0, 0, .4);
+
+    --box-font-color: black;
+    --box-bg: rgba(0, 0, 0, 0.4) !important;
+    --red-box-font-color: black;
+    --red-box-bg: rgba(0, 0, 0, 0.4);
+
+    --syntax-item-shadow: 0px 0px 15px rgba(0, 0, 0, .5);
 }
 
 [data-theme="white"] {
     --font-color: black;
     --font-secondary-color: rgba(0, 0, 0, .65);
     --bg-color: oldlace;
-    --search-color: white;
     --table-color: white;
 
-    --box-font-color: black;
     --search-color: black;
     --search-bg-color: white;
 
@@ -39,11 +48,23 @@
 
     --code-bg-color: rgba(0, 0, 0, 0.08);
 
+    --sidebar-items-bg: rgba(0, 0, 0, 0.03);
+
     --element-bottom-border: rgba(0, 0, 0, 0.1);
 
-    --link-color: darkcyan;
-    --link-hover-color: rgb(0, 184, 184);
-    --link-visited-color: rgb(37, 89, 142);
+    --link-color: #ffad32;
+    --link-hover-color: #dd8500;
+    --link-visited-color: #ff9800;
+
+    --table-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+    --box-font-color: black;
+    --box-bg: rgba(0, 0, 0, 0.1) !important;
+    --red-box-font-color: white;
+    --red-box-bg: rgba(0, 0, 0, 0.1);
+
+    --syntax-item-shadow: 0px 0px 15px rgba(0, 0, 0, .1);
+
     /* transition: all 1s; */
 }
 
@@ -107,17 +128,23 @@ a:visited {
     color: var(--link-visited-color);
 }
 
+.item-wrapper {
+    box-shadow: var(--syntax-item-shadow);
+    border-left: 5px solid rgb(255, 152, 0);
+}
 
 /* Pattern right section list items */
 
 .item-details:nth-child(1) ul li:nth-child(odd) {
     background-color: var(--table-row-color);
     color: var(--font-color);
+    border-left: 2px solid rgb(255, 152, 0);
 }
 
 .item-details:nth-child(1) ul li:nth-child(even) {
     background-color: var(--table-row2-color);
     color: var(--font-color);
+    border-left: 1px solid rgb(255, 152, 0);
 }
 
 .no-list-style {
@@ -134,6 +161,7 @@ a:visited {
     padding: 15px;
     z-index: 100;
     bottom: 0px;
+    display: flex;
 }
 
 #global-navigation li {
@@ -205,7 +233,7 @@ a:visited {
 #nav-contents>a {
     display: block;
     font-size: 18px;
-    background-color: rgba(0, 0, 0, 0.03);
+    background-color: var(--sidebar-items-bg);
     text-decoration: none;
     color: var(--font-color);
     margin: 6px 10px;
@@ -230,12 +258,12 @@ a:visited {
     grid-row-start: 1;
     grid-row-end: 1;
     grid-column-start: 2;
-    margin-left: 30px;
+    /* margin-left: 30px; */
     position: relative;
     top: 110px;
     height: calc(100vh - 110px);
     /* Fixed the TOP CSS 110px due to body having overflow hidden and top = 110px so the last 110px is hidden, this will fix it */
-    padding: 0.22em;
+    padding: calc(0.22em + 30px);
     padding-right: 30px;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -288,7 +316,7 @@ table {
     font-weight: bold;
     padding-bottom: 10px;
     padding-top: 0.5em;
-    padding-left: 0;
+    padding-left: 10px;
     color: var(--font-color);
 }
 
@@ -299,7 +327,7 @@ table {
 
 .item-content {
     padding-bottom: 40px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     max-width: 80vw;
     border-bottom: 1px solid var(--element-bottom-border);
 }
@@ -327,12 +355,13 @@ table {
 /* OVERRIDE */
 
 .item-content .item-details:nth-child(1) td:nth-child(1) {
+    /* Patterns */
     background-color: var(--table-side-color);
 }
 
-.item-content .item-details:nth-child(1) td:nth-child(2) {
+/* .item-content .item-details:nth-child(1) td:nth-child(2) {
     background-color: var(--table-side2-color);
-}
+} */
 
 
 /* OVERRIDE */
@@ -382,6 +411,11 @@ td ul {
     font-family: "Source Code Pro", monospace;
 }
 
+.item-examples {
+    /* margin: 25px 10px 0 10px; */
+    margin-top: 25px;
+}
+
 .item-examples p {
     background-color: rgb(255, 152, 0);
     border-left: 3px solid rgba(255, 152, 0, 0.5);
@@ -403,7 +437,7 @@ td ul {
 }
 
 .item-examples>.skript-code-block {
-    border-left: solid 3px #ff9800;
+    /* border-left: solid 3px #ff9800; */
     padding: 30px;
     font-size: 0.9em;
     color: var(--font-color);
@@ -415,13 +449,13 @@ td ul {
     padding: 5px;
     padding-right: 7px;
     margin-top: 20px;
-    color: var(--font-color);
+    color: var(--box-font-color);
 }
 
 .box {
     border-left: 3px solid #ff9800;
     padding: 15px;
-    background-color: rgba(0, 0, 0, 0.1) !important;
+    background-color: var(--box-bg);
     margin-bottom: 10px;
     color: var(--font-color);
 }
@@ -432,20 +466,22 @@ td ul {
     padding: 5px;
     padding-right: 7px;
     margin-top: 20px;
-    color: white;
+    color: var(--red-box-font-color);
     font-weight: bold;
 }
 
 .box-red {
     border-left: 3px solid #ff4e4e;
     padding: 15px;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: var(--red-box-bg);
+    color: var(--font-color);
     margin-bottom: 10px;
 }
 
-@media (max-width: 768px) {
-    body {
-        grid-template-columns: 20% minmax(80%, 100%);
+@media (max-width: 550px) {
+    #global-navigation {
+        /* +2px due to 18px padding botton not 16px */
+        height: calc(4.1em + 2px);
     }
 
     #nav-contents {
@@ -459,21 +495,29 @@ td ul {
         /* !important to override home */
     }
 
-    #global-navigation {
-        height: calc(4.1em + 2px);
-        /* +2px due to 18px padding botton not 16px */
-        display: flex;
-        flex-wrap: wrap;
-    }
-
     #global-navigation>li {
         padding-bottom: 18px;
+    }
+
+    #search-bar {
+        top: calc(4.1em + 24px) !important;
     }
 
     #global-navigation>a {
         padding: 10px;
         padding-top: 0.1em;
         padding-bottom: 0.1em;
+    }
+
+}
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: 20% minmax(80%, 100%);
+    }
+
+    #global-navigation {
+        display: flex;
+        flex-wrap: wrap;
     }
 
     #nav-contents>a {
@@ -486,10 +530,6 @@ td ul {
 
     .item-table-label {
         width: 5em;
-    }
-
-    #search-bar {
-        top: calc(4.1em + 24px) !important;
     }
 }
 
@@ -540,10 +580,21 @@ td ul {
 
 .title {
     margin-top: 32px;
+    color: var(--font-color);
 }
 
 .subtitle {
     padding-left: 20px !important;
+    color: var(--font-color);
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: var(--font-color);
 }
 
 .left-margin {
@@ -556,7 +607,8 @@ td ul {
     border-collapse: collapse;
     font-size: 0.9em;
     font-family: "Poppins", sans-serif;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--table-shadow);
+    color: var(--font-color);
     /*border-radius: 5px;*/
 }
 
@@ -566,7 +618,7 @@ td ul {
 }
 
 .colors-table tbody tr {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
 }
 
 .colors-table tbody tr:nth-of-type(even) {
@@ -706,65 +758,64 @@ pre {
     cursor: pointer;
 }
 
-/* <> Modern Toggle Button */
-.switch {
+.link-icon {
+    margin-left: 5px;
+}
+
+
+.menu-tab {
+    color: white;
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown-arrow::after {
+    /* content: '🢒' */
+    content: '🢓';
     position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
+    top: 8px;
+    left: 5px;
 }
 
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
+/* .dropdown-arrow:hover::after {
+    content: '🢓';
+} */
 
-.slider {
+.menu-subtabs {
+    display: none;
     position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
+    top: 55px;
+    background-color: #292929;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 9;
 }
 
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
+/* Links inside the dropdown */
+.menu-subtabs a {
+    color: white;
+    background: #292929;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
 }
 
-input:checked+.slider {
-    background-color: #2196F3;
+/* Change color of dropdown links on hover */
+.menu-subtabs a:hover {
+    background-color: #3a3a3a;
 }
 
-input:focus+.slider {
-    box-shadow: 0 0 1px #2196F3;
+/* Show the dropdown menu on hover */
+.menu-tab:hover .menu-subtabs {
+    display: block;
 }
 
-input:checked+.slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+/* Keep the bottom border when hover over the sub-tabs */
+.menu-tab:hover .menu-tab-item {
+    box-shadow: inset 0 -3px 0 #ff9800;
 }
 
-/* Rounded sliders */
-.slider.round {
-    border-radius: 34px;
+#global-navigation .menu-subtabs a:hover {
+    box-shadow: unset;
+    border-left: 3px solid #ff9800;
 }
-
-.slider.round:before {
-    border-radius: 50%;
-}
-
-/* Modern Toggle Button </> */
