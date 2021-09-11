@@ -100,7 +100,7 @@
 },
 {
   "id" : "color",
-  "name" : "Colour",
+  "name" : "Color",
   "patterns" : [
     "black, dark grey/dark gray, grey/light grey/gray/light gray/silver, white, blue/dark blue, cyan/aqua/dark cyan/dark aqua, light blue/light cyan/light aqua, green/dark green, light green/lime/lime green, yellow/light yellow, orange/gold/dark yellow, red/dark red, pink/light red, purple/dark purple, magenta/light purple, brown/indigo",
 
@@ -144,7 +144,7 @@
     "pattern_end"
   ],
   "since" : "1.4",
-  "description" : "A date is a certain point in the real world's time which can currently only be obtained with <a href='../expressions.html#ExprNow'>now</a>.\\nSee <a href='#time'>time</a> and <a href='#timespan'>timespan</a> for the other time types of Skript.",
+  "description" : "A date is a certain point in the real world's time which can currently only be obtained with <a href='./expressions.html#ExprNow'>now</a>.\\nSee <a href='#time'>time</a> and <a href='#timespan'>timespan</a> for the other time types of Skript.",
   "examples" : "set {_yesterday} to now\\nsubtract a day from {_yesterday}\\n# now {_yesterday} represents the date 24 hours before now"
 },
 {
@@ -163,7 +163,7 @@
   "id" : "direction",
   "name" : "Direction",
   "patterns" : [
-    "see <a href='../expressions.html#ExprDirection'>direction (expression)</a>",
+    "see <a href='./expressions.html#ExprDirection'>direction (expression)</a>",
 
     "pattern_end"
   ],
@@ -252,7 +252,7 @@
     "pattern_end"
   ],
   "since" : "2.0",
-  "description" : "Experience points. Please note that Bukkit only allows to give XP, but not remove XP from players. You can however change a player's <a href='../expressions.html#ExprLevel'>level</a> and <a href='../expressions/#ExprLevelProgress'>level progress</a> freely.",
+  "description" : "Experience points. Please note that Bukkit only allows to give XP, but not remove XP from players. You can however change a player's <a href='./expressions.html#ExprLevel'>level</a> and <a href='./expressions/#ExprLevelProgress'>level progress</a> freely.",
   "examples" : "give 10 xp to the player"
 },
 {
@@ -372,7 +372,7 @@
     "pattern_end"
   ],
   "since" : "Unknown",
-  "description" : "Represents a single slot of an <a href='#inventory'>inventory</a>. Notable slots are the <a href='../expressions.html#ExprArmorSlot'>armour slots</a> and <a href='../expressions/#ExprFurnaceSlot'>furnace slots</a>. \\nThe most important property that distinguishes a slot from an <a href='#itemstack'>item</a> is its ability to be changed, e.g. it can be set, deleted, enchanted, etc. (Some item expressions can be changed as well, e.g. items stored in variables. For that matter: slots are never saved to variables, only the items they represent at the time when the variable is set).\\nPlease note that <a href='../expressions.html#ExprTool'>tool</a> can be regarded a slot, but it can actually change it's position, i.e. doesn't represent always the same slot.",
+  "description" : "Represents a single slot of an <a href='#inventory'>inventory</a>. Notable slots are the <a href='./expressions.html#ExprArmorSlot'>armour slots</a> and <a href='./expressions/#ExprFurnaceSlot'>furnace slots</a>. \\nThe most important property that distinguishes a slot from an <a href='#itemstack'>item</a> is its ability to be changed, e.g. it can be set, deleted, enchanted, etc. (Some item expressions can be changed as well, e.g. items stored in variables. For that matter: slots are never saved to variables, only the items they represent at the time when the variable is set).\\nPlease note that <a href='./expressions.html#ExprTool'>tool</a> can be regarded a slot, but it can actually change it's position, i.e. doesn't represent always the same slot.",
   "examples" : "set tool of player to dirt\\ndelete helmet of the victim\\nset the colour of the player's tool to green\\nenchant the player's chestplate with projectile protection 5"
 },
 {
@@ -446,6 +446,18 @@
   "since" : "2.2-dev36",
   "description" : "Something that can hold metadata (e.g. an entity or block)",
   "examples" : "set metadata value \"super cool\" of player to true"
+},
+{
+  "id" : "money",
+  "name" : "Money",
+  "patterns" : [
+    "&lt;number&gt; $ or $ &lt;number&gt;, where '$' is your server's currency, e.g. '10 rupees' or '£5.00'",
+
+    "pattern_end"
+  ],
+  "since" : "2.0",
+  "description" : "A certain amount of money. Please note that this differs from <a href='#number'>numbers</a> as it includes a currency symbol or name, but usually the two are interchangeable, e.g. you can both add 100$ to the player's balance and add 100 to the player's balance.",
+  "examples" : "add 10£ to the player's account\\nremove Fr. 9.95 from the player's money\\nset the victim's money to 0\\nincrease the attacker's balance by the level of the victim * 100"
 },
 {
   "id" : "number",
@@ -532,6 +544,18 @@
   "examples" : "projectile is a snowball\\nshoot an arrow at speed 5 from the player"
 },
 {
+  "id" : "region",
+  "name" : "Region",
+  "patterns" : [
+    ""region name"",
+
+    "pattern_end"
+  ],
+  "since" : "2.1",
+  "description" : "A region of a regions plugin. Skript currently supports WorldGuard, Factions, GriefPrevention and PreciousStones.\\nPlease note that some regions plugins do not have named regions, some use numerical ids to identify regions, and some may have regions with the same name in different worlds, thus using regions like \"region name\" in scripts may or may not work.",
+  "examples" : "Missing examples."
+},
+{
   "id" : "resourcepackstate",
   "name" : "Resource Pack State",
   "patterns" : [
@@ -603,8 +627,8 @@
     "pattern_end"
   ],
   "since" : "1.0",
-  "description" : "Text is simply text, i.e. a sequence of characters, which can optionally contain expressions which will be replaced with a meaningful representation (e.g. %player% will be replaced with the player's name).\\nBecause scripts are also text, you have to put text into double quotes to tell Skript which part of the line is an effect/expression and which part is the text.\\nPlease read the article on <a href='../strings/'>Texts and Variable Names</a> to learn more.",
-  "examples" : "broadcast \"Hello World!\"\\nmessage \"Hello %player%\"\\nmessage \"The id of \"\"%type of tool%\"\" is %id of tool%.\""
+  "description" : "Text is simply text, i.e. a sequence of characters, which can optionally contain expressions which will be replaced with a meaningful representation (e.g. %player% will be replaced with the player's name).\\nBecause scripts are also text, you have to put text into double quotes to tell Skript which part of the line is an effect/expression and which part is the text.\\nPlease read the article on <a href='./strings/'>Texts and Variable Names</a> to learn more.",
+  "examples" : "broadcast \"Hello World!\"\\nmessage \"Hello %player%\"\\nmessage \"The id of \"\"%type of tool%\"\" is %id of tool%.\" # Before v2.6 (Double quotes)\\nmessage \"Type \"Yes\" in chat to accept.\" # After v2.6 (Single quote)"
 },
 {
   "id" : "time",
@@ -655,7 +679,7 @@
     "pattern_end"
   ],
   "since" : "Unknown",
-  "description" : "A tree type represents a tree species or a huge mushroom species. These can be generated in a world with the <a href='../effects.html#EffTree'>generate tree</a> effect.",
+  "description" : "A tree type represents a tree species or a huge mushroom species. These can be generated in a world with the <a href='./effects.html#EffTree'>generate tree</a> effect.",
   "examples" : "grow any regular tree at the block\\ngrow a huge red mushroom above the block"
 },
 {
@@ -737,6 +761,20 @@
   "examples" : "if the argument is not alphanumeric:\\n    send \"Invalid name!\""
 },
 {
+  "id" : "CondCanBuild",
+  "name" : "Can Build",
+  "patterns" : [
+    "%<a href='./classes.html#player'>players</a>% (can|(is|are) allowed to) build %<a href='./classes.html#direction'>directions</a>% %<a href='./classes.html#location'>locations</a>%",
+"%<a href='./classes.html#player'>players</a>% (can('t|not)|(is|are)(n't| not) allowed to) build %<a href='./classes.html#direction'>directions</a>% %<a href='./classes.html#location'>locations</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "2.0",
+  "description" : "Tests whether a player is allowed to build at a certain location.
+This condition requires a supported <a href='./classes.html#region'>regions</a> plugin to be installed.",
+  "examples" : "command /setblock &lt;material&gt;:\\n    description: set the block at your crosshair to a different type\\n    trigger:\\n        player cannot build at the targeted block:\\n            message \"You do not have permission to change blocks there!\"\\n            stop\\n        set the targeted block to argument"
+},
+{
   "id" : "CondCanFly",
   "name" : "Can Fly",
   "patterns" : [
@@ -766,9 +804,9 @@
   "id" : "CondCanSee",
   "name" : "Can See",
   "patterns" : [
-    "%<a href='./classes.html#player'>players</a>% (is|are) [(in)]visible for %<a href='./classes.html#player'>players</a>%",
+    "%<a href='./classes.html#player'>players</a>% (is|are) [in]visible for %<a href='./classes.html#player'>players</a>%",
 "%<a href='./classes.html#player'>players</a>% can see %<a href='./classes.html#player'>players</a>%",
-"%<a href='./classes.html#player'>players</a>% (is|are)(n't| not) [(in)]visible for %<a href='./classes.html#player'>players</a>%",
+"%<a href='./classes.html#player'>players</a>% (is|are)(n't| not) [in]visible for %<a href='./classes.html#player'>players</a>%",
 "%<a href='./classes.html#player'>players</a>% can('t| not) see %<a href='./classes.html#player'>players</a>%",
 
     "pattern_end"
@@ -832,7 +870,7 @@ Note: This is the only element where not all patterns are shown. It has actually
   "patterns" : [
     "%<a href='./classes.html#inventory'>inventories</a>% (has|have) %<a href='./classes.html#itemtype'>item types</a>% [in [(the[ir]|his|her|its)] inventory]",
 "%<a href='./classes.html#inventory'>inventories</a>% (doesn't|does not|do not|don't) have %<a href='./classes.html#itemtype'>item types</a>% [in [(the[ir]|his|her|its)] inventory]",
-"%<a href='./classes.html#inventory'>inventories</a>/<a href='./classes.html#string'>texts</a>/<a href='./classes.html#object'>objects</a>% contain[(s)] %<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#string'>texts</a>/<a href='./classes.html#object'>objects</a>%",
+"%<a href='./classes.html#inventory'>inventories</a>/<a href='./classes.html#string'>texts</a>/<a href='./classes.html#object'>objects</a>% contain[s] %<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#string'>texts</a>/<a href='./classes.html#object'>objects</a>%",
 "%<a href='./classes.html#inventory'>inventories</a>/<a href='./classes.html#string'>texts</a>/<a href='./classes.html#object'>objects</a>% (doesn't|does not|do not|don't) contain %<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#string'>texts</a>/<a href='./classes.html#object'>objects</a>%",
 
     "pattern_end"
@@ -1257,6 +1295,20 @@ Note: This is the only element where not all patterns are shown. It has actually
   "examples" : "if chunk at {home::%player's uuid%} is loaded:\\nif chunk 1, 10 in world \"world\" is loaded:\\nif world(\"lobby\") is loaded:"
 },
 {
+  "id" : "CondIsMember",
+  "name" : "Is Member/Owner of Region",
+  "patterns" : [
+    "%<a href='./classes.html#offlineplayer'>offline players</a>% (is|are) ([a] member|[(the|an)] owner) of [[the] region] %<a href='./classes.html#region'>regions</a>%",
+"%<a href='./classes.html#offlineplayer'>offline players</a>% (is|are)(n't| not) ([a] member|[(the|an)] owner) of [[the] region] %<a href='./classes.html#region'>regions</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "2.1",
+  "description" : "Checks whether a player is a member or owner of a particular region.
+This condition requires a supported regions plugin to be installed.",
+  "examples" : "on region enter:\\n    player is the owner of the region\\n    message \"Welcome back to %region%!\"\\n    send \"%player% just entered %region%!\" to all members of the region"
+},
+{
   "id" : "CondIsVectorNormalized",
   "name" : "Is Normalized",
   "patterns" : [
@@ -1629,6 +1681,22 @@ For more info, see <a href='https://minecraft.gamepedia.com/Slime#.22Slime_chunk
   "examples" : "PvP is enabled\\nPvP is disabled in \"world\""
 },
 {
+  "id" : "CondRegionContains",
+  "name" : "Region Contains",
+  "patterns" : [
+    "[[the] region] %<a href='./classes.html#region'>regions</a>% contain[s] %<a href='./classes.html#direction'>directions</a>% %<a href='./classes.html#location'>locations</a>%",
+"%<a href='./classes.html#location'>locations</a>% (is|are) ([contained] in|part of) [[the] region] %<a href='./classes.html#region'>regions</a>%",
+"[[the] region] %<a href='./classes.html#region'>regions</a>% (do|does)(n't| not) contain %<a href='./classes.html#direction'>directions</a>% %<a href='./classes.html#location'>locations</a>%",
+"%<a href='./classes.html#location'>locations</a>% (is|are)(n't| not) (contained in|part of) [[the] region] %<a href='./classes.html#region'>regions</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "2.1",
+  "description" : "Checks whether a location is contained in a particular <a href='./classes.html#region'>region</a>.
+This condition requires a supported regions plugin to be installed.",
+  "examples" : "player is in the region {regions::3}\\non region enter:\\n    region contains {flags.%world%.red}\\n    message \"The red flag is near!\""
+},
+{
   "id" : "CondResourcePack",
   "name" : "Resource Pack",
   "patterns" : [
@@ -1805,7 +1873,7 @@ message to all players instead of broadcasting it.",
     "pattern_end"
   ],
   "since" : "1.0 (set, add, remove, delete), 2.0 (remove all)",
-  "description" : "A very general effect that can change many <a href='../expressions'>expressions</a>. Many expressions can only be set and/or deleted, while some can have things added to or removed from them.",
+  "description" : "A very general effect that can change many <a href='./expressions'>expressions</a>. Many expressions can only be set and/or deleted, while some can have things added to or removed from them.",
   "examples" : "# set:\\nSet the player's display name to \"&lt;red&gt;%name of player%\"\\nset the block above the victim to lava\\n# add:\\nadd 2 to the player's health # preferably use '<a href='#heal'>heal</a>' for this\\nadd argument to {blacklist::*}\\ngive a diamond pickaxe of efficiency 5 to the player\\nincrease the data value of the clicked block by 1\\n# remove:\\nremove 2 pickaxes from the victim\\nsubtract 2.5 from {points::%uuid of player%}\\n# remove all:\\nremove every iron tool from the player\\nremove all minecarts from {entitylist::*}\\n# delete:\\ndelete the block below the player\\nclear drops\\ndelete {variable}\\n# reset:\\nreset walk speed of player\\nreset chunk at the targeted block"
 },
 {
@@ -1915,7 +1983,7 @@ message to all players instead of broadcasting it.",
   "id" : "EffDrop",
   "name" : "Drop",
   "patterns" : [
-    "drop %<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#experience'>experience points</a>% [%<a href='./classes.html#direction'>directions</a>% %<a href='./classes.html#location'>locations</a>%] [(without velocity)]",
+    "drop %<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#experience'>experience points</a>% [%<a href='./classes.html#direction'>directions</a>% %<a href='./classes.html#location'>locations</a>%] [without velocity]",
 
     "pattern_end"
   ],
@@ -1996,7 +2064,7 @@ message to all players instead of broadcasting it.",
   "id" : "EffExplosion",
   "name" : "Explosion",
   "patterns" : [
-    "[(create|make)] [an] explosion (of|with) (force|strength|power) %<a href='./classes.html#number'>number</a>% [%<a href='./classes.html#direction'>directions</a>% %<a href='./classes.html#location'>locations</a>%] [(with fire)]",
+    "[(create|make)] [an] explosion (of|with) (force|strength|power) %<a href='./classes.html#number'>number</a>% [%<a href='./classes.html#direction'>directions</a>% %<a href='./classes.html#location'>locations</a>%] [with fire]",
 "[(create|make)] [a] safe explosion (of|with) (force|strength|power) %<a href='./classes.html#number'>number</a>% [%<a href='./classes.html#direction'>directions</a>% %<a href='./classes.html#location'>locations</a>%]",
 "[(create|make)] [a] fake explosion [%<a href='./classes.html#direction'>directions</a>% %<a href='./classes.html#location'>locations</a>%]",
 "[(create|make)] [an] explosion[ ]effect [%<a href='./classes.html#direction'>directions</a>% %<a href='./classes.html#location'>locations</a>%]",
@@ -2206,9 +2274,9 @@ NB: Using 'server.log' as the log file will write to the default server log. Omi
   "id" : "EffIncendiary",
   "name" : "Make Incendiary",
   "patterns" : [
-    "make %<a href='./classes.html#entity'>entities</a>% [(not)] incendiary",
-"make %<a href='./classes.html#entity'>entities</a>%'[s] explosion [(not)] (incendiary|fiery)",
-"make [the] [event(-| )]explosion [(not)] (incendiary|fiery)",
+    "make %<a href='./classes.html#entity'>entities</a>% [not] incendiary",
+"make %<a href='./classes.html#entity'>entities</a>%'[s] explosion [not] (incendiary|fiery)",
+"make [the] [event(-| )]explosion [not] (incendiary|fiery)",
 
     "pattern_end"
   ],
@@ -2405,17 +2473,17 @@ Note: if a player was hidden and relogs, this player will be visible again.",
   "id" : "EffReplace",
   "name" : "Replace",
   "patterns" : [
-    "replace [(all|every)] %<a href='./classes.html#string'>texts</a>% in %<a href='./classes.html#string'>texts</a>% with %<a href='./classes.html#string'>text</a>% [(with case sensitivity)]",
-"replace [(all|every)] %<a href='./classes.html#string'>texts</a>% with %<a href='./classes.html#string'>text</a>% in %<a href='./classes.html#string'>texts</a>% [(with case sensitivity)]",
-"replace first %<a href='./classes.html#string'>texts</a>% in %<a href='./classes.html#string'>texts</a>% with %<a href='./classes.html#string'>text</a>% [(with case sensitivity)]",
-"replace first %<a href='./classes.html#string'>texts</a>% with %<a href='./classes.html#string'>text</a>% in %<a href='./classes.html#string'>text</a>% [(with case sensitivity)]",
+    "replace [(all|every)] %<a href='./classes.html#string'>texts</a>% in %<a href='./classes.html#string'>texts</a>% with %<a href='./classes.html#string'>text</a>% [with case sensitivity]",
+"replace [(all|every)] %<a href='./classes.html#string'>texts</a>% with %<a href='./classes.html#string'>text</a>% in %<a href='./classes.html#string'>texts</a>% [with case sensitivity]",
+"replace first %<a href='./classes.html#string'>texts</a>% in %<a href='./classes.html#string'>texts</a>% with %<a href='./classes.html#string'>text</a>% [with case sensitivity]",
+"replace first %<a href='./classes.html#string'>texts</a>% with %<a href='./classes.html#string'>text</a>% in %<a href='./classes.html#string'>text</a>% [with case sensitivity]",
 "replace [(all|every)] %<a href='./classes.html#itemtype'>item types</a>% in %<a href='./classes.html#inventory'>inventories</a>% with %<a href='./classes.html#itemtype'>item type</a>%",
 "replace [(all|every)] %<a href='./classes.html#itemtype'>item types</a>% with %<a href='./classes.html#itemtype'>item type</a>% in %<a href='./classes.html#inventory'>inventories</a>%",
 
     "pattern_end"
   ],
   "since" : "2.0, 2.2-dev24 (replace in muliple strings and replace items in inventory), 2.5 (replace first, case sensitivity)",
-  "description" : "Replaces all occurrences of a given text with another text. Please note that you can only change variables and a few expressions, e.g. a <a href='../expressions.html#ExprMessage'>message</a> or a line of a sign.
+  "description" : "Replaces all occurrences of a given text with another text. Please note that you can only change variables and a few expressions, e.g. a <a href='./expressions.html#ExprMessage'>message</a> or a line of a sign.
 Starting with 2.2-dev24, you can replace items in a inventory too.",
   "examples" : "replace \"<item>\" in {textvar} with \"%item%\"\\nreplace every \"&\" with \"§\" in line 1\\n# The following acts as a simple chat censor, but it will e.g. censor mass, hassle, assassin, etc. as well:\\non chat:\\n    replace all \"kys\", \"idiot\" and \"noob\" with \"****\" in the message\\n \\nreplace all stone and dirt in player's inventory and player's top inventory with diamond"
 },
@@ -2564,7 +2632,7 @@ Please note that sound names can get changed in any Minecraft or Spigot version,
   "id" : "EffTeleport",
   "name" : "Teleport",
   "patterns" : [
-    "[(force)] teleport %<a href='./classes.html#entity'>entities</a>% (to|%<a href='./classes.html#direction'>direction</a>%) %<a href='./classes.html#location'>location</a>%",
+    "[force] teleport %<a href='./classes.html#entity'>entities</a>% (to|%<a href='./classes.html#direction'>direction</a>%) %<a href='./classes.html#location'>location</a>%",
 
     "pattern_end"
   ],
@@ -2707,7 +2775,7 @@ This may require that there is enough space above the given location and that th
     "pattern_end"
   ],
   "since" : "1.3.4",
-  "description" : "An event that occurs at a given <a href='../classes.html#time'>minecraft time</a> in every world or only in specific worlds.",
+  "description" : "An event that occurs at a given <a href='./classes.html#time'>minecraft time</a> in every world or only in specific worlds.",
   "examples" : "at 18:00\\nat 7am in \"world\""
 },
 {
@@ -2903,7 +2971,7 @@ This may require that there is enough space above the given location and that th
     "pattern_end"
   ],
   "since" : "1.4.1",
-  "description" : "Called whenever a player chats. Use <a href='../expressions.html#ExprChatFormat'>chat format</a> to change message format, use <a href='../expressions.html#ExprChatRecipients'>chat recipients</a> to edit chat recipients.",
+  "description" : "Called whenever a player chats. Use <a href='./expressions.html#ExprChatFormat'>chat format</a> to change message format, use <a href='./expressions.html#ExprChatRecipients'>chat recipients</a> to edit chat recipients.",
   "examples" : "on chat:\\n    if player has permission \"owner\":\\n        set chat format to \"&lt;red&gt;[player]&lt;light gray&gt;: &lt;light red&gt;[message]\"\\n    else if player has permission \"admin\":\\n        set chat format to \"&lt;light red&gt;[player]&lt;light gray&gt;: &lt;orange&gt;[message]\"\\n    else: #default message format\\n        set chat format to \"&lt;orange&gt;[player]&lt;light gray&gt;: &lt;white&gt;[message]\""
 },
 {
@@ -3296,7 +3364,7 @@ This may require that there is enough space above the given location and that th
     "pattern_end"
   ],
   "since" : "1.0",
-  "description" : "Called when a player's <a href='../classes.html#gamemode'>gamemode</a> changes.",
+  "description" : "Called when a player's <a href='./classes.html#gamemode'>gamemode</a> changes.",
   "examples" : "on gamemode change:\\non gamemode change to adventure:"
 },
 {
@@ -3810,6 +3878,19 @@ This may require that there is enough space above the given location and that th
   "examples" : "on redstone change:\\n    send \"someone is using redstone\" to console"
 },
 {
+  "id" : "region_enterleave",
+  "name" : "On Region Enter/Leave",
+  "patterns" : [
+    "[on] (enter[ing]|leav(e|ing)|exit[ing]) [of] ([a] region|[[the] region] %<a href='./classes.html#region'>regions</a>%)",
+"[on] region (enter[ing]|leav(e|ing)|exit[ing])",
+
+    "pattern_end"
+  ],
+  "since" : "2.1",
+  "description" : "Called when a player enters or leaves a <a href='./classes.html#region'>region</a>.\\nThis event requires a supported regions plugin to be installed.",
+  "examples" : "on region exit:\\n    message \"Leaving %region%.\""
+},
+{
   "id" : "resource_pack_request_response",
   "name" : "On Resource Pack Request Response",
   "patterns" : [
@@ -3862,8 +3943,8 @@ This may require that there is enough space above the given location and that th
   "id" : "script_loadunload",
   "name" : "On Script Load/Unload",
   "patterns" : [
-    "[on] [(async)] [script] (load|init|enable)",
-"[on] [(async)] [script] (unload|stop|disable)",
+    "[on] [async] [script] (load|init|enable)",
+"[on] [async] [script] (unload|stop|disable)",
 
     "pattern_end"
   ],
@@ -4298,6 +4379,18 @@ This may require that there is enough space above the given location and that th
   "examples" : "on area cloud effect:\\n    loop affected entities:\\n        if loop-value is a player:\\n            send \"WARNING: you've step on an area effect cloud!\" to loop-value"
 },
 {
+  "id" : "ExprAllGroups",
+  "name" : "All Groups",
+  "patterns" : [
+    "all groups",
+
+    "pattern_end"
+  ],
+  "since" : "2.2-dev35",
+  "description" : "All the groups a player can have. This expression requires Vault and a compatible permissions plugin to be installed.",
+  "examples" : "command /group &lt;text&gt;:\\n    trigger:\\n        if argument is \"list\":\\n            send \"%all groups%\""
+},
+{
   "id" : "ExprPermissions",
   "name" : "All Permissions",
   "patterns" : [
@@ -4328,7 +4421,7 @@ This may require that there is enough space above the given location and that th
   "id" : "ExprAllCommands",
   "name" : "All commands",
   "patterns" : [
-    "[(all|the|all [of] the)] [registered] [(script)] commands",
+    "[(all|the|all [of] the)] [registered] [script] commands",
 
     "pattern_end"
   ],
@@ -4399,7 +4492,7 @@ Please note that getting a list's recursive size can cause lag if the list is la
     "pattern_end"
   ],
   "since" : "2.0",
-  "description" : "Counts how many of a particular <a href='../classes.html#itemtype'>item type</a> are in a given inventory.",
+  "description" : "Counts how many of a particular <a href='./classes.html#itemtype'>item type</a> are in a given inventory.",
   "examples" : "message \"You have %number of ores in the player's inventory% ores in your inventory.\""
 },
 {
@@ -4637,6 +4730,19 @@ Blocks from/to and between will return a straight line whereas blocks within wil
   "examples" : "loop blocks above the player:\\nloop blocks between the block below the player and the targeted block:\\nset the blocks below the player, the victim and the targeted block to air\\nset all blocks within {loc1} and {loc2} to stone\\nset all blocks within chunk at player to air"
 },
 {
+  "id" : "ExprBlocksInRegion",
+  "name" : "Blocks in Region",
+  "patterns" : [
+    "[(all|the)] blocks (in|of) [[the] region[s]] %<a href='./classes.html#region'>regions</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "2.1",
+  "description" : "All blocks in a <a href='./classes.html#region'>region</a>.
+This expression requires a supported regions plugin to be installed.",
+  "examples" : "loop all blocks in the region {arena.%{faction.%player%}%}:\\n    clear the loop-block"
+},
+{
   "id" : "ExprBookAuthor",
   "name" : "Book Author",
   "patterns" : [
@@ -4750,7 +4856,7 @@ Can also be used to change the burn/cook time of a placed furnace.",
     "pattern_end"
   ],
   "since" : "2.0",
-  "description" : "The <a href='../classes.html#chunk'>chunk</a> a block, location or entity is in.",
+  "description" : "The <a href='./classes.html#chunk'>chunk</a> a block, location or entity is in.",
   "examples" : "add the chunk at the player to {protected chunks::*}"
 },
 {
@@ -4767,7 +4873,7 @@ Can also be used to change the burn/cook time of a placed furnace.",
 },
 {
   "id" : "ExprColorOf",
-  "name" : "Colour of",
+  "name" : "Color of",
   "patterns" : [
     "[the] colo[u]r[s] of %<a href='./classes.html#block'>blocks</a>/<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#entity'>entities</a>/<a href='./classes.html#fireworkeffect'>firework effects</a>%",
 "%<a href='./classes.html#block'>blocks</a>/<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#entity'>entities</a>/<a href='./classes.html#fireworkeffect'>firework effects</a>%'[s] colo[u]r[s]",
@@ -4775,8 +4881,8 @@ Can also be used to change the burn/cook time of a placed furnace.",
     "pattern_end"
   ],
   "since" : "1.2",
-  "description" : "The <a href='../classes.html#color'>colour</a> of an item, can also be used to colour chat messages with \"&lt;%colour of ...%&gt;this text is coloured!\".",
-  "examples" : "on click on wool:\\n    message \"This wool block is <%colour of block%>%colour of block%<reset>!\"\\n    set the colour of the block to black"
+  "description" : "The <a href='./classes.html#color'>color</a> of an item, can also be used to colour chat messages with \"&lt;%colour of ...%&gt;this text is coloured!\".",
+  "examples" : "on click on wool:\\n    message \"This wool block is <%color of block%>%color of block%<reset>!\"\\n    set the color of the block to black"
 },
 {
   "id" : "ExprColoured",
@@ -4977,7 +5083,7 @@ You can use the specific type of the entity that's involved in the event, e.g. i
     "pattern_end"
   ],
   "since" : "2.0",
-  "description" : "The <a href='../classes.html#damagecause'>damage cause</a> of a damage event. Please click on the link for more information.",
+  "description" : "The <a href='./classes.html#damagecause'>damage cause</a> of a damage event. Please click on the link for more information.",
   "examples" : "damage cause is lava, fire or burning"
 },
 {
@@ -5042,7 +5148,7 @@ but this expression can e.g. be used to \"add 1 to data of &lt;item&gt;\", e.g. 
     "pattern_end"
   ],
   "since" : "1.4",
-  "description" : "The difference between two values, e.g. <a href='../classes.html#number'>numbers</a>, <a href='../classes/#date'>dates</a> or <a href='../classes/#time'>times</a>.",
+  "description" : "The difference between two values, e.g. <a href='./classes.html#number'>numbers</a>, <a href='./classes/#date'>dates</a> or <a href='./classes/#time'>times</a>.",
   "examples" : "if difference between {command::%player%::lastuse} and now is smaller than a minute:\\n    message \"You have to wait a minute before using this command again!\""
 },
 {
@@ -5495,7 +5601,7 @@ Read <a href='https://minecraft.gamepedia.com/Explosion'>this wiki page</a> for 
     "pattern_end"
   ],
   "since" : "1.1",
-  "description" : "Represents the value of an expression before an event happened or the value it will have directly after the event, e.g. the old or new level respectively in a <a href='../events.html#level_change'>level change event</a>.
+  "description" : "Represents the value of an expression before an event happened or the value it will have directly after the event, e.g. the old or new level respectively in a <a href='./events.html#level_change'>level change event</a>.
 Note: The past, future and present states of an expression are sometimes called 'time states' of an expression.
 Note 2: If you don't specify whether to use the past or future state of an expression that has different values, its default value will be used which is usually the value after the event.",
   "examples" : "on teleport:\\n    former world was \"world_nether\" # or 'world was'\\n    world will be \"world\" # or 'world after the event is'\\non tool change:\\n    past tool is an axe\\n    the tool after the event will be air\\non weather change:\\n    set {weather::%world%::old} to past weather\\n    set {weather::%world%::current} to the new weather"
@@ -5580,6 +5686,19 @@ Remember to use '<a href='#ExprBlock'>block</a>' and not 'furnace', as 'furnace'
   "examples" : "set gravity of player off"
 },
 {
+  "id" : "ExprGroup",
+  "name" : "Group",
+  "patterns" : [
+    "[the] group[s] of %<a href='./classes.html#offlineplayer'>offline players</a>%",
+"%<a href='./classes.html#offlineplayer'>offline players</a>%'[s] group[s]",
+
+    "pattern_end"
+  ],
+  "since" : "2.2-dev35",
+  "description" : "The primary group or all groups of a player. This expression requires Vault and a compatible permissions plugin to be installed.",
+  "examples" : "on join:\\n    broadcast \"%group of player%\" # this is the player's primary group\\n    broadcast \"%groups of player%\" # this is all of the player's groups"
+},
+{
   "id" : "ExprHash",
   "name" : "Hash",
   "patterns" : [
@@ -5631,7 +5750,7 @@ Please note that this location is only accurate for entities whose head is exact
     "pattern_end"
   ],
   "since" : "2.5",
-  "description" : "The <a href='../classes.html#healreason'>heal reason</a> of a heal event. Please click on the link for more information.",
+  "description" : "The <a href='./classes.html#healreason'>heal reason</a> of a heal event. Please click on the link for more information.",
   "examples" : "on heal:\\n    if heal reason = satiated:\\n        send \"You ate enough food and gained health back!\" to player"
 },
 {
@@ -5800,7 +5919,7 @@ broadcast \"%all indexes of {l::*}%\" # result is 1, 2 and 3"
     "pattern_end"
   ],
   "since" : "2.2-dev16",
-  "description" : "The <a href='../classes.html#inventoryaction'>inventory action</a> of an inventory event. Please click on the link for more information.",
+  "description" : "The <a href='./classes.html#inventoryaction'>inventory action</a> of an inventory event. Please click on the link for more information.",
   "examples" : "inventory action is pickup all"
 },
 {
@@ -6052,7 +6171,7 @@ The vanilla Minecraft client will use lowercase language / country pairs separat
     "pattern_end"
   ],
   "since" : "1.3 (spawned entity), 2.0 (shot entity), 2.2-dev26 (dropped item)",
-  "description" : "Holds the entity that was spawned most recently with the <a href='../effects.html#EffSpawn'>spawn effect</a>, drop with the <a href='../effects/#EffDrop'>drop effect</a> or shot with the <a href='../effects/#EffShoot'>shoot effect</a>. Please note that even though you can spawn multiple mobs simultaneously (e.g. with 'spawn 5 creepers'), only the last spawned mob is saved and can be used. If you spawn an entity, shoot a projectile and drop an item you can however access all them together.",
+  "description" : "Holds the entity that was spawned most recently with the <a href='./effects.html#EffSpawn'>spawn effect</a>, drop with the <a href='./effects/#EffDrop'>drop effect</a> or shot with the <a href='./effects/#EffShoot'>shoot effect</a>. Please note that even though you can spawn multiple mobs simultaneously (e.g. with 'spawn 5 creepers'), only the last spawned mob is saved and can be used. If you spawn an entity, shoot a projectile and drop an item you can however access all them together.",
   "examples" : "spawn a priest\\nset {healer::%spawned priest%} to true\\nshoot an arrow from the last spawned entity\\nignite the shot projectile\\ndrop a diamond sword\\npush last dropped item upwards"
 },
 {
@@ -6181,7 +6300,7 @@ Please note that the location of an entity is at it's feet, use <a href='#ExprEy
     "pattern_end"
   ],
   "since" : "2.0",
-  "description" : "Allows to create a <a href='../classes.html#location'>location</a> from three coordinates and a world.",
+  "description" : "Allows to create a <a href='./classes.html#location'>location</a> from three coordinates and a world.",
   "examples" : "set {_loc} to the location at arg-1, arg-2, arg-3 of the world arg-4\\ndistance between the player and the location (0, 0, 0) is less than 200"
 },
 {
@@ -6358,6 +6477,19 @@ Please note that the location of an entity is at it's feet, use <a href='#ExprEy
   "since" : "2.5.1",
   "description" : "The velocity of a minecart as soon as it has been derailed or as soon as it starts flying.",
   "examples" : "on right click on minecart:\\n    set derailed velocity of event-entity to vector 2, 10, 2"
+},
+{
+  "id" : "ExprBalance",
+  "name" : "Money",
+  "patterns" : [
+    "[the] (money|balance|[bank] account) of %<a href='./classes.html#offlineplayer'>offline players</a>%",
+"%<a href='./classes.html#offlineplayer'>offline players</a>%'[s] (money|balance|[bank] account)",
+
+    "pattern_end"
+  ],
+  "since" : "2.0, 2.5 (offline player support)",
+  "description" : "How much virtual money a player has (can be changed). This expression requires Vault and a compatible economy plugin to be installed.",
+  "examples" : "message \"You have %player's money%\" # the currency name will be added automatically\\nremove 20$ from the player's balance # replace '$' by whatever currency you use\\nadd 200 to the player's account # or omit the currency alltogether"
 },
 {
   "id" : "ExprPushedBlocks",
@@ -6592,7 +6724,7 @@ If no inventory is open, it returns the own player's crafting inventory.",
 This expression can be used in two different ways: One which parses the entire text as a single instance of a type, e.g. as a number, and one that parses the text according to a pattern.
 If the given text could not be parsed, this expression will return nothing and the <a href='#ExprParseError'>parse error</a> will be set if some information is available.
 Some notes about parsing with a pattern:
-- The pattern must be a <a href='../patterns/'>Skript pattern</a>, e.g. percent signs are used to define where to parse which types, e.g. put a %number% or %items% in the pattern if you expect a number or some items there.
+- The pattern must be a <a href='./patterns/'>Skript pattern</a>, e.g. percent signs are used to define where to parse which types, e.g. put a %number% or %items% in the pattern if you expect a number or some items there.
 - You <i>have to</i> save the expression's value in a list variable, e.g. <code>set {parsed::*} to message parsed as \"...\"</code>.
 - The list variable will contain the parsed values from all %types% in the pattern in order. If a type was plural, e.g. %items%, the variable's value at the respective index will be a list variable, e.g. the values will be stored in {parsed::1::*}, not {parsed::1}.",
   "examples" : "set {var} to line 1 parsed as number\\non chat:\\n    set {var::*} to message parsed as \"buying %items% for %money%\"\\n    if parse error is set:\\n        message \"%parse error%\"\\n    else if {var::*} is set:\\n        cancel event\\n        remove {var::2} from the player's balance\\n        give {var::1::*} to the player"
@@ -6705,8 +6837,8 @@ See also: <a href='#ExprVehicle'>vehicle</a>",
   "id" : "ExprPotionEffect",
   "name" : "Potion Effect",
   "patterns" : [
-    "[new] potion effect of %<a href='./classes.html#potioneffecttype'>potion</a>% [potion] [[[of] tier] %<a href='./classes.html#number'>number</a>%] [(without particles)] [for %<a href='./classes.html#timespan'>time span</a>%]",
-"[new] ambient potion effect of %<a href='./classes.html#potioneffecttype'>potion</a>% [potion] [[[of] tier] %<a href='./classes.html#number'>number</a>%] [(without particles)] [for %<a href='./classes.html#timespan'>time span</a>%]",
+    "[new] potion effect of %<a href='./classes.html#potioneffecttype'>potion</a>% [potion] [[[of] tier] %<a href='./classes.html#number'>number</a>%] [without particles] [for %<a href='./classes.html#timespan'>time span</a>%]",
+"[new] ambient potion effect of %<a href='./classes.html#potioneffecttype'>potion</a>% [potion] [[[of] tier] %<a href='./classes.html#number'>number</a>%] [without particles] [for %<a href='./classes.html#timespan'>time span</a>%]",
 
     "pattern_end"
   ],
@@ -6730,6 +6862,19 @@ You can clear all potion effects of an entity/itemtype and add/remove a potion e
 Do note you will not be able to clear the base potion effects of a potion item. In that case, just set the item to a water bottle.
 When adding a potion effect type (rather than a potion effect), it will default to 15 seconds with tier 1.",
   "examples" : "set {_p::*} to active potion effects of player\\nclear all the potion effects of player\\nclear all the potion effects of player's tool\\nadd potion effects of player to potion effects of player's tool\\nadd speed to potion effects of target entity\\nremove speed and night vision from potion effects of player"
+},
+{
+  "id" : "ExprPrefixSuffix",
+  "name" : "Prefix/Suffix",
+  "patterns" : [
+    "[the] [chat] (prefix|suffix) of %<a href='./classes.html#player'>players</a>%",
+"%<a href='./classes.html#player'>players</a>%'[s] [chat] (prefix|suffix)",
+
+    "pattern_end"
+  ],
+  "since" : "2.0",
+  "description" : "The prefix or suffix as defined in the server's chat plugin.",
+  "examples" : "on chat:\\n    cancel event\\n    broadcast \"%player's prefix%%player's display name%%player's suffix%: %message%\" to the player's world\\nset the player's prefix to \"[&lt;red&gt;Admin<reset>] \""
 },
 {
   "id" : "ExprProjectileBounceState",
@@ -6839,6 +6984,46 @@ Please note that the order of the numbers doesn't matter, i.e. <code>random numb
   "since" : "2.5",
   "description" : "Power of a redstone block",
   "examples" : "if redstone power of targeted block is 15:\\n    send \"This block is very powerful!\""
+},
+{
+  "id" : "ExprRegion",
+  "name" : "Region",
+  "patterns" : [
+    "[the] [event-]region",
+
+    "pattern_end"
+  ],
+  "since" : "2.1",
+  "description" : "The <a href='classes.html#region'>region</a> involved in an event.
+This expression requires a supported regions plugin to be installed.",
+  "examples" : "on region enter:\\n    region is {forbidden region}\\n    cancel the event"
+},
+{
+  "id" : "ExprMembersOfRegion",
+  "name" : "Region Members & Owners",
+  "patterns" : [
+    "[(all|the)] (members|owner[s]) of [[the] region[s]] %<a href='./classes.html#region'>regions</a>%",
+"[[the] region[s]] %<a href='./classes.html#region'>regions</a>%'[s] (members|owner[s])",
+
+    "pattern_end"
+  ],
+  "since" : "2.1",
+  "description" : "A list of members or owners of a <a href='./classes.html#region'>region</a>.
+This expression requires a supported regions plugin to be installed.",
+  "examples" : "on entering of a region:\\n    message \"You're entering %region% whose owners are %owners of region%\"."
+},
+{
+  "id" : "ExprRegionsAt",
+  "name" : "Regions At",
+  "patterns" : [
+    "[the] region[(s)] %<a href='./classes.html#direction'>direction</a>% %<a href='./classes.html#location'>locations</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "2.1",
+  "description" : "All <a href='./classes.html#region'>regions</a> at a particular <a href='./classes/#location'>location</a>.
+This expression requires a supported regions plugin to be installed.",
+  "examples" : "On click on a sign:\\n    line 1 of the clicked block is \"[region info]\"\\n    set {_regions::*} to regions at the clicked block\\n    if {_regions::*} is empty:\\n        message \"No regions exist at this sign.\"\\n    else:\\n        message \"Regions containing this sign: &lt;gold&gt;%{_regions::*}%<r>.\""
 },
 {
   "id" : "ExprRemainingAir",
