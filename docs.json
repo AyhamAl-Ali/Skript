@@ -628,7 +628,7 @@
   ],
   "since" : "1.0",
   "description" : "Text is simply text, i.e. a sequence of characters, which can optionally contain expressions which will be replaced with a meaningful representation (e.g. %player% will be replaced with the player's name).\\nBecause scripts are also text, you have to put text into double quotes to tell Skript which part of the line is an effect/expression and which part is the text.\\nPlease read the article on <a href='./strings/'>Texts and Variable Names</a> to learn more.",
-  "examples" : "broadcast \"Hello World!\"\\nmessage \"Hello %player%\"\\nmessage \"The id of \"\"%type of tool%\"\" is %id of tool%.\" # Before v2.6 (Double quotes)\\nmessage \"Type \"Yes\" in chat to accept.\" # After v2.6 (Single quote)"
+  "examples" : "broadcast \"Hello World!\"\\nmessage \"Hello %player%\"\\nmessage \"The id of \"\"%type of tool%\"\" is %id of tool%.\""
 },
 {
   "id" : "time",
@@ -1874,7 +1874,7 @@ message to all players instead of broadcasting it.",
   ],
   "since" : "1.0 (set, add, remove, delete), 2.0 (remove all)",
   "description" : "A very general effect that can change many <a href='./expressions'>expressions</a>. Many expressions can only be set and/or deleted, while some can have things added to or removed from them.",
-  "examples" : "# set:\\nSet the player's display name to \"&lt;red&gt;%name of player%\"\\nset the block above the victim to lava\\n# add:\\nadd 2 to the player's health # preferably use '<a href='#heal'>heal</a>' for this\\nadd argument to {blacklist::*}\\ngive a diamond pickaxe of efficiency 5 to the player\\nincrease the data value of the clicked block by 1\\n# remove:\\nremove 2 pickaxes from the victim\\nsubtract 2.5 from {points::%uuid of player%}\\n# remove all:\\nremove every iron tool from the player\\nremove all minecarts from {entitylist::*}\\n# delete:\\ndelete the block below the player\\nclear drops\\ndelete {variable}\\n# reset:\\nreset walk speed of player\\nreset chunk at the targeted block"
+  "examples" : "# set:\\nSet the player's display name to \"&lt;red&gt;%name of player%\"\\nset the block above the victim to lava\\n# add:\\nadd 2 to the player's health # preferably use '<a href='#EffHealth'>heal</a>' for this\\nadd argument to {blacklist::*}\\ngive a diamond pickaxe of efficiency 5 to the player\\nincrease the data value of the clicked block by 1\\n# remove:\\nremove 2 pickaxes from the victim\\nsubtract 2.5 from {points::%uuid of player%}\\n# remove all:\\nremove every iron tool from the player\\nremove all minecarts from {entitylist::*}\\n# delete:\\ndelete the block below the player\\nclear drops\\ndelete {variable}\\n# reset:\\nreset walk speed of player\\nreset chunk at the targeted block"
 },
 {
   "id" : "EffChargeCreeper",
