@@ -51,12 +51,13 @@ function toggleSyntax(elementID) {
   lastActiveSyntaxID = elementID;
 }
 
+// Auto hash scroll on page load
 const linkHash = window.location.hash.replace("#", "");
 if (linkHash != "") {
   toggleSyntax(linkHash);
   setTimeout(() => {
     offsetAnchor(null, linkHash);
-  }, 10) // after default page loading scroll
+  }, 150) // after default page loading scroll
 }
 
 // No Left Panel
