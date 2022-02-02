@@ -1,5 +1,5 @@
 {
-  "skriptVersion" : "2.6-beta3",
+  "skriptVersion" : "2.6.1",
 
   "classes" : [
     {
@@ -595,7 +595,7 @@
   "id" : "spawnreason",
   "name" : "Spawn Reason",
   "patterns" : [
-    "natural, jockey, chunk generation, mob spawner, egg, spawn egg, lightning, built snowman, built iron golem, built wither, village defense, village invasion, breed, slime split, reinforcements, nether portal, dispense egg, infection, cured, ocelot baby, silverfish reveal, mount, trap, ender pearl, perching, drowned, shear, explosion, raid, patrol, beehive, piglin zombification, customized, default",
+    "natural, jockey, chunk generation, mob spawner, egg, spawn egg, lightning, built snowman, built iron golem, built wither, village defense, village invasion, breed, slime split, reinforcements, nether portal, dispense egg, infection, cured, ocelot baby, silverfish reveal, mount, trap, ender pearl, perching, drowned, shear, explosion, raid, patrol, beehive, piglin zombification, command, customized, default",
 
     "pattern_end"
   ],
@@ -660,13 +660,13 @@
   "id" : "timespan",
   "name" : "Timespan",
   "patterns" : [
-    "&lt;number&gt; [minecraft/mc/real/rl/irl] ticks/seconds/minutes/hours/days [[,/and] &lt;more...&gt;]",
+    "&lt;number&gt; [minecraft/mc/real/rl/irl] ticks/seconds/minutes/hours/days/weeks/months/years [[,/and] &lt;more...&gt;]",
 "[###:]##:##[.####] ([hours:]minutes:seconds[.milliseconds])",
 
     "pattern_end"
   ],
-  "since" : "1.0",
-  "description" : "A timespan is a difference of two different dates or times, e.g '10 minutes'. Timespans are always displayed as real life time, but can be defined as minecraft time, e.g. '5 minecraft days and 12 hours'.\\nSee <a href='#date'>date</a> and <a href='#time'>time</a> for the other time types of Skript.",
+  "since" : "1.0, 2.6.1 (weeks, months, years)",
+  "description" : "A timespan is a difference of two different dates or times, e.g '10 minutes'. Timespans are always displayed as real life time, but can be defined as minecraft time, e.g. '5 minecraft days and 12 hours'.\\nNOTE: Months always have the value of 30 days, and years of 365 days.\\nSee <a href='#date'>date</a> and <a href='#time'>time</a> for the other time types of Skript.",
   "examples" : "every 5 minecraft days:\\n    wait a minecraft second and 5 ticks\\nevery 10 mc days and 12 hours:\\n    halt for 12.7 irl minutes, 12 hours and 120.5 seconds"
 },
 {
@@ -892,6 +892,32 @@ Note: This is the only element where not all patterns are shown. It has actually
   "examples" : "# make players use their potions of fire resistance whenever they take any kind of fire damage\\non damage:\\n    damage was caused by lava, fire or burning\\n    victim is a player\\n    victim has a potion of fire resistance\\n    cancel event\\n    apply fire resistance to the victim for 30 seconds\\n    remove 1 potion of fire resistance from the victim\\n# prevent mobs from dropping items under certain circumstances\\non death:\\n    entity is not a player\\n    damage wasn't caused by a block explosion, an attack, a projectile, a potion, fire, burning, thorns or poison\\n    clear drops"
 },
 {
+  "id" : "CondEntityIsWet",
+  "name" : "Entity is Wet",
+  "patterns" : [
+    "%<a href='./classes.html#entity'>entities</a>% (is|are) wet",
+"%<a href='./classes.html#entity'>entities</a>% (isn't|is not|aren't|are not) wet",
+
+    "pattern_end"
+  ],
+  "since" : "2.6.1",
+  "description" : "Checks whether an entity is wet or not (in water, rain or a bubble column).",
+  "examples" : "if player is wet:"
+},
+{
+  "id" : "CondEntityIsInLiquid",
+  "name" : "Entity is in Liquid",
+  "patterns" : [
+    "%<a href='./classes.html#entity'>entities</a>% (is|are) in (water|lava|[a] bubble[ ]column|rain)",
+"%<a href='./classes.html#entity'>entities</a>% (isn't|is not|aren't|are not) in (water|lava|[a] bubble[ ]column|rain)",
+
+    "pattern_end"
+  ],
+  "since" : "2.6.1",
+  "description" : "Checks whether an entity is in rain, lava, water or a bubble column.",
+  "examples" : "if player is in rain:\\nif player is in water:\\nplayer is in lava:\\nplayer is in bubble column"
+},
+{
   "id" : "CondCancelled",
   "name" : "Event Cancelled",
   "patterns" : [
@@ -994,6 +1020,19 @@ Note: This is the only element where not all patterns are shown. It has actually
   "since" : "1.4",
   "description" : "Checks whether a player has played on this server before. You can also use <a href='events.html#first_join'>on first join</a> if you want to make triggers for new players.",
   "examples" : "player has played on this server before\\nplayer hasn't played before"
+},
+{
+  "id" : "CondHasPotion",
+  "name" : "Has Potion",
+  "patterns" : [
+    "%<a href='./classes.html#livingentity'>living entities</a>% (has|have) potion[s] [effect[s]] %<a href='./classes.html#potioneffecttype'>potions</a>%",
+"%<a href='./classes.html#livingentity'>living entities</a>% (doesn't|does not|do not|don't) have potion[s] [effect[s]] %<a href='./classes.html#potioneffecttype'>potions</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "2.6.1",
+  "description" : "Checks whether the given living entities have specific potion effects.",
+  "examples" : "if player has potion speed:\\n    send \"You are sonic!\"\\n\\nif all players have potion effects speed and haste:\\n    broadcast \"You are ready to MINE!\""
 },
 {
   "id" : "CondHasResourcePack",
@@ -1166,8 +1205,10 @@ Note: This is the only element where not all patterns are shown. It has actually
     "pattern_end"
   ],
   "since" : "1.4.6",
-  "description" : "Checks whether an item is enchanted.",
-  "examples" : "tool of the player is enchanted with efficiency 2\\nhelm, chestplate, leggings or boots are enchanted"
+  "description" : "Checks whether an item is enchanted.
+This condition is sensitive to the enchantment level if specified, it should return true if the tool has at least sharpness X. If you want to check the exact level, use the <a href='./expressions.html#ExprEnchantmentLevel'>enchantment level</a> expression.
+Check the examples.",
+  "examples" : "tool of the player is enchanted with efficiency 2 # at least Efficiency 2 must \\ntool of the player is enchanted with efficiency 2\\ntool of the player is enchanted with efficiency 2\\ntool of the player is enchanted with efficiency 2\\nhelmet, chestplate, leggings or boots are enchanted"
 },
 {
   "id" : "CondIsFlammable",
@@ -1811,10 +1852,8 @@ You can add a tool, which will spawn items based on how that tool would break th
 
     "pattern_end"
   ],
-  "since" : "1.0, 2.6 (broadcasting objects)",
-  "description" : "Broadcasts a message to the server. Only formatting options supported by console
-(i.e. colors) are supported. If you need to use advanced chat formatting, send the
-message to all players instead of broadcasting it.",
+  "since" : "1.0, 2.6 (broadcasting objects), 2.6.1 (using advanced formatting)",
+  "description" : "Broadcasts a message to the server.",
   "examples" : "broadcast \"Welcome %player% to the server!\"\\nbroadcast \"Woah! It's a message!\""
 },
 {
@@ -2575,19 +2614,6 @@ status of the sent resource pack request.",
   "examples" : "make target entity silent"
 },
 {
-  "id" : "EffSpawn",
-  "name" : "Spawn",
-  "patterns" : [
-    "(spawn|summon) %<a href='./classes.html#entitytype'>entity types</a>% [%<a href='./classes.html#direction'>directions</a>% %<a href='./classes.html#location'>locations</a>%]",
-"(spawn|summon) %<a href='./classes.html#number'>number</a>% of %<a href='./classes.html#entitytype'>entity types</a>% [%<a href='./classes.html#direction'>directions</a>% %<a href='./classes.html#location'>locations</a>%]",
-
-    "pattern_end"
-  ],
-  "since" : "1.0",
-  "description" : "Spawn a creature.",
-  "examples" : "spawn 3 creepers at the targeted block\\nspawn a ghast 5 meters above the player"
-},
-{
   "id" : "EffStopServer",
   "name" : "Stop Server",
   "patterns" : [
@@ -2760,6 +2786,22 @@ This may require that there is enough space above the given location and that th
   "since" : "1.0",
   "description" : "Grant/revoke a user operator state.",
   "examples" : "op the player\\ndeop all players"
+},
+{
+  "id" : "EffSecSpawn",
+  "name" : "Spawn",
+  "patterns" : [
+    "(spawn|summon) %<a href='./classes.html#entitytype'>entity types</a>% [%<a href='./classes.html#direction'>directions</a>% %<a href='./classes.html#location'>locations</a>%]",
+"(spawn|summon) %<a href='./classes.html#number'>number</a>% of %<a href='./classes.html#entitytype'>entity types</a>% [%<a href='./classes.html#direction'>directions</a>% %<a href='./classes.html#location'>locations</a>%]",
+
+    "pattern_end"
+  ],
+  "since" : "1.0, 2.6.1 (with section)",
+  "description" : "Spawn a creature. This can be used as an effect and as a section.
+If it is used as a section, the section is run before the entity is added to the world.
+You can modify the entity in this section, using for example 'event-entity' or 'cow'. 
+Do note that other event values, such as 'player', won't work in this section.",
+  "examples" : "spawn 3 creepers at the targeted block\\nspawn a ghast 5 meters above the player\\nspawn a zombie at the player:\\n    set name of the zombie to \"\""
 },
 
     {"end" : true}
@@ -3753,7 +3795,7 @@ This may require that there is enough space above the given location and that th
   ],
   "since" : "1.0, 2.6 (BlockData support)",
   "description" : "Called when a player places a block.",
-  "examples" : "on place:\\non place of a furnace, workbench or chest:\\non break of chest[type=right] or chest[type=left]"
+  "examples" : "on place:\\non place of a furnace, workbench or chest:\\non place of chest[type=right] or chest[type=left]"
 },
 {
   "id" : "player_world_change",
@@ -4596,6 +4638,20 @@ One can also use the type of the argument instead of its index to address the ar
   "examples" : "set arrows stuck in player to 5"
 },
 {
+  "id" : "ExprAttackCooldown",
+  "name" : "Attack Cooldown",
+  "patterns" : [
+    "[the] attack cooldown of %<a href='./classes.html#player'>players</a>%",
+"%<a href='./classes.html#player'>players</a>%'[s] attack cooldown",
+
+    "pattern_end"
+  ],
+  "since" : "2.6.1",
+  "description" : "Returns the current cooldown for a player's attack. This is used to calculate damage, with 1.0 representing a fully charged attack and 0.0 representing a non-charged attack.
+NOTE: Currently this can not be set to anything.",
+  "examples" : "on damage:\\n    if attack cooldown of attacker < 1:\\n        set damage to 0\\n        send \"Your hit was too weak! wait until your weapon is fully charged next time.\" to attacker"
+},
+{
   "id" : "ExprAttacked",
   "name" : "Attacked",
   "patterns" : [
@@ -4603,8 +4659,8 @@ One can also use the type of the argument instead of its index to address the ar
 
     "pattern_end"
   ],
-  "since" : "1.3",
-  "description" : "The victim of a damage event, e.g. when a player attacks a zombie this expression represents the zombie.",
+  "since" : "1.3, 2.6.1 (projectile hit event)",
+  "description" : "The victim of a damage event, e.g. when a player attacks a zombie this expression represents the zombie. When using Minecraft 1.11+, this also covers the hit entity in a projectile hit event.",
   "examples" : "on damage:\\n    victim is a creeper\\n    damage the attacked by 1 heart"
 },
 {
@@ -4631,19 +4687,21 @@ Please note that the attacker can also be a block, e.g. a cactus or lava, but th
   ],
   "since" : "2.0",
   "description" : "The bed location of a player, i.e. the spawn point of a player if he ever slept in a bed and the bed still exists and is unobstructed.",
-  "examples" : "bed of player exists:\\n    teleport player the the player's bed\\nelse:\\n    teleport the player to the world's spawn point"
+  "examples" : "if bed of player exists:\\n    teleport player the the player's bed\\nelse:\\n    teleport the player to the world's spawn point"
 },
 {
   "id" : "ExprBiome",
   "name" : "Biome",
   "patterns" : [
-    "[the] biome (of|%<a href='./classes.html#direction'>direction</a>%) %<a href='./classes.html#location'>location</a>%",
-"%<a href='./classes.html#location'>location</a>%'[s] biome",
+    "[the] biome (of|%<a href='./classes.html#direction'>direction</a>%) %<a href='./classes.html#location'>locations</a>%",
+"%<a href='./classes.html#location'>locations</a>%'[s] biome",
 
     "pattern_end"
   ],
-  "since" : "1.4.4",
-  "description" : "The biome at a certain location. Please note that biomes are only defined for x/z-columns, i.e. the <a href='#ExprAltitude'>altitude</a> (y-coordinate) doesn't matter. ",
+  "since" : "1.4.4, 2.6.1 (3D biomes)",
+  "description" : "The biome at a certain location. Please note that biomes are only defined for x/z-columns
+(i.e. the <a href='#ExprAltitude'>altitude</a> (y-coordinate) doesn't matter), up until Minecraft 1.15.x.
+As of Minecraft 1.16, biomes are now 3D (per block vs column).",
   "examples" : "# damage player in deserts constantly\\nevery real minute:\\n    loop all players:\\n        biome at loop-player is desert\\n        damage the loop-player by 1"
 },
 {
@@ -5125,7 +5183,7 @@ but this expression can e.g. be used to \"add 1 to data of &lt;item&gt;\", e.g. 
   ],
   "since" : "2.2-dev33",
   "description" : "A date the specified timespan before/after another date.",
-  "examples" : "set {_yesterday} to 1 day ago"
+  "examples" : "set {_yesterday} to 1 day ago\\nset {_hourAfter} to 1 hour after {someOtherDate}\\nset {_hoursBefore} to 5 hours before {someOtherDate}"
 },
 {
   "id" : "ExprDefaultValue",
@@ -5358,12 +5416,12 @@ This is number that was displayed in the enchantment table, not the actual numbe
   "id" : "ExprEntityAttribute",
   "name" : "Entity Attribute",
   "patterns" : [
-    "%<a href='./classes.html#attributetype'>attribute type</a>% attribute [value] of %<a href='./classes.html#entity'>entities</a>%",
-"%<a href='./classes.html#entity'>entities</a>%'[s] %<a href='./classes.html#attributetype'>attribute type</a>% attribute [value]",
+    "[the] %<a href='./classes.html#attributetype'>attribute type</a>% [((total|final|modified))] attribute [value] of %<a href='./classes.html#entity'>entities</a>%",
+"%<a href='./classes.html#entity'>entities</a>%'[s] %<a href='./classes.html#attributetype'>attribute type</a>% [((total|final|modified))] attribute [value]",
 
     "pattern_end"
   ],
-  "since" : "2.5",
+  "since" : "2.5, 2.6.1 (final attribute value)",
   "description" : "The numerical value of an entity's particular attribute.
 Note that the movement speed attribute cannot be reliably used for players. For that purpose, use the speed expression instead.
 Resetting an entity's attribute is only available in Minecraft 1.11 and above.",
@@ -5792,6 +5850,18 @@ Please note that this location is only accurate for entities whose head is exact
   "examples" : "highest block at location of arg-player"
 },
 {
+  "id" : "ExprHostname",
+  "name" : "Hostname",
+  "patterns" : [
+    "[the] (host|domain)[ ][name]",
+
+    "pattern_end"
+  ],
+  "since" : "2.6.1",
+  "description" : "The hostname used by the connecting player to connect to the server in a <a href='events.html#connect'>connect</a> event.",
+  "examples" : "on connect:\\n    hostname is \"testers.example.com\"\\n    send \"Welcome back tester!\""
+},
+{
   "id" : "ExprHotbarButton",
   "name" : "Hotbar Button",
   "patterns" : [
@@ -5813,8 +5883,8 @@ Please note that this location is only accurate for entities whose head is exact
     "pattern_end"
   ],
   "since" : "2.2-dev36",
-  "description" : "The slot number of the currently selected hotbar slot.",
-  "examples" : "message \"%player's current hotbar slot%\"\\nset player's selected hotbar slot to slot 4 of player"
+  "description" : "The currently selected hotbar <a href='./classes.html#slot'>slot</a>. To retrieve its number use <a href='#ExprSlotIndex'>Slot Index</a> expression.",
+  "examples" : "message \"%player's current hotbar slot%\"\\nset player's selected hotbar slot to slot 4 of player\\nsend \"index of player's current hotbar slot = 1\" # second slot from the left"
 },
 {
   "id" : "ExprHoverList",
@@ -5885,17 +5955,20 @@ And note that, for example if there are 5 online players (includes <a href='#Exp
 },
 {
   "id" : "ExprIndices",
-  "name" : "Indexes of List",
+  "name" : "Indices of List",
   "patterns" : [
-    "[the] (indexes|indices) of %<a href='./classes.html#object'>objects</a>%",
-"(all of the|all the|all) (indices|indexes) of %<a href='./classes.html#object'>objects</a>%",
+    "[the] (indexes|indices) of %~<a href='./classes.html#object'>objects</a>%",
+"[the] %~<a href='./classes.html#object'>objects</a>%'[s] (indexes|indices)",
+"[sorted] (indices|indexes) of %~<a href='./classes.html#object'>objects</a>% in (ascending|descending) order",
+"[sorted] %~<a href='./classes.html#object'>objects</a>%'[s] (indices|indexes) in (ascending|descending) order",
 
     "pattern_end"
   ],
-  "since" : "2.4",
-  "description" : "Returns all the indexes of a list variable",
-  "examples" : "set {l::*} to \"some\", \"cool\" and \"values\"
-broadcast \"%all indexes of {l::*}%\" # result is 1, 2 and 3"
+  "since" : "2.4 (indices), 2.6.1 (sorting)",
+  "description" : "Returns all the indices of a list variable, optionally sorted by their values.
+To sort the indices, all objects in the list must be comparable;
+Otherwise, this expression will just return the unsorted indices.",
+  "examples" : "set {l::*} to \"some\", \"cool\" and \"values\"\\nbroadcast \"%indices of {l::*}%\" # result is 1, 2 and 3\\n\\nset {_leader-board::first} to 17\\nset {_leader-board::third} to 30\\nset {_leader-board::second} to 25\\nset {_leader-board::fourth} to 42\\nset {_ascending-indices::*} to sorted indices of {_leader-board::*} in ascending order\\nbroadcast \"%{_ascending-indices::*}%\" #result is first, second, third, fourth\\nset {_descending-indices::*} to sorted indices of {_leader-board::*} in descending order\\nbroadcast \"%{_descending-indices::*}%\" #result is fourth, third, second, first"
 },
 {
   "id" : "ExprInventory",
@@ -6466,6 +6539,19 @@ Please note that the location of an entity is at it's feet, use <a href='#ExprEy
   "examples" : "set metadata value \"healer\" of player to true\\nbroadcast \"%metadata value \"\"healer\"\" of player%\"\\nclear metadata value \"healer\" of player"
 },
 {
+  "id" : "ExprMiddleOfLocation",
+  "name" : "Middle of Location",
+  "patterns" : [
+    "[the] (middle|center) [point] of %<a href='./classes.html#location'>location</a>%",
+"%<a href='./classes.html#location'>location</a>%'[s] (middle|center) [point]",
+
+    "pattern_end"
+  ],
+  "since" : "2.6.1",
+  "description" : "Returns the middle/center of a location. In other words, returns the middle of the X, Z coordinates and the floor value of the Y coordinate of a location.",
+  "examples" : "command /stuck:\\n    executable by: players\\n    trigger:\\n        teleport player to the center of player's location\\n        send \"You're no longer stuck.\""
+},
+{
   "id" : "ExprMinecartDerailedFlyingVelocity",
   "name" : "Minecart Derailed / Flying Velocity",
   "patterns" : [
@@ -6591,15 +6677,15 @@ Please note that the location of an entity is at it's feet, use <a href='#ExprEy
 },
 {
   "id" : "ExprNamed",
-  "name" : "Named Item/Inventory",
+  "name" : "Named Item/Inventory/Entities",
   "patterns" : [
-    "%<a href='./classes.html#itemtype'>item type</a>/<a href='./classes.html#inventorytype'>inventory type</a>% (named|with name[s]) %<a href='./classes.html#string'>text</a>%",
+    "%<a href='./classes.html#itemtype'>item type</a>/<a href='./classes.html#inventorytype'>inventory type</a>/<a href='./classes.html#entitytype'>entity types</a>% (named|with name[s]) %<a href='./classes.html#string'>text</a>%",
 
     "pattern_end"
   ],
-  "since" : "2.0, 2.2-dev34 (inventories)",
-  "description" : "Directly names an item/inventory, useful for defining a named item/inventory in a script. If you want to (re)name existing items/inventories you can either use this expression or use <code>set <a href='#ExprName'>name of &lt;item/inventory&gt;</a> to &lt;text&gt;</code>.",
-  "examples" : "give a diamond sword of sharpness 100 named \"&lt;gold&gt;Excalibur\" to the player\\nset tool of player to the player's tool named \"&lt;gold&gt;Wand\"\\nset the name of the player's tool to \"&lt;gold&gt;Wand\"\\nopen hopper inventory named \"Magic Hopper\" to player"
+  "since" : "2.0, 2.2-dev34 (inventories), INSERT VERSION (entities)",
+  "description" : "Directly names an item/inventory/entity, useful for defining a named item/inventory/entity in a script. If you want to (re)name existing items/inventories you can either use this expression or use <a href='#ExprName'>Name Of</a> expression.",
+  "examples" : "give a diamond sword of sharpness 100 named \"&lt;gold&gt;Excalibur\" to the player\\nset tool of player to the player's tool named \"&lt;gold&gt;Wand\"\\nset the name of the player's tool to \"&lt;gold&gt;Wand\"\\nspawn creeper named \"Bob\" at player\\nopen hopper inventory named \"Magic Hopper\" to player"
 },
 {
   "id" : "LitNewLine",
@@ -7188,8 +7274,8 @@ or can be reset to the default icon in a <a href='events.html#server_list_ping'>
   "id" : "ExprSlotIndex",
   "name" : "Slot Index",
   "patterns" : [
-    "[the] (index|indices) of %<a href='./classes.html#slot'>slots</a>%",
-"%<a href='./classes.html#slot'>slots</a>%'[s] (index|indices)",
+    "[the] index of %<a href='./classes.html#slot'>slots</a>%",
+"%<a href='./classes.html#slot'>slots</a>%'[s] index",
 
     "pattern_end"
   ],
@@ -7239,8 +7325,8 @@ if they're not, this expression will return nothing.",
   "id" : "ExprSpawnerType",
   "name" : "Spawner Type",
   "patterns" : [
-    "[the] (entity|creature) type[s] of %<a href='./classes.html#block'>blocks</a>%",
-"%<a href='./classes.html#block'>blocks</a>%'[s] (entity|creature) type[s]",
+    "[the] (spawner|entity|creature) type[s] of %<a href='./classes.html#block'>blocks</a>%",
+"%<a href='./classes.html#block'>blocks</a>%'[s] (spawner|entity|creature) type[s]",
 
     "pattern_end"
   ],
@@ -7262,11 +7348,24 @@ if they're not, this expression will return nothing.",
   "examples" : "if {_number} is NaN value:"
 },
 {
+  "id" : "ExprSpectatorTarget",
+  "name" : "Spectator Target",
+  "patterns" : [
+    "[the] spectator target of %<a href='./classes.html#player'>players</a>%",
+"%<a href='./classes.html#player'>players</a>%'[s] spectator target",
+
+    "pattern_end"
+  ],
+  "since" : "2.4",
+  "description" : "Returns the entity which is followed by the camera of the player when in spectator mode.",
+  "examples" : "command /spectate <player>:\\n    executable by: players\\n    trigger:\\n        set gamemode of player to spectator # otherwise below won't do anything\\n        set spectator target of player to arg-1\\n        send \"Spectating %arg-1%\" to player"
+},
+{
   "id" : "ExprSpeed",
   "name" : "Speed",
   "patterns" : [
-    "[the] (walk[ing]|fl(y[ing]|ight))[( |-])speed of %<a href='./classes.html#player'>players</a>%",
-"%<a href='./classes.html#player'>players</a>%'[s] (walk[ing]|fl(y[ing]|ight))[( |-])speed",
+    "[the] (walk[ing]|fl(y[ing]|ight))[( |-)]speed of %<a href='./classes.html#player'>players</a>%",
+"%<a href='./classes.html#player'>players</a>%'[s] (walk[ing]|fl(y[ing]|ight))[( |-)]speed",
 
     "pattern_end"
   ],
@@ -7798,14 +7897,14 @@ This can only be set in a <a href='events.html#server_list_ping'>server list pin
   "id" : "ExprWorld",
   "name" : "World",
   "patterns" : [
-    "[the] world [of %<a href='./classes.html#location'>locations</a>/<a href='./classes.html#entity'>entities</a>%]",
-"%<a href='./classes.html#location'>locations</a>/<a href='./classes.html#entity'>entities</a>%'[s] world",
+    "[the] world [of %<a href='./classes.html#location'>locations</a>/<a href='./classes.html#entity'>entities</a>/<a href='./classes.html#chunk'>chunk</a>%]",
+"%<a href='./classes.html#location'>locations</a>/<a href='./classes.html#entity'>entities</a>/<a href='./classes.html#chunk'>chunk</a>%'[s] world",
 
     "pattern_end"
   ],
   "since" : "1.0",
   "description" : "The world the event occurred in.",
-  "examples" : "world is \"world_nether\"\\nteleport the player to the world's spawn\\nset the weather in the player's world to rain"
+  "examples" : "world is \"world_nether\"\\nteleport the player to the world's spawn\\nset the weather in the player's world to rain\\nset {_world} to world of event-chunk"
 },
 {
   "id" : "ExprSeed",
@@ -7821,6 +7920,18 @@ This can only be set in a <a href='events.html#server_list_ping'>server list pin
   "examples" : "broadcast \"Seed: %seed of player's world%\""
 },
 {
+  "id" : "ExprWorldFromName",
+  "name" : "World from Name",
+  "patterns" : [
+    "[the] world [(named|with name)] %<a href='./classes.html#string'>text</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "2.6.1",
+  "description" : "Returns the world from a string.",
+  "examples" : "world named {game::world-name}\\nthe world \"world\""
+},
+{
   "id" : "ExprWorlds",
   "name" : "Worlds",
   "patterns" : [
@@ -7831,6 +7942,20 @@ This can only be set in a <a href='events.html#server_list_ping'>server list pin
   "since" : "1.0",
   "description" : "All worlds of the server, useful for looping.",
   "examples" : "loop all worlds:\\n    broadcast \"You're in %loop-world%\" to loop-world"
+},
+{
+  "id" : "ExprTimes",
+  "name" : "X Times",
+  "patterns" : [
+    "%<a href='./classes.html#number'>number</a>% time[s]",
+"once",
+"twice",
+
+    "pattern_end"
+  ],
+  "since" : "1.4.6",
+  "description" : "Used in loops to loop X times.",
+  "examples" : "loop 20 times:\\n    broadcast \"%21 - loop-number% seconds left..\"\\n    wait 1 second"
 },
 {
   "id" : "ExprXOf",

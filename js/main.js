@@ -55,8 +55,10 @@ function toggleSyntax(elementID) {
 document.addEventListener('DOMContentLoaded', (e) => {
   const linkHash = window.location.hash.replace("#", "");
   if (linkHash != "") {
-    toggleSyntax(linkHash);
-    offsetAnchor(null, linkHash)
+    setTimeout(() => {
+      toggleSyntax(linkHash);
+      offsetAnchor(null, linkHash)
+    }, 30); // respect other search and link changers
   }
 });
 
@@ -227,7 +229,7 @@ if (content) {
         options.appendChild(option)
       }
     }
-    if (savedTags && !linkParams.get("search")) // Don't search if the url has a search filter
+    if (savedTags && !linkParams.get("search") && !window.location.href.match(/.*?#.+/)) // Don't search for versions if the url has a search filter nor hash link
       searchNow(`v:${savedTags[0]}+`) // Auto search on load
 
     $.getJSON("https://api.github.com/repos/SkriptLang/Skript/tags?per_page=83&page=2", (data) => { // 83 and page 2 matters to filter dev branches (temporary)
@@ -279,7 +281,7 @@ function checkVersionFilter() {
 function searchNow(value = "") {
   if (value != "") // Update searchBar value
     searchBar.value = value;
-  
+
   let allElements = document.querySelectorAll(".item-wrapper");
   let searchValue = searchBar.value;
   let count = 0; // Check if any matches found
@@ -298,7 +300,7 @@ function searchNow(value = "") {
     }
     searchValue = searchValue.replaceAll(versionPattern, "") // Don't include filters in the search
   }
-  
+
   // Type
   let filterType;
   if (searchValue.match(typePattern)) {
@@ -323,12 +325,12 @@ function searchNow(value = "") {
       let regex = new RegExp(searchValue, "gi")
       let name = document.querySelectorAll(`#${e.id} .item-title h1`)[0].textContent // Syntax Name
       let filtersFound = false;
-      
+
       // Version check
       let versionFound;
       if (version != "") {
         versionFound = document.querySelectorAll(`#${e.id} .item-details:nth-child(2) td:nth-child(2)`)[0].textContent.includes(version);
-        
+
         if (versionAndUp || versionAndDown) {
           let versions = document.querySelectorAll(`#${e.id} .item-details:nth-child(2) td:nth-child(2)`)[0].textContent.split(",");
           for (const v in versions) { // split on ',' without space in case some version didn't have space and versionCompare will handle it
@@ -415,11 +417,11 @@ if (searchBar) {
     setTimeout(() => { // Important to actually get the value after typing or deleting + better performance
       searchNow();
     }, 100);
-  }); 
+  });
 }
 // Search Bar </>
 
-// <> Dark Mode 
+// <> Dark Mode
 
 // Auto load DarkMode from cookies
 if (getCookie("darkMode") == "false") {
@@ -521,14 +523,14 @@ replacePlaceholders(document.querySelector("body"));
 function setCookie(cname, cvalue, exdays) {
   const d = new Date();
   d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-  let expires = "expires="+d.toUTCString();
+  let expires = "expires=" + d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/; SameSite=None; Secure";
 }
 
 function getCookie(cname) {
   let name = cname + "=";
   let ca = document.cookie.split(';');
-  for(let i = 0; i < ca.length; i++) {
+  for (let i = 0; i < ca.length; i++) {
     let c = ca[i];
     while (c.charAt(0) == ' ') {
       c = c.substring(1);
@@ -550,7 +552,7 @@ function getCookie(cname) {
 // Example:     (.+)     = ✓
 const patterns = [ // [REGEX, CLASS]
   [/((?<!#)#(?!#).*)/gi, "sk-comment"], // Must be first, : must be before ::
-  [/(\:|\:\:)/gi, "sk-var"], // 
+  [/(\:|\:\:)/gi, "sk-var"],
   [/((?<!href=)\".+?\")/gi, "sk-string"], // before others to not edit non skript code
   [/\b(add|give|increase|set|to|from|make|remove( all| every|)|subtract|reduce|delete|clear|reset|send|broadcast|wait|halt|create|(dis)?enchant|shoot|rotate|reload|enable|(re)?start|teleport|feed|heal|hide|kick|(IP(-| )|un|)ban|break|launch|leash|force|message|close|show|reveal|cure|poison|spawn)(?=[ <])\b/gi, "sk-eff"],
   [/\b(on (?=.+\:))/gi, "sk-event"],
@@ -570,17 +572,16 @@ const patterns = [ // [REGEX, CLASS]
 ]
 
 function highlightElement(element) {
-  
+
   let lines = element.innerHTML.split("<br>")
-  
+
   for (let j = 0; j < lines.length; j++) {
-    Loop2:
-    for (let i = 0; i < patterns.length; i++) {
+    Loop2: for (let i = 0; i < patterns.length; i++) {
       let match;
       let regex = patterns[i][0];
       let oldLine = lines[j];
       // console.log(regex)
-      
+
       while ((match = regex.exec(oldLine)) != null) {
         lines[j] = lines[j].replaceAll(regex, `<span class='${patterns[i][1]}'>$1</span>`)
         if (regex.lastIndex == 0) // Break after it reaches the end of exec count to avoid inf loop
@@ -591,7 +592,7 @@ function highlightElement(element) {
   element.innerHTML = lines.join("<br>")
 }
 
-document.addEventListener("DOMContentLoaded", function(event) { 
+document.addEventListener("DOMContentLoaded", function (event) {
   setTimeout(() => {
     document.querySelectorAll('.item-examples .skript-code-block').forEach(el => {
       highlightElement(el);
@@ -605,3 +606,25 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }, 100);
 });
 // Syntax Highlighting </>
+
+
+// <> Example Collapse
+var examples = document.querySelectorAll(".item-examples p");
+if (examples) {
+  examples.forEach(e => {
+    let pElement = e;
+    let divElement = e.parentElement.children[1];
+    pElement.addEventListener("click", ev => {
+      if (pElement.classList.contains("example-details-opened")) {
+        pElement.classList.remove("example-details-opened");
+        pElement.classList.add("example-details-closed");
+        divElement.style.display = "none";
+      } else {
+        pElement.classList.remove("example-details-closed");
+        pElement.classList.add("example-details-opened");
+        divElement.style.display = "block";
+      }
+    })
+  })
+}
+// Example Collapse </>
