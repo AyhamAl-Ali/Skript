@@ -210,7 +210,7 @@ var content = document.getElementById("content");
 if (content) {
   let isNewPage = location.href.includes("/new.html");
   content.insertAdjacentHTML('afterbegin', `<a id="search-icon" ${isNewPage ? 'class="search-icon-new"' : ""} title="Copy the search link."><img src="https://img.icons8.com/color/35/000000/search--v1.png"></a>`);
-  content.insertAdjacentHTML('afterbegin', `<span><input id="search-bar" ${isNewPage ? 'class="search-bar-version"' : ""} type="text" placeholder="🔍 Search the docs" title="Available Filters:&#13;&#10;&#13;&#10;Version:   v:2.5.3 v:2.2+ v:2.4-&#13;&#10;Type:      t:expression t:condition etc.&#13;&#10;New:       is:new"><span id="search-bar-after" style="display: none;">0 ${resultsFoundText}</span></span>`);
+  content.insertAdjacentHTML('afterbegin', `<span><input id="search-bar" ${isNewPage ? 'class="search-bar-version"' : ""} type="text" placeholder="Search the docs 🔍" title="Available Filters:&#13;&#10;&#13;&#10;Version:   v:2.5.3 v:2.2+ v:2.4-&#13;&#10;Type:      t:expression t:condition etc.&#13;&#10;New:       is:new"><span id="search-bar-after" style="display: none;">0 ${resultsFoundText}</span></span>`);
   searchBar = document.getElementById("search-bar");
   searchIcon = document.getElementById("search-icon");
 
@@ -219,7 +219,7 @@ if (content) {
     let options = "<select id='search-version' name='versions' id='versions' onchange='checkVersionFilter()'></select>"
     content.insertAdjacentHTML('afterbegin', `<span>${options}</span>`);
     options = document.getElementById("search-version");
-
+    
     let savedTags = getCookie("skVersions").split(",");
     for (let i = 0; i < savedTags.length; i++) { // Append saved versions then check
       if (savedTags[i] != "") {
@@ -231,32 +231,33 @@ if (content) {
     }
     if (savedTags && !linkParams.get("search") && !window.location.href.match(/.*?#.+/)) // Don't search for versions if the url has a search filter nor hash link
       searchNow(`v:${savedTags[0]}+`) // Auto search on load
+    
+    setTimeout(() => {
+      $.getJSON("https://api.github.com/repos/SkriptLang/Skript/tags?per_page=83&page=2", (data) => { // 83 and page 2 matters to filter dev branches (temporary)
+        let isThereNew = false;
+        for (let i = 0; i < data.length; i++) {
+          let tag = data[i]["name"]
+          // if (!(/.*(dev|beta|alpha).*/gi).test(tag))
+          tags.push(tag.replaceAll(/(.*)-(dev|beta|alpha).*/gi, "$1"));
+        }
+        tags = [...new Set(tags)] // remove duplicates
+        setCookie("skVersions", tags, 5);
+        for (let i = 0; i < tags.length; i++) {
+          if (savedTags.includes(tags[i])) // Only add unsaved versions
+            continue
 
-    $.getJSON("https://api.github.com/repos/SkriptLang/Skript/tags?per_page=83&page=2", (data) => { // 83 and page 2 matters to filter dev branches (temporary)
-      let isThereNew = false;
-      for (let i = 0; i < data.length; i++) {
-        let tag = data[i]["name"]
-        // if (!(/.*(dev|beta|alpha).*/gi).test(tag))
-        tags.push(tag.replaceAll(/(.*)-(dev|beta|alpha).*/gi, "$1"));
-      }
-      tags = [...new Set(tags)] // remove duplicates
-      setCookie("skVersions", tags, 5);
-      for (let i = 0; i < tags.length; i++) {
-        if (savedTags.includes(tags[i])) // Only add unsaved versions
-          continue
+          isThereNew = true; // Marks that a new version was added to update the search bar
 
-        isThereNew = true; // Marks that a new version was added to update the search bar
-
-        let option = document.createElement('option')
-        option.value = tags[i]
-        option.textContent = "Since v" + tags[i]
-        options.appendChild(option)
-      }
-      if (isThereNew && !linkParams.get("search"))
-        searchNow(`v:${tags[0]}+`)
-    })
+          let option = document.createElement('option')
+          option.value = tags[i]
+          option.textContent = "Since v" + tags[i]
+          options.appendChild(option)
+        }
+        if (isThereNew && !linkParams.get("search"))
+          searchNow(`v:${tags[0]}+`)
+      })
+    }, 1);
   }
-
 } else {
   content = document.getElementById("content-no-docs")
 }
