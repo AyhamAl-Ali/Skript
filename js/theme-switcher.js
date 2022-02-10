@@ -26,31 +26,31 @@ function getCookie(cname) {
 }
 
 if (getCookie("darkMode") == "false") {
-  setTimeout(() => {
     document.body.setAttribute('data-theme', 'white')
-  }, 1);
 }
 
-var content = document.getElementById("content");
-if (!content) {
-  content = document.getElementById("content-no-docs")
-}
-
-// Auto load DarkMode from cookies
-if (getCookie("darkMode") == "false") {
-  content.insertAdjacentHTML('beforeend', `<img style="z-index: 99;" src="./assets/light-on.svg" id="theme-switch">`);
-  document.body.setAttribute('data-theme', 'white')
-} else {
-  content.insertAdjacentHTML('beforeend', `<img style="z-index: 99;" src="./assets/light-off.svg" id="theme-switch">`);
-
-  // Auto load from system theme
-  // const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
-  // if (darkThemeMq.matches) {
-  //   document.body.removeAttribute('data-theme');
-  // } else {
-  //   document.body.setAttribute('data-theme', 'white')
-  // }
-}
+setTimeout(() => {
+  var content = document.getElementById("content");
+  if (!content) {
+    content = document.getElementById("content-no-docs")
+  }
+  
+  // Auto load DarkMode from cookies
+  if (getCookie("darkMode") == "false") {
+    content.insertAdjacentHTML('beforeend', `<img style="z-index: 99;" src="./assets/light-on.svg" id="theme-switch">`);
+  } else {
+    content.insertAdjacentHTML('beforeend', `<img style="z-index: 99;" src="./assets/light-off.svg" id="theme-switch">`);
+    
+    // Auto load from system theme
+    // const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+    // if (darkThemeMq.matches) {
+      //   document.body.removeAttribute('data-theme');
+      // } else {
+        //   document.body.setAttribute('data-theme', 'white')
+        // }
+      }
+      
+}, 1);
 
 setTimeout(() => {
   var themeSwitcher = document.getElementById('theme-switch');
