@@ -2,7 +2,7 @@
 // This file is made to fix theme flicker at load due to 'defer' in main.js loading
 // 
 
-// A quick fix to not use modules due to CORS
+// A quick fix to not use modules due to CORS on localhost
 function setCookie(cname, cvalue, exdays) {
   const d = new Date();
   d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -26,9 +26,10 @@ function getCookie(cname) {
 }
 
 if (getCookie("darkMode") == "false") {
-  document.body.setAttribute('data-theme', 'white')
+  setTimeout(() => {
+    document.body.setAttribute('data-theme', 'white')
+  }, 1);
 }
-
 
 var content = document.getElementById("content");
 if (!content) {
@@ -53,9 +54,7 @@ if (getCookie("darkMode") == "false") {
 
 setTimeout(() => {
   var themeSwitcher = document.getElementById('theme-switch');
-  // console.log(themeSwitcher);
   themeSwitcher.addEventListener('click', (event) => {
-    // console.log("1");
     if (document.body.getAttribute("data-theme") == null) {
       document.body.setAttribute('data-theme', 'white');
       event.target.src = "./assets/light-on.svg";
