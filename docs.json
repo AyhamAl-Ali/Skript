@@ -63,6 +63,18 @@
   "examples" : "set {config.%player%.use mod} to false"
 },
 {
+  "id" : "bound",
+  "name" : "Bound",
+  "patterns" : [
+    "Missing patterns.",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Represents a 3D bounding box between 2 points",
+  "examples" : "Missing examples."
+},
+{
   "id" : "CatType",
   "name" : "Cat Type",
   "patterns" : [
@@ -242,6 +254,18 @@
   "since" : "1.3",
   "description" : "An <a href='#entitydata'>entity type</a> with an amount, e.g. '2 zombies'. I might remove this type in the future and make a more general 'type' type, i.e. a type that has a number and a type.",
   "examples" : "spawn 5 creepers behind the player"
+},
+{
+  "id" : "environment",
+  "name" : "Environment",
+  "patterns" : [
+    "custom, nether, normal, the end",
+
+    "pattern_end"
+  ],
+  "since" : "1.8.0",
+  "description" : "The environment of a world.",
+  "examples" : "set environment of {_creator} to nether"
 },
 {
   "id" : "experience",
@@ -436,6 +460,18 @@
   "examples" : "Missing examples."
 },
 {
+  "id" : "materialchoice",
+  "name" : "Material Choice",
+  "patterns" : [
+    "see material choice expression",
+
+    "pattern_end"
+  ],
+  "since" : "1.10.0",
+  "description" : "Represents a set of materials/minecraft tags which can be used in some recipes. \\nRequires Minecraft 1.13+",
+  "examples" : "set {_a} to material choice of diamond sword, diamond shovel and diamond hoe\\nset {_a} to material choice of every sword\\nset {_a} to material choice of minecraft tag \"doors\""
+},
+{
   "id" : "metadataholder",
   "name" : "Metadata Holder",
   "patterns" : [
@@ -448,6 +484,18 @@
   "examples" : "set metadata value \"super cool\" of player to true"
 },
 {
+  "id" : "minecrafttag",
+  "name" : "Minecraft Tag",
+  "patterns" : [
+    "see Minecraft tag expression",
+
+    "pattern_end"
+  ],
+  "since" : "1.10.0",
+  "description" : "Represents a tag provided by Minecraft. Requires Minecraft 1.13+",
+  "examples" : "set {_i} to minecraft tag \"doors\"\\nset {_tag} to minecraft tag \"trapdoors\"\\nset {_tags::*} to minecraft tags \"wall_signs\" and \"wooden_doors\"\\nset {_tag} to \"minecraft:climbable\"\\n\\nloop minecraft tags:\\n    send \"-%loop-value%\" to console"
+},
+{
   "id" : "money",
   "name" : "Money",
   "patterns" : [
@@ -458,6 +506,30 @@
   "since" : "2.0",
   "description" : "A certain amount of money. Please note that this differs from <a href='#number'>numbers</a> as it includes a currency symbol or name, but usually the two are interchangeable, e.g. you can both add 100$ to the player's balance and add 100 to the player's balance.",
   "examples" : "add 10£ to the player's account\\nremove Fr. 9.95 from the player's money\\nset the victim's money to 0\\nincrease the attacker's balance by the level of the victim * 100"
+},
+{
+  "id" : "nbtcompound",
+  "name" : "NBT - Compound",
+  "patterns" : [
+    "{id:"minecraft:netherite_axe",tag:{Damage:0,Enchantments:[{id:"minecraft:unbreaking",lvl:2s}]},Count:1b}",
+
+    "pattern_end"
+  ],
+  "since" : "1.6.0",
+  "description" : "Represents the NBT compound of an entity/block/item.",
+  "examples" : "set {_a} to nbt compound of player"
+},
+{
+  "id" : "nbttype",
+  "name" : "NBT - Tag Type",
+  "patterns" : [
+    "byte array tag, byte tag, compound list tag, compound tag, double list tag, double tag, float list tag, float tag, int array tag, int list tag, int tag, long list tag, long tag, short tag, string list tag, string tag",
+
+    "pattern_end"
+  ],
+  "since" : "1.10.0",
+  "description" : "Represents a type of NBT tag.",
+  "examples" : "set byte tag \"points\" of {_nbt} to 1\\nset compound tag \"tool\" of {_nbt} to nbt compound of player's tool"
 },
 {
   "id" : "number",
@@ -494,6 +566,18 @@
   "since" : "Unknown",
   "description" : "A player that is possibly offline. See <a href='#player'>player</a> for more information. Please note that while all effects and conditions that require a player can be used with an offline player as well, they will not work if the player is not actually online.",
   "examples" : "Missing examples."
+},
+{
+  "id" : "particle",
+  "name" : "Particle",
+  "patterns" : [
+    "ambient_entity_effect, angry_villager, ash, barrier, block [blockdata/itemtype], bubble, bubble_column_up, bubble_pop, campfire_cosy_smoke, campfire_signal_smoke, cloud, composter, crimson_spore, crit, current_down, damage_indicator, dolphin, dragon_breath, dripping_honey, dripping_lava, dripping_obsidian_tear, dripping_water, dust [dust-option], effect, elder_guardian, enchant, enchanted_hit, end_rod, entity_effect, explosion, explosion_emitter, falling_dust [blockdata/itemtype], falling_honey, falling_lava, falling_nectar, falling_obsidian_tear, falling_water, firework, fishing, flame, flash, happy_villager, heart, instant_effect, item [itemtype], item_slime, item_snowball, landing_honey, landing_lava, landing_obsidian_tear, large_smoke, lava, mycelium, nautilus, note, poof, portal, rain, reverse_portal, smoke, sneeze, soul, soul_fire_flame, spit, splash, squid_ink, sweep_attack, totem_of_undying, underwater, warped_spore, white_ash, witch",
+
+    "pattern_end"
+  ],
+  "since" : "1.9.0",
+  "description" : "Represents a particle which can be used in the 'Particle Spawn' effect.\\nSome particles require extra data, these are distinguished by their data type within the square brackets.\\nDustOption, DustTransition and Vibration each have their own functions to build the appropriate data for these particles.",
+  "examples" : "play 1 of soul at location of player\\nplay 10 of dust using dustOption(green, 10) at location of player\\nplay 3 of item using player's tool at location of player\\nplay 1 of block using dirt at location of player\\nplay 1 of dust_color_transition using dustTransition(blue, green, 3) at location of player\\nplay 1 of vibration using vibration({loc1}, {loc2}, 1 second) at {loc1}"
 },
 {
   "id" : "player",
@@ -631,6 +715,18 @@
   "examples" : "broadcast \"Hello World!\"\\nmessage \"Hello %player%\"\\nmessage \"The id of \"\"%type of tool%\"\" is %id of tool%.\""
 },
 {
+  "id" : "basecomponent",
+  "name" : "Text Component - Base Component",
+  "patterns" : [
+    "Missing patterns.",
+
+    "pattern_end"
+  ],
+  "since" : "1.5.0",
+  "description" : "Text components used for hover/click events. Due to the complexity of these, \\nthey can NOT be long term stored in variables.",
+  "examples" : "set {_t} to text component from \"CLICK FOR OUR DISCORD\"\\nset hover event of {_t} to a new hover event showing \"Clicky Clicky!\"\\nset click event of {_t} to a new click event to open url \"https://OurDiscord.com\"\\nsend component {_t} to player"
+},
+{
   "id" : "time",
   "name" : "Time",
   "patterns" : [
@@ -742,6 +838,30 @@
   "description" : "One of the server's worlds. Worlds can be put into scripts by surrounding their name with double quotes, e.g. \"world_nether\", but this might not work reliably as <a href='#string'>text</a> uses the same syntax.",
   "examples" : "broadcast \"Hello!\" to the world \"world_nether\""
 },
+{
+  "id" : "worldcreator",
+  "name" : "World Creator",
+  "patterns" : [
+    "world creator",
+
+    "pattern_end"
+  ],
+  "since" : "1.8.0",
+  "description" : "Used to create new worlds.",
+  "examples" : "set {_creator} to new world creator named \"my-world\""
+},
+{
+  "id" : "worldtype",
+  "name" : "World Type",
+  "patterns" : [
+    "amplified, flat, large biomes, normal",
+
+    "pattern_end"
+  ],
+  "since" : "1.8.0",
+  "description" : "The type of a world",
+  "examples" : "set world type of {_creator} to flat"
+},
 
     {"end" : true}
   ],
@@ -759,6 +879,33 @@
   "since" : "2.4",
   "description" : "Checks if the given string is alphanumeric.",
   "examples" : "if the argument is not alphanumeric:\\n    send \"Invalid name!\""
+},
+{
+  "id" : "CondBoardOn",
+  "name" : "Board - Is on",
+  "patterns" : [
+    "[score]board of %<a href='./classes.html#player'>player</a>% is (on|true)",
+"[score]board of %<a href='./classes.html#player'>player</a>% is(n't| not) on",
+"[score]board of %<a href='./classes.html#player'>player</a>% is (off|false)",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Check if a player's scoreboard is currently toggled on or off.",
+  "examples" : "if scoreboard of player is on:\\n    toggle scoreboard of player off\\nif scoreboard of player is off:\\n    toggle scoreboard of player on"
+},
+{
+  "id" : "CondBoundContainsLocation",
+  "name" : "Bound - Contains Location",
+  "patterns" : [
+    "%<a href='./classes.html#location'>locations</a>% (is|are) [with]in [bound] %<a href='./classes.html#bound'>bound</a>%",
+"%<a href='./classes.html#location'>locations</a>% (isn't|is not|aren't|are not) [with]in [bound] %<a href='./classes.html#bound'>bound</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Check if a location is within the bounds of a bounding box.",
+  "examples" : "on break:\\n    if location of event-block is within bound with id \"spawn.bound\":\\n        cancel event\\n\\non damage of a player:\\n    if victim is within bound {spawn}:\\n        cancel event"
 },
 {
   "id" : "CondCanBuild",
@@ -916,6 +1063,20 @@ Note: This is the only element where not all patterns are shown. It has actually
   "since" : "2.6.1",
   "description" : "Checks whether an entity is in rain, lava, water or a bubble column.",
   "examples" : "if player is in rain:\\nif player is in water:\\nplayer is in lava:\\nplayer is in bubble column"
+},
+{
+  "id" : "CondEntityStorageBlockFull",
+  "name" : "EntityBlockStorage - Is Full",
+  "patterns" : [
+    "entity storage of %<a href='./classes.html#block'>block</a>% is full",
+"entity storage of %<a href='./classes.html#block'>block</a>% is(n't| not) full",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Check if an entity storage block is fully of entities.
+As of 1.15 this only includes beehives/bee nests! Requires Spigot/Paper 1.15.2+",
+  "examples" : "if entity storage of block at player is full:\\nif entity storage of target block is not full:"
 },
 {
   "id" : "CondCancelled",
@@ -1205,10 +1366,8 @@ Note: This is the only element where not all patterns are shown. It has actually
     "pattern_end"
   ],
   "since" : "1.4.6",
-  "description" : "Checks whether an item is enchanted.
-This condition is sensitive to the enchantment level if specified, it should return true if the tool has at least sharpness X. If you want to check the exact level, use the <a href='./expressions.html#ExprEnchantmentLevel'>enchantment level</a> expression.
-Check the examples.",
-  "examples" : "tool of the player is enchanted with efficiency 2 # at least Efficiency 2 must \\ntool of the player is enchanted with efficiency 2\\ntool of the player is enchanted with efficiency 2\\ntool of the player is enchanted with efficiency 2\\nhelmet, chestplate, leggings or boots are enchanted"
+  "description" : "Checks whether an item is enchanted.",
+  "examples" : "tool of the player is enchanted with efficiency 2\\nhelm, chestplate, leggings or boots are enchanted"
 },
 {
   "id" : "CondIsFlammable",
@@ -1348,6 +1507,19 @@ Check the examples.",
   "description" : "Checks whether a player is a member or owner of a particular region.
 This condition requires a supported regions plugin to be installed.",
   "examples" : "on region enter:\\n    player is the owner of the region\\n    message \"Welcome back to %region%!\"\\n    send \"%player% just entered %region%!\" to all members of the region"
+},
+{
+  "id" : "CondIsMinecraftTagged",
+  "name" : "Is Minecraft Tagged",
+  "patterns" : [
+    "%<a href='./classes.html#itemtype'>item types</a>% (is|are) tagged (with|as) %<a href='./classes.html#minecrafttag'>minecraft tags</a>%",
+"%<a href='./classes.html#itemtype'>item types</a>% (isn't|is not|aren't|are not) tagged (with|as) %<a href='./classes.html#minecrafttag'>minecraft tags</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.10.0",
+  "description" : "Check if an item is tagged with a Minecraft tag.",
+  "examples" : "if player's tool is tagged with minecraft tag \"carpets\":\\nif target block is not tagged as minecraft tag \"fence_gates\"\\nif clicked block is tagged as minecraft block tag \"doors\" or minecraft block tag \"fence_gates\""
 },
 {
   "id" : "CondIsVectorNormalized",
@@ -1722,6 +1894,19 @@ For more info, see <a href='https://minecraft.gamepedia.com/Slime#.22Slime_chunk
   "examples" : "PvP is enabled\\nPvP is disabled in \"world\""
 },
 {
+  "id" : "CondHasDiscoveredRecipe",
+  "name" : "Recipe - Has Discovered",
+  "patterns" : [
+    "%<a href='./classes.html#player'>players</a>% (has|have) discovered recipe[s] %<a href='./classes.html#string'>texts</a>%",
+"%<a href='./classes.html#player'>players</a>% (has|have) not discovered recipe[s] %<a href='./classes.html#string'>texts</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.4.9",
+  "description" : "Check if a player has discovered a recipe. Can check recipes you created, another plugin has created, or vanilla Minecraft recipes.When checking recipes that are not your own, make sure to include the namespace, ex \"minecraft:diamond_sword\", \"someplugin:some_recipe\". This condition is only available on 1.16+",
+  "examples" : "player has discovered recipe \"minecraft:furnace\"\\nif player has discovered recipe \"my_custom_sword\":\\nif player has discovered recipe \"someplugin:fancy_shovel\":\\nif all players have not discovered recipe \"minecraft:golden_shovel\":\\nif player has not discovered recipe \"my_fancy_hoe\":"
+},
+{
   "id" : "CondRegionContains",
   "name" : "Region Contains",
   "patterns" : [
@@ -1789,6 +1974,18 @@ This condition requires a supported regions plugin to be installed.",
 <i>I welcome any ideas how to write this condition differently.</i>",
   "examples" : "is thundering\\nis raining in \"world\" or \"world2\""
 },
+{
+  "id" : "CondWorldExists",
+  "name" : "World Exists",
+  "patterns" : [
+    "world %<a href='./classes.html#string'>text</a>% (exists|(does not|doesn't) exist)",
+
+    "pattern_end"
+  ],
+  "since" : "1.8.0",
+  "description" : "Check if a world exists in your world directory.",
+  "examples" : "if world \"my-world\" exists:"
+},
 
     {"end" : true}
   ],
@@ -1828,6 +2025,85 @@ We recommend that you test your scripts so that no accidental permanent bans are
 Note that banning people does not kick them from the server.
 Consider using the <a href='effects.html#EffKick'>kick effect</a> after applying a ban.",
   "examples" : "unban player\\nban \"127.0.0.1\"\\nIP-ban the player because \"he is an idiot\"\\nban player due to \"inappropriate language\" for 2 days"
+},
+{
+  "id" : "EffBoardClear",
+  "name" : "Board - Clear",
+  "patterns" : [
+    "clear %<a href='./classes.html#player'>players</a>%'[s] [score]board[s]",
+"clear [score]board[s] of %<a href='./classes.html#player'>players</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Clear the scoreboard of a player.",
+  "examples" : "clear scoreboard of player\\nclear scoreboards of all players"
+},
+{
+  "id" : "EffBoardLine",
+  "name" : "Board - Line",
+  "patterns" : [
+    "set line %<a href='./classes.html#number'>number</a>% of %<a href='./classes.html#player'>players</a>%'[s] [score]board[s] to %<a href='./classes.html#basecomponent'>base component</a>/<a href='./classes.html#string'>text</a>%",
+"set line %<a href='./classes.html#number'>number</a>% of [score]board[s] of %<a href='./classes.html#player'>players</a>% to %<a href='./classes.html#basecomponent'>base component</a>/<a href='./classes.html#string'>text</a>%",
+"delete line %<a href='./classes.html#number'>number</a>% of %<a href='./classes.html#player'>players</a>%'[s] [score]board[s]",
+"delete line %<a href='./classes.html#number'>number</a>% of [score]board[s] of %<a href='./classes.html#player'>players</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "set/delete a line in a player's scoreboard. Note: line 1 is bottom, line 15 is top. Accepts texts and text components (text components as of 1.5.1).",
+  "examples" : "set line 1 of player's scoreboard to \"oooo I'm a line!!\"\\nset line 15 of all players' scoreboards to \"I'm the top line!!!\"\\ndelete line 3 of player's scoreboard\\ndelete line 4 of all players' scoreboards\\n\\nset {_t} to translate component from player's tool\\nset line 1 of player's scoreboard to {_t}"
+},
+{
+  "id" : "EffBoardTitle",
+  "name" : "Board - Title",
+  "patterns" : [
+    "set title of %<a href='./classes.html#player'>players</a>%'[s] [score]board[s] to %<a href='./classes.html#string'>text</a>%",
+"set title of [score]board[s] of %<a href='./classes.html#player'>players</a>% to %<a href='./classes.html#string'>text</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Set the title of a player's scoreboard.",
+  "examples" : "set title of player's scoreboard to \"MyServer\"\\nset title of all players' scoreboards to \"Our Serberder!\""
+},
+{
+  "id" : "EffBoardToggle",
+  "name" : "Board - Toggle",
+  "patterns" : [
+    "toggle [score]board[s] of %<a href='./classes.html#player'>players</a>% [[to] ((on|true)|(off|false))]",
+"toggle %<a href='./classes.html#player'>players</a>%'[s] [score]board[s] [[to] ((on|true)|(off|false))]",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Toggle the scoreboard of a player on or off.",
+  "examples" : "toggle board of player\\nif scoreboard of player is on:\\n    toggle scoreboard of player off\\n\\ntoggle scoreboards of all players off"
+},
+{
+  "id" : "EffBonemeal",
+  "name" : "Bone Meal Effect",
+  "patterns" : [
+    "apply bone[ ]meal [effect] to %<a href='./classes.html#block'>blocks</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.7.0",
+  "description" : "Apply the bone meal effect to a block. Requires Minecraft 1.16.2+",
+  "examples" : "apply bonemeal effect to target block of player"
+},
+{
+  "id" : "EffBoundCreate",
+  "name" : "Bound - Create/Remove",
+  "patterns" : [
+    "create [a] [new] [full] bound with id %<a href='./classes.html#string'>text</a>% (within|between) %<a href='./classes.html#location'>location</a>% and %<a href='./classes.html#location'>location</a>%",
+"(delete|remove) bound with id %<a href='./classes.html#string'>text</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Create/Remove a bound with id between 2 locations. Optional value \"full\" is a bound from min to max height of world.",
+  "examples" : "create a new bound with id \"%uuid of player%.home\" between {loc1} and {loc2}\\ncreate a full bound with id \"spawn\" between {loc} and location of player\\ndelete bound with id \"my.home\""
 },
 {
   "id" : "EffBreakNaturally",
@@ -2056,6 +2332,22 @@ You can add a tool, which will spawn items based on how that tool would break th
   "examples" : "enchant the player's tool with sharpness 5\\ndisenchant the player's tool"
 },
 {
+  "id" : "EffEntityBlockStorage",
+  "name" : "EntityBlockStorage - Add/Release entities",
+  "patterns" : [
+    "release [all] entities from [storage of] %<a href='./classes.html#block'>blocks</a>% [for %<a href='./classes.html#timespan'>time span</a>%] [into %<a href='./classes.html#object'>objects</a>%]",
+"add %<a href='./classes.html#entity'>entities</a>% to [storage of] %<a href='./classes.html#block'>block</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Add/release entities to/from blocks which can store entities.
+When releasing bees at night/during rain, they will immediately go back in their hive, use the optional timespan to keep them outside.
+You can optionally put the released entities into a variable (see examples).
+As of 1.15 this only includes beehives/bee nests! Requires Spigot/Paper 1.15.2+",
+  "examples" : "add last spawned bee to storage of target block of player\\nrelease all entities from storage of target block of player\\nrelease all entities from storage of event-block for 2 minutes\\nrelease all entities from storage of target block of player for 1 minute into {_bees::*}"
+},
+{
   "id" : "EffEquip",
   "name" : "Equip",
   "patterns" : [
@@ -2271,6 +2563,21 @@ Please note that the image must be 64x64 and the file path starts from the serve
   "examples" : "on load:\\n    clear {server-icons::*}\\n    loop 5 times:\\n        load server icon from file \"icons/%loop-number%.png\"\\n        add the last loaded server icon to {server-icons::*}\\n\\non server list ping:\\n    set the icon to a random server icon out of {server-icons::*}"
 },
 {
+  "id" : "EffLoadWorld",
+  "name" : "Load/Unload/Delete World",
+  "patterns" : [
+    "load world from [[world] creator] %<a href='./classes.html#worldcreator'>world creator</a>%",
+"load world %<a href='./classes.html#string'>text</a>%",
+"unload [world] %<a href='./classes.html#world'>world</a>% [and (save|(do not|don't) save)]",
+"delete world file for [world] %<a href='./classes.html#string'>text</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.8.0",
+  "description" : "Load a world from a world creator. Worlds created/loaded with a world creator, are saved in the 'plugins/SkBee/worlds.yml' file and automatically loaded on server start. If you wish to import a world, just use a world creator with a name that matches that world folder.You can load a world from a name (assuming this world is in your world directory and not loaded. You can unload a world with an option to save/not save (defaults to saving). You can also delete a world, but only a custom world.",
+  "examples" : "set {_w} to a new world creator named \"my-world\"\\nload world from world creator {_w}\\n\\nload world \"my-world\"\\nunload world world(\"my-world\")"
+},
+{
   "id" : "EffSuppressWarnings",
   "name" : "Locally Suppress Warning",
   "patterns" : [
@@ -2366,6 +2673,44 @@ but for this to work, the message needs to be sent from a player.",
   "examples" : "message \"A wild %player% appeared!\"\\nmessage \"This message is a distraction. Mwahaha!\"\\nsend \"Your kill streak is %{kill streak::%uuid of player%}%.\" to player\\nif the targeted entity exists:\\n    message \"You're currently looking at a %type of the targeted entity%!\"\\non chat:\\n    cancel event\\n    send \"[%player%] >> %message%\" to all players from player"
 },
 {
+  "id" : "EffSaveNBTFile",
+  "name" : "NBT - Save File",
+  "patterns" : [
+    "save nbt file[s] (for|of) %<a href='./classes.html#nbtcompound'>nbt compounds</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.14.0",
+  "description" : "Manually save the NBT from a file. When getting the NBT compound from a file, changing values in the compound will
+not be automatically applied to the file, and saving will have to be done manually.",
+  "examples" : "set {_n} to nbt compound from file \"plugins/maScript/some-data.nbt\"\\nset tag \"ma-tag\" of {_n} to 32\\nsave nbt file of {_n}"
+},
+{
+  "id" : "EffSetBlockNBT",
+  "name" : "NBT - Set Block with NBT",
+  "patterns" : [
+    "set (nbt[(-| )]block|tile[(-| )]entity) %<a href='./classes.html#direction'>directions</a>% %<a href='./classes.html#location'>locations</a>% to %<a href='./classes.html#itemtype'>item type</a>/<a href='./classes.html#blockdata'>block data</a>% with nbt %<a href='./classes.html#string'>text</a>/<a href='./classes.html#nbtcompound'>nbt compound</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Set a block at a location to a block with NBT. BlockData is also supported when using MC 1.13+ and Skript 2.5+",
+  "examples" : "set nbt-block at player to west facing furnace with nbt \"{CustomName:\"\"{\\\"\"text\\\"\":\\\"\"&aFurnieFurnace\\\"\"}\"\"}\"\\nset nbt-block at event-location to hopper with nbt \"{CustomName:\"\"{\\\"\"text\\\"\":\\\"\"&cHoppieHopper\\\"\"}\"\"}\"\\nset nbt-block at player to furnace[facing=west] with nbt \"{CustomName:\"\"{\\\"\"text\\\"\":\\\"\"&aFurnieFurnace\\\"\"}\"\"}\""
+},
+{
+  "id" : "EffSpawnEntityNBT",
+  "name" : "NBT - Spawn Entity with NBT",
+  "patterns" : [
+    "spawn %<a href='./classes.html#entitytype'>entity types</a>% [%<a href='./classes.html#direction'>directions</a>% %<a href='./classes.html#location'>locations</a>%] with nbt %<a href='./classes.html#string'>text</a>/<a href='./classes.html#nbtcompound'>nbt compound</a>%",
+"spawn %<a href='./classes.html#number'>number</a>% of %<a href='./classes.html#entitytype'>entity types</a>% [%<a href='./classes.html#direction'>directions</a>% %<a href='./classes.html#location'>locations</a>%] with nbt %<a href='./classes.html#string'>text</a>/<a href='./classes.html#nbtcompound'>nbt compound</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Spawn an entity at a location with NBT",
+  "examples" : "spawn sheep at player with nbt \"{NoAI:1b}\"\\nspawn 1 of zombie at player with nbt \"{NoGravity:1b}\""
+},
+{
   "id" : "EffOpenBook",
   "name" : "Open Book",
   "patterns" : [
@@ -2376,6 +2721,20 @@ but for this to work, the message needs to be sent from a player.",
   "since" : "2.5.1",
   "description" : "Opens a written book to a player.",
   "examples" : "open book player's tool to player"
+},
+{
+  "id" : "EffOpenContainerAnimation",
+  "name" : "Open Container Animation",
+  "patterns" : [
+    "play (open|close) animation on %<a href='./classes.html#block'>blocks</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.10.0",
+  "description" : "Play the open/close animation on a lidded block (ie: chest, barrel or shulker box).
+Note: When using the open method, the block will basically be locked 'open', a player opening/closing the block will not close the lid.
+Requires Minecraft 1.16+",
+  "examples" : "play open animation on target block\\nplay close animation on all blocks in radius 3 around player"
 },
 {
   "id" : "EffOpenInventory",
@@ -2391,6 +2750,35 @@ but for this to work, the message needs to be sent from a player.",
   "description" : "Opens an inventory to a player. The player can then access and modify the inventory as if it was a chest that he just opened.
 Please note that currently 'show' and 'open' have the same effect, but 'show' will eventually show an unmodifiable view of the inventory in the future.",
   "examples" : "show the victim's inventory to the player\\nopen the player's inventory for the player"
+},
+{
+  "id" : "EffParticle",
+  "name" : "Particle Spawn",
+  "patterns" : [
+    "(spawn|play|lerp|draw|make) %<a href='./classes.html#number'>number</a>% [of] %<a href='./classes.html#particle'>particle</a>% [particle] [using %<a href='./classes.html#itemtype'>item type</a>/<a href='./classes.html#blockdata'>block data</a>/dustoption%] %<a href='./classes.html#direction'>directions</a>% %<a href='./classes.html#location'>locations</a>% [(with offset|offset by) %<a href='./classes.html#vector'>vector</a>%] [with extra %<a href='./classes.html#number'>number</a>%] [(for|to) %<a href='./classes.html#player'>players</a>%]",
+
+    "pattern_end"
+  ],
+  "since" : "1.9.0",
+  "description" : "Spawn a particle. This system is more inline with how Bukkit deals with particles, hence the amount of patterns.
+DO NOT USE '(spawn|play)' part of syntax, they're horribly slow at parsing and will be removed in the future, use '(lerp|draw|make)' instead.
+Some particles may be affected differently by these values, so let's break them down:
+
+first number = count, how many particles to spawn at once.
+
+particle = the particle to spawn.
+
+using = the data used for this particle (some particles like 'block', 'item' and 'dust' require more data).
+
+location = where you are going to spawn the particle.
+
+offset = a vector with the maximum random offset. The position of each particle will be randomized positively and negatively by the offset parameters on each axis.
+I believe some particles use the offset to set color. I'm not positive on this.
+
+extra = the extra data for this particle, depends on the particle used (normally speed).
+
+Requires Minecraft 1.13+",
+  "examples" : "make 3 of item particle using diamond at location of player\\nmake 1 of block particle using dirt at location of target block\\nmake 10 of poof at player with offset vector(2, 2, 2) with extra 0.5\\ndraw 20 of dust using dustOption(blue, 10) at location above target block\\ndraw 1 of dust_color_transition using dustTransition(blue, green, 3) at location of player\\ndraw 1 of vibration using vibration({loc1}, {loc2}, 1 second) at {loc1}"
 },
 {
   "id" : "EffVisualEffect",
@@ -2507,6 +2895,115 @@ Note: if a player was hidden and relogs, this player will be visible again.",
   "since" : "1.3.4",
   "description" : "Set the PvP state for a given world.",
   "examples" : "enable PvP #(current world only)\\ndisable PvP in all worlds"
+},
+{
+  "id" : "EffCookingRecipe",
+  "name" : "Recipe - Cooking",
+  "patterns" : [
+    "register [new] (furnace|(blast furnace|blasting)|smok(er|ing)|campfire) recipe for %<a href='./classes.html#itemtype'>item type</a>% (using|with ingredient) %<a href='./classes.html#itemtype'>item type</a>/<a href='./classes.html#materialchoice'>material choice</a>% with id %<a href='./classes.html#string'>text</a>% [[and ]with exp[erience] %<a href='./classes.html#number'>number</a>%] [[and ]with cook[ ]time %<a href='./classes.html#timespan'>time span</a>%] [in group %<a href='./classes.html#string'>text</a>%]",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Register new cooking recipes. On 1.13+ you can register recipes for furnaces. 
+On 1.14+ you can also register recipes for smokers, blast furnaces and campfires. 
+The ID will be the name given to this recipe. IDs may only contain letters, numbers, periods, hyphens and underscores. Used for recipe discovery/unlocking recipes for players. You may also include an optional group for recipes. These will group the recipes together in the recipe book.
+By default recipes will start with the namespace \"skrecipe:\", this can be changed in the config to whatever you want.",
+  "examples" : "on skript load:\\n    register new furnace recipe for diamond using dirt with id \"furnace_diamond\"\\n    register new blasting recipe for emerald using dirt with id \"blasting_emerald\"\\n    register new smoking recipe for cooked cod named \"Hot Cod\" using puffer fish with id \"smoking_cod\""
+},
+{
+  "id" : "EffRecipeDiscovery",
+  "name" : "Recipe - Discovery",
+  "patterns" : [
+    "(discover|unlock) [(custom|(mc|minecraft))] recipe[s] [with id[s]] %<a href='./classes.html#string'>texts</a>% for %<a href='./classes.html#player'>players</a>%",
+"(undiscover|lock) [(custom|(mc|minecraft))] recipe[s] [with id[s]] %<a href='./classes.html#string'>texts</a>% for %<a href='./classes.html#player'>players</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Lock/Unlock recipes for players. This uses the IDs we created earlier when registering recipes, you can also lock/unlock minecraft recipes. Requires MC 1.13+",
+  "examples" : "unlock recipe \"smoking_cod\" for all players\\non pickup of diamonds:\\n    discover recipe \"fancy_diamonds\" for player"
+},
+{
+  "id" : "EffKnowledgeBook",
+  "name" : "Recipe - Knowledge Book",
+  "patterns" : [
+    "add [(custom|(mc|minecraft))] recipe[s] [with id[s]] %<a href='./classes.html#string'>texts</a>% [from plugin %<a href='./classes.html#string'>text</a>%] to %<a href='./classes.html#itemtype'>item type</a>%",
+"remove [(custom|(mc|minecraft))] recipe[s] [with id[s]] %<a href='./classes.html#string'>texts</a>% [from plugin %<a href='./classes.html#string'>text</a>%] from %<a href='./classes.html#itemtype'>item type</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Add/Remove custom or minecraft recipes to/from a knowledge book item.
+Optional string for plugin name, to add recipes from other plugins. Requires MC 1.13+",
+  "examples" : "add custom recipe \"my_recipe\" to player's tool\\nadd minecraft recipe \"cooked_cod_from_campfire_cooking\" to {_book}"
+},
+{
+  "id" : "EffRemoveRecipe",
+  "name" : "Recipe - Remove",
+  "patterns" : [
+    "remove [(custom|(mc|minecraft))] recipe[s] %<a href='./classes.html#string'>texts</a>%",
+"remove all (mc|minecraft) recipe[s]",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Remove a recipe from your server. Recipes can be removed at any time 
+but it is best to do so during a server load event. If a recipe is removed whilst a player is online 
+it will still show up in their recipe book, but they will not be able to craft it. If need be, you can get 
+a list of all recipes by simply typing \"/minecraft:recipe give YourName \" in game.
+You can remove Minecraft recipes, custom recipes and recipes from other plugins. Requires MC 1.13+",
+  "examples" : "remove mc recipe \"acacia_boat\"\\nremove minecraft recipe \"cooked_chicken_from_campfire_cooking\"\\nremove recipe \"minecraft:diamond_sword\"\\nremove all minecraft recipes\\nremove custom recipe \"my_recipe\"\\nremove recipe \"another_recipe\"\\nremove recipe \"someplugin:some_recipe\""
+},
+{
+  "id" : "EffCraftingRecipe",
+  "name" : "Recipe - Shaped/Shapeless",
+  "patterns" : [
+    "register [new] (shaped|shapeless) recipe for %<a href='./classes.html#itemtype'>item type</a>% (using|with ingredients) %<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#materialchoice'>material choices</a>% with id %<a href='./classes.html#string'>text</a>% [in group %<a href='./classes.html#string'>text</a>%]",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Register a new shaped/shapeless recipe for a specific item using custom ingredients.
+Recipes support items and material choices for ingredients. Material choices allow you to use Minecraft tags or lists of items.
+The ID will be the name given to this recipe. IDs may only contain letters, numbers, periods, hyphens and underscores.
+IDs are used for recipe discovery/unlocking recipes for players.
+You may also include an optional group for recipes. These will group the recipes together in the recipe book.
+<b>NOTE:</b> Recipes with 4 or less ingredients will be craftable in the player's crafting grid.
+By default recipes will start with the namespace \"skrecipe:\", this can be changed in the SkBee config to whatever you want.
+Requires MC 1.13+",
+  "examples" : "on load:\\n    register new shaped recipe for elytra using air, iron chestplate, air, air, iron chestplate and air with id \"elytra\"\\n    set {_s} to emerald named \"&3Strong Emerald\"\\n    register new shaped recipe for {_s} using emerald, emerald, air, emerald, emerald and air with id \"strong_emerald\"\\n    register new shaped recipe for diamond chestplate named \"&3Strong Emerald Chestplate\" using {_s}, air, {_s}, {_s}, {_s}, {_s}, {_s}, {_s} and {_s} with id \"strong_emerald_chestplate\"\\n\\n    set {_m} to material choice of every plank\\n    register new shaped recipe for jigsaw block using {_a}, {_a}, {_a}, {_a}, {_a}, {_a}, {_a}, {_a} and {_a} with id \"jigsaw\""
+},
+{
+  "id" : "EffSmithingRecipe",
+  "name" : "Recipe - Smithing",
+  "patterns" : [
+    "register [new] smithing recipe for %<a href='./classes.html#itemtype'>item type</a>% using %<a href='./classes.html#itemtype'>item type</a>/<a href='./classes.html#materialchoice'>material choice</a>% and %<a href='./classes.html#itemtype'>item type</a>/<a href='./classes.html#materialchoice'>material choice</a>% with id %<a href='./classes.html#string'>text</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.4.2",
+  "description" : "Register a new smithing recipe.
+The ID will be the name given to this recipe. IDs may only contain letters, numbers, periods, hyphens and underscores.
+Used for recipe discovery/unlocking recipes for players.
+Note: While 'custom' items will work in these recipes, it appears the smithing table will not recognize them. Requires MC 1.16+",
+  "examples" : "on load:\\n    register new smithing recipe for diamond chestplate using an iron chestplate and a diamond with id \"smith_diamond_chestplate\""
+},
+{
+  "id" : "EffStonecuttingRecipe",
+  "name" : "Recipe - StoneCutting",
+  "patterns" : [
+    "register [new] stone[ ]cutt(ing|er) recipe for %<a href='./classes.html#itemtype'>item type</a>% (using|with ingredient) %<a href='./classes.html#itemtype'>item type</a>/<a href='./classes.html#materialchoice'>material choice</a>% with id %<a href='./classes.html#string'>text</a>% [in group %<a href='./classes.html#string'>text</a>%]",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Register a new stone cutting recipe. The ID will be the name given to this recipe. IDs may only contain letters, numbers, periods, hyphens and underscores.
+Used for recipe discovery/unlocking recipes for players. 
+You may also include an optional group for recipes. These will group the recipes together in the recipe book.
+By default recipes will start with the namespace \"skrecipe:\", this can be changed in the config to whatever you want.
+Requires MC 1.13+",
+  "examples" : "on skript load:\\n    register new stone cutting recipe for diamond using diamond ore with id \"cutting_diamond\""
 },
 {
   "id" : "EffReplace",
@@ -2642,6 +3139,35 @@ Please note that sound names can get changed in any Minecraft or Spigot version,
   "examples" : "stop sound \"block.chest.open\" for the player\\nstop playing sounds \"ambient.underwater.loop\" and \"ambient.underwater.loop.additions\" to the player"
 },
 {
+  "id" : "EffLoadStructure",
+  "name" : "Structure Block - Load",
+  "patterns" : [
+    "(load|paste) [structure] %<a href='./classes.html#string'>text</a>% at %<a href='./classes.html#location'>location</a>% [with rotation (0|90|180|270)] [[([and] with entities)]]",
+"(load|paste) [structure] %<a href='./classes.html#string'>text</a>% at %<a href='./classes.html#location'>location</a>% [with rotation (0|90|180|270)] [and] [with] mirror front to back [[([and] with entities)]]",
+"(load|paste) [structure] %<a href='./classes.html#string'>text</a>% at %<a href='./classes.html#location'>location</a>% [with rotation (0|90|180|270)] [and] [with] mirror left to right [[([and] with entities)]]",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Load structure block structures that are saved on your server
+Optional values for rotation, mirroring and the inclusion of entities.
+Requires Minecraft 1.9.4+. No longer available on MC 1.18+, please use new structure system.",
+  "examples" : "load \"house\" at location of player\\nload \"barn\" at location 10 infront of player\\npaste \"house\" at location of player with rotation 90 and with mirror left to right\\nload \"sheep_pen\" at location below player with rotation 180 and with entities"
+},
+{
+  "id" : "EffSaveStructure",
+  "name" : "Structure Block - Save",
+  "patterns" : [
+    "save [structure] between %<a href='./classes.html#location'>location</a>% and %<a href='./classes.html#location'>location</a>% as %<a href='./classes.html#string'>text</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Save structure block structures.
+Requires Minecraft 1.9.4+. No longer available on MC 1.18+, please use new structure system.",
+  "examples" : "save structure between {loc1} and {loc2} as \"house\""
+},
+{
   "id" : "EffSwingHand",
   "name" : "Swing Hand",
   "patterns" : [
@@ -2668,6 +3194,20 @@ This effect is delayed by default on Paper, meaning certain syntax such as the r
 The keyword 'force' indicates this effect will not be delayed, 
 which may cause lag spikes or server crashes when using this effect to teleport entities to unloaded chunks.",
   "examples" : "teleport the player to {homes.%player%}\\nteleport the attacker to the victim"
+},
+{
+  "id" : "EffSendComponent",
+  "name" : "TextComponent - Send",
+  "patterns" : [
+    "send [text] component[s] %<a href='./classes.html#basecomponent'>base components</a>% [to %<a href='./classes.html#commandsender'>players/console</a>%] [from %<a href='./classes.html#player'>player</a>%]",
+
+    "pattern_end"
+  ],
+  "since" : "1.5.0",
+  "description" : "Send text components to players (or console, not sure which server version this started on). 
+The optional sender (supported in Minecraft 1.16.4+) allows you to send components from a specific player.
+This is useful to make sure players can block messages using 1.16.4's new player chat ignore system.",
+  "examples" : "set {_comp::1} to text component of \"hi player \"\\nset {_comp::2} to text component of \"hover over me for a special message!\"\\nset hover event of {_comp::2} to hover event to show \"OoO look ma I'm hovering!\"\\nsend component {_comp::*} to player"
 },
 {
   "id" : "EffResetTitle",
@@ -2821,6 +3361,119 @@ Do note that other event values, such as 'player', won't work in this section.",
   "examples" : "at 18:00\\nat 7am in \"world\""
 },
 {
+  "id" : "consent",
+  "name" : "Consent",
+  "patterns" : [
+    "skript-(mirror|reflect), I know what I'm doing",
+
+    "pattern_end"
+  ],
+  "since" : "Unknown",
+  "description" : "Missing description.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "define_condition",
+  "name" : "Define Condition",
+  "patterns" : [
+    "[local] condition &lt;.+&gt;",
+"[local] condition",
+"[local] %*<a href='./classes.html#classinfo'>types</a>% property condition &lt;.+&gt;",
+
+    "pattern_end"
+  ],
+  "since" : "Unknown",
+  "description" : "Missing description.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "define_constant",
+  "name" : "Define Constant",
+  "patterns" : [
+    "option &lt;.+&gt;",
+
+    "pattern_end"
+  ],
+  "since" : "Unknown",
+  "description" : "Missing description.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "define_effect",
+  "name" : "Define Effect",
+  "patterns" : [
+    "[local] effect &lt;.+&gt;",
+"[local] effect",
+
+    "pattern_end"
+  ],
+  "since" : "Unknown",
+  "description" : "Missing description.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "define_event",
+  "name" : "Define Event",
+  "patterns" : [
+    "[local] [custom] event %<a href='./classes.html#string'>text</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "Unknown",
+  "description" : "Missing description.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "define_expression",
+  "name" : "Define Expression",
+  "patterns" : [
+    "[local] [((plural|non(-|[ ])single))] expression &lt;.+&gt;",
+"[local] [((plural|non(-|[ ])single))] expression",
+"[local] [((plural|non(-|[ ])single))] %*<a href='./classes.html#classinfo'>types</a>% property &lt;.+&gt;",
+
+    "pattern_end"
+  ],
+  "since" : "Unknown",
+  "description" : "Missing description.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "import",
+  "name" : "Import",
+  "patterns" : [
+    "import",
+
+    "pattern_end"
+  ],
+  "since" : "Unknown",
+  "description" : "Missing description.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "anvil_damaged_event",
+  "name" : "On Anvil Damaged Event",
+  "patterns" : [
+    "[on] anvil damage",
+
+    "pattern_end"
+  ],
+  "since" : "1.5.0",
+  "description" : "Called when an anvil is damaged from being used. Requires Paper 1.13+",
+  "examples" : "on anvil damage:\\n    loop viewers of event-inventory:\\n        if loop-player has permission \"no.anvil.break\"\\n            cancel event"
+},
+{
+  "id" : "anvil_prepare_event",
+  "name" : "On Anvil Prepare Event",
+  "patterns" : [
+    "[on] anvil prepare",
+
+    "pattern_end"
+  ],
+  "since" : "1.11.0",
+  "description" : "Called when a player attempts to combine 2 items in an anvil.\\n'event-slot' represents the result slot, can be used to get or set.",
+  "examples" : "on anvil prepare:\\n    if slot 0 of event-inventory is a diamond sword:\\n        if slot 1 of event-inventory is an enchanted book:\\n            if stored enchants of slot 1 of event-inventory contains sharpness 5:\\n                set {_i} to slot 0 of event-inventory\\n                add \"&aOOOOOOO\" and \"&bAHHHHHH\" to lore of {_i}\\n                enchant {_i} with sharpness 6\\n                set event-slot to {_i}\\n                set repair cost of event-inventory to 30"
+},
+{
   "id" : "aoe_cloud_effect",
   "name" : "On AoE Cloud Effect",
   "patterns" : [
@@ -2855,6 +3508,30 @@ Do note that other event values, such as 'player', won't work in this section.",
   "since" : "2.5",
   "description" : "Called when armor pieces of a player are changed.",
   "examples" : "on armor change:\\n    send \"You equipped %event-item%!\""
+},
+{
+  "id" : "armor_change_event",
+  "name" : "On Armor Change Event",
+  "patterns" : [
+    "[on] player change armor",
+
+    "pattern_end"
+  ],
+  "since" : "1.3.1",
+  "description" : "Called when the player themselves change their armor items. Requires Paper 1.12.2+",
+  "examples" : "on player change armor:\\n    set helmet of player to pumpkin"
+},
+{
+  "id" : "beacon_effect",
+  "name" : "On Beacon Effect",
+  "patterns" : [
+    "[on] beacon effect",
+
+    "pattern_end"
+  ],
+  "since" : "1.8.4",
+  "description" : "Called when a beacon effect is being applied to a player. Requires Paper 1.9+",
+  "examples" : "on beacon effect:\\n    if event-player does not have permission \"my.server.beacons\":\\n        cancel event"
 },
 {
   "id" : "bed_enter",
@@ -2919,6 +3596,18 @@ Do note that other event values, such as 'player', won't work in this section.",
   "examples" : "on crop growth:"
 },
 {
+  "id" : "block_physical_interact_event",
+  "name" : "On Block Physical Interact Event",
+  "patterns" : [
+    "[on] block (interact|trample)",
+
+    "pattern_end"
+  ],
+  "since" : "1.5.0",
+  "description" : "Called when an entity physically interacts with a block, for example, trampling.",
+  "examples" : "on block interact:\\n    if event-entity is a villager:\\n        cancel event"
+},
+{
   "id" : "book_edit",
   "name" : "On Book Edit",
   "patterns" : [
@@ -2941,6 +3630,30 @@ Do note that other event values, such as 'player', won't work in this section.",
   "since" : "2.2-dev31",
   "description" : "Called when a player signs a book.",
   "examples" : "on book sign:"
+},
+{
+  "id" : "bound_-_enter",
+  "name" : "On Bound - Enter",
+  "patterns" : [
+    "[on] (bound enter|enter bound) [with id %<a href='./classes.html#string'>text</a>%]",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0, 1.12.2 (Bound IDs)",
+  "description" : "Called when a player enters a bound. Optional ID of bound. 'event-string' = bound ID.",
+  "examples" : "on bound enter:\\n    if event-bound = {bounds::spawn}:\\n        send \"You entered spawn!\"\\non enter bound with id \"spawn\":\\n    cancel event"
+},
+{
+  "id" : "bound_-_exit",
+  "name" : "On Bound - Exit",
+  "patterns" : [
+    "[on] (bound exit|exit bound) [with id %<a href='./classes.html#string'>text</a>%]",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0, 1.12.2 (Bound IDs)",
+  "description" : "Called when a player exits a bound. Optional ID of bound. 'event-string' = bound ID.",
+  "examples" : "on bound exit:\\n    send \"You left a bound\"\\n    if event-bound = {bound}:\\n        send \"You left Spawn!\"\\non exit bound with id \"spawn\":\\n    cancel event"
 },
 {
   "id" : "break_mine",
@@ -2979,6 +3692,18 @@ Do note that other event values, such as 'player', won't work in this section.",
   "since" : "1.0",
   "description" : "Called when a player fills a bucket.",
   "examples" : "on player filling a bucket:"
+},
+{
+  "id" : "bukkit_event",
+  "name" : "On Bukkit Event",
+  "patterns" : [
+    "[on] [all] %javatypes% [(at|on|with) priority &lt;.+&gt;]",
+
+    "pattern_end"
+  ],
+  "since" : "Unknown",
+  "description" : "Missing description.",
+  "examples" : "Missing examples."
 },
 {
   "id" : "burn",
@@ -3239,6 +3964,18 @@ Do note that other event values, such as 'player', won't work in this section.",
   "examples" : "on dismount:\\n    kill event-entity"
 },
 {
+  "id" : "entity_knockback",
+  "name" : "On Entity Knockback",
+  "patterns" : [
+    "[on] entity knockback",
+
+    "pattern_end"
+  ],
+  "since" : "1.8.0",
+  "description" : "Fired when an Entity is knocked back by the hit of another Entity. If this event is cancelled, the entity is not knocked back. Requires Paper 1.12.2+",
+  "examples" : "on entity knockback:\\n    if event-entity is a cow:\\n        cancel event"
+},
+{
   "id" : "entity_mount",
   "name" : "On Entity Mount",
   "patterns" : [
@@ -3251,6 +3988,18 @@ Do note that other event values, such as 'player', won't work in this section.",
   "examples" : "on mount:\\n    cancel event"
 },
 {
+  "id" : "entity_pathfind_event",
+  "name" : "On Entity Pathfind Event",
+  "patterns" : [
+    "[on] entity start[s] pathfinding",
+
+    "pattern_end"
+  ],
+  "since" : "1.5.0",
+  "description" : "Called when an Entity decides to start moving towards a location. This event does not fire for the entities actual movement. Only when it is choosing to start moving to a location. Requires Paper.",
+  "examples" : "on entity starts pathfinding:\\n    if event-entity is a sheep:\\n        cancel event"
+},
+{
   "id" : "entity_portal",
   "name" : "On Entity Portal",
   "patterns" : [
@@ -3261,6 +4010,30 @@ Do note that other event values, such as 'player', won't work in this section.",
   "since" : "2.5.3",
   "description" : "Called when an entity uses a nether or end portal. <a href='effects.html#EffCancelEvent'>Cancel the event</a> to prevent the entity from teleporting.",
   "examples" : "on entity portal:\\n    broadcast \"A %type of event-entity% has entered a portal!"
+},
+{
+  "id" : "entity_zap",
+  "name" : "On Entity Zap",
+  "patterns" : [
+    "[on] entity (zap|struck by lightning)",
+
+    "pattern_end"
+  ],
+  "since" : "1.8.0",
+  "description" : "Fired when lightning strikes an entity. Requires Paper 1.10.2+",
+  "examples" : "on entity zap:\\n    if event-entity is a pig:\\n        spawn 3 zombie pigmen at event-location"
+},
+{
+  "id" : "experience_orb_merge",
+  "name" : "On Experience Orb Merge",
+  "patterns" : [
+    "[on] (experience|[e]xp) orb merge",
+
+    "pattern_end"
+  ],
+  "since" : "1.8.0",
+  "description" : "Fired anytime the server is about to merge 2 experience orbs into one. Requires Paper 1.12.2+",
+  "examples" : "on xp merge:\\n    cancel event"
 },
 {
   "id" : "experience_spawn",
@@ -3798,6 +4571,30 @@ Do note that other event values, such as 'player', won't work in this section.",
   "examples" : "on place:\\non place of a furnace, workbench or chest:\\non place of chest[type=right] or chest[type=left]"
 },
 {
+  "id" : "player_elytra_boost",
+  "name" : "On Player Elytra Boost",
+  "patterns" : [
+    "[on] [player] elytra boost",
+
+    "pattern_end"
+  ],
+  "since" : "1.8.0",
+  "description" : "Fired when a player boosts elytra flight with a firework. Requires Paper 1.13.2+",
+  "examples" : "on elytra boost:\\n    push player forward at speed 50"
+},
+{
+  "id" : "player_pickup_experience_orb",
+  "name" : "On Player Pickup Experience Orb",
+  "patterns" : [
+    "[on] player pickup (experience|xp) [orb]",
+
+    "pattern_end"
+  ],
+  "since" : "1.8.0",
+  "description" : "Fired when a player is attempting to pick up an experience orb. Requires Paper 1.12.2+",
+  "examples" : "on player pickup xp:\\n    add 10 to level of player"
+},
+{
   "id" : "player_world_change",
   "name" : "On Player World Change",
   "patterns" : [
@@ -3906,6 +4703,30 @@ Do note that other event values, such as 'player', won't work in this section.",
   "since" : "1.0 (simple disconnection)",
   "description" : "Called when a player leaves the server.",
   "examples" : "on quit:\\non disconnect:"
+},
+{
+  "id" : "recipe_-_discover_event",
+  "name" : "On Recipe - Discover Event",
+  "patterns" : [
+    "[on] recipe discover[y]",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Called when a player unlocks a recipe. \\n`event-string` = the recipe namespace (this will also include either \"minecraft:\" or \"mykeyhere:\")\\nRequires MC 1.13+",
+  "examples" : "on recipe discover:\\n    if event-string = \"minecraft:diamond_block\"\\n        cancel event"
+},
+{
+  "id" : "recipe_book_click_event",
+  "name" : "On Recipe Book Click Event",
+  "patterns" : [
+    "[on] [player] recipe book click",
+
+    "pattern_end"
+  ],
+  "since" : "1.5.0",
+  "description" : "Called when the player clicks on a recipe in their recipe book. Requires Paper 1.15+",
+  "examples" : "on recipe book click:\\n    if event-string = \"minecraft:diamond_sword\":\\n        cancel event"
 },
 {
   "id" : "redstone",
@@ -4020,6 +4841,18 @@ Do note that other event values, such as 'player', won't work in this section.",
   "examples" : "on skript start:\\non server stop:"
 },
 {
+  "id" : "shear_entity",
+  "name" : "On Shear Entity",
+  "patterns" : [
+    "[on] [player] shear entity",
+
+    "pattern_end"
+  ],
+  "since" : "1.8.0",
+  "description" : "Called when a player shears an entity. Requires Minecraft 1.9.4+",
+  "examples" : "on player shear entity:"
+},
+{
   "id" : "sheep_regrow_wool",
   "name" : "On Sheep Regrow Wool",
   "patterns" : [
@@ -4055,6 +4888,18 @@ Do note that other event values, such as 'player', won't work in this section.",
   "since" : "1.0",
   "description" : "As signs are placed empty, this event is called when a player is done editing a sign.",
   "examples" : "on sign change:\\n    line 2 is empty\\n    set line 1 to \"&lt;red&gt;%line 1%\""
+},
+{
+  "id" : "skeleton_horse_trap_event",
+  "name" : "On Skeleton Horse Trap Event",
+  "patterns" : [
+    "[on] skeleton horse trap",
+
+    "pattern_end"
+  ],
+  "since" : "1.5.0",
+  "description" : "Called when a player gets close to a skeleton horse and triggers the lightning trap. Requires Paper 1.13+",
+  "examples" : "on skeleton horse trap:\\n    loop all players in radius 10 around event-entity:\\n        if loop-player is an op:\\n            cancel event"
 },
 {
   "id" : "slime_split",
@@ -4167,6 +5012,18 @@ Do note that other event values, such as 'player', won't work in this section.",
   "since" : "2.3",
   "description" : "Called when an entity swims or stops swimming.",
   "examples" : "on swim toggle:\\n    event-entity does not have permission \"swim\"\\n    cancel event"
+},
+{
+  "id" : "tab_complete",
+  "name" : "On Tab Complete",
+  "patterns" : [
+    "[on] [skbee] tab complete [(of|for) %<a href='./classes.html#string'>texts</a>%]",
+
+    "pattern_end"
+  ],
+  "since" : "1.7.0",
+  "description" : "Called when a player attempts to tab complete the arguments of a command. \\nevent-string = the command.",
+  "examples" : "on tab complete of \"/mycommand\":\\n    set tab completions for position 1 to \"one\", \"two\" and \"three\"\\n    set tab completions for position 2 to 1, 2 and 3\\n    set tab completions for position 3 to all players\\n    set tab completions for position 4 to (indexes of {blocks::*})\\n\\non tab complete:\\n    if event-string contains \"/ver\":\\n        clear tab completions"
 },
 {
   "id" : "tame",
@@ -4368,6 +5225,18 @@ Do note that other event values, such as 'player', won't work in this section.",
   "examples" : "on zombie breaking a wood door:"
 },
 {
+  "id" : "custom_event",
+  "name" : "On custom event",
+  "patterns" : [
+    "[on] Missing patterns.",
+
+    "pattern_end"
+  ],
+  "since" : "Unknown",
+  "description" : "Missing description.",
+  "examples" : "Missing examples."
+},
+{
   "id" : "periodical",
   "name" : "Periodical",
   "patterns" : [
@@ -4538,6 +5407,37 @@ Please note that getting a list's recursive size can cause lag if the list is la
   "examples" : "message \"You have %number of ores in the player's inventory% ores in your inventory.\""
 },
 {
+  "id" : "ExprAnvilRenameText",
+  "name" : "Anvil Rename Text",
+  "patterns" : [
+    "[the] [anvil] (rename text|repair name) of %<a href='./classes.html#inventory'>inventories</a>%",
+"%<a href='./classes.html#inventory'>inventories</a>%'[s] [anvil] (rename text|repair name)",
+
+    "pattern_end"
+  ],
+  "since" : "Unknown",
+  "description" : "Represents the text the player enters into an anvil. This can not be set.",
+  "examples" : "on anvil prepare:\\n    if slot 0 of event-inventory is raw chicken:\\n        if slot 1 of event-inventory is an enchanted book:\\n            if stored enchants of slot 1 of event-inventory contains sharpness 5:\\n                set {_i} to cooked chicken\\n                set name of {_i} to colored anvil rename text of event-inventory\\n                enchant {_i} with sharpness 6\\n                set event-slot to {_i}\\n                set repair cost of event-inventory to 30"
+},
+{
+  "id" : "ExprAnvilRepairCost",
+  "name" : "Anvil Repair Cost",
+  "patterns" : [
+    "[the] [anvil] (repair cost|max[imum] repair cost) of %<a href='./classes.html#inventory'>inventories</a>%",
+"%<a href='./classes.html#inventory'>inventories</a>%'[s] [anvil] (repair cost|max[imum] repair cost)",
+
+    "pattern_end"
+  ],
+  "since" : "1.11.0",
+  "description" : "Represents the anvil inventory's repair cost and maximum repair cost.
+Repair cost = the experience cost (in levels) to complete the current repair.
+Maximum repair cost = the maximum experience cost (in levels) to be allowed by the current repair.
+If the result of 'repair cost' exceeds the returned value, the repair result will be air to due being \"too expensive\".
+By default, this level is set to 40. Players in creative mode ignore the maximum repair cost.
+NOTE: the 'max repair cost' seems to be a little finicky, it may or may not work as intended (this is out of my control).",
+  "examples" : "on anvil prepare:\\n    if slot 0 of event-inventory is a diamond sword:\\n        if slot 1 of event-inventory is an enchanted book:\\n            if stored enchants of slot 1 of event-inventory contains sharpness 5:\\n                set {_i} to slot 0 of event-inventory\\n                add \"&aOOOOOOO\" and \"&bAHHHHHH\" to lore of {_i}\\n                enchant {_i} with sharpness 6\\n                set event-slot to {_i}\\n                set repair cost of event-inventory to 30"
+},
+{
   "id" : "ExprAppliedEnchantments",
   "name" : "Applied Enchantments",
   "patterns" : [
@@ -4598,6 +5498,18 @@ One can also use the type of the argument instead of its index to address the ar
   "since" : "1.4.2",
   "description" : "Arithmetic expressions, e.g. 1 + 2, (health of player - 2) / 3, etc.",
   "examples" : "set the player's health to 10 - the player's health\\nloop (argument + 2) / 5 times:\\n    message \"Two useless numbers: %loop-num * 2 - 5%, %2^loop-num - 1%\"\\nmessage \"You have %health of player * 2% half hearts of HP!\""
+},
+{
+  "id" : "ExprArmorChange",
+  "name" : "Armor Change Event - Item",
+  "patterns" : [
+    "[(new|old)] armor item",
+
+    "pattern_end"
+  ],
+  "since" : "1.3.1",
+  "description" : "Get the old/new item in an armor change event. Defaults to new. When using set, it will set the slot that was changed, old/new will make no difference in this case. Requires Paper 1.12.2+",
+  "examples" : "on player armor change:\\n    if new armor item is any helmet:\\n        set armor item to a diamond helmet"
 },
 {
   "id" : "ExprArmorSlot",
@@ -4744,6 +5656,37 @@ Can optionally include a direction as well, e.g. 'block above' or 'block in fron
   "examples" : "set {data} to block data of target block\\nset block at player to {data}\\nset block data of target block to oak_stairs[facing=south;waterlogged=true]"
 },
 {
+  "id" : "ExprBlockDataBlock",
+  "name" : "Block Data - Block",
+  "patterns" : [
+    "[the] block[ ](data|state) (tags|tag %<a href='./classes.html#string'>text</a>%|without update[s]) of %<a href='./classes.html#block'>blocks</a>%",
+"%<a href='./classes.html#block'>blocks</a>%'[s] block[ ](data|state) (tags|tag %<a href='./classes.html#string'>text</a>%|without update[s])",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Get block data from a block. You can get a string of block data, all the tags in a block data or a specific tag. 
+You can also set a block data for a block or set a specific tag for block data. This syntax is only available for MC 1.13+ 
+Skript 2.5 added a new block data system that differs slightly from SkBee. That said, when using that version of Skript 
+the only available syntax here will be 'block data tags', 'block data tag \"tag here\"' and 'block data without updates', 
+these will not be optional.",
+  "examples" : "set {_data} to block data of target block of player\\nset {_data::*} to block data tags of target block of player\\nset {_water} to block data tag \"waterlogged\" of event-block\\nset block data of target block to \"minecraft:carrots[age=7]\"\\nset block data tag \"waterlogged\" of event-block to true"
+},
+{
+  "id" : "ExprBlockDataItem",
+  "name" : "Block Data - Item",
+  "patterns" : [
+    "[the] item [block[ ]](data|state) [(tags|tag %<a href='./classes.html#string'>text</a>%)] of %<a href='./classes.html#itemtype'>item types</a>%",
+"%<a href='./classes.html#itemtype'>item types</a>%'[s] item [block[ ]](data|state) [(tags|tag %<a href='./classes.html#string'>text</a>%)]",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Get block data from an item. You can get a string of block data, all the tags in a block data or a specific tag. 
+You can also set a block data for an item or set a specific tag for block data. This syntax is only available for MC 1.14+",
+  "examples" : "set item data of player's tool to block data of target block\\nset item data of player's tool to \"minecraft:campfire[lit=false,waterlogged=true]\"\\nset item data tag \"lit\" of player's tool to false"
+},
+{
   "id" : "ExprBlockHardness",
   "name" : "Block Hardness",
   "patterns" : [
@@ -4768,6 +5711,18 @@ Can optionally include a direction as well, e.g. 'block above' or 'block in fron
   "since" : "1.0",
   "description" : "All blocks in a sphere around a center, mostly useful for looping.",
   "examples" : "loop blocks in radius 5 around the player:\\n    set loop-block to air"
+},
+{
+  "id" : "ExprBlockInChunk",
+  "name" : "Block in Chunk",
+  "patterns" : [
+    "block at %<a href='./classes.html#number'>number</a>%,[ ]%<a href='./classes.html#number'>number</a>%,[ ]%<a href='./classes.html#number'>number</a>% (in|of) %<a href='./classes.html#chunk'>chunk</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.13.0",
+  "description" : "Represents a block in a chunk. X/Z coords will be a value from 0 to 15.",
+  "examples" : "set block at 1,1,1 in chunk at player to stone\\nset {_b} to block at 8,64,8 in chunk at player"
 },
 {
   "id" : "ExprBlocks",
@@ -4829,6 +5784,18 @@ This expression requires a supported regions plugin to be installed.",
   "examples" : "on book sign:\\n    message \"Book Pages: %pages of event-item%\"\\n    message \"Book Page 1: %page 1 of event-item%\""
 },
 {
+  "id" : "ExprBookPages",
+  "name" : "Book Pages",
+  "patterns" : [
+    "page %<a href='./classes.html#number'>number</a>% of [book] %<a href='./classes.html#itemtype'>item type</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.8.0",
+  "description" : "Allows you to set pages in a book to text components. You can also retrieve the pages. Based on testing, a book's author/title needs to be set AFTER setting the pages, why? I have no idea!",
+  "examples" : "set {_i} to a written book\\nset {_a} to text component of \"RULES\"\\nset hover event of {_a} to hover event showing \"make sure to read our rules\"\\nset click event of {_a} to click event to run command \"/rules\"\\nset page 1 of {_i} to {_a}\\nset book author of {_i} to \"Bob\"\\nset book title of {_i} to \"MyBook\"\\ngive player 1 of {_i}"
+},
+{
   "id" : "ExprBookTitle",
   "name" : "Book Title",
   "patterns" : [
@@ -4840,6 +5807,60 @@ This expression requires a supported regions plugin to be installed.",
   "since" : "2.2-dev31",
   "description" : "The title of a book.",
   "examples" : "on book sign:\\n    message \"Book Title: %title of event-item%\""
+},
+{
+  "id" : "ExprBoundAtLocation",
+  "name" : "Bound - At Location",
+  "patterns" : [
+    "[(all [[of] the]|the)] bound[s] at %<a href='./classes.html#location'>location</a>%",
+"[(all [[of] the]|the)] bound id[s] at %<a href='./classes.html#location'>location</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Get a list of bounds/ids at a location.",
+  "examples" : "set {_bounds::*} to bounds at player\\nset {_b::*} to bound ids at player\\nloop all bounds at player:"
+},
+{
+  "id" : "ExprBoundBlocks",
+  "name" : "Bound - Blocks",
+  "patterns" : [
+    "[(all [[of] the]|the)] blocks within [bound] %<a href='./classes.html#bound'>bound</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "All the blocks within a bound",
+  "examples" : "set {_blocks::*} to all blocks within bound {bound}\\nset all blocks within {bound} to stone\\nloop all blocks within bound {bound}:\\n    if loop-block is stone:\\n        set loop-block to grass"
+},
+{
+  "id" : "ExprBoundCoords",
+  "name" : "Bound - Coords",
+  "patterns" : [
+    "lesser (x|y|z) coord[inate] of [bound] %<a href='./classes.html#bound'>bound</a>%",
+"greater (x|y|z) coord[inate] of [bound] %<a href='./classes.html#bound'>bound</a>%",
+"world of bound %<a href='./classes.html#bound'>bound</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "The coords and world of a bounding box. You can get the world/coords for a specific bound, you can also set the coords of a bounding box. You can NOT set the world of a bounding box. 
+
+Lesser will always equal the lower south-east corner. 
+Greater will always equal the higher north-west corner.",
+  "examples" : "set lesser y coord of {bound} to 10\\nset {_x} to greater x coord of bound with id \"my.bound\""
+},
+{
+  "id" : "ExprBoundFromID",
+  "name" : "Bound - From ID",
+  "patterns" : [
+    "bound (of|from|with) id %<a href='./classes.html#string'>text</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Get a bound object from a bound ID",
+  "examples" : "set {_b} to bound from id \"%player%.home\""
 },
 {
   "id" : "ExprBurnCookTime",
@@ -4916,6 +5937,18 @@ Can also be used to change the burn/cook time of a placed furnace.",
   "since" : "2.0",
   "description" : "The <a href='./classes.html#chunk'>chunk</a> a block, location or entity is in.",
   "examples" : "add the chunk at the player to {protected chunks::*}"
+},
+{
+  "id" : "ExprChunkCoords",
+  "name" : "Chunk Coordinates",
+  "patterns" : [
+    "chunk (x|z) of %<a href='./classes.html#chunk'>chunk</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.13.0",
+  "description" : "Represents the coordinates of a chunk.",
+  "examples" : "set {_x} to chunk x of chunk at player"
 },
 {
   "id" : "ExprClicked",
@@ -5428,6 +6461,19 @@ Resetting an entity's attribute is only available in Minecraft 1.11 and above.",
   "examples" : "on damage of player:\\n    send \"You are wounded!\"\\n    set victim's attack speed attribute to 2"
 },
 {
+  "id" : "ExprNoClip",
+  "name" : "Entity NoClip",
+  "patterns" : [
+    "no[( |-)]clip (state|mode) of %<a href='./classes.html#entity'>entities</a>%",
+"%<a href='./classes.html#entity'>entities</a>%'s no[( |-)]clip (state|mode)",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.2",
+  "description" : "Set or get the noClip status of an entity (This will not work on players)",
+  "examples" : "spawn a zombie at player\\nset no clip state of last spawned zombie to true\\nset {_var} to no clip state of last spawned sheep\\nloop all entities in radius 5 around player:\\n    set no clip state of loop-entity to true\\n    push loop-entity up with speed 5"
+},
+{
   "id" : "ExprEntityTamer",
   "name" : "Entity Owner",
   "patterns" : [
@@ -5439,6 +6485,46 @@ Resetting an entity's attribute is only available in Minecraft 1.11 and above.",
   "since" : "2.5",
   "description" : "The owner of a tameable entity, such as a horse or wolf.",
   "examples" : "set owner of target entity to player\\ndelete owner of target entity\\nset {_t} to uuid of tamer of target entity"
+},
+{
+  "id" : "ExprEntityVisibility",
+  "name" : "Entity Visibility",
+  "patterns" : [
+    "[the] visibility of %<a href='./classes.html#entity'>entities</a>%",
+"%<a href='./classes.html#entity'>entities</a>%'[s] visibility",
+
+    "pattern_end"
+  ],
+  "since" : "1.7.0",
+  "description" : "Get/set visibility for entities. Armor stands on all versions, ItemFrames on 1.15+ and LivingEntities on 1.16.3+",
+  "examples" : "set visibility of target entity to false\\nset {_v} to visibility of target entity\\nif visibility of target entity is true:"
+},
+{
+  "id" : "ExprEntityBlockStorageCount",
+  "name" : "EntityBlockStorage - Entity Count",
+  "patterns" : [
+    "(size|amount) of [all] (stored entities|entities stored) in %<a href='./classes.html#block'>blocks</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Get the amount of entities currently stored in a storage block.
+As of 1.15 this only includes beehives/bee nests! Requires Spigot/Paper 1.15.2+",
+  "examples" : "if amount of stored entities in block at player > 10:\\nset {_a} to size of entities stored in event-block"
+},
+{
+  "id" : "ExprEntityBlockStorageMax",
+  "name" : "EntityBlockStorage - Max Entities",
+  "patterns" : [
+    "[the] max entit(ies|y storage) of %<a href='./classes.html#block'>blocks</a>%",
+"%<a href='./classes.html#block'>blocks</a>%'[s] max entit(ies|y storage)",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Get/Set the max amount of entities which can be stored in a block.
+As of 1.15 this only includes beehives/bee nests! Requires Spigot/Paper 1.15.2+",
+  "examples" : "set {_m} to max entities of target block of player\\nset max entities of target block of player to 20\\nset max entity storage of event-block to 5"
 },
 {
   "id" : "ExprExhaustion",
@@ -5825,6 +6911,19 @@ Please note that this location is only accurate for entities whose head is exact
   "examples" : "message \"You have %health% HP left.\""
 },
 {
+  "id" : "ExprHiddenFlags",
+  "name" : "Hidden Item Flags",
+  "patterns" : [
+    "%<a href='./classes.html#itemtype'>item type</a>% with (all|enchant[s]|destroy[s]|potion[ ]effect[s]|unbreakable|attribute[s]|dye) flag[s] hidden",
+"%<a href='./classes.html#itemtype'>item type</a>% with hidden (all|enchant[s]|destroy[s]|potion[ ]effect[s]|unbreakable|attribute[s]|dye) flag[s]",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Hides the item flags on items, allowing you to make super duper custom items. Dye item flag added in 1.5.0 and only available on 1.16.2+.",
+  "examples" : "set player's tool to player's tool with attribute flag hidden\\ngive player 1 diamond sword of sharpness 5 with hidden enchants flag\\nset {_tool} to player's tool with all flags hidden\\ngive player potion of harming with hidden potion effects flag\\nset {_b} to leather boots with dye flag hidden"
+},
+{
   "id" : "ExprHiddenPlayers",
   "name" : "Hidden Players",
   "patterns" : [
@@ -6011,6 +7110,19 @@ NOTE: 'Viewers' expression returns a list of players viewing the inventory. Note
   "examples" : "event-inventory's amount of rows\\nholder of player's top inventory\\n{_inventory}'s viewers"
 },
 {
+  "id" : "ExprInvName",
+  "name" : "Inventory Name",
+  "patterns" : [
+    "[the] (custom|inv[entory]) name of %<a href='./classes.html#inventory'>inventories</a>%",
+"%<a href='./classes.html#inventory'>inventories</a>%'[s] (custom|inv[entory]) name",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "This is a temp placeholder for Skript's inventory name expression, which is broken in 1.14+",
+  "examples" : "if inventory name of current inventory of player = \"Settings\":"
+},
+{
   "id" : "ExprInventorySlot",
   "name" : "Inventory Slot",
   "patterns" : [
@@ -6142,6 +7254,18 @@ Please note that the positions of the items in the inventory are not saved, only
   "since" : "2.1, 2.5.2 (regex support)",
   "description" : "Joins several texts with a common delimiter (e.g. \", \"), or splits a text into multiple texts at a given delimiter.",
   "examples" : "message \"Online players: %join all players with \"\" | \"\"%\" # %all players% would use the default \"x, y, and z\"\\nset {_s::*} to the string argument split at \",\""
+},
+{
+  "id" : "ExprKnockbackAttackerVictim",
+  "name" : "Knockback Attacker/Victim",
+  "patterns" : [
+    "[the] knockback (attacker|victim)",
+
+    "pattern_end"
+  ],
+  "since" : "1.8.0",
+  "description" : "The attacker/victim in an entity knockback event. Paper 1.12.2+",
+  "examples" : "on entity knockback:\\n    if knockback attacker is a player:\\n        if knockback victim is a sheep:\\n            cancel event"
 },
 {
   "id" : "ExprLanguage",
@@ -6327,6 +7451,18 @@ It can be separated into sunlight (15 = direct sunlight, 1-14 = indirect) and bl
   "examples" : "# set vampire players standing in bright sunlight on fire\\nevery 5 seconds:\\n    loop all players:\\n        {vampire::%uuid of loop-player%} is true\\n        sunlight level at the loop-player is greater than 10\\n        ignite the loop-player for 5 seconds"
 },
 {
+  "id" : "ExprLoadedChunks",
+  "name" : "Loaded Chunks",
+  "patterns" : [
+    "[(all [[of] the]|the)] loaded chunks of %<a href='./classes.html#world'>world</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.13.0",
+  "description" : "Represents all currently loaded chunks in a world.",
+  "examples" : "loop loaded chunks of world of player:\\nset {_chunks} to loaded chunks of world \"world\""
+},
+{
   "id" : "ExprLocation",
   "name" : "Location",
   "patterns" : [
@@ -6417,6 +7553,22 @@ Please note that the location of an entity is at it's feet, use <a href='#ExprEy
   "description" : "The message of the day in the server list. This can be changed in a <a href='events.html#server_list_ping'>server list ping</a> event only.
 'default MOTD' returns the default MOTD always and can't be changed.",
   "examples" : "on server list ping:\\n    set the motd to \"Join now!\""
+},
+{
+  "id" : "ExprMaterialChoice",
+  "name" : "Material Choice",
+  "patterns" : [
+    "material choice of %<a href='./classes.html#itemtype'>item types</a>%",
+"material choice of %<a href='./classes.html#minecrafttag'>minecraft tag</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.10.0",
+  "description" : "A material choice is a list of items or a minecraft tag, that can be used as an option in some recipes.
+When using the 'every' item type, this will grab all relatable items in a list, ie: 'every sword'.
+This allows you to have one specific slot of a recipe to accept multiple items, without having to create multiple recipes.
+Do note that material choices do not accept custom items (ie: items with names, lore, enchants, etc). Requires Minecraft 1.13+",
+  "examples" : "set {_a} to material choice of diamond sword, diamond shovel and diamond hoe\\nset {_a} to material choice of every sword\\nset {_a} to material choice of minecraft tag \"doors\""
 },
 {
   "id" : "ExprMaxDurability",
@@ -6565,6 +7717,24 @@ Please note that the location of an entity is at it's feet, use <a href='#ExprEy
   "examples" : "on right click on minecart:\\n    set derailed velocity of event-entity to vector 2, 10, 2"
 },
 {
+  "id" : "ExprMinecraftTag",
+  "name" : "Minecraft Tag",
+  "patterns" : [
+    "minecraft [(item|block)] tag[s] %<a href='./classes.html#string'>texts</a>%",
+"[all] minecraft [(item|block)] tags",
+"[all] item[type]s of minecraft [(item|block)] tag[s] %<a href='./classes.html#string'>texts</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.10.0",
+  "description" : "Represents a Minecraft tag. This includes all vanilla item/block tags registered to the server.
+Bukkit provides 2 lists, item tags and block tags. Some tags might be in both lists but still have the same effect.
+If you are unsure of all tag options, just return a list of all tags to see what is available.
+You can also get a list of all itemtypes that are tagged by a tag.
+The 'minecraft:' namespace is optional. Requires Minecraft 1.13+",
+  "examples" : "set {_i} to minecraft tag \"doors\"\\nset {_tag} to minecraft tag \"trapdoors\"\\nset {_tags::*} to minecraft tags \"wall_signs\" and \"wooden_doors\"\\nset {_tag} to \"minecraft:climbable\"\\n\\nloop minecraft tags:\\n    send \"-%loop-value%\" to console"
+},
+{
   "id" : "ExprBalance",
   "name" : "Money",
   "patterns" : [
@@ -6588,6 +7758,148 @@ Please note that the location of an entity is at it's feet, use <a href='#ExprEy
   "since" : "2.2-dev27",
   "description" : "Blocks which are moved in a piston event. Cannot be used outside of piston events.",
   "examples" : "the moved blocks"
+},
+{
+  "id" : "ExprNbtCompound",
+  "name" : "NBT - Compound of",
+  "patterns" : [
+    "nbt compound [copy] (of|from) %<a href='./classes.html#block'>blocks</a>/<a href='./classes.html#entity'>entities</a>/<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#itemstack'>item stacks</a>/<a href='./classes.html#slot'>slots</a>/<a href='./classes.html#string'>texts</a>%",
+"nbt compound [copy] (of|from) file[s] %<a href='./classes.html#string'>texts</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.6.0",
+  "description" : "Get the nbt compound of a block/entity/item/file. This is a more advanced version of NBT than just getting an NBT string 
+which allows for better manipulation. Optionally you can return a copy of the compound. This way you can modify it without 
+actually modifying the original compound, for example when grabbing the compound from an entity, modifying it and applying to 
+other entities. NBT from items will not be the original, but will be a copy. NBT from a file will need to be saved manually using 
+the NBT - Save File effect. If the file does not yet exist, a new file will be created.",
+  "examples" : "set {_n} to nbt compound of player's tool\\nset {_nbt} to nbt compound of target entity\\nset {_n} to nbt compound of \"{id:\"\"minecraft:diamond_sword\"\",tag:{Damage:0,Enchantments:[{id:\"\"minecraft:sharpness\"\",lvl:3s}]},Count:1b}\"\\nset {_nbt} to nbt compound of file \"world/playerdata/some-uuid.dat\""
+},
+{
+  "id" : "ExprItemFromNBT",
+  "name" : "NBT - Item from NBT",
+  "patterns" : [
+    "item[s] (from|of) nbt[s] %<a href='./classes.html#string'>texts</a>/<a href='./classes.html#nbtcompound'>nbt compounds</a>%",
+"nbt item[s] (from|of) %<a href='./classes.html#string'>texts</a>/<a href='./classes.html#nbtcompound'>nbt compounds</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.4.10",
+  "description" : "This expression allows you to grab an item from NBT strings or compounds (compound support added in 1.6.0). 
+This can be useful when wanting to grab items from file nbt, or nbt of an entity or an inventory holding block (like a chest or furnace).
+It can also be useful for creating your own serializing system. The NBT string required for this must be an item's FULL item NBT 
+(This must include the item type and amount, example of full: \"{id:\"minecraft:iron_sword\",tag:{Damage:0},Count:1b}\"
+ example of partial nbt of the same item: \"{Damage:0}\").",
+  "examples" : "set {_i} to item from nbt \"{id:\"\"minecraft:iron_sword\"\",tag:{Damage:0},Count:1b}\"\\n
+\\nset {_nbt::*} to tag \"Inventory\" of file nbt of \"world/playerdata/some-players-uuid.dat\"\\nloop {_nbt::*}\\n    set {_i} to item from nbt loop-value"
+},
+{
+  "id" : "ExprItemWithNBT",
+  "name" : "NBT - Item with NBT",
+  "patterns" : [
+    "%<a href='./classes.html#itemtype'>item type</a>% with [item( |-)]nbt %<a href='./classes.html#string'>text</a>/<a href='./classes.html#nbtcompound'>nbt compound</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Give players items with NBT or even use items with NBT in GUIs",
+  "examples" : "give player diamond sword with nbt \"{Unbreakable:1}\"\\nformat gui slot 1 of player with diamond axe with nbt \"{Enchantments:[{id:\\\"\\\"unbreaking\\\"\\\",lvl:5s}]}\""
+},
+{
+  "id" : "ExprObjectNBT",
+  "name" : "NBT - Item/Inventory Slot/Entity/Block/File",
+  "patterns" : [
+    "[the] [full ][(entity|item|slot|block|tile[(-| )]entity|file)(-| )]nbt of %<a href='./classes.html#block'>block</a>/<a href='./classes.html#entity'>entity</a>/<a href='./classes.html#itemstack'>item stack</a>/<a href='./classes.html#itemtype'>item type</a>/<a href='./classes.html#slot'>slot</a>/<a href='./classes.html#string'>text</a>%",
+"%<a href='./classes.html#block'>block</a>/<a href='./classes.html#entity'>entity</a>/<a href='./classes.html#itemstack'>item stack</a>/<a href='./classes.html#itemtype'>item type</a>/<a href='./classes.html#slot'>slot</a>/<a href='./classes.html#string'>text</a>%'[s] [full ][(entity|item|slot|block|tile[(-| )]entity|file)(-| )]nbt",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "NBT of items, inventory slots, entities, tile entities (such as a furnace, hopper, brewing stand, banner, etc) or files. 
+Supports get, set, add and reset. Reset will only properly work on an item, not entities or blocks. 
+Set should not be used on entities or blocks, it's best to use add. Using set can quite often screw up the entity/block's location. 
+The optional 'full' part (added in 1.4.10) will only work on items/slots. When using this, it will return the full NBT of said item, 
+including the item amount as well as the item type.",
+  "examples" : "set {_nbt} to nbt of player's tool\\nset {_f} to full nbt of player's tool\\nadd \"{Enchantments:[{id:\"\"sharpness\"\",lvl:5}]}\" to nbt of player's tool\\nreset nbt of player's tool\\nset {_nbt} to nbt of target entity\\nset {_nbt} to event-entity\\nadd \"{CustomName:\"\"{\\\"\"text\\\"\":\\\"\"&bMyNewName\\\"\"}\"\"}\" to nbt of target entity\\nadd \"{RequiredPlayerRange:0s}\" to targeted block's nbt\\nadd \"{SpawnData:{id:\"\"minecraft:wither\"\"}}\" to nbt of clicked block\\nset {_nbt} to file-nbt of \"world/playerdata/some-uuid-here.dat\""
+},
+{
+  "id" : "ExprPrettyNBT",
+  "name" : "NBT - Pretty NBT String",
+  "patterns" : [
+    "pretty nbt (of|from) %<a href='./classes.html#nbtcompound'>nbt compounds</a>/<a href='./classes.html#string'>texts</a>% [(with|using) split %<a href='./classes.html#string'>text</a>%]",
+"%<a href='./classes.html#nbtcompound'>nbt compounds</a>/<a href='./classes.html#string'>texts</a>%'[s] pretty nbt [(with|using) split %<a href='./classes.html#string'>text</a>%]",
+
+    "pattern_end"
+  ],
+  "since" : "1.6.0",
+  "description" : "Get a 'pretty' NBT string. This is colored the same as when using the vanilla Minecraft '/data' command. 
+Splitting it will output kind of like a JSON output. Requires 1.13.2+",
+  "examples" : "set {_p} to pretty nbt from nbt compound of player's tool\\nsend pretty nbt from {_nbt} to player\\nsend pretty nbt from {_nbt} with split \" \" to console"
+},
+{
+  "id" : "ExprTagOfNBT",
+  "name" : "NBT - Tag",
+  "patterns" : [
+    "tag %<a href='./classes.html#string'>text</a>% of %<a href='./classes.html#string'>text</a>/<a href='./classes.html#nbtcompound'>nbt compound</a>%",
+"%<a href='./classes.html#string'>text</a>% tag of %<a href='./classes.html#string'>text</a>/<a href='./classes.html#nbtcompound'>nbt compound</a>%",
+"%<a href='./classes.html#nbttype'>nbt type</a>% %<a href='./classes.html#string'>text</a>% of %<a href='./classes.html#nbtcompound'>nbt compound</a>%",
+"%<a href='./classes.html#string'>text</a>% %<a href='./classes.html#nbttype'>nbt type</a>% of %<a href='./classes.html#nbtcompound'>nbt compound</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Returns the value of the specified tag of the specified NBT. Also supports getting nested tags using a semi colon as a delimiter.
+If the return value is a list, you can use it as a list, as it will automatically split it for ya.
+As of 1.6.0 you can also set/delete tags, but only with NBT compounds, not NBT strings. Do note that setting the tag of an item
+will not update it, you will have to create a variable for the NBT compound of the item, set the tag of that variable, then set the item back
+using the 'nbt item of' expression. I understand this is a bit convoluted but unfortunately that is just how it works. See examples.
+Also note that you can NOT create custom tags for entities/blocks. As of 1.7.1 blocks(tile entities)/entities will be able to hold custom nbt
+data in the \"custom\" tag of said block/entity. Due to Minecraft not supporting this, I had to use some hacky methods to make this happen.
+That said, this system is a tad convoluted, see the SkBee WIKI for more details.
+As of 1.10.0 you can now add custom NBT to any block (the same as you would for tile entities)(This is only support on 1.16.4+). 
+Since Minecraft does not natively support this, the NBT is actually stored in the chunk's NBT. See wiki for more info.
+As of 1.10.0 you can get/set specific tag types of NBT compounds, allowing for more detailed control of what type your tag is going to be.",
+  "examples" : "set {_tag} to tag \"Invulnerable\" of targeted entity's nbt\\nsend \"Tag: %tag \"\"CustomName\"\" of nbt of target entity%\" to player\\nset {_tag} to \"Enchantments\" tag of nbt of player's tool\\ndelete tag \"CustomTag\" of {_nbt}\\nset {_tag} to \"BlockEntityTag;Items\" tag of nbt of target block\\n\\nset {_n} to nbt compound of player's tool\\nset tag \"tag;Damage\" of {_n} to 500\\nset player's tool to nbt item of {_n}\\n\\nset byte tag \"points\" of {_nbt} to 1\\nset int tag \"custom;score\" of nbt compound of player to 10\\nset {_i} to int tag \"Score\" of nbt compound of player\\nset {_t::*} to compound list tag \"abilities\" of nbt compound of player"
+},
+{
+  "id" : "ExprTagTypeOfNBT",
+  "name" : "NBT - Tag Type",
+  "patterns" : [
+    "[nbt[ ]]tag[ ]type of tag %<a href='./classes.html#string'>text</a>% of %<a href='./classes.html#nbtcompound'>nbt compound</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.13.1",
+  "description" : "Represents the NBT tag type of a tag in an NBT compound. This is mainly useful for debugging purposes.",
+  "examples" : "set {_type} to tag type of tag \"Pos\" of nbt compound of player"
+},
+{
+  "id" : "ExprTagsOfNBT",
+  "name" : "NBT - Tags",
+  "patterns" : [
+    "[the] nbt tags of %<a href='./classes.html#nbtcompound'>nbt compound</a>%",
+"%<a href='./classes.html#nbtcompound'>nbt compound</a>%'[s] nbt tags",
+
+    "pattern_end"
+  ],
+  "since" : "INSERT VERSION",
+  "description" : "Get all tags of an NBT compound.",
+  "examples" : "set {_t::*} to nbt tags of {_n}\\nset {_t::*} to nbt tags of nbt compound of player"
+},
+{
+  "id" : "ExprNBTUuid",
+  "name" : "NBT - UUID for NBT",
+  "patterns" : [
+    "uuid (int array[( as string)]|most[ bits]|least[ bits]) [(from|of) %<a href='./classes.html#offlineplayer'>offline player</a>/<a href='./classes.html#entity'>entity</a>%]",
+
+    "pattern_end"
+  ],
+  "since" : "1.5.2",
+  "description" : "Allows you to get an entity's UUID which can be represented in an NBT compound. Prior to 1.16 UUIDs were represented 
+as most/least significant bits. As of 1.16, they are now represented as int arrays. If the player/entity is excluded, this 
+will return a random UUID.",
+  "examples" : "set {_u::*} to uuid int array of player\\nset {_u} to uuid int array as string from player\\nset {_m} to uuid most from target entity\\nset {_l} to uuid least bits of event-entity"
 },
 {
   "id" : "ExprName",
@@ -6677,15 +7989,15 @@ Please note that the location of an entity is at it's feet, use <a href='#ExprEy
 },
 {
   "id" : "ExprNamed",
-  "name" : "Named Item/Inventory/Entities",
+  "name" : "Named Item/Inventory",
   "patterns" : [
-    "%<a href='./classes.html#itemtype'>item type</a>/<a href='./classes.html#inventorytype'>inventory type</a>/<a href='./classes.html#entitytype'>entity types</a>% (named|with name[s]) %<a href='./classes.html#string'>text</a>%",
+    "%<a href='./classes.html#itemtype'>item type</a>/<a href='./classes.html#inventorytype'>inventory type</a>% (named|with name[s]) %<a href='./classes.html#string'>text</a>%",
 
     "pattern_end"
   ],
-  "since" : "2.0, 2.2-dev34 (inventories), INSERT VERSION (entities)",
-  "description" : "Directly names an item/inventory/entity, useful for defining a named item/inventory/entity in a script. If you want to (re)name existing items/inventories you can either use this expression or use <a href='#ExprName'>Name Of</a> expression.",
-  "examples" : "give a diamond sword of sharpness 100 named \"&lt;gold&gt;Excalibur\" to the player\\nset tool of player to the player's tool named \"&lt;gold&gt;Wand\"\\nset the name of the player's tool to \"&lt;gold&gt;Wand\"\\nspawn creeper named \"Bob\" at player\\nopen hopper inventory named \"Magic Hopper\" to player"
+  "since" : "2.0, 2.2-dev34 (inventories)",
+  "description" : "Directly names an item/inventory, useful for defining a named item/inventory in a script. If you want to (re)name existing items/inventories you can either use this expression or use <code>set <a href='#ExprName'>name of &lt;item/inventory&gt;</a> to &lt;text&gt;</code>.",
+  "examples" : "give a diamond sword of sharpness 100 named \"&lt;gold&gt;Excalibur\" to the player\\nset tool of player to the player's tool named \"&lt;gold&gt;Wand\"\\nset the name of the player's tool to \"&lt;gold&gt;Wand\"\\nopen hopper inventory named \"Magic Hopper\" to player"
 },
 {
   "id" : "LitNewLine",
@@ -6841,6 +8153,32 @@ Some notes about parsing with a pattern:
 For 1.11.2 and above, it returns a list of passengers and you can use all changers in it.
 See also: <a href='#ExprVehicle'>vehicle</a>",
   "examples" : "#for 1.11 and lower\\npassenger of the minecart is a creeper or a cow\\nthe saddled pig's passenger is a player\\n#for 1.11.2+\\npassengers of the minecart contains a creeper or a cow\\nthe boat's passenger contains a pig\\nadd a cow and a zombie to passengers of last spawned boat\\nset passengers of player's vehicle to a pig and a horse\\nremove all pigs from player's vehicle\\nclear passengers of boat"
+},
+{
+  "id" : "ExprPath",
+  "name" : "Pathfinding - Path Points",
+  "patterns" : [
+    "path [points] of %<a href='./classes.html#livingentity'>living entities</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.5.0",
+  "description" : "Get all the points along an entity's pathfinding path. Requires Paper 1.13+",
+  "examples" : "set {_path::*} to path points of last spawned sheep"
+},
+{
+  "id" : "ExprPathTarget",
+  "name" : "Pathfinding - Path Target",
+  "patterns" : [
+    "[the] [final] path target[s] [with speed %<a href='./classes.html#number'>number</a>%] of %<a href='./classes.html#livingentity'>living entities</a>%",
+"%<a href='./classes.html#livingentity'>living entities</a>%'[s] [final] path target[s] [with speed %<a href='./classes.html#number'>number</a>%]",
+
+    "pattern_end"
+  ],
+  "since" : "1.5.0",
+  "description" : "Set the path of an entity to target a specific location, with an optional speed
+Get the location of the paths end. Delete will stop the entity from pathfinding. Requires Paper 1.13+",
+  "examples" : "set path target of event-entity to player\\nset path target with speed 1.5 to location of above player\\nset path targets of all entities to location of player\\ndelete path target of event-entity"
 },
 {
   "id" : "ExprPing",
@@ -7057,6 +8395,31 @@ Please note that the order of the numbers doesn't matter, i.e. <code>random numb
   "since" : "unknown (2.2)",
   "description" : "The raw Minecraft material name of the given item. Note that this is not guaranteed to give same results on all servers.",
   "examples" : "raw name of tool of player"
+},
+{
+  "id" : "ExprAllRecipes",
+  "name" : "Recipe - All Recipes",
+  "patterns" : [
+    "[(all [[of] the]|the)] [((mc|minecraft)|custom)] recipe[s] [(for|of) %<a href='./classes.html#itemtype'>item types</a>%]",
+
+    "pattern_end"
+  ],
+  "since" : "1.4.0",
+  "description" : "Get a list of all recipes. May be from a specific item, may be just Minecraft recipes or custom recipes.
+Due to some items having more than 1 recipe this may return multiple recipes. Requires 1.13+",
+  "examples" : "set {_recipes::*} to all recipes of iron ingot"
+},
+{
+  "id" : "ExprIngredientsOfRecipe",
+  "name" : "Recipe - Ingredients of Recipe",
+  "patterns" : [
+    "[(all [[of] the]|the)] ingredients (for|of) recipe %<a href='./classes.html#string'>text</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.4.0",
+  "description" : "Get the ingredients from a recipe. Requires 1.13+",
+  "examples" : "set {_ing::*} to ingredients of recipe \"minecraft:diamond_sword\"\\nloop recipes for iron ingot:\\n    set {_ing::*} to ingredients of recipe %loop-value%"
 },
 {
   "id" : "ExprRedstoneBlockPower",
@@ -7375,6 +8738,19 @@ Please note that changing a player's speed will change their FOV just like potio
   "examples" : "set the player's walk speed to 1\\nincrease the argument's fly speed by 0.1"
 },
 {
+  "id" : "ExprStoredEnchant",
+  "name" : "Stored Enchantments",
+  "patterns" : [
+    "[the] stored enchant[ment]s of %<a href='./classes.html#itemstack'>item stacks</a>/<a href='./classes.html#itemtype'>item types</a>%",
+"%<a href='./classes.html#itemstack'>item stacks</a>/<a href='./classes.html#itemtype'>item types</a>%'[s] stored enchant[ment]s",
+
+    "pattern_end"
+  ],
+  "since" : "1.0.0",
+  "description" : "Get/set the stored enchantments of an enchanted book.",
+  "examples" : "set {_a::*} to stored enchants of player's tool\\nset stored enchants of player's tool to sharpness 3 and unbreaking 2\\nadd sharpness 1 to stored enchants of player's tool\\ndelete stored enchants of player's tool\\nremove sharpness from stored enchants of player's tool"
+},
+{
   "id" : "ExprSubstring",
   "name" : "Subtext",
   "patterns" : [
@@ -7403,6 +8779,32 @@ Please note that changing a player's speed will change their FOV just like potio
   "since" : "2.2-dev36",
   "description" : "Returns the 3 most recent TPS readings, like the /tps command. This expression is only supported on some server software (PaperSpigot).",
   "examples" : "broadcast \"%tps%\""
+},
+{
+  "id" : "ExprTabCompletionArgs",
+  "name" : "Tab Completion Argument",
+  "patterns" : [
+    "tab [complete] arg[ument](s|[(-| )]%<a href='./classes.html#number'>number</a>%)",
+
+    "pattern_end"
+  ],
+  "since" : "1.7.0",
+  "description" : "Get the argument or a list of all arguments in a tab complete event.",
+  "examples" : "on tab complete of \"/breakfast\":\\n    set tab completions for position 1 to \"toast\", \"eggs\" and \"waffles\"\\n    if tab arg-1 = \"toast\":\\n        set tab completions for position 2 to \"butter\", \"peanut_butter\" and \"jam\"\\n    else if tab arg-1 = \"eggs\":\\n        set tab completions for position 2 to \"sunny_side_up\", \"scrambled\" and \"over_easy\"\\n\\nset {_l::*} to tab args"
+},
+{
+  "id" : "ExprTabCompletion",
+  "name" : "Tab Completions",
+  "patterns" : [
+    "[skbee] tab completions [(of|for) position %<a href='./classes.html#number'>number</a>%]",
+
+    "pattern_end"
+  ],
+  "since" : "1.7.0",
+  "description" : "Set the tab completions used in a tab complete event. 
+You can specify which position in the command arguments also (will default to position 1). 
+You can also remove texts from tab completions.",
+  "examples" : "on tab complete of \"/mycommand\":\\n    set tab completions for position 1 to \"one\", \"two\" and \"three\"\\n    set tab completions for position 2 to 1, 2 and 3\\n    set tab completions for position 3 to all players\\n    set tab completions for position 4 to (indexes of {blocks::*})\\n\\non tab complete:\\n    if event-string contains \"/ver\":\\n        remove \"PermissionsEx\" from tab completions"
 },
 {
   "id" : "ExprTamer",
@@ -7482,6 +8884,93 @@ Please note that changing a player's speed will change their FOV just like potio
   "examples" : "set {points} to 500 if {admin::%player's uuid%} is set else 100"
 },
 {
+  "id" : "ExprClickEvent",
+  "name" : "Text Component - Click Event",
+  "patterns" : [
+    "[a] [new] click event to run command %<a href='./classes.html#string'>text</a>%",
+"[a] [new] click event to suggest command %<a href='./classes.html#string'>text</a>%",
+"[a] [new] click event to open (link|url) %<a href='./classes.html#string'>text</a>%",
+"[a] [new] click event to copy %<a href='./classes.html#string'>text</a>% to clipboard",
+"[a] [new] click event to change to page %<a href='./classes.html#number'>number</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.5.0",
+  "description" : "Create a new click event. Supports run command, suggest command, open link and copy to clipboard.",
+  "examples" : "set {_t} to text component from \"Check out my cool website\"\\nset hover event of {_t} to a new hover event showing \"Clicky clicky to go to spawn!\"\\nset click event of {_t} to a new click event to open url \"https://my.cool.website\"\\nsend component {_t} to player"
+},
+{
+  "id" : "ExprClickEventOf",
+  "name" : "Text Component - Click Event Of",
+  "patterns" : [
+    "[the] click event of %<a href='./classes.html#basecomponent'>base components</a>%",
+"%<a href='./classes.html#basecomponent'>base components</a>%'[s] click event",
+
+    "pattern_end"
+  ],
+  "since" : "1.5.0",
+  "description" : "Set the click event of a text component.",
+  "examples" : "set {_t} to text component from \"Check out this cool thing at SPAWN!\"\\nset hover event of {_t} to a new hover event showing \"Clicky clicky to go to spawn!\"\\nset click event of {_t} to a new click event to run command \"/spawn\"\\nsend component {_t} to player"
+},
+{
+  "id" : "ExprComponentFormat",
+  "name" : "Text Component - Format",
+  "patterns" : [
+    "[the] (color|bold|italic|(obfuscate[d]|magic)|strikethrough|underline[d]|insert[ion]) format of %<a href='./classes.html#basecomponent'>base components</a>%",
+"%<a href='./classes.html#basecomponent'>base components</a>%'[s] (color|bold|italic|(obfuscate[d]|magic)|strikethrough|underline[d]|insert[ion]) format",
+
+    "pattern_end"
+  ],
+  "since" : "1.5.1",
+  "description" : "Change formatting options of text components. Most of these are pretty straight forward. Insertion means the text 
+that will copy to chat when a player shift-clicks the component (Might not be available on all versions). Color supports color 
+names as well as RGB color codes via Skript's RGB function (RGB = Minecraft 1.16+) (see examples).",
+  "examples" : "set {_t} to text component from \"my fancy text component\"\\nset bold format of {_t} to true\\nset color format of {_t} to aqua\\nset color format of {_t} to rgb(100, 0, 160)\\nset insertion format of {_t} to \"ooooo\""
+},
+{
+  "id" : "ExprHoverEvent",
+  "name" : "Text Component - Hover Event",
+  "patterns" : [
+    "[a] [new] hover event showing %<a href='./classes.html#string'>texts</a>%",
+"[a] [new] hover event showing %<a href='./classes.html#itemtype'>item type</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.5.0",
+  "description" : "Create a new hover event. Can show text or an item to a player. 'showing %itemtype%' requires Minecraft 1.16.2+",
+  "examples" : "set {_t} to text component from \"Check out my cool tool!\"\\nset hover event of {_t} to a new hover event showing player's tool\\nsend component {_t} to player"
+},
+{
+  "id" : "ExprHoverEventOf",
+  "name" : "Text Component - Hover Event Of",
+  "patterns" : [
+    "[the] hover event of %<a href='./classes.html#basecomponent'>base components</a>%",
+"%<a href='./classes.html#basecomponent'>base components</a>%'[s] hover event",
+
+    "pattern_end"
+  ],
+  "since" : "1.5.0",
+  "description" : "Set the hover event of a text component.",
+  "examples" : "set {_t} to text component from \"Check out my cool tool!\"\\nset hover event of {_t} to a new hover event showing player's tool\\nsend component {_t} to player"
+},
+{
+  "id" : "ExprTextComponent",
+  "name" : "Text Component - New Text Component",
+  "patterns" : [
+    "[a] [new] text component[s] (from|of) %<a href='./classes.html#string'>texts</a>%",
+"[a] [new] translate component[s] (from|of) %<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#string'>texts</a>%",
+"[a] [new] translate component[s] (from|of) %<a href='./classes.html#string'>text</a>% (with|using) %<a href='./classes.html#object'>objects</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.5.0",
+  "description" : "Create a new text component. Can have hover and click events added to it. You can also create a translate component, 
+this will send to the client, and the client will translate based on their language. You can use either an item type or a 
+translate string, you can find these in your Minecraft jar 'assets/minecraft/lang/<lang file>.json'.
+Some components have extra objects, you can use strings or other text components here.",
+  "examples" : "set {_comp::1} to text component from \"hi player \"\\nset {_comp::2} to text component of \"hover over me for a special message!\"\\nset hover event of {_comp::2} to hover event to show \"OoO look ma I'm hovering!\"\\nsend component {_comp::*} to player\\n\\nset {_t} to translate component from player's tool\\nset {_t} to translate component from \"item.minecraft.milk_bucket\"\\nset {_death} to translate component from \"death.fell.accident.ladder\" using player's name\\nset {_assist} to translate component \"death.fell.assist\" using victim's name and attacker's name"
+},
+{
   "id" : "ExprTime",
   "name" : "Time",
   "patterns" : [
@@ -7531,6 +9020,19 @@ Please note that changing a player's speed will change their FOV just like potio
   "since" : "1.0",
   "description" : "The item an entity is holding in their main or off hand.",
   "examples" : "player's tool is a pickaxe\\nplayer's off hand tool is a shield\\nset tool of all players to a diamond sword\\nset offhand tool of target entity to a bow"
+},
+{
+  "id" : "ExprTotalXP",
+  "name" : "Total Experience",
+  "patterns" : [
+    "[the] total (xp|experience) [points] of %<a href='./classes.html#player'>players</a>%",
+"%<a href='./classes.html#player'>players</a>%'[s] total (xp|experience) [points]",
+
+    "pattern_end"
+  ],
+  "since" : "1.2.0",
+  "description" : "Represents the total experience points the player currently has.",
+  "examples" : "add 10 to total experience of player\\nremove 100 from total experience of player\\nset total xp of player to 1500\\nset {_t} to total experience of player"
 },
 {
   "id" : "ExprTypeOf",
@@ -7907,6 +9409,32 @@ This can only be set in a <a href='events.html#server_list_ping'>server list pin
   "examples" : "world is \"world_nether\"\\nteleport the player to the world's spawn\\nset the weather in the player's world to rain\\nset {_world} to world of event-chunk"
 },
 {
+  "id" : "ExprWorldCreator",
+  "name" : "World Creator",
+  "patterns" : [
+    "[a] [new] world creator (with name|named) %<a href='./classes.html#string'>text</a>%",
+"[a] [new] world creator (with name|named) %<a href='./classes.html#string'>text</a>% to (copy|clone) %<a href='./classes.html#world'>world</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "1.8.0",
+  "description" : "Create a new world creator. This will be used to create a new world. Name will be the name of your new world. You can not use the name of one of the default worlds, or a world created by another plugin, such as MultiVerse. Copy will create a fresh new world with the same seed and settings. Clone will create a carbon copy of your world, if the world is large, this process may take a while. After creating a world creator you will need to load the world.",
+  "examples" : "set {_w} to a new world creator named \"my-world\"\\nset environment of {_w} to nether\\nload world from creator {_w}\\n\\nset {_clone} to a new world creator named \"world-clone\" to clone world \"world\"\\nload world from creator {_clone}"
+},
+{
+  "id" : "ExprWorldCreatorOption",
+  "name" : "World Creator Options",
+  "patterns" : [
+    "[the] (environment|world type|world seed|gen[erator] settings|generator|should gen[erate] structures|[is] hardcore|keep spawn loaded) of %<a href='./classes.html#worldcreator'>world creator</a>%",
+"%<a href='./classes.html#worldcreator'>world creator</a>%'[s] (environment|world type|world seed|gen[erator] settings|generator|should gen[erate] structures|[is] hardcore|keep spawn loaded)",
+
+    "pattern_end"
+  ],
+  "since" : "1.8.0",
+  "description" : "Set different options for world creators. See SkBee wiki for more details.",
+  "examples" : "set {_w} to a new world creator named \"my-world\"\\nset environment of {_w} to nether\\nset world type of {_w} to flat\\nset should generate structures of {_w} to true\\nload world from creator {_w}"
+},
+{
   "id" : "ExprSeed",
   "name" : "World Seed",
   "patterns" : [
@@ -8106,6 +9634,18 @@ This can only be set in a <a href='events.html#server_list_ping'>server list pin
   "since" : "2.2",
   "description" : "Creates a date from a year, month, and day, and optionally also from hour, minute, second and millisecond.\\nA time zone and DST offset can be specified as well (in minutes), if they are left out the server's time zone and DST offset are used (the created date will not retain this information).",
   "examples" : "date(2014, 10, 1) # 0:00, 1st October 2014\\ndate(1990, 3, 5, 14, 30) # 14:30, 5th May 1990\\ndate(1999, 12, 31, 23, 59, 59, 999, -3*60, 0) # almost year 2000 in parts of Brazil (-3 hours offset, no DST)"
+},
+{
+  "id" : "dustOption",
+  "name" : "dustOption",
+  "patterns" : [
+    "dustOption(color: color, size: number)",
+
+    "pattern_end"
+  ],
+  "since" : "1.9.0",
+  "description" : "Creates a new dust option to be used with 'dust' particle. Color can either be a regular color or an RGB color using\\nSkript's rgb() function. Size is the size the particle will be.",
+  "examples" : "set {_c} to dustOption(red, 1.5)\\nset {_c} to dustOption(rgb(1, 255, 1), 3)"
 },
 {
   "id" : "exp",
