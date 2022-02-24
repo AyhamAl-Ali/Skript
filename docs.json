@@ -3060,7 +3060,7 @@ Do note that other event values, such as 'player', won't work in this section.",
     "pattern_end"
   ],
   "since" : "1.0",
-  "description" : "Called when a user clicks on a block, an entity or air with or without an item in their hand.\\nPlease note that rightclick events with an empty hand while not looking at a block are not sent to the server, so there's no way to detect them.",
+  "description" : "Called when a user clicks on a block, an entity or air with or without an item in their hand.\\nPlease note that rightclick events with an empty hand while not looking at a block are not sent to the server, so there's no way to detect them.\\nAlso note that a leftclick on an entity is an attack and thus not covered by the 'click' event, but the 'damage' event.",
   "examples" : "on click:\\non rightclick holding a fishing rod:\\non leftclick on a stone or obsidian:\\non rightclick on a creeper:\\non click with a sword:"
 },
 {
