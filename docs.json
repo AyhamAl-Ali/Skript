@@ -107,8 +107,8 @@
     "pattern_end"
   ],
   "since" : "Unknown",
-  "description" : "Wool, dye and chat colours.",
-  "examples" : "color of the sheep is red or black\\nset the colour of the block to green\\nmessage \"You're holding a <%color of tool%>%color of tool%<reset> wool block\""
+  "description" : "Wool, dye and chat colors.",
+  "examples" : "color of the sheep is red or black\\nset the color of the block to green\\nmessage \"You're holding a <%color of tool%>%color of tool%<reset> wool block\""
 },
 {
   "id" : "commandsender",
@@ -144,7 +144,7 @@
     "pattern_end"
   ],
   "since" : "1.4",
-  "description" : "A date is a certain point in the real world's time which can currently only be obtained with <a href='./expressions.html#ExprNow'>now</a>.\\nSee <a href='#time'>time</a> and <a href='#timespan'>timespan</a> for the other time types of Skript.",
+  "description" : "A date is a certain point in the real world's time which can be obtained with <a href='./expressions.html#ExprNow'>now expression</a>, <a href='./expressions.html#ExprUnixDate'>unix date expression</a> and <a href='./functions.html#date'>date function</a>.\\nSee <a href='#time'>time</a> and <a href='#timespan'>timespan</a> for the other time types of Skript.",
   "examples" : "set {_yesterday} to now\\nsubtract a day from {_yesterday}\\n# now {_yesterday} represents the date 24 hours before now"
 },
 {
@@ -265,7 +265,7 @@
   ],
   "since" : "2.4",
   "description" : "A configuration of effects that defines the firework when exploded\\nwhich can be used in the <a href='effects.html#EffFireworkLaunch'>launch firework</a> effect.\\nSee the <a href='expressions.html#ExprFireworkEffect'>firework effect</a> expression for detailed patterns.",
-  "examples" : "launch flickering trailing burst firework colored blue and green at player\\nlaunch trailing flickering star coloured purple, yellow, blue, green and red fading to pink at target entity\\nlaunch ball large coloured red, purple and white fading to light green and black at player's location with duration 1"
+  "examples" : "launch flickering trailing burst firework colored blue and green at player\\nlaunch trailing flickering star colored purple, yellow, blue, green and red fading to pink at target entity\\nlaunch ball large colored red, purple and white fading to light green and black at player's location with duration 1"
 },
 {
   "id" : "FireworkType",
@@ -373,7 +373,7 @@
   ],
   "since" : "Unknown",
   "description" : "Represents a single slot of an <a href='#inventory'>inventory</a>. Notable slots are the <a href='./expressions.html#ExprArmorSlot'>armour slots</a> and <a href='./expressions/#ExprFurnaceSlot'>furnace slots</a>. \\nThe most important property that distinguishes a slot from an <a href='#itemstack'>item</a> is its ability to be changed, e.g. it can be set, deleted, enchanted, etc. (Some item expressions can be changed as well, e.g. items stored in variables. For that matter: slots are never saved to variables, only the items they represent at the time when the variable is set).\\nPlease note that <a href='./expressions.html#ExprTool'>tool</a> can be regarded a slot, but it can actually change it's position, i.e. doesn't represent always the same slot.",
-  "examples" : "set tool of player to dirt\\ndelete helmet of the victim\\nset the colour of the player's tool to green\\nenchant the player's chestplate with projectile protection 5"
+  "examples" : "set tool of player to dirt\\ndelete helmet of the victim\\nset the color of the player's tool to green\\nenchant the player's chestplate with projectile protection 5"
 },
 {
   "id" : "inventorytype",
@@ -446,18 +446,6 @@
   "since" : "2.2-dev36",
   "description" : "Something that can hold metadata (e.g. an entity or block)",
   "examples" : "set metadata value \"super cool\" of player to true"
-},
-{
-  "id" : "money",
-  "name" : "Money",
-  "patterns" : [
-    "&lt;number&gt; $ or $ &lt;number&gt;, where '$' is your server's currency, e.g. '10 rupees' or '£5.00'",
-
-    "pattern_end"
-  ],
-  "since" : "2.0",
-  "description" : "A certain amount of money. Please note that this differs from <a href='#number'>numbers</a> as it includes a currency symbol or name, but usually the two are interchangeable, e.g. you can both add 100$ to the player's balance and add 100 to the player's balance.",
-  "examples" : "add 10£ to the player's account\\nremove Fr. 9.95 from the player's money\\nset the victim's money to 0\\nincrease the attacker's balance by the level of the victim * 100"
 },
 {
   "id" : "number",
@@ -1928,7 +1916,7 @@ You can add a tool, which will spawn items based on how that tool would break th
 },
 {
   "id" : "EffColorItems",
-  "name" : "Colour Items",
+  "name" : "Color Items",
   "patterns" : [
     "(dye|colo[u]r|paint) %<a href='./classes.html#itemtype'>item types</a>% %<a href='./classes.html#color'>color</a>%",
 "(dye|colo[u]r|paint) %<a href='./classes.html#itemtype'>item types</a>% \\(%<a href='./classes.html#number'>number</a>%, %<a href='./classes.html#number'>number</a>%, %<a href='./classes.html#number'>number</a>%\\)",
@@ -1936,8 +1924,8 @@ You can add a tool, which will spawn items based on how that tool would break th
     "pattern_end"
   ],
   "since" : "2.0, 2.2-dev26 (maps and potions)",
-  "description" : "Colours items in a given <a href='classes.html#color'>colour</a>. You can also use RGB codes if you feel limited with the 16 default colours. RGB codes are three numbers from 0 to 255 in the order <code>(red, green, blue)</code>, where <code>(0,0,0)</code> is black and <code>(255,255,255)</code> is white. Armor is colourable for all Minecraft versions. With Minecraft 1.11 or newer you can also colour potions and maps. Note that the colours might not look exactly how you'd expect.",
-  "examples" : "dye player's helmet blue\\ncolour the player's tool red"
+  "description" : "Colors items in a given <a href='classes.html#color'>color</a>. You can also use RGB codes if you feel limited with the 16 default colors. RGB codes are three numbers from 0 to 255 in the order <code>(red, green, blue)</code>, where <code>(0,0,0)</code> is black and <code>(255,255,255)</code> is white. Armor is colorable for all Minecraft versions. With Minecraft 1.11 or newer you can also color potions and maps. Note that the colors might not look exactly how you'd expect.",
+  "examples" : "dye player's helmet blue\\ncolor the player's tool red"
 },
 {
   "id" : "EffCommand",
@@ -2226,7 +2214,7 @@ Note: This effect does not set the entity's health to 0 (which causes issues), b
   ],
   "since" : "2.4",
   "description" : "Launch firework effects at the given location(s).",
-  "examples" : "launch ball large coloured red, purple and white fading to light green and black at player's location with duration 1"
+  "examples" : "launch ball large colored red, purple and white fading to light green and black at player's location with duration 1"
 },
 {
   "id" : "EffLeash",
@@ -2357,7 +2345,7 @@ NB: Using 'server.log' as the log file will write to the default server log. Omi
   ],
   "since" : "1.0, 2.2-dev26 (advanced features), 2.5.2 (optional sender), 2.6 (sending objects)",
   "description" : "Sends a message to the given player. Only styles written
-in given string or in <a href=expressions.html#ExprColoured>formatted expressions</a> will be parsed.
+in given string or in <a href=expressions.html#ExprColored>formatted expressions</a> will be parsed.
 Adding an optional sender allows the messages to be sent as if a specific player sent them.
 This is useful with Minecraft 1.16.4's new chat ignore system, in which players can choose to ignore other players,
 but for this to work, the message needs to be sent from a player.",
@@ -2519,9 +2507,8 @@ Note: if a player was hidden and relogs, this player will be visible again.",
 
     "pattern_end"
   ],
-  "since" : "2.0, 2.2-dev24 (replace in muliple strings and replace items in inventory), 2.5 (replace first, case sensitivity)",
-  "description" : "Replaces all occurrences of a given text with another text. Please note that you can only change variables and a few expressions, e.g. a <a href='./expressions.html#ExprMessage'>message</a> or a line of a sign.
-Starting with 2.2-dev24, you can replace items in a inventory too.",
+  "since" : "2.0, 2.2-dev24 (replace in multiple strings and replace items in inventory), 2.5 (replace first, case sensitivity)",
+  "description" : "Replaces all occurrences of a given text with another text. Please note that you can only change variables and a few expressions, e.g. a <a href='./expressions.html#ExprMessage'>message</a> or a line of a sign.",
   "examples" : "replace \"<item>\" in {textvar} with \"%item%\"\\nreplace every \"&\" with \"§\" in line 1\\n# The following acts as a simple chat censor, but it will e.g. censor mass, hassle, assassin, etc. as well:\\non chat:\\n    replace all \"kys\", \"idiot\" and \"noob\" with \"****\" in the message\\n \\nreplace all stone and dirt in player's inventory and player's top inventory with diamond"
 },
 {
@@ -2819,6 +2806,95 @@ Do note that other event values, such as 'player', won't work in this section.",
   "examples" : "at 18:00\\nat 7am in \"world\""
 },
 {
+  "id" : "consent",
+  "name" : "Consent",
+  "patterns" : [
+    "skript-(mirror|reflect), I know what I'm doing",
+
+    "pattern_end"
+  ],
+  "since" : "Unknown",
+  "description" : "Missing description.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "define_condition",
+  "name" : "Define Condition",
+  "patterns" : [
+    "[local] condition &lt;.+&gt;",
+"[local] condition",
+"[local] %*<a href='./classes.html#classinfo'>types</a>% property condition &lt;.+&gt;",
+
+    "pattern_end"
+  ],
+  "since" : "Unknown",
+  "description" : "Missing description.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "define_constant",
+  "name" : "Define Constant",
+  "patterns" : [
+    "option &lt;.+&gt;",
+
+    "pattern_end"
+  ],
+  "since" : "Unknown",
+  "description" : "Missing description.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "define_effect",
+  "name" : "Define Effect",
+  "patterns" : [
+    "[local] effect &lt;.+&gt;",
+"[local] effect",
+
+    "pattern_end"
+  ],
+  "since" : "Unknown",
+  "description" : "Missing description.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "define_event",
+  "name" : "Define Event",
+  "patterns" : [
+    "[local] [custom] event %<a href='./classes.html#string'>text</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "Unknown",
+  "description" : "Missing description.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "define_expression",
+  "name" : "Define Expression",
+  "patterns" : [
+    "[local] [((plural|non(-|[ ])single))] expression &lt;.+&gt;",
+"[local] [((plural|non(-|[ ])single))] expression",
+"[local] [((plural|non(-|[ ])single))] %*<a href='./classes.html#classinfo'>types</a>% property &lt;.+&gt;",
+
+    "pattern_end"
+  ],
+  "since" : "Unknown",
+  "description" : "Missing description.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "import",
+  "name" : "Import",
+  "patterns" : [
+    "import",
+
+    "pattern_end"
+  ],
+  "since" : "Unknown",
+  "description" : "Missing description.",
+  "examples" : "Missing examples."
+},
+{
   "id" : "aoe_cloud_effect",
   "name" : "On AoE Cloud Effect",
   "patterns" : [
@@ -2977,6 +3053,18 @@ Do note that other event values, such as 'player', won't work in this section.",
   "since" : "1.0",
   "description" : "Called when a player fills a bucket.",
   "examples" : "on player filling a bucket:"
+},
+{
+  "id" : "bukkit_event",
+  "name" : "On Bukkit Event",
+  "patterns" : [
+    "[on] [all] %javatypes% [(at|on|with) priority &lt;.+&gt;]",
+
+    "pattern_end"
+  ],
+  "since" : "Unknown",
+  "description" : "Missing description.",
+  "examples" : "Missing examples."
 },
 {
   "id" : "burn",
@@ -3193,7 +3281,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   ],
   "since" : "2.5",
   "description" : "Called when a player successfully enchants an item.\\n To get the enchanted item, see the <a href='expressions.html#ExprEnchantEventsEnchantItem'>enchant item expression</a>",
-  "examples" : "on enchant:\\n    if the clicked button is enchantment option 1:\\n        set the applied enchantments to sharpness 10 and unbreaking 10"
+  "examples" : "on enchant:\\n    if the clicked button is 1: # offer 1\\n        set the applied enchantments to sharpness 10 and unbreaking 10"
 },
 {
   "id" : "enchant_prepare",
@@ -3319,7 +3407,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   ],
   "since" : "2.4",
   "description" : "Called when a firework explodes.",
-  "examples" : "on firework explode\\non firework exploding colored red, light green and black\\non firework explosion coloured light green:\\n    broadcast \"A firework colored %colors% was exploded at %location%!\""
+  "examples" : "on firework explode\\non firework exploding colored red, light green and black\\non firework explosion colored light green:\\n    broadcast \"A firework colored %colors% was exploded at %location%!\""
 },
 {
   "id" : "first_join",
@@ -4366,6 +4454,18 @@ Do note that other event values, such as 'player', won't work in this section.",
   "examples" : "on zombie breaking a wood door:"
 },
 {
+  "id" : "custom_event",
+  "name" : "On custom event",
+  "patterns" : [
+    "[on] Missing patterns.",
+
+    "pattern_end"
+  ],
+  "since" : "Unknown",
+  "description" : "Missing description.",
+  "examples" : "Missing examples."
+},
+{
   "id" : "periodical",
   "name" : "Periodical",
   "patterns" : [
@@ -4417,18 +4517,6 @@ Do note that other event values, such as 'player', won't work in this section.",
   "since" : "2.4",
   "description" : "The affected entities in the <a href='events.html#aoe_cloud_effect'>area cloud effect</a> event.",
   "examples" : "on area cloud effect:\\n    loop affected entities:\\n        if loop-value is a player:\\n            send \"WARNING: you've step on an area effect cloud!\" to loop-value"
-},
-{
-  "id" : "ExprAllGroups",
-  "name" : "All Groups",
-  "patterns" : [
-    "all groups",
-
-    "pattern_end"
-  ],
-  "since" : "2.2-dev35",
-  "description" : "All the groups a player can have. This expression requires Vault and a compatible permissions plugin to be installed.",
-  "examples" : "command /group &lt;text&gt;:\\n    trigger:\\n        if argument is \"list\":\\n            send \"%all groups%\""
 },
 {
   "id" : "ExprPermissions",
@@ -4498,8 +4586,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "ExprAmount",
   "name" : "Amount",
   "patterns" : [
-    "(amount|number|size) of %<a href='./classes.html#object'>objects</a>%",
-"recursive (amount|number|size) of %<a href='./classes.html#object'>objects</a>%",
+    "[the] (amount|number|size) of %<a href='./classes.html#object'>objects</a>%",
+"[the] recursive (amount|number|size) of %<a href='./classes.html#object'>objects</a>%",
 
     "pattern_end"
   ],
@@ -4691,7 +4779,7 @@ Please note that the attacker can also be a block, e.g. a cactus or lava, but th
   "id" : "ExprBiome",
   "name" : "Biome",
   "patterns" : [
-    "[the] biome (of|%<a href='./classes.html#direction'>direction</a>%) %<a href='./classes.html#location'>locations</a>%",
+    "[the] biome [(of|%<a href='./classes.html#direction'>direction</a>%) %<a href='./classes.html#location'>locations</a>%]",
 "%<a href='./classes.html#location'>locations</a>%'[s] biome",
 
     "pattern_end"
@@ -4919,7 +5007,7 @@ Can also be used to change the burn/cook time of a placed furnace.",
   "id" : "ExprClicked",
   "name" : "Clicked Block/Entity/Inventory/Slot",
   "patterns" : [
-    "[the] (clicked (block|%*<a href='./classes.html#itemtype'>item type</a>/<a href='./classes.html#entitydata'>entity type</a>%)|clicked slot|clicked inventory|click (type|action)|inventory action|clicked [enchant[ment]] button)",
+    "[the] (clicked [enchant[ment]] (button|option)|clicked (block|%*<a href='./classes.html#itemtype'>item type</a>/<a href='./classes.html#entitydata'>entity type</a>%)|clicked slot|clicked inventory|click (type|action)|inventory action)",
 
     "pattern_end"
   ],
@@ -4937,12 +5025,12 @@ Can also be used to change the burn/cook time of a placed furnace.",
     "pattern_end"
   ],
   "since" : "1.2",
-  "description" : "The <a href='./classes.html#color'>color</a> of an item, can also be used to colour chat messages with \"&lt;%colour of ...%&gt;this text is coloured!\".",
+  "description" : "The <a href='./classes.html#color'>color</a> of an item, can also be used to color chat messages with \"&lt;%color of ...%&gt;this text is colored!\".",
   "examples" : "on click on wool:\\n    message \"This wool block is <%color of block%>%color of block%<reset>!\"\\n    set the color of the block to black"
 },
 {
-  "id" : "ExprColoured",
-  "name" : "Coloured / Uncoloured",
+  "id" : "ExprColored",
+  "name" : "Colored / Uncolored",
   "patterns" : [
     "(colo[u]r-|colo[u]red )%<a href='./classes.html#string'>texts</a>%",
 "(format-|formatted )%<a href='./classes.html#string'>texts</a>%",
@@ -4951,11 +5039,11 @@ Can also be used to change the burn/cook time of a placed furnace.",
     "pattern_end"
   ],
   "since" : "2.0",
-  "description" : "Parses &lt;colour&gt;s and, optionally, chat styles in a message or removes
-any colours <i>and</i> chat styles from the message. Parsing all
+  "description" : "Parses &lt;color&gt;s and, optionally, chat styles in a message or removes
+any colors <i>and</i> chat styles from the message. Parsing all
 chat styles requires this expression to be used in same line with
 the <a href=effects.html#EffSend>send effect</a>.",
-  "examples" : "on chat:\\n    set message to coloured message # Safe; only colors get parsed\\ncommand /fade &lt;player&gt;:\\n    trigger:\\n        set display name of the player-argument to uncoloured display name of the player-argument\\ncommand /format &lt;text&gt;:\\n    trigger:\\n        message formatted text-argument # Safe, because we're sending to whoever used this command"
+  "examples" : "on chat:\\n    set message to colored message # Safe; only colors get parsed\\ncommand /fade &lt;player&gt;:\\n    trigger:\\n        set display name of the player-argument to uncolored display name of the player-argument\\ncommand /format &lt;text&gt;:\\n    trigger:\\n        message formatted text-argument # Safe, because we're sending to whoever used this command"
 },
 {
   "id" : "ExprCommand",
@@ -5167,7 +5255,7 @@ You can use the specific type of the entity that's involved in the event, e.g. i
   "since" : "1.2",
   "description" : "The data/damage value of an item/block. Data values of blocks are only supported on 1.12.2 and below.
 You usually don't need this expression as you can check and set items with aliases easily, 
-but this expression can e.g. be used to \"add 1 to data of &lt;item&gt;\", e.g. for cycling through all wool colours.",
+but this expression can e.g. be used to \"add 1 to data of &lt;item&gt;\", e.g. for cycling through all wool colors.",
   "examples" : "set damage value of player's tool to 10\\nset data value of target block of player to 3\\nadd 1 to the data value of the clicked block\\nreset data value of block at player"
 },
 {
@@ -5536,8 +5624,8 @@ Read <a href='https://minecraft.gamepedia.com/Explosion'>this wiki page</a> for 
   "id" : "ExprFallDistance",
   "name" : "Fall Distance",
   "patterns" : [
-    "[the] [the] fall[en] (distance|height) of %<a href='./classes.html#entity'>entities</a>%",
-"%<a href='./classes.html#entity'>entities</a>%'[s] [the] fall[en] (distance|height)",
+    "[the] fall[en] (distance|height) of %<a href='./classes.html#entity'>entities</a>%",
+"%<a href='./classes.html#entity'>entities</a>%'[s] fall[en] (distance|height)",
 
     "pattern_end"
   ],
@@ -5605,7 +5693,7 @@ Read <a href='https://minecraft.gamepedia.com/Explosion'>this wiki page</a> for 
   ],
   "since" : "2.4",
   "description" : "Represents a 'firework effect' which can be used in the <a href='effects.html#EffFireworkLaunch'>launch firework</a> effect.",
-  "examples" : "launch flickering trailing burst firework colored blue and green at player\\nlaunch trailing flickering star coloured purple, yellow, blue, green and red fading to pink at target entity\\nlaunch ball large coloured red, purple and white fading to light green and black at player's location with duration 1"
+  "examples" : "launch flickering trailing burst firework colored blue and green at player\\nlaunch trailing flickering star colored purple, yellow, blue, green and red fading to pink at target entity\\nlaunch ball large colored red, purple and white fading to light green and black at player's location with duration 1"
 },
 {
   "id" : "ExprFlightMode",
@@ -5634,8 +5722,8 @@ Read <a href='https://minecraft.gamepedia.com/Explosion'>this wiki page</a> for 
   "examples" : "set the player's food level to 10"
 },
 {
-  "id" : "ExprFormatTime",
-  "name" : "Formatted Time",
+  "id" : "ExprFormatDate",
+  "name" : "Formatted Date",
   "patterns" : [
     "%<a href='./classes.html#date'>dates</a>% formatted [human-readable] [(with|as) %<a href='./classes.html#string'>text</a>%]",
 
@@ -5742,17 +5830,16 @@ Remember to use '<a href='#ExprBlock'>block</a>' and not 'furnace', as 'furnace'
   "examples" : "set gravity of player off"
 },
 {
-  "id" : "ExprGroup",
-  "name" : "Group",
+  "id" : "ExprHanging",
+  "name" : "Hanging Entity/Remover",
   "patterns" : [
-    "[the] group[s] of %<a href='./classes.html#offlineplayer'>offline players</a>%",
-"%<a href='./classes.html#offlineplayer'>offline players</a>%'[s] group[s]",
+    "[the] hanging (entity|:remover)",
 
     "pattern_end"
   ],
-  "since" : "2.2-dev35",
-  "description" : "The primary group or all groups of a player. This expression requires Vault and a compatible permissions plugin to be installed.",
-  "examples" : "on join:\\n    broadcast \"%group of player%\" # this is the player's primary group\\n    broadcast \"%groups of player%\" # this is all of the player's groups"
+  "since" : "INSERT VERSION",
+  "description" : "Returns the hanging entity or remover in hanging <a href='/events.html#break_mine'>break</a> and <a href='/events.html#place'>place</a> events.",
+  "examples" : "on break of item frame:\\n    if item of hanging entity is diamond pickaxe:\\n        cancel event\\n        if hanging remover is a player:\\n            send \"You can't break that item frame!\" to hanging remover"
 },
 {
   "id" : "ExprHash",
@@ -5955,8 +6042,8 @@ And note that, for example if there are 5 online players (includes <a href='#Exp
   "id" : "ExprIndices",
   "name" : "Indices of List",
   "patterns" : [
-    "[the] (indexes|indices) of %~<a href='./classes.html#object'>objects</a>%",
-"[the] %~<a href='./classes.html#object'>objects</a>%'[s] (indexes|indices)",
+    "[(the|all [[of] the])] (indexes|indices) of %~<a href='./classes.html#object'>objects</a>%",
+"%~<a href='./classes.html#object'>objects</a>%'[s] (indexes|indices)",
 "[sorted] (indices|indexes) of %~<a href='./classes.html#object'>objects</a>% in (ascending|descending) order",
 "[sorted] %~<a href='./classes.html#object'>objects</a>%'[s] (indices|indexes) in (ascending|descending) order",
 
@@ -6384,7 +6471,7 @@ Please note that the location of an entity is at it's feet, use <a href='#ExprEy
   ],
   "since" : "1.0",
   "description" : "The currently looped value.",
-  "examples" : "# countdown:\\nloop 10 times:\\n    message \"%11 - loop-number%\"\\n    wait a second\\n# generate a 10x10 floor made of randomly coloured wool below the player:\\nloop blocks from the block below the player to the block 10 east of the block below the player:\\n    loop blocks from the loop-block to the block 10 north of the loop-block:\\n        set loop-block-2 to any wool"
+  "examples" : "# countdown:\\nloop 10 times:\\n    message \"%11 - loop-number%\"\\n    wait a second\\n# generate a 10x10 floor made of randomly colored wool below the player:\\nloop blocks from the block below the player to the block 10 east of the block below the player:\\n    loop blocks from the loop-block to the block 10 north of the loop-block:\\n        set loop-block-2 to any wool"
 },
 {
   "id" : "ExprLore",
@@ -6563,19 +6650,6 @@ Please note that the location of an entity is at it's feet, use <a href='#ExprEy
   "examples" : "on right click on minecart:\\n    set derailed velocity of event-entity to vector 2, 10, 2"
 },
 {
-  "id" : "ExprBalance",
-  "name" : "Money",
-  "patterns" : [
-    "[the] (money|balance|[bank] account) of %<a href='./classes.html#offlineplayer'>offline players</a>%",
-"%<a href='./classes.html#offlineplayer'>offline players</a>%'[s] (money|balance|[bank] account)",
-
-    "pattern_end"
-  ],
-  "since" : "2.0, 2.5 (offline player support)",
-  "description" : "How much virtual money a player has (can be changed). This expression requires Vault and a compatible economy plugin to be installed.",
-  "examples" : "message \"You have %player's money%\" # the currency name will be added automatically\\nremove 20$ from the player's balance # replace '$' by whatever currency you use\\nadd 200 to the player's account # or omit the currency alltogether"
-},
-{
   "id" : "ExprPushedBlocks",
   "name" : "Moved blocks",
   "patterns" : [
@@ -6603,7 +6677,7 @@ Please note that the location of an entity is at it's feet, use <a href='#ExprEy
     <li><strong>Players</strong>
         <ul>
             <li><strong>Name:</strong> The Minecraft account name of the player. Can't be changed, but 'display name' can be changed.</li>
-            <li><strong>Display Name:</strong> The name of the player that is displayed in messages. This name can be changed freely and can include colour codes, and is shared among all plugins (e.g. chat plugins will use the display name).</li>
+            <li><strong>Display Name:</strong> The name of the player that is displayed in messages. This name can be changed freely and can include color codes, and is shared among all plugins (e.g. chat plugins will use the display name).</li>
         </ul>
     </li>
     <li><strong>Entities</strong>
@@ -6646,7 +6720,7 @@ Please note that the location of an entity is at it's feet, use <a href='#ExprEy
     <li><strong>Players</strong>
         <ul>
             <li><strong>Name:</strong> The Minecraft account name of the player. Can't be changed, but 'display name' can be changed.</li>
-            <li><strong>Display Name:</strong> The name of the player that is displayed in messages. This name can be changed freely and can include colour codes, and is shared among all plugins (e.g. chat plugins will use the display name).</li>
+            <li><strong>Display Name:</strong> The name of the player that is displayed in messages. This name can be changed freely and can include color codes, and is shared among all plugins (e.g. chat plugins will use the display name).</li>
         </ul>
     </li>
     <li><strong>Entities</strong>
@@ -6879,6 +6953,19 @@ See also: <a href='#ExprVehicle'>vehicle</a>",
   "examples" : "set all players' tab list header to \"Welcome to the Server!\"\\nsend \"%the player's tab list header%\" to player\\nreset all players' tab list header"
 },
 {
+  "id" : "ExprPlayerProtocolVersion",
+  "name" : "Player Protocol Version",
+  "patterns" : [
+    "[the] protocol version of %<a href='./classes.html#player'>players</a>%",
+"%<a href='./classes.html#player'>players</a>%'[s] protocol version",
+
+    "pattern_end"
+  ],
+  "since" : "INSERT VERSION",
+  "description" : "Player's protocol version. For more information and list of protocol versions <a href='https://wiki.vg/Protocol_version_numbers'>visit wiki.vg</a>.",
+  "examples" : "command /protocolversion &ltplayer&gt:\\n    trigger:\\n        send \"Protocol version of %arg-1%: %protocol version of arg-1%\""
+},
+{
   "id" : "ExprSkull",
   "name" : "Player Skull",
   "patterns" : [
@@ -6948,24 +7035,11 @@ When adding a potion effect type (rather than a potion effect), it will default 
   "examples" : "set {_p::*} to active potion effects of player\\nclear all the potion effects of player\\nclear all the potion effects of player's tool\\nadd potion effects of player to potion effects of player's tool\\nadd speed to potion effects of target entity\\nremove speed and night vision from potion effects of player"
 },
 {
-  "id" : "ExprPrefixSuffix",
-  "name" : "Prefix/Suffix",
-  "patterns" : [
-    "[the] [chat] (prefix|suffix) of %<a href='./classes.html#player'>players</a>%",
-"%<a href='./classes.html#player'>players</a>%'[s] [chat] (prefix|suffix)",
-
-    "pattern_end"
-  ],
-  "since" : "2.0",
-  "description" : "The prefix or suffix as defined in the server's chat plugin.",
-  "examples" : "on chat:\\n    cancel event\\n    broadcast \"%player's prefix%%player's display name%%player's suffix%: %message%\" to the player's world\\nset the player's prefix to \"[&lt;red&gt;Admin<reset>] \""
-},
-{
   "id" : "ExprProjectileBounceState",
   "name" : "Projectile Bounce State",
   "patterns" : [
-    "[the] [the] projectile bounce (state|ability|mode) of %<a href='./classes.html#projectile'>projectiles</a>%",
-"%<a href='./classes.html#projectile'>projectiles</a>%'[s] [the] projectile bounce (state|ability|mode)",
+    "[the] projectile bounce (state|ability|mode) of %<a href='./classes.html#projectile'>projectiles</a>%",
+"%<a href='./classes.html#projectile'>projectiles</a>%'[s] projectile bounce (state|ability|mode)",
 
     "pattern_end"
   ],
@@ -6977,8 +7051,8 @@ When adding a potion effect type (rather than a potion effect), it will default 
   "id" : "ExprProjectileCriticalState",
   "name" : "Projectile Critical State",
   "patterns" : [
-    "[the] [the] (projectile|arrow) critical (state|ability|mode) of %<a href='./classes.html#projectile'>projectiles</a>%",
-"%<a href='./classes.html#projectile'>projectiles</a>%'[s] [the] (projectile|arrow) critical (state|ability|mode)",
+    "[the] (projectile|arrow) critical (state|ability|mode) of %<a href='./classes.html#projectile'>projectiles</a>%",
+"%<a href='./classes.html#projectile'>projectiles</a>%'[s] (projectile|arrow) critical (state|ability|mode)",
 
     "pattern_end"
   ],
@@ -6990,7 +7064,7 @@ When adding a potion effect type (rather than a potion effect), it will default 
   "id" : "ExprProtocolVersion",
   "name" : "Protocol Version",
   "patterns" : [
-    "[the] [(sent|required|fake)] protocol version [number]",
+    "[the] [server] [(sent|required|fake)] protocol version [number]",
 
     "pattern_end"
   ],
@@ -7164,12 +7238,12 @@ This expression requires a supported regions plugin to be installed.",
   "id" : "ExprSaturation",
   "name" : "Saturation",
   "patterns" : [
-    "[the] saturation [of %<a href='./classes.html#player'>players</a>%]",
+    "[the] saturation of %<a href='./classes.html#player'>players</a>%",
 "%<a href='./classes.html#player'>players</a>%'[s] saturation",
 
     "pattern_end"
   ],
-  "since" : "2.2-Fixes-v10, 2.2-dev35 (fully modifiable)",
+  "since" : "2.2-Fixes-v10, 2.2-dev35 (fully modifiable), INSERT VERSION (syntax pattern changed)",
   "description" : "The saturation of a player. If used in a player event, it can be omitted and will default to event-player.",
   "examples" : "set saturation of player to 20"
 },
@@ -7265,7 +7339,7 @@ or can be reset to the default icon in a <a href='events.html#server_list_ping'>
     "pattern_end"
   ],
   "since" : "1.3",
-  "description" : "A line of text on a sign. Can be changed, but remember that there is a 16 character limit per line (including colour codes that use 2 characters each).",
+  "description" : "A line of text on a sign. Can be changed, but remember that there is a 16 character limit per line (including color codes that use 2 characters each).",
   "examples" : "on rightclick on sign:\\n    line 2 of the clicked block is \"[Heal]\":\\n        heal the player\\n    set line 3 to \"%player%\""
 },
 {
@@ -7952,7 +8026,7 @@ This can only be set in a <a href='events.html#server_list_ping'>server list pin
     "pattern_end"
   ],
   "since" : "1.4.6",
-  "description" : "Used in loops to loop X times.",
+  "description" : "Integers between 1 and X, used in loops to loop X times.",
   "examples" : "loop 20 times:\\n    broadcast \"%21 - loop-number% seconds left..\"\\n    wait 1 second"
 },
 {

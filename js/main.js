@@ -1,4 +1,5 @@
 const siteVersion = "2.2.0"; // site version is different from skript version
+const ghAPI = "https://api.github.com/repos/SkriptLang/Skript";
 
 // ID Scroll
 const links = document.querySelectorAll("div.item-wrapper");
@@ -52,18 +53,6 @@ function toggleSyntax(elementID) {
   element.classList.add("active-syntax");
   lastActiveSyntaxID = elementID;
 }
-
-// Auto hash scroll on page load
-document.addEventListener('DOMContentLoaded', (e) => {
-  const linkHash = window.location.hash.replace("#", "").split("?")[0];
-  if (linkHash != "") {
-    setTimeout(() => {
-      toggleSyntax(linkHash);
-      // offsetAnchor(null, linkHash) // bugged in some browsers
-      searchNow("#" + linkHash);
-    }, 20); // respect other search and link changers
-  }
-});
 
 // No Left Panel
 for (e in {"content-no-docs": 0, "content": 1}) {
@@ -160,7 +149,7 @@ function showNotification(text, bgColor, color) {
 const currentPageLink = window.location.toString().replaceAll(/(.+?.html)(.*)/gi, '$1');
 document.querySelectorAll(".item-title > a").forEach((e) => {
   e.addEventListener("click", (event) => {
-    copyToClipboard(window.location.toString().split(/[?#]/g)[0] + "#" + e.href.split("#")[1]);
+    copyToClipboard(window.location.toString().split(/[?#]/g)[0] + "?search=#" + e.parentElement.parentElement.id);
     showNotification("✅ Link copied successfully.")
   });
 })
@@ -204,10 +193,7 @@ var searchIcon;
 var linkParams = new URLSearchParams(window.location.href.replace("+", "%2B").split("?")[1]) // URLSearchParams decode '+' as space while encodeURI keeps + as is
 if (linkParams && linkParams.get("search")) {
   setTimeout(() => {
-    let search = (linkParams.get("search"));
-    if (!search.includes("#")) { // hash links are higher priority
-      searchNow(search) // anchor link sometimes appear after the search param so filter it
-    }
+    searchNow(linkParams.get("search")) // anchor link sometimes appear after the search param so filter it
   }, 20) // Until searchBar is loaded
 }
 
@@ -225,43 +211,35 @@ if (content) {
     content.insertAdjacentHTML('afterbegin', `<span>${options}</span>`);
     options = document.getElementById("search-version");
     
-    let savedTags = getCookie("skVersions").split(",");
-    for (let i = 0; i < savedTags.length; i++) { // Append saved versions then check
-      if (savedTags[i] != "") {
-        let option = document.createElement('option')
-        option.value = savedTags[i]
-        option.textContent = "Since v" + savedTags[i]
-        options.appendChild(option)
-      }
-    }
-    if (savedTags && !linkParams.get("search") && !window.location.href.match(/.*?#.+/)) // Don't search for versions if the url has a search filter nor hash link
-      searchNow(`v:${savedTags[0]}+`) // Auto search on load
-    
-    setTimeout(() => {
-      $.getJSON("https://api.github.com/repos/SkriptLang/Skript/tags?per_page=83&page=2", (data) => { // 83 and page 2 matters to filter dev branches (temporary)
-        let isThereNew = false;
-        for (let i = 0; i < data.length; i++) {
-          let tag = data[i]["name"]
-          // if (!(/.*(dev|beta|alpha).*/gi).test(tag))
+    getApiValue(null, "skript-versions", "tags?per_page=83&page=2", (data, isCached) => { // 83 and page 2 matters to filter dev branches (temporary solution)
+      if (isCached)
+        data = data.split(",");
+
+      for (let i = 0; i < data.length; i++) {
+        let tag;
+          if (isCached) {
+            tag = data[i];
+          } else {
+            tag = data[i]["name"];
+          }
           tags.push(tag.replaceAll(/(.*)-(dev|beta|alpha).*/gi, "$1"));
         }
-        tags = [...new Set(tags)] // remove duplicates
-        setCookie("skVersions", tags, 5);
-        for (let i = 0; i < tags.length; i++) {
-          if (savedTags.includes(tags[i])) // Only add unsaved versions
-            continue
 
-          isThereNew = true; // Marks that a new version was added to update the search bar
+      tags = [...new Set(tags)] // remove duplicates
 
-          let option = document.createElement('option')
-          option.value = tags[i]
-          option.textContent = "Since v" + tags[i]
-          options.appendChild(option)
-        }
-        if (isThereNew && !linkParams.get("search"))
-          searchNow(`v:${tags[0]}+`)
-      })
-    }, 1);
+      for (let i = 0; i < tags.length; i++) {
+        let option = document.createElement('option')
+        option.value = tags[i]
+        option.textContent = "Since v" + tags[i]
+        options.appendChild(option)
+      }
+
+      if (!linkParams.get("search") && !window.location.href.match(/.*?#.+/))
+        searchNow(`v:${tags[0]}+`)
+
+      return tags;
+    }, true)
+      
   }
 } else {
   content = document.getElementById("content-no-docs")
@@ -322,7 +300,7 @@ function searchNow(value = "") {
   }
 
   searchValue = searchValue.replaceAll(/( ){2,}/gi, " ") // Filter duplicate spaces
-  searchValue = searchValue.replaceAll(/[^a-zA-Z0-9 #]/gi, ""); // Filter none alphabet and digits to avoid regex errors
+  searchValue = searchValue.replaceAll(/[^a-zA-Z0-9 #_]/gi, ""); // Filter none alphabet and digits to avoid regex errors
 
   allElements.forEach((e) => {
     let patterns = document.querySelectorAll(`#${e.id} .item-details .skript-code-block`);
@@ -430,54 +408,53 @@ if (searchBar) {
 // Search Bar </>
 
 // <> Placeholders
-const ghAPI = "https://api.github.com/repos/SkriptLang/Skript"
 
 function replacePlaceholders(element) {
   let innerHTML = element.innerHTML;
   if (innerHTML.includes("${latest-version}")) {
-    getApiValue(element, "latest-version", "releases", (data) => {
+    getApiValue(element, "ghapi-latest-version", "releases", (data) => {
       return data[0]["tag_name"];
     });
   }
 
   if (innerHTML.includes("${latest-version-changelog}")) {
-    getApiValue(element, "latest-version-changelog", "releases", (data) => {
+    getApiValue(element, "ghapi-latest-version-changelog", "releases", (data) => {
       return data["body"].replaceAll("\\r\\n", "<br>");
     });
   }
 
   if (innerHTML.includes("${stable-version}")) {
-    getApiValue(element, "stable-version", "releases/latest", (data) => {
+    getApiValue(element, "ghapi-stable-version", "releases/latest", (data) => {
       return data["tag_name"];
     });
   }
 
   if (innerHTML.includes("${stable-version-changelog}")) {
-    getApiValue(element, "stable-version-changelog", "releases/latest", (data) => {
+    getApiValue(element, "ghapi-stable-version-changelog", "releases/latest", (data) => {
       return data["body"].replaceAll("\\r\\n", "<br>");
     });
   }
 
   if (innerHTML.includes("${latest-issue-")) {
-    getApiValue(element, "latest-issue-user", "issues?per_page=1", (data) => {
+    getApiValue(element, "ghapi-latest-issue-user", "issues?per_page=1", (data) => {
       return data[0]["user"]["login"];
     });
-    getApiValue(element, "latest-issue-title", "issues?per_page=1", (data) => {
+    getApiValue(element, "ghapi-latest-issue-title", "issues?per_page=1", (data) => {
       return data[0]["title"];
     });
-    getApiValue(element, "latest-issue-date", "issues?per_page=1", (data) => {
+    getApiValue(element, "ghapi-latest-issue-date", "issues?per_page=1", (data) => {
       return data[0]["created_at"];
     });
   }
 
   if (innerHTML.includes("${latest-pull-")) {
-    getApiValue(element, "latest-pull-user", "pulls?per_page=1", (data) => {
+    getApiValue(element, "ghapi-latest-pull-user", "pulls?per_page=1", (data) => {
       return data[0]["user"]["login"];
     });
-    getApiValue(element, "latest-pull-title", "pulls?per_page=1", (data) => {
+    getApiValue(element, "ghapi-latest-pull-title", "pulls?per_page=1", (data) => {
       return data[0]["title"];
     });
-    getApiValue(element, "latest-pull-date", "pulls?per_page=1", (data) => {
+    getApiValue(element, "ghapi-latest-pull-date", "pulls?per_page=1", (data) => {
       return data[0]["created_at"];
     });
   }
@@ -487,23 +464,36 @@ function replacePlaceholders(element) {
   }
 
   if (innerHTML.includes("${contributors-size}")) {
-    getApiValue(element, "contributors-size", "contributors?per_page=500", (data) => {
+    getApiValue(element, "ghapi-contributors-size", "contributors?per_page=500", (data) => {
       return data.length;
     });
   }
 }
 
-function getApiValue(element, placeholder, apiPathName, callback) {
-  let innerHTML = element.innerHTML;
-  if (innerHTML.includes(`\${${placeholder}}`)) {
-    let cv = getCookie(`ghapi-${placeholder}`); // cached value
+function getApiValue(element, placeholder, apiPathName, callback, noReplace = false) {
+  let placeholderName = placeholder.replace("ghapi-", "");
+  let cv = getStorageItem(placeholder); // cached value
+  if (noReplace) {
     if (cv) {
-      element.innerHTML = element.innerHTML.replaceAll(`\${${placeholder}}`, cv);
+      callback(cv, true);
     } else {
       $.getJSON(ghAPI + `/${apiPathName}`, (data) => {
-        let value = callback(data);
-        element.innerHTML = element.innerHTML.replaceAll(`\${${placeholder}}`, value);
-        setCookie(`ghapi-${placeholder}`, value, 0.2);
+        let value = callback(data, false);
+        setStorageItem(placeholder, value, 0.2);
+      })
+    }
+    return;
+  }
+
+  let innerHTML = element.innerHTML;
+  if (innerHTML.includes(`\${${placeholderName}}`)) {
+    if (cv) {
+      element.innerHTML = element.innerHTML.replaceAll(`\${${placeholderName}}`, cv);
+    } else {
+      $.getJSON(ghAPI + `/${apiPathName}`, (data) => {
+        let value = callback(data, false);
+        element.innerHTML = element.innerHTML.replaceAll(`\${${placeholderName}}`, value);
+        setStorageItem(placeholder, value, 0.2);
       })
     }
   }
@@ -541,31 +531,122 @@ function getCookie(cname) {
 
 // Cookies </>
 
+// <> localStorage
+
+/**
+ * Set the value of local storage item 
+ * @param {string} item id
+ * @param {object} value 
+ * @param {double} exdays time in days
+ */
+function setStorageItem(item, value, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  localStorage.setItem(item, value + "; " + d.toUTCString());
+}
+
+/**
+ * Remove a local storage item
+ * @param {string} item the id of the item 
+ */
+function removeStorageItem(item) {
+  localStorage.removeItem(item)
+}
+
+/**
+ * Get local storage item (value & time if has one)
+ * @param {string} item the item id 
+ * @param {boolean} noExpireationCheck whether to check for expiration time and remove the item 
+ * @returns the item object
+ */
+function getStorageItem(item, noExpireationCheck = false) {
+  let result = localStorage.getItem(item);
+  if (!result)
+    return null;
+    
+  if (!noExpireationCheck) {
+    result = result.split("; ")[0];
+    if (isStorageItemExpired(item)) {
+      removeStorageItem(item);
+      return null;
+    }
+  }
+  return result;
+}
+
+/**
+ * Get local storage item value after split at ';'
+ * @param {string} item the id of th item
+ * @returns the item value
+ */
+function getStorageItemValue(item) {
+  let result = localStorage.getItem(item);
+  if (!result)
+    return null;
+  return result.split("; ")[0];
+}
+
+/**
+ * @param {string} string the value of the item not the item id (the value without splitting)
+ * @returns the expiration date
+ */
+function getStorageItemExpiration(value) {
+  let expires = localStorage.getItem(value).split("; ")[1];
+  if (!expires) { // item with no expiration date
+    return null;
+  }
+  return new Date(expires);
+}
+
+/**
+ * 
+ * @param string the value of the item not the item id (the value without splitting)
+ * @returns whether expired or not
+ */
+function isStorageItemExpired(value) {
+  let expires = value.split("; ")[1];
+  if (!expires) { // item with no expiration date
+    return null;
+  }
+  return new Date(expires) < new Date();
+}
+
+// localStorage </>
+
 // <> Syntax Highlighting
 
 // ORDER MATTERS!!
 // All regexes must be sorrouneded with () to be able to use group 1 as the whole match since Js doesn't have group 0
 // Example:     .+     = X
 // Example:     (.+)     = ✓
-const patterns = [ // [REGEX, CLASS]
-  [/((?<!#)#(?!#).*)/gi, "sk-comment"], // Must be first, : must be before ::
-  [/(\:|\:\:)/gi, "sk-var"],
-  [/((?<!href=)\".+?\")/gi, "sk-string"], // before others to not edit non skript code
-  // [/\b(add|give|increase|set|make|remove( all| every|)|subtract|reduce|delete|clear|reset|send|broadcast|wait|halt|create|(dis)?enchant|shoot|rotate|reload|enable|(re)?start|teleport|feed|heal|hide|kick|(IP(-| )|un|)ban|break|launch|leash|force|message|close|show|reveal|cure|poison|spawn)(?=[ <])\b/gi, "sk-eff"], // better to be off since it can't be much improved due to how current codes are made (can't detect \s nor \t)
-  [/\b(on (?=.+\:))/gi, "sk-event"],
-  [/\b((parse )?if|else if|else|(do )?while|loop(?!-)|return|continue( loop|)|at)\b/gi, "sk-cond"],
-  [/\b((|all )player(s|)|victim|attacker|sender|loop-player|shooter|uuid of |'s uuid|(location of |'s location)|console)\b/gi, "sk-expr"],
-  [/\b((loop|event)-\w+)\b/gi, "sk-loop-value"],
-  [/\b(contains?|(has|have|is|was|were|are|does)(n't| not|)|can('t| ?not|))\b/gi, "sk-cond"],
-  [/\b(command \/.+(?=.*?:))/gi, "sk-command"],
-  [/(&lt;.+?&gt;)/gi, "sk-arg-type"],
-  [/\b(true)\b/gi, "sk-true"],
-  [/\b(stop( (the |)|)(trigger|server|loop|)|cancel( event)?|false)\b/gi, "sk-false"],
-  [/({|})/gi, "sk-var"],
-  [/(\w+?(?=\(.*?\)))/gi, "sk-function"],
-  [/((\d+?(\.\d+?)? |a |)(|minecraft |mc |real |rl |irl )(tick|second|minute|hour|day)s?)/gi, "sk-timespan"],
-  [/\b(now)\b/gi, "sk-timespan"],
-]
+var patterns = []; // [REGEX, CLASS]
+
+function registerSyntax(regexString, flags, clazz) {
+  try {
+    regex = new RegExp(regexString, flags);
+    patterns.push([regex, clazz]);
+  } catch (error) {
+    console.warn(`Either your browser doesn't support this regex or the regex is incorrect (${regexString}):` + error);
+  }
+}
+
+registerSyntax("((?<!#)#(?!#).*)", "gi", "sk-comment") // Must be first, : must be before ::
+registerSyntax("(\\:|\\:\\:)", "gi", "sk-var")
+registerSyntax("((?<!href=)\\\".+?\\\")", "gi", "sk-string") // before others to not edit non skript code
+// registerSyntax("\\b(add|give|increase|set|make|remove( all| every|)|subtract|reduce|delete|clear|reset|send|broadcast|wait|halt|create|(dis)?enchant|shoot|rotate|reload|enable|(re)?start|teleport|feed|heal|hide|kick|(IP(-| )|un|)ban|break|launch|leash|force|message|close|show|reveal|cure|poison|spawn)(?=[ <])\\b", "gi", "sk-eff") // better to be off since it can't be much improved due to how current codes are made (can't detect \\s nor \\t)
+registerSyntax("\\b(on (?=.+\\:))", "gi", "sk-event")
+registerSyntax("\\b((parse )?if|else if|else|(do )?while|loop(?!-)|return|continue( loop|)|at)\\b", "gi", "sk-cond")
+registerSyntax("\\b((|all )player(s|)|victim|attacker|sender|loop-player|shooter|uuid of |'s uuid|(location of |'s location)|console)\\b", "gi", "sk-expr")
+registerSyntax("\\b((loop|event)-\\w+)\\b", "gi", "sk-loop-value")
+registerSyntax("\\b(contains?|(has|have|is|was|were|are|does)(n't| not|)|can('t| ?not|))\\b", "gi", "sk-cond")
+registerSyntax("\\b(command \\/.+(?=.*?:))", "gi", "sk-command")
+registerSyntax("(&lt;.+?&gt;)", "gi", "sk-arg-type")
+registerSyntax("\\b(true)\\b", "gi", "sk-true")
+registerSyntax("\\b(stop( (the |)|)(trigger|server|loop|)|cancel( event)?|false)\\b", "gi", "sk-false")
+registerSyntax("({|})", "gi", "sk-var")
+registerSyntax("(\\w+?(?=\\(.*?\\)))", "gi", "sk-function")
+registerSyntax("((\\d+?(\\.\\d+?)? |a |)(|minecraft |mc |real |rl |irl )(tick|second|minute|hour|day)s?)", "gi", "sk-timespan")
+registerSyntax("\\b(now)\\b", "gi", "sk-timespan")
 
 function highlightElement(element) {
 
