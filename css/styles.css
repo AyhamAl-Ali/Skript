@@ -37,6 +37,8 @@
 
     --scrollbar-track-bg-color: rgba(255, 255, 255, 0.2);
     --scrollbar-thumb-bg-color: rgba(255, 255, 255, 0.4);
+
+    --inline-code-bg-color: #3e3e3e9e;
 }
 
 [data-theme="white"] {
@@ -80,6 +82,8 @@
 
     --scrollbar-track-bg-color: rgba(0, 0, 0, 0.03);
     --scrollbar-thumb-bg-color: rgba(48, 48, 51, 0.4);
+
+    --inline-code-bg-color: #a9a9a99e;
 
     /* transition: all 1s; */
 }
@@ -403,7 +407,7 @@ div.active-syntax .item-examples p {
     color: var(--font-color);
     background-color: rgba(0, 0, 0, 0.08);
     border-left: solid 3px #ff9800;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 #content {
@@ -883,10 +887,20 @@ ol.custom-list li::before {
 
 code {
     font-family: "Source Code Pro", monospace;
+    background-color: var(--inline-code-bg-color);
+    padding: 0px 5px;
+    border-radius: 5px;
 }
 
 pre {
     font-family: "Source Code Pro", monospace;
+}
+
+pre code { /* override styling for code blocks */
+    font-family: "Source Code Pro", monospace;
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
 }
 
 #notification-box {

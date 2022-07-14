@@ -1,12 +1,12 @@
 {
-  "skriptVersion" : "2.6.1",
+  "skriptVersion" : "2.6.3",
 
   "classes" : [
     {
   "id" : "attributetype",
   "name" : "Attribute Type",
   "patterns" : [
-    "generic max health, generic follow range, generic knockback resistance, generic movement speed, generic flying speed, generic attack damage, generic attack knockback, generic attack speed, generic armor, generic armor toughness, generic luck, horse jump strength, zombie spawn reinforcements",
+    "generic attack speed, luck, max health, generic movement speed, flying speed, attack damage, horse jump strength, generic attack damage, generic luck, generic armor, generic flying speed, follow range, generic knockback resistance, movement speed, generic follow range, zombie spawn reinforcements, armor, generic attack knockback, attack speed, armor toughness, knockback resistance, generic max health, attack knockback, generic armor toughness",
 
     "pattern_end"
   ],
@@ -66,7 +66,7 @@
   "id" : "CatType",
   "name" : "Cat Type",
   "patterns" : [
-    "tabby, black, red, siamese, british shorthair, calico, persian, ragdoll, white, jellie, all black",
+    "red, all black, british shorthair, ragdoll, white, jellie, siamese, black, tabby, calico, persian",
 
     "pattern_end"
   ],
@@ -90,7 +90,7 @@
   "id" : "clicktype",
   "name" : "Click Type",
   "patterns" : [
-    "left mouse button, left mouse button with shift, right mouse button, right mouse button with shift, window border using right mouse button, window border using left mouse button, middle mouse button, number key, double click using mouse, drop key, drop key with control, creative action, swap offhand, unknown",
+    "lmb, number key, mmb, rmb, drop item, drop key, window border using left mouse button, unknown, window border using right mouse, shift+rmb, unsupported, shift+lmb, ctrl+q, swap shield, left mouse button, left mouse with shift, left mouse, 0-9, double click, double click using mouse, border using rmb, right mouse button, right mouse button with shift, border using lmb, middle mouse, drop key with control, window border using right mouse button, swap offhand, custom, q, right mouse with shift, middle mouse button, drop stack, left mouse button with shift, right mouse, creative action",
 
     "pattern_end"
   ],
@@ -127,7 +127,7 @@
   "id" : "damagecause",
   "name" : "Damage Cause",
   "patterns" : [
-    "contact, attack, sweep attack, projectile, suffocation, fall, fire, burning, melting, lava, drowning, block explosion, entity explosion, void, lightning, suicide, starvation, poison, potion, wither, falling block, thorns, dragon's breath, unknown, hitting wall while flying, magma, cramming, dryout",
+    "sweep attack, thorns, the void, magma, a lightning, drowning, dragonfire, an attack, drown, an entity attack, melt, freeze, falling block, contact, fire, an entity explosion, lightning, a fall, entity explosion, void, a lightning strike, suffocation, suicide, wither effect, a plugin, lightning strike, entity attack, a potion, a wither, sweeping, melting, a falling block, unknown, starvation, lava, fall, hot floor, attack, a block explosion, dryout, burn, hitting wall while flying, potion, flying into a wall, cramming, poison, sonic boom, suffocate, custom, a fire, burning, a projectile, plugin, wither potion effect, block explosion, projectile, wither, dragon's breath",
 
     "pattern_end"
   ],
@@ -151,7 +151,7 @@
   "id" : "difficulty",
   "name" : "Difficulty",
   "patterns" : [
-    "peaceful, easy, medium, hard",
+    "normal, medium, hard, easy, peaceful",
 
     "pattern_end"
   ],
@@ -175,7 +175,7 @@
   "id" : "enchantment",
   "name" : "Enchantment",
   "patterns" : [
-    "Frost Walker, Feather Falling, Unbreaking, Knockback, Projectile Protection, Respiration, Punch, Protection, Blast Protection, Lure, Impaling, Smite, Silk Touch, Infinity, Luck of The Sea, Thorns, Multishot, Curse of Vanishing, Fire Aspect, Flame, Depth Strider, Piercing, Fire Protection, Sharpness, Power, Sweeping Edge, Aqua Affinity, Curse of Binding, Bane of Arthropods, Soul Speed, Looting, Efficiency, Mending, Riptide, Quick Charge, Fortune, Loyalty, Channeling",
+    "Frost Walker, Feather Falling, Unbreaking, Swift Sneak, Knockback, Projectile Protection, Respiration, Punch, Protection, Blast Protection, Lure, Impaling, Smite, Silk Touch, Infinity, Luck of The Sea, Thorns, Multishot, Curse of Vanishing, Fire Aspect, Flame, Depth Strider, Piercing, Fire Protection, Sharpness, Power, Sweeping Edge, Aqua Affinity, Curse of Binding, Bane of Arthropods, Soul Speed, Looting, Efficiency, Mending, Riptide, Quick Charge, Fortune, Loyalty, Channeling",
 
     "pattern_end"
   ],
@@ -271,7 +271,7 @@
   "id" : "FireworkType",
   "name" : "Firework Type",
   "patterns" : [
-    "ball, large ball, star, burst, creeper",
+    "small, ball, star shaped, large, star, creeper face, small ball, large ball, burst, ball large, creeper",
 
     "pattern_end"
   ],
@@ -295,7 +295,7 @@
   "id" : "gamerule",
   "name" : "Gamerule",
   "patterns" : [
-    "doFireTick, maxCommandChainLength, fireDamage, reducedDebugInfo, disableElytraMovementCheck, announceAdvancements, drowningDamage, commandBlockOutput, forgiveDeadPlayers, doMobSpawning, maxEntityCramming, disableRaids, doWeatherCycle, doDaylightCycle, showDeathMessages, doTileDrops, universalAnger, doInsomnia, doImmediateRespawn, naturalRegeneration, doMobLoot, fallDamage, keepInventory, doEntityDrops, doLimitedCrafting, mobGriefing, randomTickSpeed, spawnRadius, doTraderSpawning, logAdminCommands, spectatorsGenerateChunks, sendCommandFeedback, doPatrolSpawning",
+    "doWardenSpawning, doFireTick, maxCommandChainLength, fireDamage, reducedDebugInfo, disableElytraMovementCheck, announceAdvancements, drowningDamage, commandBlockOutput, forgiveDeadPlayers, doMobSpawning, maxEntityCramming, disableRaids, doWeatherCycle, doDaylightCycle, showDeathMessages, doTileDrops, universalAnger, playersSleepingPercentage, doInsomnia, doImmediateRespawn, naturalRegeneration, doMobLoot, fallDamage, keepInventory, doEntityDrops, doLimitedCrafting, mobGriefing, randomTickSpeed, spawnRadius, freezeDamage, doTraderSpawning, logAdminCommands, spectatorsGenerateChunks, sendCommandFeedback, doPatrolSpawning",
 
     "pattern_end"
   ],
@@ -319,7 +319,7 @@
   "id" : "gene",
   "name" : "Gene",
   "patterns" : [
-    "normal, lazy, worried, playful, brown, weak, aggressive",
+    "normal, lazy, happy, worried, worrisome, aggressive, brown, brownish, savage, playful, wild, weak",
 
     "pattern_end"
   ],
@@ -331,7 +331,7 @@
   "id" : "healreason",
   "name" : "Heal Reason",
   "patterns" : [
-    "peaceful regeneration, satiated, eating, end crystal, magic, magic regen, wither spawning, withering, unknown",
+    "an ender crystal, magic, a magic regeneration, magic regeneration, fed, sated, a magic regen, regen potion, a wither spawn, peaceful, unknown, a regeneration potion, consuming, a wither effect, peaceful regeneration, wither summoning, healing potion, wither potion, an end crystal, satiated, regeneration potion, potion, satisfied, ingesting, withered, custom, a wither spawning, end crystal, eating, wither spawning, a wither summoning, wither effect, a plugin, a regen potion, plugin, withering, a potion, wither spawn, a healing potion, ender crystal, magic regen, wither, peaceful regen",
 
     "pattern_end"
   ],
@@ -355,7 +355,7 @@
   "id" : "inventoryaction",
   "name" : "Inventory Action",
   "patterns" : [
-    "nothing, pickup all, pickup some, pickup half, pickup one item, place all, place some, place one, swap with cursor, drop all from cursor, drop one from cursor, drop all from slot, drop one from slot, instant move, hotbar move and readd, swap with hotbar, clone stack, collect to cursor, unknown",
+    "drop stack from slot, swap items with hotbar, swap cursor stack, pickup single item, pickup some, drop all from cursor, move to other inventory, drop cursor stack, pickup all, swap with hotbar, nothing, drop all from slot, swap cursor, drop cursor, pickup all items, drop slot item, place all, drop cursor item, drop slot stack, drop single item from slot, swap with cursor, place some, pickup one item, drop single item from cursor, collect items to cursor, unknown, clone stack, drop stack from cursor, drop one item from slot, drop one item from cursor, unsupported, do nothing, drop one from cursor, pickup half, drop items from slot, swap stack with cursor, place all items, collect to cursor, pickup some items, drop slot, drop items from cursor, hotbar move and readd, shift move, custom, pickup single, place one item, hotbar swap items, drop one from slot, place some items, place one, pickup half stack, instant move, hotbar swap",
 
     "pattern_end"
   ],
@@ -379,7 +379,7 @@
   "id" : "inventorytype",
   "name" : "Inventory Type",
   "patterns" : [
-    "chest inventory, dispenser inventory, dropper inventory, furnace inventory, workbench inventory, crafting table inventory, enchanting table inventory, brewing stand inventory, player inventory, creative inventory, merchant inventory, ender chest inventory, anvil inventory, smithing inventory, beacon inventory, hopper inventory, shulker box inventory, barrel inventory, blast furnace inventory, lectern inventory, smoker inventory, loom inventory, cartography table inventory, grindstone inventory, stonecutter inventory",
+    "blast furnace inventory, barrel inventory, workbench inventory, smoker inventory, composter inventory, ender chest inventory, dispenser inventory, player inventory, loom inventory, stonecutter inventory, hopper inventory, merchant inventory, cartography table inventory, anvil inventory, beacon inventory, shulker box inventory, lectern inventory, chest inventory, smithing inventory, dropper inventory, brewing stand inventory, villager inventory, enchanting table inventory, grindstone inventory, creative inventory, crafting table inventory, furnace inventory",
 
     "pattern_end"
   ],
@@ -448,6 +448,18 @@
   "examples" : "set metadata value \"super cool\" of player to true"
 },
 {
+  "id" : "money",
+  "name" : "Money",
+  "patterns" : [
+    "&lt;number&gt; $ or $ &lt;number&gt;, where '$' is your server's currency, e.g. '10 rupees' or '£5.00'",
+
+    "pattern_end"
+  ],
+  "since" : "2.0",
+  "description" : "A certain amount of money. Please note that this differs from <a href='#number'>numbers</a> as it includes a currency symbol or name, but usually the two are interchangeable, e.g. you can both <code>add 100$ to the player's balance</code> and <code>add 100 to the player's balance</code>.",
+  "examples" : "add 10£ to the player's account\\nremove Fr. 9.95 from the player's money\\nset the victim's money to 0\\nincrease the attacker's balance by the level of the victim * 100"
+},
+{
   "id" : "number",
   "name" : "Number",
   "patterns" : [
@@ -511,7 +523,7 @@
   "id" : "potioneffecttype",
   "name" : "Potion Effect Type",
   "patterns" : [
-    "null, speed, slowness, haste, mining fatigue, strength, instant health, instant damage, jump boost, nausea, regeneration, resistance, fire resistance, water breathing, invisibility, blindness, night vision, hunger, weakness, poison, wither, health boost, absorption, saturation, glowing, levitation, luck, bad luck, slow falling, conduit power, dolphins grace, bad omen, hero of the village",
+    "null, speed, slowness, haste, mining fatigue, strength, instant health, instant damage, jump boost, nausea, regeneration, resistance, fire resistance, water breathing, invisibility, blindness, night vision, hunger, weakness, poison, wither, health boost, absorption, saturation, glowing, levitation, luck, bad luck, slow falling, conduit power, dolphins grace, bad omen, hero of the village, darkness",
 
     "pattern_end"
   ],
@@ -547,7 +559,7 @@
   "id" : "resourcepackstate",
   "name" : "Resource Pack State",
   "patterns" : [
-    "successfully load, decline, download fail, accept",
+    "refused, rejected, accepted, failed, failed to download, successfully loaded, accept, fail, successfully load, refuse, declined, successfully install, success, reject, decline, successfully installed, download fail",
 
     "pattern_end"
   ],
@@ -571,7 +583,7 @@
   "id" : "soundcategory",
   "name" : "Sound Category",
   "patterns" : [
-    "master category, music category, record category, weather category, block category, hostile category, neutral category, player category, ambient category, voice category",
+    "hostile creatures category, speech category, records category, friendly creature category, noteblock category, hostile creature category, note block category, voice category, ambient category, noteblocks category, note blocks category, weather category, block category, friendly mob category, jukebox category, hostile mob category, master category, master volume category, hostile category, record category, blocks category, environment category, jukeboxes category, player category, players category, hostile mobs category, friendly mobs category, music category, friendly creatures category, neutral category",
 
     "pattern_end"
   ],
@@ -583,7 +595,7 @@
   "id" : "spawnreason",
   "name" : "Spawn Reason",
   "patterns" : [
-    "natural, jockey, chunk generation, mob spawner, egg, spawn egg, lightning, built snowman, built iron golem, built wither, village defense, village invasion, breed, slime split, reinforcements, nether portal, dispense egg, infection, cured, ocelot baby, silverfish reveal, mount, trap, ender pearl, perching, drowned, shear, explosion, raid, patrol, beehive, piglin zombification, command, customized, default",
+    "dispense egg, egg, village defense, ocelot baby, silverfish trap, village invading, trap, dispensing egg, shoulder, drowned, metamorphosis, lightning, silverfish reveal, spell, built iron golem, natural, village invasion, frozen, mount, build wither, built wither, iron golem defense, ender pearl, creature spawner, reinforcements, build snowman, build iron golem, breeding, raid, infection, customized, spawn egg, jockey, beehive, default, golem defense, patrol, slime split, infected, sheared, mob spawner, nether portal, shear, perching, custom, built snowman, chunk generation, breed, command, explosion, spawner, cured, customised, piglin zombification",
 
     "pattern_end"
   ],
@@ -595,7 +607,7 @@
   "id" : "teleportcause",
   "name" : "Teleport Cause",
   "patterns" : [
-    "ender pearl, command, plugin, nether portal, end portal, spectate, gateway, chorus, unknown",
+    "nether portal, ender gateway, chorus fruit, ender portal, command, unknown, plugin, ender pearl, spectator, spectate, end gateway, chorus, gateway, end portal",
 
     "pattern_end"
   ],
@@ -698,7 +710,7 @@
   "id" : "visualeffect",
   "name" : "Visual Effect",
   "patterns" : [
-    "smoke, potion break, ender signal, mobspawner flames, arrow particles, jumping rabbit, hurt, wolf smoke, wolf hearts, wolf shaking, sheep eating, iron golem offering rose, villager hearts, angry villager entity, happy villager entity, witch magic, zombie turning to a villager, firework explosion, love hearts, squid rotation reset, entity poof, guardian target, block with shield, shield break, armor stand hit, hurt by thorns, iron golem sheathing rose, resurrection by totem, hurt by drowning, hurt by explosion, explosion, large explosion, huge explosion, firework's spark, water bubble, water splash, water wake, suspended, void fog, critical hit, magical critical hit, smoke particle, large smoke, spell, spell, potion swirl, transparent potion swirl, witch spell, water drip, lava drip, angry villager, happy villager, small smoke, note, portal, flying glyph, flame, lava pop, cloud, coloured dust, snowball break, snow shovel, slime, heart, barrier, item crack, block break, block dust, water drop, mob appearance, dragon breath, end rod, damage indicator, sweep attack, falling dust, totem, spit, squid ink, bubble pop, current down, bubble column up, nautilus, dolphin, sneeze, campfire cosy smoke, campfire signal smoke, composter, flash, falling lava, landing lava, falling water, dripping honey, falling honey, landing honey, falling nectar, soul fire flame, ash, crimson spore, warped spore, soul, dripping obsidian tear, falling obsidian tear, landing obsidian tear, reverse portal, white ash",
+    "smoke, potion break, ender signal, mobspawner flames, arrow particles, jumping rabbit, hurt, wolf smoke, wolf hearts, wolf shaking, sheep eating, iron golem offering rose, villager hearts, angry villager entity, happy villager entity, witch magic, zombie turning to a villager, firework explosion, love hearts, squid rotation reset, entity poof, guardian target, block with shield, shield break, armor stand hit, hurt by thorns, iron golem sheathing rose, resurrection by totem, hurt by drowning, hurt by explosion, explosion, large explosion, huge explosion, firework's spark, water bubble, water splash, water wake, suspended, void fog, critical hit, magical critical hit, smoke particle, large smoke, spell, spell, potion swirl, transparent potion swirl, witch spell, water drip, lava drip, angry villager, happy villager, small smoke, note, portal, flying glyph, flame, lava pop, cloud, coloured dust, snowball break, snow shovel, slime, heart, item crack, block break, block dust, water drop, mob appearance, dragon breath, end rod, damage indicator, sweep attack, falling dust, totem, spit, squid ink, bubble pop, current down, bubble column up, nautilus, dolphin, sneeze, campfire cosy smoke, campfire signal smoke, composter, flash, falling lava, landing lava, falling water, dripping honey, falling honey, landing honey, falling nectar, soul fire flame, ash, crimson spore, warped spore, soul, dripping obsidian tear, falling obsidian tear, landing obsidian tear, reverse portal, white ash, falling spore blossom, spore blossom air, small flame, snowflake, dripping dripstone lava, falling dripstone lava, dripping dripstone water, falling dripstone water, glow squid ink, glow, wax on, wax off, electric spark, scrape, sonic boom, sculk soul, sculk charge, sculk charge pop, shriek",
 
     "pattern_end"
   ],
@@ -1000,12 +1012,12 @@ Note: This is the only element where not all patterns are shown. It has actually
   "id" : "CondPlayedBefore",
   "name" : "Has Played Before",
   "patterns" : [
-    "%<a href='./classes.html#offlineplayer'>offline player</a>% [(has|did)] [already] play[ed] [on (this|the) server] (before|already)",
-"%<a href='./classes.html#offlineplayer'>offline player</a>% (has not|hasn't|did not|didn't) [(already|yet)] play[ed] [on (this|the) server] (before|already|yet)",
+    "%<a href='./classes.html#offlineplayer'>offline players</a>% [(has|have|did)] [already] play[ed] [on (this|the) server] (before|already)",
+"%<a href='./classes.html#offlineplayer'>offline players</a>% (has not|hasn't|have not|haven't|did not|didn't) [(already|yet)] play[ed] [on (this|the) server] (before|already|yet)",
 
     "pattern_end"
   ],
-  "since" : "1.4",
+  "since" : "1.4, INSERT VERSION (multiple players)",
   "description" : "Checks whether a player has played on this server before. You can also use <a href='events.html#first_join'>on first join</a> if you want to make triggers for new players.",
   "examples" : "player has played on this server before\\nplayer hasn't played before"
 },
@@ -1721,7 +1733,7 @@ For more info, see <a href='https://minecraft.gamepedia.com/Slime#.22Slime_chunk
   "since" : "2.1",
   "description" : "Checks whether a location is contained in a particular <a href='./classes.html#region'>region</a>.
 This condition requires a supported regions plugin to be installed.",
-  "examples" : "player is in the region {regions::3}\\non region enter:\\n    region contains {flags.%world%.red}\\n    message \"The red flag is near!\""
+  "examples" : "player is in the region {regions::3}\\n\\non region enter:\\n    region contains {flags.%world%.red}\\n    message \"The red flag is near!\""
 },
 {
   "id" : "CondResourcePack",
@@ -1761,19 +1773,6 @@ This condition requires a supported regions plugin to be installed.",
   "since" : "2.0",
   "description" : "Tests whether a given <a href='classes.html#date'>real time</a> was more or less than some <a href='classes.html#timespan'>time span</a> ago.",
   "examples" : "command /command-with-cooldown:\\n    trigger:\\n        {command::%player's uuid%::last-usage} was less than a minute ago:\\n            message \"Please wait a minute between uses of this command.\"\\n            stop\\n        set {command::%player's uuid%::last-usage} to now\\n        # ... actual command trigger here ..."
-},
-{
-  "id" : "CondWeather",
-  "name" : "Weather",
-  "patterns" : [
-    "is %<a href='./classes.html#weathertype'>weather types</a>% [in %<a href='./classes.html#world'>worlds</a>%]",
-
-    "pattern_end"
-  ],
-  "since" : "1.0",
-  "description" : "Checks whether the weather in a world is of a specific type.
-<i>I welcome any ideas how to write this condition differently.</i>",
-  "examples" : "is thundering\\nis raining in \"world\" or \"world2\""
 },
 
     {"end" : true}
@@ -1962,7 +1961,7 @@ You can add a tool, which will spawn items based on how that tool would break th
 
     "pattern_end"
   ],
-  "since" : "2.2-dev37",
+  "since" : "2.2-dev37, INSERT VERSION (while loops)",
   "description" : "Skips the value currently being looped, moving on to the next value if it exists.",
   "examples" : "loop all players:\\n    if loop-value does not have permission \"moderator\":\\n        continue # filter out non moderators\\n    broadcast \"%loop-player% is a moderator!\" # Only moderators get broadcast"
 },
@@ -2396,7 +2395,7 @@ Please note that some effects can only be played on entities, e.g. wolf hearts o
   "id" : "EffPlaySound",
   "name" : "Play Sound",
   "patterns" : [
-    "play sound[s] %<a href='./classes.html#string'>texts</a>% [(in|from) %<a href='./classes.html#soundcategory'>sound category</a>%] [(at|with) volume %<a href='./classes.html#number'>number</a>%] [(and|at|with) pitch %<a href='./classes.html#number'>number</a>%] at %<a href='./classes.html#location'>locations</a>% [for %<a href='./classes.html#player'>players</a>%]",
+    "play sound[s] %<a href='./classes.html#string'>texts</a>% [(in|from) %<a href='./classes.html#soundcategory'>sound category</a>%] [(at|with) volume %<a href='./classes.html#number'>number</a>%] [(and|at|with) pitch %<a href='./classes.html#number'>number</a>%] at %<a href='./classes.html#location'>locations</a>% [(to|for) %<a href='./classes.html#player'>players</a>%]",
 "play sound[s] %<a href='./classes.html#string'>texts</a>% [(in|from) %<a href='./classes.html#soundcategory'>sound category</a>%] [(at|with) volume %<a href='./classes.html#number'>number</a>%] [(and|at|with) pitch %<a href='./classes.html#number'>number</a>%] [(to|for) %<a href='./classes.html#player'>players</a>%] [(at|from) %<a href='./classes.html#location'>locations</a>%]",
 
     "pattern_end"
@@ -2677,8 +2676,11 @@ which may cause lag spikes or server crashes when using this effect to teleport 
     "pattern_end"
   ],
   "since" : "2.3",
-  "description" : "Sends a title/subtitle to the given player(s) with optional fadein/stay/fadeout times for Minecraft versions 1.11 and above.
-Note: if no input is given for the title/subtitle or the times,it will keep the ones from the last title sent, use the <a href='effects.html#EffResetTitle'>reset title</a> effect to restore the default values.",
+  "description" : "Sends a title/subtitle to the given player(s) with optional fadein/stay/fadeout times for Minecraft versions 1.11 and above. 
+
+If you're sending only the subtitle, it will be shown only if there's a title displayed at the moment, otherwise it will be sent with the next title. To show only the subtitle, use: <code>send title \" \" with subtitle \"yourtexthere\" to player</code>.
+
+Note: if no input is given for the times, it will keep the ones from the last title sent, use the <a href='effects.html#EffResetTitle'>reset title</a> effect to restore the default values.",
   "examples" : "send title \"Competition Started\" with subtitle \"Have fun, Stay safe!\" to player for 5 seconds\\nsend title \"Hi %player%\" to player\\nsend title \"Loot Drop\" with subtitle \"starts in 3 minutes\" to all players\\nsend title \"Hello %player%!\" with subtitle \"Welcome to our server\" to player for 5 seconds with fadein 1 second and fade out 1 second\\nsend subtitle \"Party!\" to all players"
 },
 {
@@ -2804,95 +2806,6 @@ Do note that other event values, such as 'player', won't work in this section.",
   "since" : "1.3.4",
   "description" : "An event that occurs at a given <a href='./classes.html#time'>minecraft time</a> in every world or only in specific worlds.",
   "examples" : "at 18:00\\nat 7am in \"world\""
-},
-{
-  "id" : "consent",
-  "name" : "Consent",
-  "patterns" : [
-    "skript-(mirror|reflect), I know what I'm doing",
-
-    "pattern_end"
-  ],
-  "since" : "Unknown",
-  "description" : "Missing description.",
-  "examples" : "Missing examples."
-},
-{
-  "id" : "define_condition",
-  "name" : "Define Condition",
-  "patterns" : [
-    "[local] condition &lt;.+&gt;",
-"[local] condition",
-"[local] %*<a href='./classes.html#classinfo'>types</a>% property condition &lt;.+&gt;",
-
-    "pattern_end"
-  ],
-  "since" : "Unknown",
-  "description" : "Missing description.",
-  "examples" : "Missing examples."
-},
-{
-  "id" : "define_constant",
-  "name" : "Define Constant",
-  "patterns" : [
-    "option &lt;.+&gt;",
-
-    "pattern_end"
-  ],
-  "since" : "Unknown",
-  "description" : "Missing description.",
-  "examples" : "Missing examples."
-},
-{
-  "id" : "define_effect",
-  "name" : "Define Effect",
-  "patterns" : [
-    "[local] effect &lt;.+&gt;",
-"[local] effect",
-
-    "pattern_end"
-  ],
-  "since" : "Unknown",
-  "description" : "Missing description.",
-  "examples" : "Missing examples."
-},
-{
-  "id" : "define_event",
-  "name" : "Define Event",
-  "patterns" : [
-    "[local] [custom] event %<a href='./classes.html#string'>text</a>%",
-
-    "pattern_end"
-  ],
-  "since" : "Unknown",
-  "description" : "Missing description.",
-  "examples" : "Missing examples."
-},
-{
-  "id" : "define_expression",
-  "name" : "Define Expression",
-  "patterns" : [
-    "[local] [((plural|non(-|[ ])single))] expression &lt;.+&gt;",
-"[local] [((plural|non(-|[ ])single))] expression",
-"[local] [((plural|non(-|[ ])single))] %*<a href='./classes.html#classinfo'>types</a>% property &lt;.+&gt;",
-
-    "pattern_end"
-  ],
-  "since" : "Unknown",
-  "description" : "Missing description.",
-  "examples" : "Missing examples."
-},
-{
-  "id" : "import",
-  "name" : "Import",
-  "patterns" : [
-    "import",
-
-    "pattern_end"
-  ],
-  "since" : "Unknown",
-  "description" : "Missing description.",
-  "examples" : "Missing examples."
 },
 {
   "id" : "aoe_cloud_effect",
@@ -3055,18 +2968,6 @@ Do note that other event values, such as 'player', won't work in this section.",
   "examples" : "on player filling a bucket:"
 },
 {
-  "id" : "bukkit_event",
-  "name" : "On Bukkit Event",
-  "patterns" : [
-    "[on] [all] %javatypes% [(at|on|with) priority &lt;.+&gt;]",
-
-    "pattern_end"
-  ],
-  "since" : "Unknown",
-  "description" : "Missing description.",
-  "examples" : "Missing examples."
-},
-{
   "id" : "burn",
   "name" : "On Burn",
   "patterns" : [
@@ -3227,13 +3128,13 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "damage",
   "name" : "On Damage",
   "patterns" : [
-    "[on] damag(e|ing) [of %<a href='./classes.html#entitydata'>entity type</a>%]",
+    "[on] damag(e|ing) [of %<a href='./classes.html#entitydata'>entity type</a>%] [by %<a href='./classes.html#entitydata'>entity type</a>%]",
 
     "pattern_end"
   ],
-  "since" : "1.0",
+  "since" : "1.0, INSERT VERSION (by entity)",
   "description" : "Called when an entity receives damage, e.g. by an attack from another entity, lava, fire, drowning, fall, suffocation, etc.",
-  "examples" : "on damage:\\non damage of a player:"
+  "examples" : "on damage:\\non damage of a player:\\non damage of player by zombie:"
 },
 {
   "id" : "death",
@@ -4454,18 +4355,6 @@ Do note that other event values, such as 'player', won't work in this section.",
   "examples" : "on zombie breaking a wood door:"
 },
 {
-  "id" : "custom_event",
-  "name" : "On custom event",
-  "patterns" : [
-    "[on] Missing patterns.",
-
-    "pattern_end"
-  ],
-  "since" : "Unknown",
-  "description" : "Missing description.",
-  "examples" : "Missing examples."
-},
-{
   "id" : "periodical",
   "name" : "Periodical",
   "patterns" : [
@@ -4517,6 +4406,18 @@ Do note that other event values, such as 'player', won't work in this section.",
   "since" : "2.4",
   "description" : "The affected entities in the <a href='events.html#aoe_cloud_effect'>area cloud effect</a> event.",
   "examples" : "on area cloud effect:\\n    loop affected entities:\\n        if loop-value is a player:\\n            send \"WARNING: you've step on an area effect cloud!\" to loop-value"
+},
+{
+  "id" : "ExprAllGroups",
+  "name" : "All Groups",
+  "patterns" : [
+    "all groups",
+
+    "pattern_end"
+  ],
+  "since" : "2.2-dev35",
+  "description" : "All the groups a player can have. This expression requires Vault and a compatible permissions plugin to be installed.",
+  "examples" : "command /group &lt;text&gt;:\\n    trigger:\\n        if argument is \"list\":\\n            send \"%all groups%\""
 },
 {
   "id" : "ExprPermissions",
@@ -4815,6 +4716,20 @@ Can optionally include a direction as well, e.g. 'block above' or 'block in fron
   "description" : "The block involved in the event, e.g. the clicked block or the placed block.
 Can optionally include a direction as well, e.g. 'block above' or 'block in front of the player'.",
   "examples" : "block is ore\\nset block below to air\\nspawn a creeper above the block\\nloop blocks in radius 4:\\n    loop-block is obsidian\\n    set loop-block to water\\nblock is a chest:\\n    clear the inventory of the block"
+},
+{
+  "id" : "ExprBlockAge",
+  "name" : "Block Age",
+  "patterns" : [
+    "[the] [max[imum]] age of %<a href='./classes.html#block'>block</a>%",
+"%<a href='./classes.html#block'>block</a>%'[s] [max[imum]] age",
+
+    "pattern_end"
+  ],
+  "since" : "INSERT VERSION",
+  "description" : "Returns the age or max age of a block. 'Age' represents the different growth stages that a crop-like block can go through.
+A value of 0 indicates that the crop was freshly planted, whilst a value equal to 'maximum age' indicates that the crop is ripe and ready to be harvested.",
+  "examples" : "set age of targeted block to max age of targeted block"
 },
 {
   "id" : "ExprBlockData",
@@ -5443,7 +5358,7 @@ This is number that was displayed in the enchantment table, not the actual numbe
 },
 {
   "id" : "ExprEnchantmentOfferCost",
-  "name" : "Enchantment Offer Enchantment Cost",
+  "name" : "Enchantment Offer Cost",
   "patterns" : [
     "[the] [enchant[ment]] cost of %<a href='./classes.html#enchantmentoffer'>enchantment offers</a>%",
 "%<a href='./classes.html#enchantmentoffer'>enchantment offers</a>%'[s] [enchant[ment]] cost",
@@ -5452,9 +5367,9 @@ This is number that was displayed in the enchantment table, not the actual numbe
   ],
   "since" : "2.5",
   "description" : "The cost of an enchantment offer. This is displayed to the right of an enchantment offer.
- If the cost is changed, it will always be at least 1.
- This changes how many levels are required to enchant, but does not change the number of levels removed.
- To change the number of levels removed, use the enchant event.",
+If the cost is changed, it will always be at least 1.
+This changes how many levels are required to enchant, but does not change the number of levels removed.
+To change the number of levels removed, use the enchant event.",
   "examples" : "set cost of enchantment offer 1 to 50"
 },
 {
@@ -5482,7 +5397,7 @@ This is number that was displayed in the enchantment table, not the actual numbe
     "pattern_end"
   ],
   "since" : "1.2.1, 2.5 (chunks)",
-  "description" : "All entities in all worlds, in a specific world, in a chunk or in a radius around a certain location, e.g. 'all players', 'all creepers in the player's world', or 'players in radius 100 of the player'.",
+  "description" : "All entities in all worlds, in a specific world, in a chunk or in a radius around a certain location, e.g. <code>all players</code>, <code>all creepers in the player's world</code>, or <code>players in radius 100 of the player</code>.",
   "examples" : "kill all creepers in the player's world\\nsend \"Psst!\" to all players within 100 meters of the player\\ngive a diamond to all ops\\nheal all tamed wolves in radius 2000 around {town center}\\ndelete all monsters in chunk at player"
 },
 {
@@ -5712,8 +5627,8 @@ Read <a href='https://minecraft.gamepedia.com/Explosion'>this wiki page</a> for 
   "id" : "ExprFoodLevel",
   "name" : "Food Level",
   "patterns" : [
-    "[the] (food|hunger)[[ ](level|met(er|re)|bar)] [of %<a href='./classes.html#player'>player</a>%]",
-"%<a href='./classes.html#player'>player</a>%'[s] (food|hunger)[[ ](level|met(er|re)|bar)]",
+    "[the] (food|hunger)[[ ](level|met(er|re)|bar)] [of %<a href='./classes.html#player'>players</a>%]",
+"%<a href='./classes.html#player'>players</a>%'[s] (food|hunger)[[ ](level|met(er|re)|bar)]",
 
     "pattern_end"
   ],
@@ -5830,15 +5745,28 @@ Remember to use '<a href='#ExprBlock'>block</a>' and not 'furnace', as 'furnace'
   "examples" : "set gravity of player off"
 },
 {
-  "id" : "ExprHanging",
-  "name" : "Hanging Entity/Remover",
+  "id" : "ExprGroup",
+  "name" : "Group",
   "patterns" : [
-    "[the] hanging (entity|:remover)",
+    "[the] group[s] of %<a href='./classes.html#offlineplayer'>offline players</a>%",
+"%<a href='./classes.html#offlineplayer'>offline players</a>%'[s] group[s]",
 
     "pattern_end"
   ],
-  "since" : "INSERT VERSION",
-  "description" : "Returns the hanging entity or remover in hanging <a href='/events.html#break_mine'>break</a> and <a href='/events.html#place'>place</a> events.",
+  "since" : "2.2-dev35",
+  "description" : "The primary group or all groups of a player. This expression requires Vault and a compatible permissions plugin to be installed.",
+  "examples" : "on join:\\n    broadcast \"%group of player%\" # this is the player's primary group\\n    broadcast \"%groups of player%\" # this is all of the player's groups"
+},
+{
+  "id" : "ExprHanging",
+  "name" : "Hanging Entity/Remover",
+  "patterns" : [
+    "[the] hanging (entity|remover)",
+
+    "pattern_end"
+  ],
+  "since" : "2.6.2",
+  "description" : "Returns the hanging entity or remover in hanging <a href='./events.html#break_mine'>break</a> and <a href='./events.html#place'>place</a> events.",
   "examples" : "on break of item frame:\\n    if item of hanging entity is diamond pickaxe:\\n        cancel event\\n        if hanging remover is a player:\\n            send \"You can't break that item frame!\" to hanging remover"
 },
 {
@@ -6650,6 +6578,19 @@ Please note that the location of an entity is at it's feet, use <a href='#ExprEy
   "examples" : "on right click on minecart:\\n    set derailed velocity of event-entity to vector 2, 10, 2"
 },
 {
+  "id" : "ExprBalance",
+  "name" : "Money",
+  "patterns" : [
+    "[the] (money|balance|[bank] account) of %<a href='./classes.html#offlineplayer'>offline players</a>%",
+"%<a href='./classes.html#offlineplayer'>offline players</a>%'[s] (money|balance|[bank] account)",
+
+    "pattern_end"
+  ],
+  "since" : "2.0, 2.5 (offline player support)",
+  "description" : "How much virtual money a player has (can be changed). This expression requires Vault and a compatible economy plugin to be installed.",
+  "examples" : "message \"You have %player's money%\" # the currency name will be added automatically\\nremove 20$ from the player's balance # replace '$' by whatever currency you use\\nadd 200 to the player's account # or omit the currency alltogether"
+},
+{
   "id" : "ExprPushedBlocks",
   "name" : "Moved blocks",
   "patterns" : [
@@ -6961,7 +6902,7 @@ See also: <a href='#ExprVehicle'>vehicle</a>",
 
     "pattern_end"
   ],
-  "since" : "INSERT VERSION",
+  "since" : "2.6.2",
   "description" : "Player's protocol version. For more information and list of protocol versions <a href='https://wiki.vg/Protocol_version_numbers'>visit wiki.vg</a>.",
   "examples" : "command /protocolversion &ltplayer&gt:\\n    trigger:\\n        send \"Protocol version of %arg-1%: %protocol version of arg-1%\""
 },
@@ -7033,6 +6974,19 @@ You can clear all potion effects of an entity/itemtype and add/remove a potion e
 Do note you will not be able to clear the base potion effects of a potion item. In that case, just set the item to a water bottle.
 When adding a potion effect type (rather than a potion effect), it will default to 15 seconds with tier 1.",
   "examples" : "set {_p::*} to active potion effects of player\\nclear all the potion effects of player\\nclear all the potion effects of player's tool\\nadd potion effects of player to potion effects of player's tool\\nadd speed to potion effects of target entity\\nremove speed and night vision from potion effects of player"
+},
+{
+  "id" : "ExprPrefixSuffix",
+  "name" : "Prefix/Suffix",
+  "patterns" : [
+    "[the] [chat] (prefix|suffix) of %<a href='./classes.html#player'>players</a>%",
+"%<a href='./classes.html#player'>players</a>%'[s] [chat] (prefix|suffix)",
+
+    "pattern_end"
+  ],
+  "since" : "2.0",
+  "description" : "The prefix or suffix as defined in the server's chat plugin.",
+  "examples" : "on chat:\\n    cancel event\\n    broadcast \"%player's prefix%%player's display name%%player's suffix%: %message%\" to the player's world\\n\\nset the player's prefix to \"[&lt;red&gt;Admin<reset>] \""
 },
 {
   "id" : "ExprProjectileBounceState",
@@ -7152,7 +7106,7 @@ Please note that the order of the numbers doesn't matter, i.e. <code>random numb
     "pattern_end"
   ],
   "since" : "2.1",
-  "description" : "The <a href='classes.html#region'>region</a> involved in an event.
+  "description" : "The <a href='./classes.html#region'>region</a> involved in an event.
 This expression requires a supported regions plugin to be installed.",
   "examples" : "on region enter:\\n    region is {forbidden region}\\n    cancel the event"
 },
@@ -7168,7 +7122,7 @@ This expression requires a supported regions plugin to be installed.",
   "since" : "2.1",
   "description" : "A list of members or owners of a <a href='./classes.html#region'>region</a>.
 This expression requires a supported regions plugin to be installed.",
-  "examples" : "on entering of a region:\\n    message \"You're entering %region% whose owners are %owners of region%\"."
+  "examples" : "on entering of a region:\\n    message \"You're entering %region% whose owners are %owners of region%\""
 },
 {
   "id" : "ExprRegionsAt",
@@ -7243,7 +7197,7 @@ This expression requires a supported regions plugin to be installed.",
 
     "pattern_end"
   ],
-  "since" : "2.2-Fixes-v10, 2.2-dev35 (fully modifiable), INSERT VERSION (syntax pattern changed)",
+  "since" : "2.2-Fixes-v10, 2.2-dev35 (fully modifiable), 2.6.2 (syntax pattern changed)",
   "description" : "The saturation of a player. If used in a player event, it can be omitted and will default to event-player.",
   "examples" : "set saturation of player to 20"
 },
@@ -7796,7 +7750,7 @@ In the future there will be an option to use a player's UUID instead of the name
 
     "pattern_end"
   ],
-  "since" : "2.2-dev28",
+  "since" : "2.2-dev28, INSERT VERSION (signed components)",
   "description" : "Creates a random vector.",
   "examples" : "set {_v} to a random vector"
 },

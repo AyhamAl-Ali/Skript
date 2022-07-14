@@ -102,17 +102,25 @@ function offsetAnchor(event, id) { // event can be null
   }
 }
 
-
-document.querySelectorAll("a").forEach((e) => {
+document.querySelectorAll(".link-icon").forEach((e) => {
   e.addEventListener("click", (event) => {
     let id = e.getAttribute("href").replace("#", "");
     if (id != "" && id != null) {
-      offsetAnchor(event, id);
+      // offsetAnchor(event, id);
+      event.preventDefault();
       toggleSyntax(id);
     }
   });
 })
 // Anchor correction </>
+
+// Open description/pattern links in same tab rather than scrolling because hash links uses search bar
+document.querySelectorAll(".item-wrapper a:not(.link-icon)").forEach((e) => {
+  e.addEventListener("click", (event) => {
+    event.preventDefault();
+    window.open(e.href);
+  });
+})
 
 // <> Anchor click copy link
 function copyToClipboard(value) {
@@ -126,6 +134,7 @@ function copyToClipboard(value) {
   }, 50)
 }
 
+// Show notification
 function showNotification(text, bgColor, color) {
   var noti = document.body.appendChild(document.createElement("span"));
   noti.id = "notification-box";
@@ -155,14 +164,14 @@ document.querySelectorAll(".item-title > a").forEach((e) => {
 })
 // Anchor click copy link </>
 
-// <> New element click
+// <> New element label click
 document.querySelectorAll(".new-element").forEach((e) => {
   e.addEventListener("click", (event) => {
     searchNow("is:new");
   });
 })
 
-// New element click </>
+// New element label click </>
 
 // <> Search Bar
 const versionComparePattern = /.*?(\d\.\d(?:\.\d|))(\+|-|).*/gi;
@@ -195,6 +204,14 @@ if (linkParams && linkParams.get("search")) {
   setTimeout(() => {
     searchNow(linkParams.get("search")) // anchor link sometimes appear after the search param so filter it
   }, 20) // Until searchBar is loaded
+} else {
+  // Search the hash value if available
+  requestedElementID = window.location.hash;
+  if (requestedElementID != undefined && requestedElementID != "") {
+    setTimeout(() => {
+      searchNow(requestedElementID);
+    }, 20) // Until searchBar is loaded
+  }
 }
 
 var content = document.getElementById("content");
@@ -255,6 +272,7 @@ if (searchIcon) {
   })
 }
 
+// Used when selecting a version from the dropdown
 function checkVersionFilter() {
   let el = document.getElementById("search-version")
   if (el) {
@@ -687,20 +705,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
 // <> Example Collapse
 var examples = document.querySelectorAll(".item-examples p");
 if (examples) {
-  examples.forEach(e => {
-    let pElement = e;
-    let divElement = e.parentElement.children[1];
-    pElement.addEventListener("click", ev => {
-      if (pElement.classList.contains("example-details-opened")) {
-        pElement.classList.remove("example-details-opened");
-        pElement.classList.add("example-details-closed");
-        divElement.style.display = "none";
-      } else {
-        pElement.classList.remove("example-details-closed");
-        pElement.classList.add("example-details-opened");
-        divElement.style.display = "block";
-      }
+  setTimeout(() => {
+    examples.forEach(e => {
+      let pElement = e;
+      let divElement = e.parentElement.children[1];
+      pElement.addEventListener("click", ev => {
+        if (pElement.classList.contains("example-details-opened")) {
+          pElement.classList.remove("example-details-opened");
+          pElement.classList.add("example-details-closed");
+          divElement.style.display = "none";
+        } else {
+          pElement.classList.remove("example-details-closed");
+          pElement.classList.add("example-details-opened");
+          divElement.style.display = "block";
+        }
+      })
     })
-  })
+  }, 50)
 }
 // Example Collapse </>
