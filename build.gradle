@@ -158,6 +158,15 @@ tasks.register('testNaming') {
 	}
 }
 
+tasks.register('moveDocsToTest', Exec) {
+	def serverName = "paper-1.19"
+	if (System.properties['os.name'].toLowerCase().contains('windows')) {
+		commandLine ".\\move-docs-to-test-runner.bat " + serverName 
+	} else {
+		commandLine "./move-docs-to-test-runner.sh " + serverName
+	}
+}
+
 // Create a test task with given name, environments dir/file, dev mode and java version.
 void createTestTask(String name, String environments, boolean devMode, int javaVersion) {
 	tasks.register(name, JavaExec) {
@@ -202,7 +211,7 @@ createTestTask('skriptTestDev', 'src/test/skript/environments/' + (project.prope
 	? latestJava : project.property('testEnvJavaVersion')))
 tasks.register('skriptTestFull') {dependsOn skriptTestJava8, skriptTest}
 tasks.register("genDocs", JavaExec) {
-	dependsOn jar, testNaming
+	dependsOn jar, testNaming, moveDocsToTest
 	javaLauncher = javaToolchains.launcherFor {
         languageVersion = JavaLanguageVersion.of(Integer.parseInt(project.property('testEnvJavaVersion') == null
 			? latestJava : project.property('testEnvJavaVersion')))
