@@ -4944,7 +4944,7 @@ Can also be used to change the burn/cook time of a placed furnace.",
   "examples" : "on click on wool:\\n    message \"This wool block is <%color of block%>%color of block%<reset>!\"\\n    set the color of the block to black"
 },
 {
-  "id" : "ExprColored",
+  "id" : "ExprColoured",
   "name" : "Colored / Uncolored",
   "patterns" : [
     "(colo[u]r-|colo[u]red )%<a href='./classes.html#string'>texts</a>%",
