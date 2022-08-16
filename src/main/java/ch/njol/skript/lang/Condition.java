@@ -44,14 +44,14 @@ public abstract class Condition extends Statement {
 	 * <br/>
 	 * You might want to use {@link SimpleExpression#check(Event, Checker)}
 	 * 
-	 * @param e the event to check
+	 * @param event the event to check
 	 * @return <code>true</code> if the condition is satisfied, <code>false</code> otherwise or if the condition doesn't apply to this event.
 	 */
-	public abstract boolean check(Event e);
+	public abstract boolean check(Event event);
 	
 	@Override
-	public final boolean run(Event e) {
-		return check(e);
+	public final boolean run(Event event) {
+		return check(event);
 	}
 	
 	/**

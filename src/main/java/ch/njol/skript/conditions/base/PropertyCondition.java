@@ -129,8 +129,8 @@ public abstract class PropertyCondition<T> extends Condition implements Checker<
 	}
 	
 	@Override
-	public final boolean check(final Event e) {
-		return expr.check(e, this, isNegated());
+	public final boolean check(final Event event) {
+		return expr.check(event, this, isNegated());
 	}
 	
 	@Override
@@ -152,22 +152,22 @@ public abstract class PropertyCondition<T> extends Condition implements Checker<
 	}
 	
 	@Override
-	public String toString(final @Nullable Event e, final boolean debug) {
-		return toString(this, getPropertyType(), e, debug, expr, getPropertyName());
+	public String toString(final @Nullable Event event, final boolean debug) {
+		return toString(this, getPropertyType(), event, debug, expr, getPropertyName());
 	}
 	
-	public static String toString(Condition condition, PropertyType propertyType, @Nullable Event e,
+	public static String toString(Condition condition, PropertyType propertyType, @Nullable Event event,
 								  boolean debug, Expression<?> expr, String property) {
 		switch (propertyType) {
 			case BE:
-				return expr.toString(e, debug) + (expr.isSingle() ? " is " : " are ") + (condition.isNegated() ? "not " : "") + property;
+				return expr.toString(event, debug) + (expr.isSingle() ? " is " : " are ") + (condition.isNegated() ? "not " : "") + property;
 			case CAN:
-				return expr.toString(e, debug) + (condition.isNegated() ? " can't " : " can ") + property;
+				return expr.toString(event, debug) + (condition.isNegated() ? " can't " : " can ") + property;
 			case HAVE:
 				if (expr.isSingle())
-					return expr.toString(e, debug) + (condition.isNegated() ? " doesn't have " : " has ") + property;
+					return expr.toString(event, debug) + (condition.isNegated() ? " doesn't have " : " has ") + property;
 				else
-					return expr.toString(e, debug) + (condition.isNegated() ? " don't have " : " have ") + property;
+					return expr.toString(event, debug) + (condition.isNegated() ? " don't have " : " have ") + property;
 			default:
 				assert false;
 				throw new AssertionError();

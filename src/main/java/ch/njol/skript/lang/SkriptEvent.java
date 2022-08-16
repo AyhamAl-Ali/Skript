@@ -59,10 +59,10 @@ public abstract class SkriptEvent implements SyntaxElement, Debuggable {
 	 * Checks whether the given Event applies, e.g. the leftclick event is only part of the PlayerInteractEvent, and this checks whether the player leftclicked or not. This method
 	 * will only be called for events this SkriptEvent is registered for.
 	 *
-	 * @param e
+	 * @param event
 	 * @return true if this is SkriptEvent is represented by the Bukkit Event or false if not
 	 */
-	public abstract boolean check(Event e);
+	public abstract boolean check(Event event);
 
 	/**
 	 * Script loader checks this before loading items in event. If false is

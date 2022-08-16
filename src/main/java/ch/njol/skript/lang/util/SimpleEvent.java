@@ -36,7 +36,7 @@ public class SimpleEvent extends SkriptEvent {
 	public SimpleEvent() {}
 	
 	@Override
-	public boolean check(final Event e) {
+	public boolean check(final Event event) {
 		return true;
 	}
 	
@@ -48,7 +48,7 @@ public class SimpleEvent extends SkriptEvent {
 	}
 	
 	@Override
-	public String toString(final @Nullable Event e, final boolean debug) {
+	public String toString(final @Nullable Event event, final boolean debug) {
 		return "simple event";
 	}
 	
