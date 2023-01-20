@@ -746,6 +746,7 @@ td ul {
 
     #cookies-bar {
         flex-direction: column;
+        padding-bottom: 70px !important;
     }
 }
 
