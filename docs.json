@@ -1,113 +1,769 @@
 {
-  "skriptVersion" : "2.6.3",
+  "skriptVersion" : "2.6.4",
 
   "classes" : [
     {
-  "id" : "long",
-  "name" : "Unknown Name",
+  "id" : "attributetype",
+  "name" : "Attribute Type",
+  "patterns" : [
+    "generic attack speed, luck, max health, generic movement speed, flying speed, attack damage, horse jump strength, generic attack damage, generic luck, generic armor, generic flying speed, follow range, generic knockback resistance, movement speed, generic follow range, zombie spawn reinforcements, armor, generic attack knockback, attack speed, armor toughness, knockback resistance, generic max health, attack knockback, generic armor toughness",
+
+    "pattern_end"
+  ],
+  "since" : "2.5",
+  "description" : "Represents the type of an attribute. Note that this type does not contain any numerical values.See <a href='https://minecraft.gamepedia.com/Attribute#Attributes'>attribute types</a> for more info.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "biome",
+  "name" : "Biome",
+  "patterns" : [
+    "bamboo jungle hills, the void, desert lakes, jungle edge mountains, hell, mega taiga, mesa plateau, mesa plateau forest mountains, birch forest, cold taiga, cold beach, savanna, birch forest hills mountains, giant tree taiga, marsh, sky, nether, cold ocean, small mountains, forest hills, ice mountains, deep warm ocean, small end islands, badlands, badlands plateau mountains, badlands plateau, ice plains spikes, gravelly mountains, jungle, basalt deltas, desert hills, mountain edge, modified wooded badlands plateau, forest, eroded mesa, end barrens, birch forest mountains, ice plains with spikes, modified gravelly mountains, sea, savanna plateau mountains, unknown, black forest, mushroom fields, extreme hills, mushroom island, wooded mountains, shattered savanna, sunflower plains, tall birch hills, snowy taiga hills, flower forest, frozen river, deep cold ocean, swamp, ice plains, end highlands, mushroom island shore, river, tall birch forest, warped forest, desert, extreme hills mountains, cold taiga mountains, roofed forest, badlands plateau forest, extreme hills plus mountains, birch forest hills, snowy taiga, cold taiga hills, spiked ice plains, savanna mountains, crimson forest, mushroom shore, stone shore, mega spruce taiga hills, taiga mountains, stone beach, mushroom fields shore, wooded hills, void, giant spruce taiga, giant spruce taiga hills, lush caves, jungle hills, deep lukewarm ocean, deep frozen ocean, ice spikes, snowy taiga mountains, extreme hills plus, jungle mountains, ocean, lukewarm ocean, hills, roofed forest mountains, snowy beach, frozen ocean, mountains, redwood taiga, the end, dripstone caves, swampland, mesa plateau mountains, taiga hills, soul sand valley, mesa, plains, eroded badlands, badlands plateau forest mountains, mountains with trees, mega taiga hills, giant tree taiga hills, wooded badlands plateau, nether wastes, taiga, warm ocean, shattered savanna plateau, custom, deep ocean, end midlands, dark forest, redwood taiga hills, jungle edge, snowy tundra, snowy mountains, beach, dark forest hills, bamboo jungle, savanna plateau, mega spruce taiga, modified badlands plateau, mesa plateau forest, swamp hills",
+
+    "pattern_end"
+  ],
+  "since" : "1.4.4",
+  "description" : "All possible biomes Minecraft uses to generate a world.",
+  "examples" : "biome at the player is desert"
+},
+{
+  "id" : "block",
+  "name" : "Block",
   "patterns" : [
     "Missing patterns.",
 
     "pattern_end"
   ],
-  "since" : "Unknown",
-  "description" : "Missing description.",
+  "since" : "1.0",
+  "description" : "A block in a <a href='#world'>world</a>. It has a <a href='#location'>location</a> and a <a href='#itemstack'>type</a>, and can also have a <a href='#direction'>direction</a> (mostly a <a href='expressions.html#ExprFacing'>facing</a>), an <a href='#inventory'>inventory</a>, or other special properties.",
   "examples" : "Missing examples."
 },
 {
-  "id" : "double",
-  "name" : "Unknown Name",
+  "id" : "blockdata",
+  "name" : "Block Data",
   "patterns" : [
     "Missing patterns.",
 
     "pattern_end"
   ],
-  "since" : "Unknown",
-  "description" : "Missing description.",
-  "examples" : "Missing examples."
+  "since" : "2.5",
+  "description" : "Block data is the detailed information about a block, referred to in Minecraft as BlockStates, allowing for the manipulation of different aspects of the block, including shape, waterlogging, direction the block is facing, and so much more. Information regarding each block's optional data can be found on Minecraft's Wiki. Find the block you're looking for and scroll down to 'Block States'. Different states must be separated by a semicolon (see examples). The 'minecraft:' namespace is optional, as well as are underscores.",
+  "examples" : "set block at player to campfire[lit=false]\\nset target block of player to oak stairs[facing=north;waterlogged=true]\\nset block at player to grass_block[snowy=true]\\nset loop-block to minecraft:chest[facing=north]\\nset block above player to oak_log[axis=y]\\nset target block of player to minecraft:oak_leaves[distance=2;persistent=false]"
 },
 {
-  "id" : "float",
-  "name" : "Unknown Name",
+  "id" : "boolean",
+  "name" : "Boolean",
   "patterns" : [
-    "Missing patterns.",
+    "true/yes/on or false/no/off",
 
     "pattern_end"
   ],
-  "since" : "Unknown",
-  "description" : "Missing description.",
-  "examples" : "Missing examples."
+  "since" : "1.0",
+  "description" : "A boolean is a value that is either true or false. Other accepted names are 'on' and 'yes' for true, and 'off' and 'no' for false.",
+  "examples" : "set {config.%player%.use mod} to false"
 },
 {
-  "id" : "short",
-  "name" : "Unknown Name",
+  "id" : "CatType",
+  "name" : "Cat Type",
   "patterns" : [
-    "Missing patterns.",
+    "red, all black, british shorthair, ragdoll, white, jellie, siamese, black, tabby, calico, persian",
 
     "pattern_end"
   ],
-  "since" : "Unknown",
-  "description" : "Missing description.",
+  "since" : "2.4",
+  "description" : "Represents the race/type of a cat entity.",
   "examples" : "Missing examples."
 },
 {
-  "id" : "byte",
-  "name" : "Unknown Name",
-  "patterns" : [
-    "Missing patterns.",
-
-    "pattern_end"
-  ],
-  "since" : "Unknown",
-  "description" : "Missing description.",
-  "examples" : "Missing examples."
-},
-{
-  "id" : "itementity",
-  "name" : "Unknown Name",
+  "id" : "chunk",
+  "name" : "Chunk",
   "patterns" : [
     "Missing patterns.",
 
     "pattern_end"
   ],
   "since" : "2.0",
-  "description" : "Missing description.",
+  "description" : "A chunk is a cuboid of 16×16×128 (x×z×y) blocks. Chunks are spread on a fixed rectangular grid in their world.",
   "examples" : "Missing examples."
 },
 {
-  "id" : "material",
-  "name" : "Unknown Name",
+  "id" : "clicktype",
+  "name" : "Click Type",
+  "patterns" : [
+    "lmb, number key, mmb, rmb, drop item, drop key, window border using left mouse button, unknown, window border using right mouse, shift+rmb, unsupported, shift+lmb, ctrl+q, swap shield, left mouse button, left mouse with shift, left mouse, 0-9, double click, double click using mouse, border using rmb, right mouse button, right mouse button with shift, border using lmb, middle mouse, drop key with control, window border using right mouse button, swap offhand, custom, q, right mouse with shift, middle mouse button, drop stack, left mouse button with shift, right mouse, creative action",
+
+    "pattern_end"
+  ],
+  "since" : "2.2-dev16b, 2.2-dev35 (renamed to click type)",
+  "description" : "Click type, mostly for inventory events. Tells exactly which keys/buttons player pressed, assuming that default keybindings are used in client side.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "color",
+  "name" : "Color",
+  "patterns" : [
+    "black, dark grey/dark gray, grey/light grey/gray/light gray/silver, white, blue/dark blue, cyan/aqua/dark cyan/dark aqua, light blue/light cyan/light aqua, green/dark green, light green/lime/lime green, yellow/light yellow, orange/gold/dark yellow, red/dark red, pink/light red, purple/dark purple, magenta/light purple, brown/indigo",
+
+    "pattern_end"
+  ],
+  "since" : "Unknown",
+  "description" : "Wool, dye and chat colors.",
+  "examples" : "color of the sheep is red or black\\nset the color of the block to green\\nmessage \"You're holding a <%color of tool%>%color of tool%<reset> wool block\""
+},
+{
+  "id" : "commandsender",
+  "name" : "Command Sender",
+  "patterns" : [
+    "use <a href='expressions.html#LitConsole'>the console</a> for the console",
+"see <a href='#player'>player</a> for players.",
+
+    "pattern_end"
+  ],
+  "since" : "1.0",
+  "description" : "A player or the console.",
+  "examples" : "command /push [&lt;player&gt;]:\\n    trigger:\\n        if arg-1 is not set:\\n            if command sender is console:\\n                send \"You can't push yourself as a console :\\\" to sender\\n                stop\\n            push sender upwards with force 2\\n            send \"Yay!\"\\n        else:\\n            push arg-1 upwards with force 2\\n            send \"Yay!\" to sender and arg-1"
+},
+{
+  "id" : "damagecause",
+  "name" : "Damage Cause",
+  "patterns" : [
+    "sweep attack, thorns, the void, magma, a lightning, drowning, dragonfire, an attack, drown, an entity attack, melt, freeze, falling block, contact, fire, an entity explosion, lightning, a fall, entity explosion, void, a lightning strike, suffocation, suicide, wither effect, a plugin, lightning strike, entity attack, a potion, a wither, sweeping, melting, a falling block, unknown, starvation, lava, fall, hot floor, attack, a block explosion, dryout, burn, hitting wall while flying, potion, flying into a wall, cramming, poison, suffocate, custom, a fire, burning, a projectile, plugin, wither potion effect, block explosion, projectile, wither, dragon's breath",
+
+    "pattern_end"
+  ],
+  "since" : "2.0",
+  "description" : "The cause/type of a <a href='events.html#damage'>damage event</a>, e.g. lava, fall, fire, drowning, explosion, poison, etc.\\nPlease note that support for this type is very rudimentary, e.g. lava, fire and burning, as well as projectile and attack are considered different types.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "date",
+  "name" : "Date",
   "patterns" : [
     "Missing patterns.",
 
     "pattern_end"
   ],
-  "since" : "aliases-rework",
-  "description" : "Missing description.",
+  "since" : "1.4",
+  "description" : "A date is a certain point in the real world's time which can be obtained with <a href='./expressions.html#ExprNow'>now expression</a>, <a href='./expressions.html#ExprUnixDate'>unix date expression</a> and <a href='./functions.html#date'>date function</a>.\\nSee <a href='#time'>time</a> and <a href='#timespan'>timespan</a> for the other time types of Skript.",
+  "examples" : "set {_yesterday} to now\\nsubtract a day from {_yesterday}\\n# now {_yesterday} represents the date 24 hours before now"
+},
+{
+  "id" : "difficulty",
+  "name" : "Difficulty",
+  "patterns" : [
+    "normal, medium, hard, easy, peaceful",
+
+    "pattern_end"
+  ],
+  "since" : "2.3",
+  "description" : "The difficulty of a <a href='#world'>world</a>.",
   "examples" : "Missing examples."
 },
 {
-  "id" : "integer",
-  "name" : "Unknown Name",
+  "id" : "direction",
+  "name" : "Direction",
+  "patterns" : [
+    "see <a href='./expressions.html#ExprDirection'>direction (expression)</a>",
+
+    "pattern_end"
+  ],
+  "since" : "2.0",
+  "description" : "A direction, e.g. north, east, behind, 5 south east, 1.3 meters to the right, etc.\\n<a href='#location'>Locations</a> and some <a href='#block'>blocks</a> also have a direction, but without a length.\\nPlease note that directions have changed extensively in the betas and might not work perfectly. They can also not be used as command arguments.",
+  "examples" : "set the block below the victim to a chest\\nloop blocks from the block infront of the player to the block 10 below the player:\\n    set the block behind the loop-block to water"
+},
+{
+  "id" : "enchantment",
+  "name" : "Enchantment",
+  "patterns" : [
+    "Frost Walker, Feather Falling, Unbreaking, Knockback, Projectile Protection, Respiration, Punch, Protection, Blast Protection, Lure, Impaling, Smite, Silk Touch, Infinity, Luck of The Sea, Thorns, Multishot, Curse of Vanishing, Fire Aspect, Flame, Depth Strider, Piercing, Fire Protection, Sharpness, Power, Sweeping Edge, Aqua Affinity, Curse of Binding, Bane of Arthropods, Soul Speed, Looting, Efficiency, Mending, Riptide, Quick Charge, Fortune, Loyalty, Channeling",
+
+    "pattern_end"
+  ],
+  "since" : "1.4.6",
+  "description" : "An enchantment, e.g. 'sharpness' or 'fortune'. Unlike <a href='#enchantmenttype'>enchantment type</a> this type has no level, but you usually don't need to use this type anyway.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "enchantmentoffer",
+  "name" : "Enchantment Offer",
+  "patterns" : [
+    "Missing patterns.",
+
+    "pattern_end"
+  ],
+  "since" : "2.5",
+  "description" : "The enchantmentoffer in an enchant prepare event.",
+  "examples" : "on enchant prepare:\\n    set enchant offer 1 to sharpness 1\\n    set the cost of enchant offer 1 to 10 levels"
+},
+{
+  "id" : "enchantmenttype",
+  "name" : "Enchantment Type",
+  "patterns" : [
+    "&lt;enchantment&gt; [&lt;level&gt;]",
+
+    "pattern_end"
+  ],
+  "since" : "1.4.6",
+  "description" : "An enchantment with an optional level, e.g. 'sharpness 2' or 'fortune'.",
+  "examples" : "enchant the player's tool with sharpness 5\\nhelmet is enchanted with waterbreathing"
+},
+{
+  "id" : "entity",
+  "name" : "Entity",
+  "patterns" : [
+    "player, op, wolf, tamed ocelot, powered creeper, zombie, unsaddled pig, fireball, arrow, dropped item, item frame, etc.",
+
+    "pattern_end"
+  ],
+  "since" : "1.0",
+  "description" : "An entity is something in a <a href='#world'>world</a> that's not a <a href='#block'>block</a>, e.g. a <a href='#player'>player</a>, a skeleton, or a zombie, but also <a href='#projectile'>projectiles</a> like arrows, fireballs or thrown potions, or special entities like dropped items, falling blocks or paintings.",
+  "examples" : "entity is a zombie or creeper\\nplayer is an op\\nprojectile is an arrow\\nshoot a fireball from the player"
+},
+{
+  "id" : "entitydata",
+  "name" : "Entity Type",
+  "patterns" : [
+    "<i>Detailed usage will be added eventually</i>",
+
+    "pattern_end"
+  ],
+  "since" : "1.3",
+  "description" : "The type of an <a href='#entity'>entity</a>, e.g. player, wolf, powered creeper, etc.",
+  "examples" : "victim is a cow\\nspawn a creeper"
+},
+{
+  "id" : "entitytype",
+  "name" : "Entity Type with Amount",
+  "patterns" : [
+    "&lt;<a href='#number'>number</a>&gt; &lt;entity type&gt;",
+
+    "pattern_end"
+  ],
+  "since" : "1.3",
+  "description" : "An <a href='#entitydata'>entity type</a> with an amount, e.g. '2 zombies'. I might remove this type in the future and make a more general 'type' type, i.e. a type that has a number and a type.",
+  "examples" : "spawn 5 creepers behind the player"
+},
+{
+  "id" : "experience",
+  "name" : "Experience",
+  "patterns" : [
+    "[&lt;number&gt;] ([e]xp|experience [point[s]])",
+
+    "pattern_end"
+  ],
+  "since" : "2.0",
+  "description" : "Experience points. Please note that Bukkit only allows to give XP, but not remove XP from players. You can however change a player's <a href='./expressions.html#ExprLevel'>level</a> and <a href='./expressions/#ExprLevelProgress'>level progress</a> freely.",
+  "examples" : "give 10 xp to the player"
+},
+{
+  "id" : "fireworkeffect",
+  "name" : "Firework Effect",
+  "patterns" : [
+    "Missing patterns.",
+
+    "pattern_end"
+  ],
+  "since" : "2.4",
+  "description" : "A configuration of effects that defines the firework when exploded\\nwhich can be used in the <a href='effects.html#EffFireworkLaunch'>launch firework</a> effect.\\nSee the <a href='expressions.html#ExprFireworkEffect'>firework effect</a> expression for detailed patterns.",
+  "examples" : "launch flickering trailing burst firework colored blue and green at player\\nlaunch trailing flickering star colored purple, yellow, blue, green and red fading to pink at target entity\\nlaunch ball large colored red, purple and white fading to light green and black at player's location with duration 1"
+},
+{
+  "id" : "FireworkType",
+  "name" : "Firework Type",
+  "patterns" : [
+    "small, ball, star shaped, large, star, creeper face, small ball, large ball, burst, ball large, creeper",
+
+    "pattern_end"
+  ],
+  "since" : "2.4",
+  "description" : "The type of a <a href='#fireworkeffect'>fireworkeffect</a>.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "gamemode",
+  "name" : "Game Mode",
+  "patterns" : [
+    "adventure, survival, spectator, creative",
+
+    "pattern_end"
+  ],
+  "since" : "1.0",
+  "description" : "The game modes survival, creative, adventure and spectator.",
+  "examples" : "player's gamemode is survival\\nset the player argument's game mode to creative"
+},
+{
+  "id" : "gamerule",
+  "name" : "Gamerule",
+  "patterns" : [
+    "doFireTick, maxCommandChainLength, fireDamage, reducedDebugInfo, disableElytraMovementCheck, announceAdvancements, drowningDamage, commandBlockOutput, forgiveDeadPlayers, doMobSpawning, maxEntityCramming, disableRaids, doWeatherCycle, doDaylightCycle, showDeathMessages, doTileDrops, universalAnger, playersSleepingPercentage, doInsomnia, doImmediateRespawn, naturalRegeneration, doMobLoot, fallDamage, keepInventory, doEntityDrops, doLimitedCrafting, mobGriefing, randomTickSpeed, spawnRadius, freezeDamage, doTraderSpawning, logAdminCommands, spectatorsGenerateChunks, sendCommandFeedback, doPatrolSpawning",
+
+    "pattern_end"
+  ],
+  "since" : "2.5",
+  "description" : "A gamerule",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "gamerulevalue",
+  "name" : "Gamerule Value",
+  "patterns" : [
+    "Missing patterns.",
+
+    "pattern_end"
+  ],
+  "since" : "2.5",
+  "description" : "A wrapper for the value of a gamerule for a world.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "gene",
+  "name" : "Gene",
+  "patterns" : [
+    "normal, lazy, happy, worried, worrisome, aggressive, brown, brownish, savage, playful, wild, weak",
+
+    "pattern_end"
+  ],
+  "since" : "2.4",
+  "description" : "Represents a Panda's main or hidden gene. See <a href='https://minecraft.gamepedia.com/Panda#Genetics'>genetics</a> for more info.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "healreason",
+  "name" : "Heal Reason",
+  "patterns" : [
+    "an ender crystal, magic, a magic regeneration, magic regeneration, fed, sated, a magic regen, regen potion, a wither spawn, peaceful, unknown, a regeneration potion, consuming, a wither effect, peaceful regeneration, wither summoning, healing potion, wither potion, an end crystal, satiated, regeneration potion, potion, satisfied, ingesting, withered, custom, a wither spawning, end crystal, eating, wither spawning, a wither summoning, wither effect, a plugin, a regen potion, plugin, withering, a potion, wither spawn, a healing potion, ender crystal, magic regen, wither, peaceful regen",
+
+    "pattern_end"
+  ],
+  "since" : "2.5",
+  "description" : "The heal reason in a heal event.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "inventory",
+  "name" : "Inventory",
+  "patterns" : [
+    "Missing patterns.",
+
+    "pattern_end"
+  ],
+  "since" : "1.0",
+  "description" : "An inventory of a <a href='#player'>player</a> or <a href='#block'>block</a>. Inventories have many effects and conditions regarding the items contained.\\nAn inventory has a fixed amount of <a href='#slot'>slots</a> which represent a specific place in the inventory, e.g. the <a href='expressions.html#ExprArmorSlot'>helmet slot</a> for players (Please note that slot support is still very limited but will be improved eventually).",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "inventoryaction",
+  "name" : "Inventory Action",
+  "patterns" : [
+    "drop stack from slot, swap items with hotbar, swap cursor stack, pickup single item, pickup some, drop all from cursor, move to other inventory, drop cursor stack, pickup all, swap with hotbar, nothing, drop all from slot, swap cursor, drop cursor, pickup all items, drop slot item, place all, drop cursor item, drop slot stack, drop single item from slot, swap with cursor, place some, pickup one item, drop single item from cursor, collect items to cursor, unknown, clone stack, drop stack from cursor, drop one item from slot, drop one item from cursor, unsupported, do nothing, drop one from cursor, pickup half, drop items from slot, swap stack with cursor, place all items, collect to cursor, pickup some items, drop slot, drop items from cursor, hotbar move and readd, shift move, custom, pickup single, place one item, hotbar swap items, drop one from slot, place some items, place one, pickup half stack, instant move, hotbar swap",
+
+    "pattern_end"
+  ],
+  "since" : "2.2-dev16",
+  "description" : "What player just did in inventory event. Note that when in creative game mode, most actions do not work correctly.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "slot",
+  "name" : "Inventory Slot",
   "patterns" : [
     "Missing patterns.",
 
     "pattern_end"
   ],
   "since" : "Unknown",
-  "description" : "Missing description.",
+  "description" : "Represents a single slot of an <a href='#inventory'>inventory</a>. Notable slots are the <a href='./expressions.html#ExprArmorSlot'>armour slots</a> and <a href='./expressions/#ExprFurnaceSlot'>furnace slots</a>. \\nThe most important property that distinguishes a slot from an <a href='#itemstack'>item</a> is its ability to be changed, e.g. it can be set, deleted, enchanted, etc. (Some item expressions can be changed as well, e.g. items stored in variables. For that matter: slots are never saved to variables, only the items they represent at the time when the variable is set).\\nPlease note that <a href='./expressions.html#ExprTool'>tool</a> can be regarded a slot, but it can actually change it's position, i.e. doesn't represent always the same slot.",
+  "examples" : "set tool of player to dirt\\ndelete helmet of the victim\\nset the color of the player's tool to green\\nenchant the player's chestplate with projectile protection 5"
+},
+{
+  "id" : "inventorytype",
+  "name" : "Inventory Type",
+  "patterns" : [
+    "barrel inventory, a loom inventory, a blast furnace inventory, workbench inventory, ender chest inventory, loom inventory, a workbench inventory, hopper inventory, a merchant inventory, a hopper inventory, an ender chest inventory, beacon inventory, shulker box inventory, a barrel inventory, a shulker box inventory, lectern inventory, chest inventory, a villager inventory, a smoker inventory, a brewing stand inventory, a smithing inventory, grindstone inventory, a crafting table inventory, a player inventory, furnace inventory, a creative inventory, blast furnace inventory, a composter inventory, an enchanting table inventory, a dropper inventory, a cartography table inventory, smoker inventory, composter inventory, a chest inventory, dispenser inventory, player inventory, stonecutter inventory, a stonecutter inventory, a lectern inventory, merchant inventory, cartography table inventory, a furnace inventory, anvil inventory, a dispenser inventory, a grindstone inventory, smithing inventory, dropper inventory, brewing stand inventory, villager inventory, enchanting table inventory, a beacon inventory, creative inventory, crafting table inventory, an anvil inventory",
+
+    "pattern_end"
+  ],
+  "since" : "2.2-dev32",
+  "description" : "Minecraft has several different inventory types with their own use cases.",
   "examples" : "Missing examples."
 },
 {
-  "id" : "inventoryholder",
-  "name" : "Unknown Name",
+  "id" : "itemstack",
+  "name" : "Item / Material",
+  "patterns" : [
+    "<code>[&lt;number&gt; [of]] &lt;alias&gt; [of &lt;enchantment&gt; &lt;level&gt;]</code>, Where &lt;alias&gt; must be an alias that represents exactly one item (i.e cannot be a general alias like 'sword' or 'plant')",
+
+    "pattern_end"
+  ],
+  "since" : "1.0",
+  "description" : "An item, e.g. a stack of torches, a furnace, or a wooden sword of sharpness 2. Unlike <a href='#itemtype'>item type</a> an item can only represent exactly one item (e.g. an upside-down cobblestone stair facing west), while an item type can represent a whole range of items (e.g. any cobble stone stairs regardless of direction).\\nYou don't usually need this type except when you want to make a command that only accepts an exact item.\\nPlease note that currently 'material' is exactly the same as 'item', i.e. can have an amount & enchantments.",
+  "examples" : "set {_item} to type of the targeted block\\n{_item} is a torch"
+},
+{
+  "id" : "itemtype",
+  "name" : "Item Type",
+  "patterns" : [
+    "[&lt;number&gt; [of]] [all/every] &lt;alias&gt; [of &lt;enchantment&gt; [&lt;level&gt;] [,/and &lt;more enchantments...&gt;]]",
+
+    "pattern_end"
+  ],
+  "since" : "1.0",
+  "description" : "An item type is an alias, e.g. 'a pickaxe', 'all plants', etc., and can result in different items when added to an inventory, and unlike <a href='#itemstack'>items</a> they are well suited for checking whether an inventory contains a certain item or whether a certain item is of a certain type.\\nAn item type can also have one or more <a href='#enchantmenttype'>enchantments</a> with or without a specific level defined, and can optionally start with 'all' or 'every' to make this item type represent <i>all</i> types that the alias represents, including data ranges.",
+  "examples" : "give 4 torches to the player\\nadd all slabs to the inventory of the block\\nplayer's tool is a diamond sword of sharpness\\nremove a pickaxes of fortune 4 from {stored items::*}\\nset {_item} to 10 of every upside-down stair\\nblock is dirt or farmland"
+},
+{
+  "id" : "livingentity",
+  "name" : "Living Entity",
+  "patterns" : [
+    "see <a href='#entity'>entity</a>, but ignore inanimate objects",
+
+    "pattern_end"
+  ],
+  "since" : "1.0",
+  "description" : "A living <a href='#entity'>entity</a>, i.e. a mob or <a href='#player'>player</a>, not inanimate entities like <a href='#projectile'>projectiles</a> or dropped items.",
+  "examples" : "spawn 5 powered creepers\\nshoot a zombie from the creeper"
+},
+{
+  "id" : "location",
+  "name" : "Location",
+  "patterns" : [
+    "Missing patterns.",
+
+    "pattern_end"
+  ],
+  "since" : "1.0",
+  "description" : "A location in a <a href='#world'>world</a>. Locations are world-specific and even store a <a href='#direction'>direction</a>, e.g. if you save a location and later teleport to it you will face the exact same direction you did when you saved the location.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "metadataholder",
+  "name" : "Metadata Holder",
+  "patterns" : [
+    "Missing patterns.",
+
+    "pattern_end"
+  ],
+  "since" : "2.2-dev36",
+  "description" : "Something that can hold metadata (e.g. an entity or block)",
+  "examples" : "set metadata value \"super cool\" of player to true"
+},
+{
+  "id" : "money",
+  "name" : "Money",
+  "patterns" : [
+    "&lt;number&gt; $ or $ &lt;number&gt;, where '$' is your server's currency, e.g. '10 rupees' or '£5.00'",
+
+    "pattern_end"
+  ],
+  "since" : "2.0",
+  "description" : "A certain amount of money. Please note that this differs from <a href='#number'>numbers</a> as it includes a currency symbol or name, but usually the two are interchangeable, e.g. you can both <code>add 100$ to the player's balance</code> and <code>add 100 to the player's balance</code>.",
+  "examples" : "add 10£ to the player's account\\nremove Fr. 9.95 from the player's money\\nset the victim's money to 0\\nincrease the attacker's balance by the level of the victim * 100"
+},
+{
+  "id" : "moonphase",
+  "name" : "Moon Phase",
+  "patterns" : [
+    "last quarter, waning crescent, waxing gibbous, full moon, waning gibbous, waxing crescent, new moon, first quarter",
+
+    "pattern_end"
+  ],
+  "since" : "INSERT VERSION",
+  "description" : "Represents the phase of a moon.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "number",
+  "name" : "Number",
+  "patterns" : [
+    "[-]###[.###]</code> (any amount of digits; very large numbers will be truncated though)",
+
+    "pattern_end"
+  ],
+  "since" : "1.0",
+  "description" : "A number, e.g. 2.5, 3, or -9812454.\\nPlease note that many expressions only need integers, i.e. will discard any fractional parts of any numbers without producing an error.",
+  "examples" : "set the player's health to 5.5\\nset {_temp} to 2*{_temp} - 2.5"
+},
+{
+  "id" : "object",
+  "name" : "Object",
+  "patterns" : [
+    "Missing patterns.",
+
+    "pattern_end"
+  ],
+  "since" : "1.0",
+  "description" : "The supertype of all types, meaning that if %object% is used in e.g. a condition it will accept all kinds of expressions.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "offlineplayer",
+  "name" : "Offline Player",
   "patterns" : [
     "Missing patterns.",
 
     "pattern_end"
   ],
   "since" : "Unknown",
-  "description" : "Missing description.",
+  "description" : "A player that is possibly offline. See <a href='#player'>player</a> for more information. Please note that while all effects and conditions that require a player can be used with an offline player as well, they will not work if the player is not actually online.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "player",
+  "name" : "Player",
+  "patterns" : [
+    "Missing patterns.",
+
+    "pattern_end"
+  ],
+  "since" : "1.0",
+  "description" : "A player. Depending on whether a player is online or offline several actions can be performed with them, though you won't get any errors when using effects that only work if the player is online (e.g. changing their inventory) on an offline player.\\nYou have two possibilities to use players as command arguments: &lt;player&gt; and &lt;offline player&gt;. The first requires that the player is online and also accepts only part of the name, while the latter doesn't require that the player is online, but the player's name has to be entered exactly.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "potioneffect",
+  "name" : "Potion Effect",
+  "patterns" : [
+    "speed of tier 1 for 10 seconds",
+
+    "pattern_end"
+  ],
+  "since" : "2.5.2",
+  "description" : "A potion effect, including the potion effect type, tier and duration.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "potioneffecttype",
+  "name" : "Potion Effect Type",
+  "patterns" : [
+    "null, speed, slowness, haste, mining fatigue, strength, instant health, instant damage, jump boost, nausea, regeneration, resistance, fire resistance, water breathing, invisibility, blindness, night vision, hunger, weakness, poison, wither, health boost, absorption, saturation, glowing, levitation, luck, bad luck, slow falling, conduit power, dolphins grace, bad omen, hero of the village",
+
+    "pattern_end"
+  ],
+  "since" : "Unknown",
+  "description" : "A potion effect type, e.g. 'strength' or 'swiftness'.",
+  "examples" : "apply swiftness 5 to the player\\napply potion of speed 2 to the player for 60 seconds\\nremove invisibility from the victim"
+},
+{
+  "id" : "projectile",
+  "name" : "Projectile",
+  "patterns" : [
+    "arrow, fireball, snowball, thrown potion, etc.",
+
+    "pattern_end"
+  ],
+  "since" : "1.0",
+  "description" : "A projectile, e.g. an arrow, snowball or thrown potion.",
+  "examples" : "projectile is a snowball\\nshoot an arrow at speed 5 from the player"
+},
+{
+  "id" : "region",
+  "name" : "Region",
+  "patterns" : [
+    ""region name"",
+
+    "pattern_end"
+  ],
+  "since" : "2.1",
+  "description" : "A region of a regions plugin. Skript currently supports WorldGuard, Factions, GriefPrevention and PreciousStones.\\nPlease note that some regions plugins do not have named regions, some use numerical ids to identify regions, and some may have regions with the same name in different worlds, thus using regions like \"region name\" in scripts may or may not work.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "resourcepackstate",
+  "name" : "Resource Pack State",
+  "patterns" : [
+    "refused, rejected, accepted, failed, failed to download, successfully loaded, accept, fail, successfully load, refuse, declined, successfully install, success, reject, decline, successfully installed, download fail",
+
+    "pattern_end"
+  ],
+  "since" : "2.4",
+  "description" : "The state in a <a href='events.html#resource_pack_request_action'>resource pack request response</a> event.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "cachedservericon",
+  "name" : "Server Icon",
+  "patterns" : [
+    "Missing patterns.",
+
+    "pattern_end"
+  ],
+  "since" : "2.3",
+  "description" : "A server icon that was loaded using the <a href='effects.html#EffLoadServerIcon'>load server icon</a> effect.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "soundcategory",
+  "name" : "Sound Category",
+  "patterns" : [
+    "hostile creatures category, speech category, records category, friendly creature category, noteblock category, hostile creature category, note block category, voice category, ambient category, noteblocks category, note blocks category, weather category, block category, friendly mob category, jukebox category, hostile mob category, master category, master volume category, hostile category, record category, blocks category, environment category, jukeboxes category, player category, players category, hostile mobs category, friendly mobs category, music category, friendly creatures category, neutral category",
+
+    "pattern_end"
+  ],
+  "since" : "2.4",
+  "description" : "The category of a sound, they are used for sound options of Minecraft. See the <a href='effects.html#EffPlaySound'>play sound</a> and <a href='effects.html#EffStopSound'>stop sound</a> effects.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "spawnreason",
+  "name" : "Spawn Reason",
+  "patterns" : [
+    "dispense egg, egg, village defense, ocelot baby, silverfish trap, village invading, trap, dispensing egg, shoulder, drowned, lightning, silverfish reveal, built iron golem, natural, village invasion, frozen, mount, build wither, built wither, iron golem defense, ender pearl, creature spawner, reinforcements, build snowman, build iron golem, breeding, raid, infection, customized, spawn egg, jockey, beehive, default, golem defense, patrol, slime split, infected, sheared, mob spawner, nether portal, shear, perching, custom, built snowman, chunk generation, breed, command, explosion, spawner, cured, customised, piglin zombification",
+
+    "pattern_end"
+  ],
+  "since" : "2.3",
+  "description" : "The spawn reason in a <a href='events.html#spawn'>spawn</a> event.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "teleportcause",
+  "name" : "Teleport Cause",
+  "patterns" : [
+    "nether portal, ender gateway, chorus fruit, ender portal, command, unknown, plugin, ender pearl, spectator, spectate, end gateway, chorus, gateway, end portal",
+
+    "pattern_end"
+  ],
+  "since" : "2.2-dev35",
+  "description" : "The teleport cause in a <a href='events.html#teleport'>teleport</a> event.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "string",
+  "name" : "Text",
+  "patterns" : [
+    "simple: "..."",
+"quotes: "...""..."",
+"expressions: "...%expression%..."",
+"percent signs: "...%%..."",
+
+    "pattern_end"
+  ],
+  "since" : "1.0",
+  "description" : "Text is simply text, i.e. a sequence of characters, which can optionally contain expressions which will be replaced with a meaningful representation (e.g. %player% will be replaced with the player's name).\\nBecause scripts are also text, you have to put text into double quotes to tell Skript which part of the line is an effect/expression and which part is the text.\\nPlease read the article on <a href='./strings/'>Texts and Variable Names</a> to learn more.",
+  "examples" : "broadcast \"Hello World!\"\\nmessage \"Hello %player%\"\\nmessage \"The id of \"\"%type of tool%\"\" is %id of tool%.\""
+},
+{
+  "id" : "time",
+  "name" : "Time",
+  "patterns" : [
+    "##:##",
+"##[:##][ ]am/pm",
+
+    "pattern_end"
+  ],
+  "since" : "1.0",
+  "description" : "A time is a point in a minecraft day's time (i.e. ranges from 0:00 to 23:59), which can vary per world.\\nSee <a href='#date'>date</a> and <a href='#timespan'>timespan</a> for the other time types of Skript.",
+  "examples" : "at 20:00:\\n    time is 8 pm\\n    broadcast \"It's %time%\""
+},
+{
+  "id" : "timeperiod",
+  "name" : "Timeperiod",
+  "patterns" : [
+    "##:## - ##:##",
+"dusk/day/dawn/night",
+
+    "pattern_end"
+  ],
+  "since" : "1.0",
+  "description" : "A period of time between two <a href='#time'>times</a>. Mostly useful since you can use this to test for whether it's day, night, dusk or dawn in a specific world.\\nThis type might be removed in the future as you can use 'time of world is between x and y' as a replacement.",
+  "examples" : "time in world is night"
+},
+{
+  "id" : "timespan",
+  "name" : "Timespan",
+  "patterns" : [
+    "&lt;number&gt; [minecraft/mc/real/rl/irl] ticks/seconds/minutes/hours/days/weeks/months/years [[,/and] &lt;more...&gt;]",
+"[###:]##:##[.####] ([hours:]minutes:seconds[.milliseconds])",
+
+    "pattern_end"
+  ],
+  "since" : "1.0, 2.6.1 (weeks, months, years)",
+  "description" : "A timespan is a difference of two different dates or times, e.g '10 minutes'. Timespans are always displayed as real life time, but can be defined as minecraft time, e.g. '5 minecraft days and 12 hours'.\\nNOTE: Months always have the value of 30 days, and years of 365 days.\\nSee <a href='#date'>date</a> and <a href='#time'>time</a> for the other time types of Skript.",
+  "examples" : "every 5 minecraft days:\\n    wait a minecraft second and 5 ticks\\nevery 10 mc days and 12 hours:\\n    halt for 12.7 irl minutes, 12 hours and 120.5 seconds"
+},
+{
+  "id" : "structuretype",
+  "name" : "Tree Type",
+  "patterns" : [
+    "[any] &lt;general tree/mushroom type&gt;, e.g. tree/any jungle tree/etc.",
+"&lt;specific tree/mushroom species&gt;, e.g. red mushroom/small jungle tree/big regular tree/etc.",
+
+    "pattern_end"
+  ],
+  "since" : "Unknown",
+  "description" : "A tree type represents a tree species or a huge mushroom species. These can be generated in a world with the <a href='./effects.html#EffTree'>generate tree</a> effect.",
+  "examples" : "grow any regular tree at the block\\ngrow a huge red mushroom above the block"
+},
+{
+  "id" : "classinfo",
+  "name" : "Type",
+  "patterns" : [
+    "See the type name patterns of all types - including this one",
+
+    "pattern_end"
+  ],
+  "since" : "2.0",
+  "description" : "Represents a type, e.g. number, object, item type, location, block, world, entity type, etc.\\nThis is mostly used for expressions like 'event-&lt;type&gt;', '&lt;type&gt;-argument', 'loop-&lt;type&gt;', etc., e.g. event-world, number-argument and loop-player.",
+  "examples" : "{variable} is a number # check whether the variable contains a number, e.g. -1 or 5.5\\n{variable} is a type # check whether the variable contains a type, e.g. number or player\\n{variable} is an object # will always succeed if the variable is set as everything is an object, even types.\\ndisable PvP in the event-world\\nkill the loop-entity"
+},
+{
+  "id" : "vector",
+  "name" : "Vector",
+  "patterns" : [
+    "vector(x, y, z)",
+
+    "pattern_end"
+  ],
+  "since" : "2.2-dev23",
+  "description" : "Vector is a collection of numbers. In Minecraft, 3D vectors are used to express velocities of entities.",
+  "examples" : "Missing examples."
+},
+{
+  "id" : "visualeffect",
+  "name" : "Visual Effect",
+  "patterns" : [
+    "smoke, potion break, ender signal, mobspawner flames, arrow particles, jumping rabbit, hurt, wolf smoke, wolf hearts, wolf shaking, sheep eating, iron golem offering rose, villager hearts, angry villager entity, happy villager entity, witch magic, zombie turning to a villager, firework explosion, love hearts, squid rotation reset, entity poof, guardian target, block with shield, shield break, armor stand hit, hurt by thorns, iron golem sheathing rose, resurrection by totem, hurt by drowning, hurt by explosion, explosion, large explosion, huge explosion, firework's spark, water bubble, water splash, water wake, suspended, void fog, critical hit, magical critical hit, smoke particle, large smoke, spell, spell, potion swirl, transparent potion swirl, witch spell, water drip, lava drip, angry villager, happy villager, small smoke, note, portal, flying glyph, flame, lava pop, cloud, coloured dust, snowball break, snow shovel, slime, heart, barrier, item crack, block break, block dust, water drop, mob appearance, dragon breath, end rod, damage indicator, sweep attack, falling dust, totem, spit, squid ink, bubble pop, current down, bubble column up, nautilus, dolphin, sneeze, campfire cosy smoke, campfire signal smoke, composter, flash, falling lava, landing lava, falling water, dripping honey, falling honey, landing honey, falling nectar, soul fire flame, ash, crimson spore, warped spore, soul, dripping obsidian tear, falling obsidian tear, landing obsidian tear, reverse portal, white ash, light, falling spore blossom, spore blossom air, small flame, snowflake, dripping dripstone lava, falling dripstone lava, dripping dripstone water, falling dripstone water, glow squid ink, glow, wax on, wax off, electric spark, scrape",
+
+    "pattern_end"
+  ],
+  "since" : "2.1",
+  "description" : "A visible effect, e.g. particles.",
+  "examples" : "show wolf hearts on the clicked wolf\\nplay mob spawner flames at the targeted block to the player"
+},
+{
+  "id" : "weathertype",
+  "name" : "Weather Type",
+  "patterns" : [
+    "clear/sun/sunny, rain/rainy/raining, and thunder/thundering/thunderstorm",
+
+    "pattern_end"
+  ],
+  "since" : "1.0",
+  "description" : "The weather types sunny, rainy, and thundering.",
+  "examples" : "is raining\\nis sunny in the player's world\\nmessage \"It is %weather in the argument's world% in %world of the argument%\""
+},
+{
+  "id" : "world",
+  "name" : "World",
+  "patterns" : [
+    "<code>"world_name"</code>, e.g. "world"",
+
+    "pattern_end"
+  ],
+  "since" : "1.0, 2.2 (alternate syntax)",
+  "description" : "One of the server's worlds. Worlds can be put into scripts by surrounding their name with double quotes, e.g. \"world_nether\", but this might not work reliably as <a href='#string'>text</a> uses the same syntax.",
+  "examples" : "broadcast \"Hello!\" to the world \"world_nether\""
+},
+{
+  "id" : "environment",
+  "name" : "World Environment",
+  "patterns" : [
+    "normal, nether, the end, the overworld, custom, the nether, end, overworld",
+
+    "pattern_end"
+  ],
+  "since" : "INSERT VERSION",
+  "description" : "Represents the environment of a world.",
   "examples" : "Missing examples."
 },
 
@@ -258,6 +914,18 @@ Note: This is the only element where not all patterns are shown. It has actually
   "since" : "2.0",
   "description" : "Tests what kind of damage caused a <a href='events.html#damage'>damage event</a>. Refer to the <a href='classes.html#damagecause'>Damage Cause</a> type for a list of all possible causes.",
   "examples" : "# make players use their potions of fire resistance whenever they take any kind of fire damage\\non damage:\\n    damage was caused by lava, fire or burning\\n    victim is a player\\n    victim has a potion of fire resistance\\n    cancel event\\n    apply fire resistance to the victim for 30 seconds\\n    remove 1 potion of fire resistance from the victim\\n# prevent mobs from dropping items under certain circumstances\\non death:\\n    entity is not a player\\n    damage wasn't caused by a block explosion, an attack, a projectile, a potion, fire, burning, thorns or poison\\n    clear drops"
+},
+{
+  "id" : "CondAnchorWorks",
+  "name" : "Do Respawn Anchors Work",
+  "patterns" : [
+    "respawn anchors [do[(n't| not)]] work in %<a href='./classes.html#world'>worlds</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "INSERT VERSION",
+  "description" : "Checks whether or not respawn anchors work in a world.",
+  "examples" : "respawn anchors work in world \"world_nether\""
 },
 {
   "id" : "CondWillHatch",
@@ -483,6 +1151,18 @@ Note: This is the only element where not all patterns are shown. It has actually
   "examples" : "player is banned\\nvictim is not IP-banned\\n\"127.0.0.1\" is banned"
 },
 {
+  "id" : "CondRespawnLocation",
+  "name" : "Is Bed/Anchor Spawn",
+  "patterns" : [
+    "[the] respawn location (was|is)[(n'| no)t] [a] (bed|respawn anchor)",
+
+    "pattern_end"
+  ],
+  "since" : "INSERT VERSION",
+  "description" : "Checks what the respawn location of a player in the respawn event is.",
+  "examples" : "on respawn:\\n    the respawn location is a bed\\n    broadcast \"%player% is respawning in their bed! So cozy!\""
+},
+{
   "id" : "CondIsBlock",
   "name" : "Is Block",
   "patterns" : [
@@ -641,6 +1321,19 @@ Note: This is the only element where not all patterns are shown. It has actually
   "examples" : "on right click on furnace:\\n    if player's tool is not fuel:\\n        send \"Please hold a valid fuel item in your hand\"\\n        cancel event"
 },
 {
+  "id" : "CondIsGliding",
+  "name" : "Is Gliding",
+  "patterns" : [
+    "%<a href='./classes.html#livingentity'>living entities</a>% (is|are) gliding",
+"%<a href='./classes.html#livingentity'>living entities</a>% (isn't|is not|aren't|are not) gliding",
+
+    "pattern_end"
+  ],
+  "since" : "INSERT VERSION",
+  "description" : "Checks whether a living entity is gliding.",
+  "examples" : "if player is gliding"
+},
+{
   "id" : "CondItemInHand",
   "name" : "Is Holding",
   "patterns" : [
@@ -685,6 +1378,19 @@ Note: This is the only element where not all patterns are shown. It has actually
   "since" : "2.5.2",
   "description" : "Checks wether or not a block is interactable.",
   "examples" : "on block break:\\n    if event-block is interactable:\\n        cancel event\\n        send \"You cannot break interactable blocks!\""
+},
+{
+  "id" : "CondIsInvisible",
+  "name" : "Is Invisible",
+  "patterns" : [
+    "%<a href='./classes.html#livingentity'>living entities</a>% (is|are) (invisible|visible)",
+"%<a href='./classes.html#livingentity'>living entities</a>% (isn't|is not|aren't|are not) (invisible|visible)",
+
+    "pattern_end"
+  ],
+  "since" : "INSERT VERSION",
+  "description" : "Checks whether a living entity is invisible.",
+  "examples" : "target entity is invisible"
 },
 {
   "id" : "CondIsInvulnerable",
@@ -778,6 +1484,19 @@ This condition requires a supported regions plugin to be installed.",
   "since" : "1.4",
   "description" : "Checks whether a player is online.",
   "examples" : "player is online\\nplayer-argument is offline"
+},
+{
+  "id" : "CondIsOp",
+  "name" : "Is Operator",
+  "patterns" : [
+    "%<a href='./classes.html#offlineplayer'>offline players</a>% (is|are) [[a] server|an] op[erator][s]",
+"%<a href='./classes.html#offlineplayer'>offline players</a>% (isn't|is not|aren't|are not) [[a] server|an] op[erator][s]",
+
+    "pattern_end"
+  ],
+  "since" : "INSERT VERSION",
+  "description" : "Checks whether a player is a server operator.",
+  "examples" : "player is an operator"
 },
 {
   "id" : "CondIsPassable",
@@ -996,6 +1715,19 @@ For more info, see <a href='https://minecraft.gamepedia.com/Slime#.22Slime_chunk
   "examples" : "if event-item is unbreakable"
 },
 {
+  "id" : "CondIsValid",
+  "name" : "Is Valid",
+  "patterns" : [
+    "%<a href='./classes.html#entity'>entities</a>% (is|are) valid",
+"%<a href='./classes.html#entity'>entities</a>% (isn't|is not|aren't|are not) valid",
+
+    "pattern_end"
+  ],
+  "since" : "INSERT VERSION",
+  "description" : "Checks whether an entity has died or been despawned for some other reason.",
+  "examples" : "if event-entity is valid"
+},
+{
   "id" : "CondIsWearing",
   "name" : "Is Wearing",
   "patterns" : [
@@ -1020,6 +1752,33 @@ For more info, see <a href='https://minecraft.gamepedia.com/Slime#.22Slime_chunk
   "since" : "2.5.2",
   "description" : "Whether or not the server or a player is whitelisted.",
   "examples" : "if server is whitelisted:\\nif player is whitelisted"
+},
+{
+  "id" : "CondIsWithinLocation",
+  "name" : "Is Within Location",
+  "patterns" : [
+    "%<a href='./classes.html#location'>locations</a>% (is|are) within %<a href='./classes.html#location'>location</a>% and %<a href='./classes.html#location'>location</a>%",
+"%<a href='./classes.html#location'>locations</a>% (isn't|is not|aren't|are not) within %<a href='./classes.html#location'>location</a>% and %<a href='./classes.html#location'>location</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "INSERT VERSION",
+  "description" : "Whether a location is within two other locations forming a cuboid.
+Using the <a href='conditions.html#CondCompare'>is between</a> condition will refer to a straight line between locations.",
+  "examples" : "if player's location is within {_loc1} and {_loc2}:\\n    send \"You are in a PvP zone!\" to player"
+},
+{
+  "id" : "CondWithinRadius",
+  "name" : "Is Within Radius",
+  "patterns" : [
+    "%<a href='./classes.html#location'>locations</a>% (is|are) within %<a href='./classes.html#number'>number</a>% (block|metre|meter)[s] (around|of) %<a href='./classes.html#location'>locations</a>%",
+"%<a href='./classes.html#location'>locations</a>% (isn't|is not|aren't|are not) within %<a href='./classes.html#number'>number</a>% (block|metre|meter)[s] (around|of) %<a href='./classes.html#location'>locations</a>%",
+
+    "pattern_end"
+  ],
+  "since" : "INSERT VERSION",
+  "description" : "Checks whether a location is within a certain radius of another location.",
+  "examples" : "on damage:\\n    if attacker's location is within 10 blocks around {_spawn}:\\n        cancel event\\n        send \"You can't PVP in spawn.\""
 },
 {
   "id" : "CondIsSkriptCommand",
@@ -1176,7 +1935,7 @@ This condition requires a supported regions plugin to be installed.",
   "id" : "EffActionBar",
   "name" : "Action Bar",
   "patterns" : [
-    "send [the] action bar [with text] %<a href='./classes.html#string'>text</a>% to %<a href='./classes.html#player'>players</a>%",
+    "send [the] action[ ]bar [with text] %<a href='./classes.html#string'>text</a>% to %<a href='./classes.html#player'>players</a>%",
 
     "pattern_end"
   ],
@@ -1674,6 +2433,18 @@ NB: Using 'server.log' as the log file will write to the default server log. Omi
   "examples" : "on place of TNT:\\n    log \"%player% placed TNT in %world% at %location of block%\" to \"tnt/placement.log\""
 },
 {
+  "id" : "EffLook",
+  "name" : "Look At",
+  "patterns" : [
+    "(force|make) %<a href='./classes.html#livingentity'>living entities</a>% [to] (face [towards]|look [(at|towards)]) %<a href='./classes.html#vector'>vector</a>/<a href='./classes.html#location'>location</a>/<a href='./classes.html#entity'>entity</a>% [at [head] [rotation] speed %<a href='./classes.html#number'>number</a>%] [[and] max[imum] [head] pitch %<a href='./classes.html#number'>number</a>%]",
+
+    "pattern_end"
+  ],
+  "since" : "INSERT VERSION",
+  "description" : "Forces the mob(s) or player(s) to look at an entity, vector or location. Vanilla max head pitches range from 10 to 50.",
+  "examples" : "force the head of the player to look towards event-entity's feet\\n\\non entity explosion:\\n    set {_player} to the nearest player\\n    {_player} is set\\n    distance between {_player} and the event-location is less than 15\\n    make {_player} look towards vector from the {_player} to location of the event-entity\\n\\nforce {_enderman} to face the block 3 meters above {_location} at head rotation speed 100.5 and max head pitch -40"
+},
+{
   "id" : "EffMakeEggHatch",
   "name" : "Make Egg Hatch",
   "patterns" : [
@@ -1712,6 +2483,20 @@ NB: Using 'server.log' as the log file will write to the default server log. Omi
   "since" : "2.5",
   "description" : "Sets if an entity's explosion will leave behind fire. This effect is also usable in an explosion prime event.",
   "examples" : "on explosion prime:\\n    make the explosion fiery"
+},
+{
+  "id" : "EffInvisible",
+  "name" : "Make Invisible",
+  "patterns" : [
+    "make %<a href='./classes.html#livingentity'>living entities</a>% (invisible|not visible)",
+"make %<a href='./classes.html#livingentity'>living entities</a>% (visible|not invisible)",
+
+    "pattern_end"
+  ],
+  "since" : "INSERT VERSION",
+  "description" : "Makes a living entity visible/invisible. This is not a potion and therefore does not have features such as a time limit or particles.
+When setting an entity to invisible while using an invisibility potion on it, the potion will be overridden and when it runs out the entity keeps its invisibility.",
+  "examples" : "make target entity invisible"
 },
 {
   "id" : "EffInvulnerability",
@@ -2229,7 +3014,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "anvil_damage",
   "name" : "On Anvil Damage",
   "patterns" : [
-    "[on] [on] anvil damag(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] anvil damag(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2241,7 +3026,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "anvil_prepare",
   "name" : "On Anvil Prepare",
   "patterns" : [
-    "[on] [on] anvil prepar(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] anvil prepar(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2253,7 +3038,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "aoe_cloud_effect",
   "name" : "On AoE Cloud Effect",
   "patterns" : [
-    "[on] [on] (area|AoE) [cloud] effect [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] (area|AoE) [cloud] effect [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2265,7 +3050,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "arm_swing",
   "name" : "On Arm Swing",
   "patterns" : [
-    "[on] [on] [player] arm swing [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [player] arm swing [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2277,7 +3062,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "armor_change",
   "name" : "On Armor Change",
   "patterns" : [
-    "[on] [on] [player] armor change[d] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [player] armor change[d] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2289,8 +3074,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "bed_enter",
   "name" : "On Bed Enter",
   "patterns" : [
-    "[on] [on] bed enter[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] [player] enter[ing] [a] bed [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] bed enter[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] [player] enter[ing] [a] bed [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2302,8 +3087,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "bed_leave",
   "name" : "On Bed Leave",
   "patterns" : [
-    "[on] [on] bed leav(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] [player] leav(e|ing) [a] bed [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] bed leav(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] [player] leav(e|ing) [a] bed [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2315,7 +3100,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "block_damage",
   "name" : "On Block Damage",
   "patterns" : [
-    "[on] [on] block damag(ing|e) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] block damag(ing|e) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2327,7 +3112,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "block_fertilize",
   "name" : "On Block Fertilize",
   "patterns" : [
-    "[on] [on] [block] fertilize [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [block] fertilize [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2339,7 +3124,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "block_growth",
   "name" : "On Block Growth",
   "patterns" : [
-    "[on] [on] (plant|crop|block) grow[(th|ing)] [[of] %<a href='./classes.html#itemtype'>item types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] (plant|crop|block) grow[(th|ing)] [[of] %<a href='./classes.html#itemtype'>item types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2351,7 +3136,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "book_edit",
   "name" : "On Book Edit",
   "patterns" : [
-    "[on] [on] book (edit|change|write) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] book (edit|change|write) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2363,7 +3148,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "book_sign",
   "name" : "On Book Sign",
   "patterns" : [
-    "[on] [on] book sign[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] book sign[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2375,7 +3160,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "break_mine",
   "name" : "On Break / Mine",
   "patterns" : [
-    "[on] [on] [block] (break[ing]|min(e|ing)) [[of] %<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#blockdata'>block datas</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [block] (break[ing]|min(e|ing)) [[of] %<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#blockdata'>block datas</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2387,8 +3172,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "bucket_empty",
   "name" : "On Bucket Empty",
   "patterns" : [
-    "[on] [on] bucket empty[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] [player] empty[ing] [a] bucket [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] bucket empty[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] [player] empty[ing] [a] bucket [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2400,8 +3185,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "bucket_fill",
   "name" : "On Bucket fill",
   "patterns" : [
-    "[on] [on] bucket fill[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] [player] fill[ing] [a] bucket [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] bucket fill[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] [player] fill[ing] [a] bucket [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2413,7 +3198,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "burn",
   "name" : "On Burn",
   "patterns" : [
-    "[on] [on] [block] burn[ing] [[of] %<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#blockdata'>block datas</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [block] burn[ing] [[of] %<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#blockdata'>block datas</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2425,7 +3210,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "can_build_check",
   "name" : "On Can Build Check",
   "patterns" : [
-    "[on] [on] [block] can build check [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [block] can build check [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2437,7 +3222,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "chat",
   "name" : "On Chat",
   "patterns" : [
-    "[on] [on] chat [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] chat [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2449,7 +3234,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "chunk_generate",
   "name" : "On Chunk Generate",
   "patterns" : [
-    "[on] [on] chunk (generat|populat)(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] chunk (generat|populat)(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2461,7 +3246,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "chunk_load",
   "name" : "On Chunk Load",
   "patterns" : [
-    "[on] [on] chunk load[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] chunk load[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2473,7 +3258,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "chunk_unload",
   "name" : "On Chunk Unload",
   "patterns" : [
-    "[on] [on] chunk unload[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] chunk unload[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2485,8 +3270,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "click",
   "name" : "On Click",
   "patterns" : [
-    "[on] [on] [(right|left)[( |-)]][mouse[( |-)]]click[ing] [on %<a href='./classes.html#entitydata'>entity type</a>/<a href='./classes.html#itemtype'>item type</a>%] [(with|using|holding) %<a href='./classes.html#itemtype'>item type</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] [(right|left)[( |-)]][mouse[( |-)]]click[ing] (with|using|holding) %<a href='./classes.html#itemtype'>item type</a>% on %<a href='./classes.html#entitydata'>entity type</a>/<a href='./classes.html#itemtype'>item type</a>% [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [(right|left)[( |-)]][mouse[( |-)]]click[ing] [on %<a href='./classes.html#entitydata'>entity type</a>/<a href='./classes.html#itemtype'>item type</a>%] [(with|using|holding) %<a href='./classes.html#itemtype'>item type</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] [(right|left)[( |-)]][mouse[( |-)]]click[ing] (with|using|holding) %<a href='./classes.html#itemtype'>item type</a>% on %<a href='./classes.html#entitydata'>entity type</a>/<a href='./classes.html#itemtype'>item type</a>% [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2498,7 +3283,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "combust",
   "name" : "On Combust",
   "patterns" : [
-    "[on] [on] combust[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] combust[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2510,7 +3295,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "command",
   "name" : "On Command",
   "patterns" : [
-    "[on] [on] command [%<a href='./classes.html#string'>text</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] command [%<a href='./classes.html#string'>text</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2522,7 +3307,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "connect",
   "name" : "On Connect",
   "patterns" : [
-    "[on] [on] [player] connect[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [player] connect[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2534,7 +3319,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "consume",
   "name" : "On Consume",
   "patterns" : [
-    "[on] [on] [player] ((eat|drink)[ing]|consum(e|ing)) [[of] %<a href='./classes.html#itemtype'>item types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [player] ((eat|drink)[ing]|consum(e|ing)) [[of] %<a href='./classes.html#itemtype'>item types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2546,7 +3331,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "craft",
   "name" : "On Craft",
   "patterns" : [
-    "[on] [on] [player] craft[ing] [[of] %<a href='./classes.html#itemtype'>item types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [player] craft[ing] [[of] %<a href='./classes.html#itemtype'>item types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2558,7 +3343,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "creeper_power",
   "name" : "On Creeper Power",
   "patterns" : [
-    "[on] [on] creeper power [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] creeper power [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2570,7 +3355,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "damage",
   "name" : "On Damage",
   "patterns" : [
-    "[on] [on] damag(e|ing) [of %<a href='./classes.html#entitydata'>entity type</a>%] [by %<a href='./classes.html#entitydata'>entity type</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] damag(e|ing) [of %<a href='./classes.html#entitydata'>entity type</a>%] [by %<a href='./classes.html#entitydata'>entity type</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2582,7 +3367,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "death",
   "name" : "On Death",
   "patterns" : [
-    "[on] [on] death [of %<a href='./classes.html#entitydata'>entity types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] death [of %<a href='./classes.html#entitydata'>entity types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2594,7 +3379,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "dispense",
   "name" : "On Dispense",
   "patterns" : [
-    "[on] [on] dispens(e|ing) [[of] %<a href='./classes.html#itemtype'>item types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] dispens(e|ing) [[of] %<a href='./classes.html#itemtype'>item types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2606,20 +3391,20 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "drop",
   "name" : "On Drop",
   "patterns" : [
-    "[on] [on] [player] drop[ing] [[of] %<a href='./classes.html#itemtype'>item types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [player|entity] drop[ping] [[of] %<a href='./classes.html#itemtype'>item types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
-  "since" : "<i>unknown</i> (before 2.1)",
-  "description" : "Called when a player drops an item from their inventory.",
-  "examples" : "on drop:"
+  "since" : "<i>unknown</i> (before 2.1), INSERT VERSION (entity)",
+  "description" : "Called when a player drops an item from their inventory, or an entity drops an item, such as a chicken laying an egg.",
+  "examples" : "on drop:\\n    if event-item is compass:\\n        cancel event\\n\\non entity drop of an egg:\\n    if event-entity is a chicken:\\n        set item of event-dropped item to a diamond"
 },
 {
   "id" : "egg_throw",
   "name" : "On Egg Throw",
   "patterns" : [
-    "[on] [on] throw[ing] [of] [an] egg [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] [player] egg throw [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] throw[ing] [of] [an] egg [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] [player] egg throw [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2631,7 +3416,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "enchant",
   "name" : "On Enchant",
   "patterns" : [
-    "[on] [on] [item] enchant [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [item] enchant [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2643,7 +3428,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "enchant_prepare",
   "name" : "On Enchant Prepare",
   "patterns" : [
-    "[on] [on] [item] enchant prepare [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [item] enchant prepare [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2655,12 +3440,12 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "endermansheepsilverfishfalling_block",
   "name" : "On Enderman/Sheep/Silverfish/Falling Block",
   "patterns" : [
-    "[on] [on] enderman place [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] enderman pickup [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] sheep eat [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] silverfish enter [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] silverfish exit [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] falling block land[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] enderman place [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] enderman pickup [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] sheep eat [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] silverfish enter [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] silverfish exit [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] falling block land[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2672,7 +3457,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "entity_dismount",
   "name" : "On Entity Dismount",
   "patterns" : [
-    "[on] [on] dismount[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] dismount[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2681,10 +3466,22 @@ Do note that other event values, such as 'player', won't work in this section.",
   "examples" : "on dismount:\\n    kill event-entity"
 },
 {
+  "id" : "entity_jump",
+  "name" : "On Entity Jump",
+  "patterns" : [
+    "[on] entity jump[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+
+    "pattern_end"
+  ],
+  "since" : "INSERT VERSION",
+  "description" : "Called when an entity jumps.",
+  "examples" : "on entity jump:\\n    if entity is a wither skeleton:\\n        cancel event"
+},
+{
   "id" : "entity_mount",
   "name" : "On Entity Mount",
   "patterns" : [
-    "[on] [on] mount[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] mount[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2696,7 +3493,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "entity_portal",
   "name" : "On Entity Portal",
   "patterns" : [
-    "[on] [on] entity portal [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] entity portal [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2708,8 +3505,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "experience_spawn",
   "name" : "On Experience Spawn",
   "patterns" : [
-    "[on] [on] [e]xp[erience] [orb] spawn [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] spawn of [a[n]] [e]xp[erience] [orb] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [e]xp[erience] [orb] spawn [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] spawn of [a[n]] [e]xp[erience] [orb] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2721,7 +3518,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "explode",
   "name" : "On Explode",
   "patterns" : [
-    "[on] [on] explo(d(e|ing)|sion) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] explo(d(e|ing)|sion) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2733,7 +3530,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "explosion_prime",
   "name" : "On Explosion Prime",
   "patterns" : [
-    "[on] [on] explosion prime [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] explosion prime [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2745,7 +3542,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "fade",
   "name" : "On Fade",
   "patterns" : [
-    "[on] [on] [block] fad(e|ing) [[of] %<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#blockdata'>block datas</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [block] fad(e|ing) [[of] %<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#blockdata'>block datas</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2757,7 +3554,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "firework_explode",
   "name" : "On Firework Explode",
   "patterns" : [
-    "[on] [on] [a] firework explo(d(e|ing)|sion) [colo[u]red %<a href='./classes.html#color'>colors</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [a] firework explo(d(e|ing)|sion) [colo[u]red %<a href='./classes.html#color'>colors</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2769,7 +3566,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "first_join",
   "name" : "On First Join",
   "patterns" : [
-    "[on] [on] first (join|login) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] first (join|login) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2781,7 +3578,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "fishing",
   "name" : "On Fishing",
   "patterns" : [
-    "[on] [on] [player] fish[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [player] fish[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2793,8 +3590,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "flight_toggle",
   "name" : "On Flight Toggle",
   "patterns" : [
-    "[on] [on] [player] flight toggl(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] [player] toggl(e|ing) flight [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [player] flight toggl(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] [player] toggl(e|ing) flight [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2806,8 +3603,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "flow",
   "name" : "On Flow",
   "patterns" : [
-    "[on] [on] [block] flow[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] block mov(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [block] flow[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] block mov(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2819,7 +3616,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "form",
   "name" : "On Form",
   "patterns" : [
-    "[on] [on] [block] form[ing] [[of] %<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#blockdata'>block datas</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [block] form[ing] [[of] %<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#blockdata'>block datas</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2831,7 +3628,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "fuel_burn",
   "name" : "On Fuel Burn",
   "patterns" : [
-    "[on] [on] fuel burn[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] fuel burn[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2843,7 +3640,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "gamemode_change",
   "name" : "On Gamemode Change",
   "patterns" : [
-    "[on] [on] game[ ]mode change [to %<a href='./classes.html#gamemode'>gamemode</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] game[ ]mode change [to %<a href='./classes.html#gamemode'>gamemode</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2855,7 +3652,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "gliding_state_change",
   "name" : "On Gliding State Change",
   "patterns" : [
-    "[on] [on] (gliding state change|toggl(e|ing) gliding) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] (gliding state change|toggl(e|ing) gliding) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2867,7 +3664,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "grow",
   "name" : "On Grow",
   "patterns" : [
-    "[on] [on] grow [of (%<a href='./classes.html#structuretype'>tree type</a>%|%<a href='./classes.html#itemtype'>item type</a>%)] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] grow [of (%<a href='./classes.html#structuretype'>tree type</a>%|%<a href='./classes.html#itemtype'>item type</a>%)] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2879,7 +3676,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "hand_item_swap",
   "name" : "On Hand Item Swap",
   "patterns" : [
-    "[on] [on] swap[ping of] [(hand|held)] item[s] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] swap[ping of] [(hand|held)] item[s] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2891,7 +3688,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "heal",
   "name" : "On Heal",
   "patterns" : [
-    "[on] [on] heal[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] heal[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2903,7 +3700,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "horse_jump",
   "name" : "On Horse Jump",
   "patterns" : [
-    "[on] [on] horse jump [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] horse jump [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2915,7 +3712,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "hunger_meter_change",
   "name" : "On Hunger Meter Change",
   "patterns" : [
-    "[on] [on] (food|hunger) (level|met(er|re)|bar) chang(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] (food|hunger) (level|met(er|re)|bar) chang(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2927,7 +3724,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "ignition",
   "name" : "On Ignition",
   "patterns" : [
-    "[on] [on] [block] ignit(e|ion) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [block] ignit(e|ion) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2939,7 +3736,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "inventory_click",
   "name" : "On Inventory Click",
   "patterns" : [
-    "[on] [on] [player] inventory(-| )click[ing] [[at] %<a href='./classes.html#itemtype'>item types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [player] inventory(-| )click[ing] [[at] %<a href='./classes.html#itemtype'>item types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2951,7 +3748,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "inventory_close",
   "name" : "On Inventory Close",
   "patterns" : [
-    "[on] [on] inventory clos(ing|e[d]) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] inventory clos(ing|e[d]) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2963,7 +3760,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "inventory_open",
   "name" : "On Inventory Open",
   "patterns" : [
-    "[on] [on] inventory open[ed] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] inventory open[ed] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2975,7 +3772,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "inventory_pickup",
   "name" : "On Inventory Pickup",
   "patterns" : [
-    "[on] [on] inventory pick[ ]up [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] inventory pick[ ]up [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -2987,8 +3784,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "item_break",
   "name" : "On Item Break",
   "patterns" : [
-    "[on] [on] [player] tool break[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] [player] break[ing] [(a|the)] tool [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [player] tool break[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] [player] break[ing] [(a|the)] tool [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3000,7 +3797,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "item_damage",
   "name" : "On Item Damage",
   "patterns" : [
-    "[on] [on] item damag(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] item damag(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3012,8 +3809,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "item_despawn",
   "name" : "On Item Despawn",
   "patterns" : [
-    "[on] [on] (item[ ][stack]|[item] %<a href='./classes.html#itemtype'>item types</a>%) despawn[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] [item[ ][stack]] despawn[ing] [[of] %<a href='./classes.html#itemtype'>item types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] (item[ ][stack]|[item] %<a href='./classes.html#itemtype'>item types</a>%) despawn[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] [item[ ][stack]] despawn[ing] [[of] %<a href='./classes.html#itemtype'>item types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3025,7 +3822,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "item_mend",
   "name" : "On Item Mend",
   "patterns" : [
-    "[on] [on] item mend[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] item mend[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3037,8 +3834,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "item_merge",
   "name" : "On Item Merge",
   "patterns" : [
-    "[on] [on] (item[ ][stack]|[item] %<a href='./classes.html#itemtype'>item types</a>%) merg(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] item[ ][stack] merg(e|ing) [[of] %<a href='./classes.html#itemtype'>item types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] (item[ ][stack]|[item] %<a href='./classes.html#itemtype'>item types</a>%) merg(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] item[ ][stack] merg(e|ing) [[of] %<a href='./classes.html#itemtype'>item types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3050,7 +3847,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "item_spawn",
   "name" : "On Item Spawn",
   "patterns" : [
-    "[on] [on] item spawn[ing] [[of] %<a href='./classes.html#itemtype'>item types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] item spawn[ing] [[of] %<a href='./classes.html#itemtype'>item types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3062,7 +3859,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "join",
   "name" : "On Join",
   "patterns" : [
-    "[on] [on] [player] (login|logging in|join[ing]) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [player] (login|logging in|join[ing]) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3074,7 +3871,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "jump",
   "name" : "On Jump",
   "patterns" : [
-    "[on] [on] [player] jump[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [player] jump[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3086,7 +3883,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "kick",
   "name" : "On Kick",
   "patterns" : [
-    "[on] [on] [player] (kick|being kicked) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [player] (kick|being kicked) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3098,8 +3895,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "language_change",
   "name" : "On Language Change",
   "patterns" : [
-    "[on] [on] [player] (language|locale) chang(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] [player] chang(e|ing) (language|locale) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [player] (language|locale) chang(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] [player] chang(e|ing) (language|locale) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3111,7 +3908,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "leaves_decay",
   "name" : "On Leaves Decay",
   "patterns" : [
-    "[on] [on] leaves decay[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] leaves decay[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3123,7 +3920,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "level_change",
   "name" : "On Level Change",
   "patterns" : [
-    "[on] [on] [player] level (change|up|down) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [player] level (change|up|down) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3135,7 +3932,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "lightning_strike",
   "name" : "On Lightning Strike",
   "patterns" : [
-    "[on] [on] lightning [strike] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] lightning [strike] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3147,7 +3944,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "move",
   "name" : "On Move",
   "patterns" : [
-    "[on] [on] %<a href='./classes.html#entitydata'>entity type</a>% (move|walk|step) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] %<a href='./classes.html#entitydata'>entity type</a>% (move|walk|step) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3159,7 +3956,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "move_on",
   "name" : "On Move On",
   "patterns" : [
-    "[on] [on] (step|walk)[ing] (on|over) %*<a href='./classes.html#itemtype'>item types</a>% [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] (step|walk)[ing] (on|over) %*<a href='./classes.html#itemtype'>item types</a>% [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3171,7 +3968,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "physics",
   "name" : "On Physics",
   "patterns" : [
-    "[on] [on] [block] physics [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [block] physics [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3183,7 +3980,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "pick_up",
   "name" : "On Pick Up",
   "patterns" : [
-    "[on] [on] [(player|entity)] (pick[ ]up|picking up) [[of] %<a href='./classes.html#itemtype'>item types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [(player|entity)] (pick[ ]up|picking up) [[of] %<a href='./classes.html#itemtype'>item types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3195,7 +3992,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "pig_zap",
   "name" : "On Pig Zap",
   "patterns" : [
-    "[on] [on] pig[ ]zap [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] pig[ ]zap [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3207,7 +4004,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "piston_extend",
   "name" : "On Piston Extend",
   "patterns" : [
-    "[on] [on] piston extend[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] piston extend[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3219,7 +4016,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "piston_retract",
   "name" : "On Piston Retract",
   "patterns" : [
-    "[on] [on] piston retract[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] piston retract[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3231,7 +4028,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "place",
   "name" : "On Place",
   "patterns" : [
-    "[on] [on] [block] (plac(e|ing)|build[ing]) [[of] %<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#blockdata'>block datas</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [block] (plac(e|ing)|build[ing]) [[of] %<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#blockdata'>block datas</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3243,7 +4040,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "player_trade",
   "name" : "On Player Trade",
   "patterns" : [
-    "[on] [on] player trad(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] player trad(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3255,7 +4052,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "player_world_change",
   "name" : "On Player World Change",
   "patterns" : [
-    "[on] [on] [player] world chang(ing|e[d]) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [player] world chang(ing|e[d]) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3267,7 +4064,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "portal",
   "name" : "On Portal",
   "patterns" : [
-    "[on] [on] [player] portal [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [player] portal [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3279,7 +4076,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "portal_create",
   "name" : "On Portal Create",
   "patterns" : [
-    "[on] [on] portal creat(e|ion) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] portal creat(e|ion) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3291,8 +4088,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "portal_enter",
   "name" : "On Portal Enter",
   "patterns" : [
-    "[on] [on] portal enter[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] entering [a] portal [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] portal enter[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] entering [a] portal [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3304,7 +4101,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "prepare_craft",
   "name" : "On Prepare Craft",
   "patterns" : [
-    "[on] [on] [player] (preparing|beginning) craft[ing] [[of] %<a href='./classes.html#itemtype'>item types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [player] (preparing|beginning) craft[ing] [[of] %<a href='./classes.html#itemtype'>item types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3316,8 +4113,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "pressure_plate_trip",
   "name" : "On Pressure Plate / Trip",
   "patterns" : [
-    "[on] [on] [step[ping] on] [a] [pressure] plate [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] (trip|[step[ping] on] [a] tripwire) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [step[ping] on] [a] [pressure] plate [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] (trip|[step[ping] on] [a] tripwire) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3329,7 +4126,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "projectile_collide",
   "name" : "On Projectile Collide",
   "patterns" : [
-    "[on] [on] projectile collide [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] projectile collide [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3341,7 +4138,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "projectile_hit",
   "name" : "On Projectile Hit",
   "patterns" : [
-    "[on] [on] projectile hit [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] projectile hit [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3353,7 +4150,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "quit",
   "name" : "On Quit",
   "patterns" : [
-    "[on] [on] (quit[ting]|disconnect[ing]|log[ ]out|logging out|leav(e|ing)) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] (quit[ting]|disconnect[ing]|log[ ]out|logging out|leav(e|ing)) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3365,7 +4162,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "redstone",
   "name" : "On Redstone",
   "patterns" : [
-    "[on] [on] redstone [current] [chang(e|ing)] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] redstone [current] [chang(e|ing)] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3377,8 +4174,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "region_enterleave",
   "name" : "On Region Enter/Leave",
   "patterns" : [
-    "[on] [on] (enter[ing]|leav(e|ing)|exit[ing]) [of] ([a] region|[[the] region] %<a href='./classes.html#region'>regions</a>%) [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] region (enter[ing]|leav(e|ing)|exit[ing]) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] (enter[ing]|leav(e|ing)|exit[ing]) [of] ([a] region|[[the] region] %<a href='./classes.html#region'>regions</a>%) [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] region (enter[ing]|leav(e|ing)|exit[ing]) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3390,8 +4187,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "resource_pack_request_response",
   "name" : "On Resource Pack Request Response",
   "patterns" : [
-    "[on] [on] resource pack [request] response [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] resource pack [request] %<a href='./classes.html#resourcepackstate'>resource pack states</a>% [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] resource pack [request] response [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] resource pack [request] %<a href='./classes.html#resourcepackstate'>resource pack states</a>% [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3403,7 +4200,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "respawn",
   "name" : "On Respawn",
   "patterns" : [
-    "[on] [on] [player] respawn[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [player] respawn[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3415,7 +4212,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "resurrect_attempt",
   "name" : "On Resurrect Attempt",
   "patterns" : [
-    "[on] [on] [entity] resurrect[ion] [attempt] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [entity] resurrect[ion] [attempt] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3427,7 +4224,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "riptide",
   "name" : "On Riptide",
   "patterns" : [
-    "[on] [on] [use of] riptide [enchant[ment]] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [use of] riptide [enchant[ment]] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3439,8 +4236,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "script_loadunload",
   "name" : "On Script Load/Unload",
   "patterns" : [
-    "[on] [on] [async] [script] (load|init|enable) [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] [async] [script] (unload|stop|disable) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [async] [script] (load|init|enable) [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] [async] [script] (unload|stop|disable) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3452,7 +4249,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "server_list_ping",
   "name" : "On Server List Ping",
   "patterns" : [
-    "[on] [on] server [list] ping [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] server [list] ping [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3464,8 +4261,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "server_startstop",
   "name" : "On Server Start/Stop",
   "patterns" : [
-    "[on] [on] (server|skript) (start|load|enable) [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] (server|skript) (stop|unload|disable) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] (server|skript) (start|load|enable) [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] (server|skript) (stop|unload|disable) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3477,7 +4274,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "sheep_regrow_wool",
   "name" : "On Sheep Regrow Wool",
   "patterns" : [
-    "[on] [on] sheep [re]grow[ing] wool [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] sheep [re]grow[ing] wool [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3489,7 +4286,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "shoot",
   "name" : "On Shoot",
   "patterns" : [
-    "[on] [on] [projectile] shoot [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [projectile] shoot [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3501,8 +4298,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "sign_change",
   "name" : "On Sign Change",
   "patterns" : [
-    "[on] [on] sign (chang[e]|edit)[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] [player] (chang[e]|edit)[ing] [a] sign [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] sign (chang[e]|edit)[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] [player] (chang[e]|edit)[ing] [a] sign [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3514,7 +4311,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "slime_split",
   "name" : "On Slime Split",
   "patterns" : [
-    "[on] [on] slime split[ting] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] slime split[ting] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3526,8 +4323,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "smelt",
   "name" : "On Smelt",
   "patterns" : [
-    "[on] [on] [ore] smelt[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] smelt[ing] of ore [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [ore] smelt[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] smelt[ing] of ore [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3539,8 +4336,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "sneak_toggle",
   "name" : "On Sneak Toggle",
   "patterns" : [
-    "[on] [on] [player] toggl(e|ing) sneak [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] [player] sneak toggl(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [player] toggl(e|ing) sneak [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] [player] sneak toggl(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3552,7 +4349,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "spawn",
   "name" : "On Spawn",
   "patterns" : [
-    "[on] [on] spawn[ing] [of %<a href='./classes.html#entitydata'>entity types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] spawn[ing] [of %<a href='./classes.html#entitydata'>entity types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3564,7 +4361,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "spawn_change",
   "name" : "On Spawn Change",
   "patterns" : [
-    "[on] [on] [world] spawn change [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [world] spawn change [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3573,10 +4370,24 @@ Do note that other event values, such as 'player', won't work in this section.",
   "examples" : "on spawn change:\\n    broadcast \"someone changed the spawn!\""
 },
 {
+  "id" : "spectate",
+  "name" : "On Spectate",
+  "patterns" : [
+    "[on] [player] stop spectating [(of|from) %*<a href='./classes.html#entitydata'>entity types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] [player] (swap|switch) spectating [(of|from) %*<a href='./classes.html#entitydata'>entity types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] [player] start spectating [of %*<a href='./classes.html#entitydata'>entity types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+
+    "pattern_end"
+  ],
+  "since" : "INSERT VERSION",
+  "description" : "Called with a player starts, stops or swaps spectating an entity.",
+  "examples" : "on player start spectating of a zombie:"
+},
+{
   "id" : "sponge_absorb",
   "name" : "On Sponge Absorb",
   "patterns" : [
-    "[on] [on] sponge absorb [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] sponge absorb [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3588,7 +4399,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "spread",
   "name" : "On Spread",
   "patterns" : [
-    "[on] [on] spread[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] spread[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3600,8 +4411,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "sprint_toggle",
   "name" : "On Sprint Toggle",
   "patterns" : [
-    "[on] [on] [player] toggl(e|ing) sprint [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] [player] sprint toggl(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [player] toggl(e|ing) sprint [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] [player] sprint toggl(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3613,8 +4424,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "swim_toggle",
   "name" : "On Swim Toggle",
   "patterns" : [
-    "[on] [on] [entity] toggl(e|ing) swim [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] [entity] swim toggl(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [entity] toggl(e|ing) swim [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] [entity] swim toggl(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3626,7 +4437,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "tame",
   "name" : "On Tame",
   "patterns" : [
-    "[on] [on] [entity] tam(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [entity] tam(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3638,8 +4449,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "target",
   "name" : "On Target",
   "patterns" : [
-    "[on] [on] [entity] target [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] [entity] un[-]target [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [entity] target [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] [entity] un[-]target [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3651,7 +4462,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "teleport",
   "name" : "On Teleport",
   "patterns" : [
-    "[on] [on] [player] teleport[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [player] teleport[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3663,7 +4474,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "tool_change",
   "name" : "On Tool Change",
   "patterns" : [
-    "[on] [on] [player['s]] (tool|item held|held item) chang(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] [player['s]] (tool|item held|held item) chang(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3675,8 +4486,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "vehicle_create",
   "name" : "On Vehicle Create",
   "patterns" : [
-    "[on] [on] vehicle create [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] creat(e|ing|ion of) [a] vehicle [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] vehicle create [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] creat(e|ing|ion of) [a] vehicle [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3688,8 +4499,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "vehicle_damage",
   "name" : "On Vehicle Damage",
   "patterns" : [
-    "[on] [on] vehicle damage [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] damag(e|ing) [a] vehicle [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] vehicle damage [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] damag(e|ing) [a] vehicle [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3701,8 +4512,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "vehicle_destroy",
   "name" : "On Vehicle Destroy",
   "patterns" : [
-    "[on] [on] vehicle destroy [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] destr(oy[ing]|uction of) [a] vehicle [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] vehicle destroy [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] destr(oy[ing]|uction of) [a] vehicle [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3714,8 +4525,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "vehicle_enter",
   "name" : "On Vehicle Enter",
   "patterns" : [
-    "[on] [on] vehicle enter [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] enter[ing] [a] vehicle [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] vehicle enter [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] enter[ing] [a] vehicle [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3727,8 +4538,8 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "vehicle_exit",
   "name" : "On Vehicle Exit",
   "patterns" : [
-    "[on] [on] vehicle exit [with priority (lowest|low|normal|high|highest|monitor)]",
-"[on] [on] exit[ing] [a] vehicle [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] vehicle exit [with priority (lowest|low|normal|high|highest|monitor)]",
+"[on] exit[ing] [a] vehicle [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3740,7 +4551,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "weather_change",
   "name" : "On Weather Change",
   "patterns" : [
-    "[on] [on] weather change [to %<a href='./classes.html#weathertype'>weather types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] weather change [to %<a href='./classes.html#weathertype'>weather types</a>%] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3752,7 +4563,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "world_init",
   "name" : "On World Init",
   "patterns" : [
-    "[on] [on] world init[ialization] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] world init[ialization] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3764,7 +4575,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "world_load",
   "name" : "On World Load",
   "patterns" : [
-    "[on] [on] world load[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] world load[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3776,7 +4587,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "world_save",
   "name" : "On World Save",
   "patterns" : [
-    "[on] [on] world sav(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] world sav(e|ing) [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3788,7 +4599,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "world_unload",
   "name" : "On World Unload",
   "patterns" : [
-    "[on] [on] world unload[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] world unload[ing] [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3800,7 +4611,7 @@ Do note that other event values, such as 'player', won't work in this section.",
   "id" : "zombie_break_door",
   "name" : "On Zombie Break Door",
   "patterns" : [
-    "[on] [on] zombie break[ing] [a] [wood[en]] door [with priority (lowest|low|normal|high|highest|monitor)]",
+    "[on] zombie break[ing] [a] [wood[en]] door [with priority (lowest|low|normal|high|highest|monitor)]",
 
     "pattern_end"
   ],
@@ -3877,6 +4688,18 @@ For entities, 'Age' represents the time left for them to become adults and it's 
   "examples" : "# Set targeted crop to fully grown crop\\nset age of targeted block to maximum age of targeted block\\n \\n# Spawn a baby cow that will only need 1 minute to become an adult\\nspawn a baby cow at player\\nset age of last spawned entity to -1200 # in ticks = 60 seconds"
 },
 {
+  "id" : "ExprAllBannedEntries",
+  "name" : "All Banned Players/IPs",
+  "patterns" : [
+    "[all [[of] the]|the] banned (players|(ips|ip addresses))",
+
+    "pattern_end"
+  ],
+  "since" : "INSERT VERSION",
+  "description" : "Obtains the list of all banned players or IP addresses.",
+  "examples" : "command /banlist:\\n    trigger:\\n        send all the banned players"
+},
+{
   "id" : "ExprAllGroups",
   "name" : "All Groups",
   "patterns" : [
@@ -3887,6 +4710,18 @@ For entities, 'Age' represents the time left for them to become adults and it's 
   "since" : "2.2-dev35",
   "description" : "All the groups a player can have. This expression requires Vault and a compatible permissions plugin to be installed.",
   "examples" : "command /group &lt;text&gt;:\\n    trigger:\\n        if argument is \"list\":\\n            send \"%all groups%\""
+},
+{
+  "id" : "ExprOps",
+  "name" : "All Operators",
+  "patterns" : [
+    "[all [[of] the]|the] [server] [non(-| )]op[erator]s",
+
+    "pattern_end"
+  ],
+  "since" : "INSERT VERSION",
+  "description" : "The list of operators on the server.",
+  "examples" : "set {_ops::*} to all operators"
 },
 {
   "id" : "ExprPermissions",
@@ -3992,6 +4827,19 @@ Please note that getting a list's recursive size can cause lag if the list is la
   "since" : "2.0",
   "description" : "Counts how many of a particular <a href='./classes.html#itemtype'>item type</a> are in a given inventory.",
   "examples" : "message \"You have %number of ores in the player's inventory% ores in your inventory.\""
+},
+{
+  "id" : "ExprAnvilText",
+  "name" : "Anvil Text Input",
+  "patterns" : [
+    "[the] anvil [inventory] (rename|text) input of %<a href='./classes.html#inventory'>inventories</a>%",
+"%<a href='./classes.html#inventory'>inventories</a>%'[s] anvil [inventory] (rename|text) input",
+
+    "pattern_end"
+  ],
+  "since" : "INSERT VERSION",
+  "description" : "An expression to get the name to be applied to an item in an anvil inventory.",
+  "examples" : "on inventory click:\\n    type of event-inventory is anvil inventory\\n    if the anvil input text of the event-inventory is \"FREE OP\":\\n        ban player"
 },
 {
   "id" : "ExprAppliedEnchantments",
@@ -4276,16 +5124,16 @@ This expression requires a supported regions plugin to be installed.",
   "id" : "ExprBookPages",
   "name" : "Book Pages",
   "patterns" : [
-    "[all] [the] [book] (pages|content) of %<a href='./classes.html#itemtype'>item types</a>%",
-"%<a href='./classes.html#itemtype'>item types</a>%'s [book] (pages|content)",
+    "[all [[of] the]|the] [book] (pages|content) of %<a href='./classes.html#itemtype'>item types</a>%",
+"%<a href='./classes.html#itemtype'>item types</a>%'[s] [book] (pages|content)",
 "[book] page %<a href='./classes.html#number'>number</a>% of %<a href='./classes.html#itemtype'>item types</a>%",
-"%<a href='./classes.html#itemtype'>item types</a>%'s [book] page %<a href='./classes.html#number'>number</a>%",
+"%<a href='./classes.html#itemtype'>item types</a>%'[s] [book] page %<a href='./classes.html#number'>number</a>%",
 
     "pattern_end"
   ],
-  "since" : "2.2-dev31",
+  "since" : "2.2-dev31, INSERT VERSION (changers)",
   "description" : "The pages of a book.",
-  "examples" : "on book sign:\\n    message \"Book Pages: %pages of event-item%\"\\n    message \"Book Page 1: %page 1 of event-item%\""
+  "examples" : "on book sign:\\n    message \"Book Pages: %pages of event-item%\"\\n    message \"Book Page 1: %page 1 of event-item%\"\\nset page 1 of player's held item to \"Book writing\""
 },
 {
   "id" : "ExprBookTitle",
@@ -4737,11 +5585,11 @@ but this expression can e.g. be used to \"add 1 to data of &lt;item&gt;\", e.g. 
   "id" : "ExprElement",
   "name" : "Element of",
   "patterns" : [
-    "([the] first|[the] last|[a] random|%<a href='./classes.html#number'>number</a>%(st|nd|rd|th)) element [out] of %<a href='./classes.html#object'>objects</a>%",
+    "([the] first|[the] last|[a] random|[the] %<a href='./classes.html#number'>number</a>%(st|nd|rd|th)|[the] %<a href='./classes.html#number'>number</a>%(st|nd|rd|th) [to] last) element [out] of %<a href='./classes.html#object'>objects</a>%",
 
     "pattern_end"
   ],
-  "since" : "2.0",
+  "since" : "2.0, INSERT VERSION (relative to last element)",
   "description" : "The first, last or a random element of a set, e.g. a list variable.
 See also: <a href='#ExprRandom'>random</a>",
   "examples" : "give a random element out of {free items::*} to the player"
@@ -4884,6 +5732,19 @@ To change the number of levels removed, use the enchant event.",
 Note that the movement speed attribute cannot be reliably used for players. For that purpose, use the speed expression instead.
 Resetting an entity's attribute is only available in Minecraft 1.11 and above.",
   "examples" : "on damage of player:\\n    send \"You are wounded!\"\\n    set victim's attack speed attribute to 2"
+},
+{
+  "id" : "ExprFireTicks",
+  "name" : "Entity Fire Burn Duration",
+  "patterns" : [
+    "[the] (burn[ing]|fire) (time|duration) of %<a href='./classes.html#entity'>entities</a>%",
+"%<a href='./classes.html#entity'>entities</a>%'[s] (burn[ing]|fire) (time|duration)",
+
+    "pattern_end"
+  ],
+  "since" : "INSERT VERSION",
+  "description" : "How much time an entity will be burning for.",
+  "examples" : "send \"You will stop burning in %fire time of player%\""
 },
 {
   "id" : "ExprEntityTamer",
@@ -5969,14 +6830,14 @@ Please note that the location of an entity is at it's feet, use <a href='#ExprEy
   "id" : "ExprMaxPlayers",
   "name" : "Max Players",
   "patterns" : [
-    "[the] [((real|default)|(fake|shown|displayed))] max[imum] player[s] [(count|amount|number|size)]",
-"[the] [((real|default)|(fake|shown|displayed))] max[imum] (count|amount|number|size) of players",
+    "[the] [(real|default)|(fake|shown|displayed)] max[imum] player[s] [count|amount|number|size]",
+"[the] [(real|default)|(fake|shown|displayed)] max[imum] (count|amount|number|size) of players",
 
     "pattern_end"
   ],
-  "since" : "2.3",
+  "since" : "2.3, INSERT VERSION (modify max real players)",
   "description" : "The count of max players. This can be changed in a <a href='events.html#server_list_ping'>server list ping</a> event only.
-'real max players' returns the real count of max players of the server always and can't be changed.",
+'real max players' returns the real count of max players of the server and can be modified on Paper 1.16 or later.",
   "examples" : "on server list ping:\\n    set the max players count to (online players count + 1)"
 },
 {
@@ -6099,6 +6960,19 @@ Please note that the location of an entity is at it's feet, use <a href='#ExprEy
   "examples" : "message \"You have %player's money%\" # the currency name will be added automatically\\nremove 20$ from the player's balance # replace '$' by whatever currency you use\\nadd 200 to the player's account # or omit the currency altogether"
 },
 {
+  "id" : "ExprMoonPhase",
+  "name" : "Moon Phase",
+  "patterns" : [
+    "[the] (lunar|moon) phase[s] of %<a href='./classes.html#world'>worlds</a>%",
+"%<a href='./classes.html#world'>worlds</a>%'[s] (lunar|moon) phase[s]",
+
+    "pattern_end"
+  ],
+  "since" : "INSERT VERSION",
+  "description" : "The current moon phase of a world.",
+  "examples" : "if moon phase of player's world is full moon:\\n    send \"Watch for the wolves!\""
+},
+{
   "id" : "ExprPushedBlocks",
   "name" : "Moved blocks",
   "patterns" : [
@@ -6114,13 +6988,13 @@ Please note that the location of an entity is at it's feet, use <a href='#ExprEy
   "id" : "ExprName",
   "name" : "Name / Display Name / Tab List Name",
   "patterns" : [
-    "[the] (name[s]|(display|nick|chat|custom)[ ]name[s]) of %<a href='./classes.html#offlineplayer'>offline players</a>/<a href='./classes.html#entity'>entities</a>/<a href='./classes.html#block'>blocks</a>/<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#inventory'>inventories</a>/<a href='./classes.html#slot'>slots</a>/<a href='./classes.html#gamerule'>gamerules</a>%",
-"%<a href='./classes.html#offlineplayer'>offline players</a>/<a href='./classes.html#entity'>entities</a>/<a href='./classes.html#block'>blocks</a>/<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#inventory'>inventories</a>/<a href='./classes.html#slot'>slots</a>/<a href='./classes.html#gamerule'>gamerules</a>%'[s] (name[s]|(display|nick|chat|custom)[ ]name[s])",
+    "[the] (name[s]|(display|nick|chat|custom)[ ]name[s]) of %<a href='./classes.html#offlineplayer'>offline players</a>/<a href='./classes.html#entity'>entities</a>/<a href='./classes.html#block'>blocks</a>/<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#inventory'>inventories</a>/<a href='./classes.html#slot'>slots</a>/<a href='./classes.html#world'>worlds</a>/<a href='./classes.html#gamerule'>gamerules</a>%",
+"%<a href='./classes.html#offlineplayer'>offline players</a>/<a href='./classes.html#entity'>entities</a>/<a href='./classes.html#block'>blocks</a>/<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#inventory'>inventories</a>/<a href='./classes.html#slot'>slots</a>/<a href='./classes.html#world'>worlds</a>/<a href='./classes.html#gamerule'>gamerules</a>%'[s] (name[s]|(display|nick|chat|custom)[ ]name[s])",
 
     "pattern_end"
   ],
-  "since" : "before 2.1, 2.2-dev20 (inventory name), 2.4 (non-living entity support, changeable inventory name)",
-  "description" : "Represents the Minecraft account, display or tab list name of a player, or the custom name of an item, entity, block, inventory, or gamerule.
+  "since" : "before 2.1, 2.2-dev20 (inventory name), 2.4 (non-living entity support, changeable inventory name), INSERT VERSION (worlds)",
+  "description" : "Represents the Minecraft account, display or tab list name of a player, or the custom name of an item, entity, block, inventory, gamerule or world.
 
 <ul>
     <li><strong>Players</strong>
@@ -6148,6 +7022,11 @@ Please note that the location of an entity is at it's feet, use <a href='#ExprEy
     <li><strong>Gamerules (1.13+)</strong>
         <ul>
             <li><strong>Name:</strong> The name of the gamerule. Cannot be changed.</li>
+        </ul>
+    </li>
+    <li><strong>Worlds</strong>
+        <ul>
+            <li><strong>Name:</strong> The name of the world. Cannot be changed.</li>
         </ul>
     </li>
 </ul>",
@@ -6162,8 +7041,8 @@ Please note that the location of an entity is at it's feet, use <a href='#ExprEy
 
     "pattern_end"
   ],
-  "since" : "before 2.1, 2.2-dev20 (inventory name), 2.4 (non-living entity support, changeable inventory name)",
-  "description" : "Represents the Minecraft account, display or tab list name of a player, or the custom name of an item, entity, block, inventory, or gamerule.
+  "since" : "before 2.1, 2.2-dev20 (inventory name), 2.4 (non-living entity support, changeable inventory name), INSERT VERSION (worlds)",
+  "description" : "Represents the Minecraft account, display or tab list name of a player, or the custom name of an item, entity, block, inventory, gamerule or world.
 
 <ul>
     <li><strong>Players</strong>
@@ -6191,6 +7070,11 @@ Please note that the location of an entity is at it's feet, use <a href='#ExprEy
     <li><strong>Gamerules (1.13+)</strong>
         <ul>
             <li><strong>Name:</strong> The name of the gamerule. Cannot be changed.</li>
+        </ul>
+    </li>
+    <li><strong>Worlds</strong>
+        <ul>
+            <li><strong>Name:</strong> The name of the world. Cannot be changed.</li>
         </ul>
     </li>
 </ul>",
@@ -6207,6 +7091,19 @@ Please note that the location of an entity is at it's feet, use <a href='#ExprEy
   "since" : "2.0, 2.2-dev34 (inventories)",
   "description" : "Directly names an item/inventory, useful for defining a named item/inventory in a script. If you want to (re)name existing items/inventories you can either use this expression or use <code>set <a href='#ExprName'>name of &lt;item/inventory&gt;</a> to &lt;text&gt;</code>.",
   "examples" : "give a diamond sword of sharpness 100 named \"&lt;gold&gt;Excalibur\" to the player\\nset tool of player to the player's tool named \"&lt;gold&gt;Wand\"\\nset the name of the player's tool to \"&lt;gold&gt;Wand\"\\nopen hopper inventory named \"Magic Hopper\" to player"
+},
+{
+  "id" : "ExprNearestEntity",
+  "name" : "Nearest Entity",
+  "patterns" : [
+    "[the] nearest %*<a href='./classes.html#entitydata'>entity types</a>% [[relative] to %<a href='./classes.html#entity'>entity</a>/<a href='./classes.html#location'>location</a>%]",
+"[the] %*<a href='./classes.html#entitydata'>entity types</a>% nearest [to %<a href='./classes.html#entity'>entity</a>/<a href='./classes.html#location'>location</a>%]",
+
+    "pattern_end"
+  ],
+  "since" : "INSERT VERSION",
+  "description" : "Gets the entity nearest to a location or another entity.",
+  "examples" : "kill the nearest pig and cow relative to player\\nteleport player to the nearest cow relative to player\\nteleport player to the nearest entity relative to player\\n\\non click:\\n    kill nearest pig"
 },
 {
   "id" : "LitNewLine",
@@ -6362,6 +7259,18 @@ Some notes about parsing with a pattern:
 For 1.11.2 and above, it returns a list of passengers and you can use all changers in it.
 See also: <a href='#ExprVehicle'>vehicle</a>",
   "examples" : "#for 1.11 and lower\\npassenger of the minecart is a creeper or a cow\\nthe saddled pig's passenger is a player\\n#for 1.11.2+\\npassengers of the minecart contains a creeper or a cow\\nthe boat's passenger contains a pig\\nadd a cow and a zombie to passengers of last spawned boat\\nset passengers of player's vehicle to a pig and a horse\\nremove all pigs from player's vehicle\\nclear passengers of boat"
+},
+{
+  "id" : "LitPi",
+  "name" : "Pi",
+  "patterns" : [
+    "(pi|π)",
+
+    "pattern_end"
+  ],
+  "since" : "INSERT VERSION",
+  "description" : "Returns the mathematical constant pi. (approx. 3.1415926535)",
+  "examples" : "set {_tau} to pi * 2"
 },
 {
   "id" : "ExprPickupDelay",
@@ -6696,6 +7605,19 @@ This expression requires a supported regions plugin to be installed.",
   "examples" : "player's remaining air is less than 3 seconds:\\n    send \"hurry, get to the surface!\" to the player"
 },
 {
+  "id" : "ExprCharges",
+  "name" : "Respawn Anchor Charges",
+  "patterns" : [
+    "[the] [max[imum]] charge[s] of %<a href='./classes.html#block'>blocks</a>%",
+"%<a href='./classes.html#block'>blocks</a>%'[s] [max[imum]] charge[s]",
+
+    "pattern_end"
+  ],
+  "since" : "INSERT VERSION",
+  "description" : "The charges of a respawn anchor.",
+  "examples" : "set the charges of event-block to 3"
+},
+{
   "id" : "ExprRespawnLocation",
   "name" : "Respawn location",
   "patterns" : [
@@ -6938,14 +7860,14 @@ if they're not, this expression will return nothing.",
   "id" : "ExprSpectatorTarget",
   "name" : "Spectator Target",
   "patterns" : [
-    "[the] spectator target of %<a href='./classes.html#player'>players</a>%",
+    "spectator target [of %<a href='./classes.html#player'>players</a>%]",
 "%<a href='./classes.html#player'>players</a>%'[s] spectator target",
 
     "pattern_end"
   ],
-  "since" : "2.4",
-  "description" : "Returns the entity which is followed by the camera of the player when in spectator mode.",
-  "examples" : "command /spectate <player>:\\n    executable by: players\\n    trigger:\\n        set gamemode of player to spectator # otherwise below won't do anything\\n        set spectator target of player to arg-1\\n        send \"Spectating %arg-1%\" to player"
+  "since" : "2.4-alpha4, INSERT VERSION (Paper Spectator Event)",
+  "description" : "Grabs the spectator target entity of the players.",
+  "examples" : "on player start spectating of player:\\n    message \"&c%spectator target% currently has %{game::kills::%spectator target%}% kills!\" to the player\\n\\non player stop spectating:\\n    past spectator target was a zombie\\n    set spectator target to the nearest skeleton"
 },
 {
   "id" : "ExprSpeed",
@@ -6963,7 +7885,7 @@ Please note that changing a player's speed will change their FOV just like potio
 },
 {
   "id" : "ExprSubstring",
-  "name" : "Subtext",
+  "name" : "Substring",
   "patterns" : [
     "[the] (part|sub[ ](text|string)) of %<a href='./classes.html#string'>texts</a>% (between|from) [ind(ex|ices)|character[s]] %<a href='./classes.html#number'>number</a>% (and|to) [(index|character)] %<a href='./classes.html#number'>number</a>%",
 "[the] (first|last) [%<a href='./classes.html#number'>number</a>%] character[s] of %<a href='./classes.html#string'>texts</a>%",
@@ -7136,14 +8058,14 @@ Using this expression on offline players on Minecraft 1.14 and below will return
   "id" : "ExprTypeOf",
   "name" : "Type of",
   "patterns" : [
-    "[the] type of %<a href='./classes.html#entitydata'>entity types</a>/<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#inventory'>inventories</a>/<a href='./classes.html#potioneffect'>potion effects</a>%",
-"%<a href='./classes.html#entitydata'>entity types</a>/<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#inventory'>inventories</a>/<a href='./classes.html#potioneffect'>potion effects</a>%'[s] type",
+    "[the] type of %<a href='./classes.html#entitydata'>entity types</a>/<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#inventory'>inventories</a>/<a href='./classes.html#potioneffect'>potion effects</a>/<a href='./classes.html#blockdata'>block datas</a>%",
+"%<a href='./classes.html#entitydata'>entity types</a>/<a href='./classes.html#itemtype'>item types</a>/<a href='./classes.html#inventory'>inventories</a>/<a href='./classes.html#potioneffect'>potion effects</a>/<a href='./classes.html#blockdata'>block datas</a>%'[s] type",
 
     "pattern_end"
   ],
-  "since" : "1.4, 2.5.2 (potion effect)",
+  "since" : "1.4, 2.5.2 (potion effect), INSERT VERSION (block datas)",
   "description" : "Type of a block, item, entity, inventory or potion effect.
-Types of items and blocks are item types similar to them but have amounts
+Types of items, blocks and block datas are item types similar to them but have amounts
 of one, no display names and, on Minecraft 1.13 and newer versions, are undamaged.
 Types of entities and inventories are entity types and inventory types known to Skript.
 Types of potion effects are potion effect types.",
