@@ -38,6 +38,8 @@ public final class SkriptEventInfo<E extends SkriptEvent> extends SyntaxElementI
 	@Nullable
 	private String[] examples;
 	@Nullable
+	private String[] keywords;
+	@Nullable
 	private String since;
 	@Nullable
 	private String documentationID;
@@ -111,6 +113,18 @@ public final class SkriptEventInfo<E extends SkriptEvent> extends SyntaxElementI
 		this.examples = examples;
 		return this;
 	}
+
+	/**
+	 * Only used for Skript's documentation.
+	 *
+	 * @param keywords
+	 * @return This SkriptEventInfo object
+	 */
+	public SkriptEventInfo<E> keywords(final String... keywords) {
+		assert this.keywords == null;
+		this.keywords = keywords;
+		return this;
+	}
 	
 	/**
 	 * Only used for Skript's documentation.
@@ -169,6 +183,11 @@ public final class SkriptEventInfo<E extends SkriptEvent> extends SyntaxElementI
 	@Nullable
 	public String[] getExamples() {
 		return examples;
+	}
+
+	@Nullable
+	public String[] getKeywords() {
+		return keywords;
 	}
 	
 	@Nullable

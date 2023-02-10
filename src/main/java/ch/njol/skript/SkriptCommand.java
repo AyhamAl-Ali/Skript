@@ -36,7 +36,7 @@ import org.eclipse.jdt.annotation.Nullable;
 
 import ch.njol.skript.aliases.Aliases;
 import ch.njol.skript.command.CommandHelp;
-import ch.njol.skript.config.Config;
+import ch.njol.skript.doc.Documentation;
 import ch.njol.skript.doc.HTMLGenerator;
 import ch.njol.skript.localization.ArgsMessage;
 import ch.njol.skript.localization.Language;
@@ -56,7 +56,8 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 public class SkriptCommand implements CommandExecutor {
 	
 	private static final String CONFIG_NODE = "skript command";
-	
+	private static final ArgsMessage m_reloading = new ArgsMessage(CONFIG_NODE + ".reload.reloading");
+
 	// TODO /skript scripts show/list - lists all enabled and/or disabled scripts in the scripts folder and/or subfolders (maybe add a pattern [using * and **])
 	// TODO document this command on the website
 	private static final CommandHelp skriptCommandHelp = new CommandHelp("<gray>/<gold>skript", SkriptColor.LIGHT_CYAN, CONFIG_NODE + ".help")
@@ -78,15 +79,16 @@ public class SkriptCommand implements CommandExecutor {
 			.add("download")
 		).add("info"
 		).add("help");
-	
+
 	static {
-		if (TestMode.GEN_DOCS || new File(Skript.getInstance().getDataFolder() + "/doc-templates").exists())
-			skriptCommandHelp.add("gen-docs");
-		if (TestMode.DEV_MODE) // Add command to run individual tests
-			skriptCommandHelp.add("test");
+		// Add command to generate documentation
+		if (TestMode.GEN_DOCS || Documentation.isDocsTemplateFound())
+			SKRIPT_COMMAND_HELP.add("gen-docs");
+
+		// Add command to run individual tests
+		if (TestMode.DEV_MODE)
+			SKRIPT_COMMAND_HELP.add("test");
 	}
-	
-	private static final ArgsMessage m_reloading = new ArgsMessage(CONFIG_NODE + ".reload.reloading");
 	
 	private static void reloading(CommandSender sender, String what, Object... args) {
 		what = args.length == 0 ? Language.get(CONFIG_NODE + ".reload." + what) : Language.format(CONFIG_NODE + ".reload." + what, args);
@@ -349,16 +351,19 @@ public class SkriptCommand implements CommandExecutor {
 						Skript.info(sender, " - " + plugin.getName() + " v" + ver);
 					}
 				}
-			} else if (args[0].equalsIgnoreCase("help")) {
-				skriptCommandHelp.showHelp(sender);
-			} else if (args[0].equalsIgnoreCase("gen-docs")) {
-				File templateDir = new File(Skript.getInstance().getDataFolder() + "/doc-templates/");
+				if (!dependenciesFound)
+					info(sender, "info.dependencies", "None");
+
+			}
+
+			else if (args[0].equalsIgnoreCase("gen-docs")) {
+				File templateDir = Documentation.getDocsTemplateDirectory();
 				if (!templateDir.exists()) {
 					Skript.error(sender, "Cannot generate docs! Documentation templates not found at 'plugins/Skript/doc-templates/'");
 					TestMode.docsFailed = true;
 					return true;
 				}
-				File outputDir = new File(Skript.getInstance().getDataFolder() + "/docs");
+				File outputDir = Documentation.getDocsOutputDirectory();
 				outputDir.mkdirs();
 				HTMLGenerator generator = new HTMLGenerator(templateDir, outputDir);
 				Skript.info(sender, "Generating docs...");

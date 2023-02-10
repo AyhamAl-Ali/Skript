@@ -58,47 +58,56 @@ import ch.njol.util.coll.CollectionUtils;
 import net.md_5.bungee.api.ChatColor;
 
 @Name("Name / Display Name / Tab List Name")
-@Description({"Represents the Minecraft account, display or tab list name of a player, or the custom name of an item, entity, block, inventory, or gamerule.",
-		"",
-		"<ul>",
-		"\t<li><strong>Players</strong>",
-		"\t\t<ul>",
-		"\t\t\t<li><strong>Name:</strong> The Minecraft account name of the player. Can't be changed, but 'display name' can be changed.</li>",
-		"\t\t\t<li><strong>Display Name:</strong> The name of the player that is displayed in messages. " +
-			"This name can be changed freely and can include colour codes, and is shared among all plugins (e.g. chat plugins will use the display name).</li>",
-		"\t\t</ul>",
-		"\t</li>",
-		"\t<li><strong>Entities</strong>",
-		"\t\t<ul>",
-		"\t\t\t<li><strong>Name:</strong> The custom name of the entity. Can be changed. But for living entities, " +
-			"the players will have to target the entity to see its name tag. For non-living entities, the name will not be visible at all. To prevent this, use 'display name'.</li>",
-		"\t\t\t<li><strong>Display Name:</strong> The custom name of the entity. Can be changed, " +
-			"which will also enable <em>custom name visibility</em> of the entity so name tag of the entity will be visible always.</li>",
-		"\t\t</ul>",
-		"\t</li>",
-		"\t<li><strong>Items</strong>",
-		"\t\t<ul>",
-		"\t\t\t<li><strong>Name and Display Name:</strong> The <em>custom</em> name of the item (not the Minecraft locale name). Can be changed.</li>",
-		"\t\t</ul>",
-		"\t</li>",
-		"\t<li><strong>Inventories</strong>",
-		"\t\t<ul>",
-		"\t\t\t<li><strong>Name and Display Name:</strong> The name/title of the inventory. " +
-			"Changing name of an inventory means opening the same inventory with the same contents but with a different name to its current viewers.</li>",
-		"\t\t</ul>",
-		"\t</li>",
-		"\t<li><strong>Gamerules (1.13+)</strong>",
-		"\t\t<ul>",
-		"\t\t\t<li><strong>Name:</strong> The name of the gamerule. Cannot be changed.</li>",
-		"\t\t</ul>",
-		"\t</li>",
-		"</ul>"})
-@Examples({"on join:",
-		"	player has permission \"name.red\"",
-		"	set the player's display name to \"&lt;red&gt;[admin] &lt;gold&gt;%name of player%\"",
-		"	set the player's tab list name to \"&lt;green&gt;%player's name%\"",
-		"set the name of the player's tool to \"Legendary Sword of Awesomeness\""})
-@Since("before 2.1, 2.2-dev20 (inventory name), 2.4 (non-living entity support, changeable inventory name)")
+@Description({
+	"Represents the Minecraft account, display or tab list name of a player, or the custom name of an item, entity, block, inventory, gamerule or world.",
+	"",
+	"<ul>",
+	"\t<li><strong>Players</strong>",
+	"\t\t<ul>",
+	"\t\t\t<li><strong>Name:</strong> The Minecraft account name of the player. Can't be changed, but 'display name' can be changed.</li>",
+	"\t\t\t<li><strong>Display Name:</strong> The name of the player that is displayed in messages. " +
+		"This name can be changed freely and can include color codes, and is shared among all plugins (e.g. chat plugins will use the display name).</li>",
+	"\t\t</ul>",
+	"\t</li>",
+	"\t<li><strong>Entities</strong>",
+	"\t\t<ul>",
+	"\t\t\t<li><strong>Name:</strong> The custom name of the entity. Can be changed. But for living entities, " +
+		"the players will have to target the entity to see its name tag. For non-living entities, the name will not be visible at all. To prevent this, use 'display name'.</li>",
+	"\t\t\t<li><strong>Display Name:</strong> The custom name of the entity. Can be changed, " +
+		"which will also enable <em>custom name visibility</em> of the entity so name tag of the entity will be visible always.</li>",
+	"\t\t</ul>",
+	"\t</li>",
+	"\t<li><strong>Items</strong>",
+	"\t\t<ul>",
+	"\t\t\t<li><strong>Name and Display Name:</strong> The <em>custom</em> name of the item (not the Minecraft locale name). Can be changed.</li>",
+	"\t\t</ul>",
+	"\t</li>",
+	"\t<li><strong>Inventories</strong>",
+	"\t\t<ul>",
+	"\t\t\t<li><strong>Name and Display Name:</strong> The name/title of the inventory. " +
+		"Changing name of an inventory means opening the same inventory with the same contents but with a different name to its current viewers.</li>",
+	"\t\t</ul>",
+	"\t</li>",
+	"\t<li><strong>Gamerules (1.13+)</strong>",
+	"\t\t<ul>",
+	"\t\t\t<li><strong>Name:</strong> The name of the gamerule. Cannot be changed.</li>",
+	"\t\t</ul>",
+	"\t</li>",
+	"\t<li><strong>Worlds</strong>",
+	"\t\t<ul>",
+	"\t\t\t<li><strong>Name:</strong> The name of the world. Cannot be changed.</li>",
+	"\t\t</ul>",
+	"\t</li>",
+	"</ul>"
+})
+@Examples({
+	"on join:",
+	"\tplayer has permission \"name.red\"",
+	"\tset the player's display name to \"&lt;red&gt;[admin] &lt;gold&gt;%name of player%\"",
+	"\tset the player's tab list name to \"&lt;green&gt;%player's name%\"",
+	"set the name of the player's tool to \"Legendary Sword of Awesomeness\""
+})
+@Since("before 2.1, 2.2-dev20 (inventory name), 2.4 (non-living entity support, changeable inventory name), INSERT VERSION (worlds)")
 public class ExprName extends SimplePropertyExpression<Object, String> {
 
 	@Nullable

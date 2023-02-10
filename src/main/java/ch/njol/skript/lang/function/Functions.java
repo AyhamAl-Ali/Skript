@@ -43,6 +43,8 @@ import ch.njol.skript.registrations.Classes;
 import ch.njol.skript.util.Utils;
 import ch.njol.util.NonNullPair;
 import ch.njol.util.StringUtils;
+import org.eclipse.jdt.annotation.Nullable;
+import org.skriptlang.skript.lang.script.Script;
 
 /**
  * Static methods to work with functions.
@@ -227,6 +229,33 @@ public abstract class Functions {
 				returnClass = Classes.getClassInfoFromUserInput(p.getFirst());
 			if (returnClass == null) {
 				return signError("Cannot recognise the type '" + returnType + "'");
+		}
+		return new Signature<>(script, name, parameters.toArray(new Parameter[0]), local, (ClassInfo<Object>) returnClass, singleReturn, null);
+	}
+
+	/**
+	 * Registers the signature.
+	 * @param signature The signature to register.
+	 * @return Signature of function, or null if something went wrong.
+	 * @see Functions#parseSignature(String, String, String, String, boolean)
+	 */
+	@Nullable
+	public static Signature<?> registerSignature(Signature<?> signature) {
+		// Ensure there are no duplicate functions
+		if (signature.local) {
+			Namespace namespace = getScriptNamespace(signature.script);
+			if (namespace != null && namespace.getSignature(signature.name, true) != null)
+				return signError("A local function named '" + signature.name + "' already exists in the script");
+		} else {
+			if (globalFunctions.containsKey(signature.name)) {
+				Namespace namespace = globalFunctions.get(signature.name);
+				if (namespace == javaNamespace) { // Special messages for built-in functions
+					return signError("Function name '" + signature.name + "' is reserved by Skript");
+				} else {
+					Signature<?> sign = namespace.getSignature(signature.name, false);
+					assert sign != null : "globalFunctions points to a wrong namespace";
+					return signError("A global function named '" + signature.name + "' already exists in script '" + sign.script + "'");
+				}
 			}
 		}
 		
