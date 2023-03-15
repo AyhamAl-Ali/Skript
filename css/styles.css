@@ -119,6 +119,10 @@ html {
 
 body {
     font-family: "Poppins", sans-serif;
+    overflow: hidden;
+}
+
+#docs-body {
     background-color: var(--bg-color);
     display: grid;
     /*
@@ -256,6 +260,19 @@ a:visited {
     color: white;
 }
 
+.type-Structure {
+    border-left: 5px solid rgb(0, 219, 255);
+}
+
+.type-Structure .item-type {
+    color: rgb(0, 219, 255);
+}
+
+.type-Structure .item-examples p {
+    background-color: rgb(0, 219, 255);
+    color: white;
+}
+
 /* Pattern right section list items */
 
 .item-details:nth-child(1) ul li:nth-child(odd) {
@@ -356,7 +373,7 @@ div.active-syntax .item-examples p {
     border-left: solid 3px #ff9800;
     text-decoration: none;
     background-color: #353535;
-    font-size: 1.5vw;
+    font-size: 30px;
     font-weight: bold;
     color: #ff9800;
     height: 35px;
@@ -365,6 +382,7 @@ div.active-syntax .item-examples p {
     z-index: 50;
     transition: color 0.2s;
     width: 100%;
+    line-height: 1.2;
 }
 
 /* #nav-title {
@@ -668,7 +686,7 @@ td ul {
 
 
 @media (max-width: 1200px) {
-    body {
+    #docs-body {
         grid-template-columns: 20% minmax(80%, 100%);
     }
 
@@ -711,7 +729,7 @@ td ul {
 
 
 @media (max-width: 1024px) {
-    body {
+    #docs-body {
         grid-template-columns: 20% minmax(80%, 100%);
     }
 
@@ -723,7 +741,7 @@ td ul {
 }
 
 @media (max-width: 768px) {
-    body {
+    #docs-body {
         grid-template-columns: 20% minmax(80%, 100%);
     }
 
@@ -746,12 +764,11 @@ td ul {
 
     #cookies-bar {
         flex-direction: column;
-        padding-bottom: 70px !important;
     }
 }
 
 @media (max-width: 550px) {
-    body {
+    #docs-body {
         grid-template-columns: 0 100%;
     }
 
@@ -1168,7 +1185,7 @@ pre code { /* override styling for code blocks */
 
 #cookies-bar {
     position: sticky;
-    margin: 0 -8vw;
+    margin: 0;
     bottom: 0;
     background-color: #353535;
     color: white;
