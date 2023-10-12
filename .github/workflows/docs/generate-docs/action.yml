@@ -79,6 +79,7 @@ runs:
         if [ -d "${DOCS_OUTPUT_DIR}" ]; then
           if [[ "${GENERATE_JAVADOCS}" == "true" ]] || [[ "${IS_RELEASE}" == "true" ]] ; then
               mkdir -p "${SKRIPT_DOCS_OUTPUT_DIR}/javadocs" && cp -a "./build/docs/javadoc/." "$_"
+              echo "Copying javadocs..."
           fi
   
           mkdir -p "/tmp/normalized-output-docs" && cp -a "${DOCS_OUTPUT_DIR}/." "$_"
@@ -100,7 +101,7 @@ runs:
           fi
         else
             echo "DOCS_CHANGED=true" >> $GITHUB_OUTPUT
-            echo "No existing documentation found"
+            echo "No existing documentation folder found"
         fi
         
         rm -rf ${DOCS_OUTPUT_DIR}/${CLEANUP_PATTERN} || true
