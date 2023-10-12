@@ -379,8 +379,8 @@ task nightlyRelease(type: ShadowJar) {
 }
 
 javadoc {
+	dependsOn githubResources
 	title = 'Skript ' + project.property('version')
-	dependsOn githubRelease
 	source = sourceSets.main.allJava
 
 	exclude("ch/njol/skript/conditions/**")
