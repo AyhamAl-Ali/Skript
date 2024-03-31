@@ -485,7 +485,7 @@ public class Documentation {
 			assert false;
 			return "";
 		}
-		return HTMLGenerator.introduceSkwipt("" + value.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"));
+		return "" + HTMLGenerator.introduceSkwipt(value).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;");
 	}
 
 	public static String[] escapeHTML(@Nullable String[] values) {
