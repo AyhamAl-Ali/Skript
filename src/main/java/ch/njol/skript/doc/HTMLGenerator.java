@@ -908,7 +908,7 @@ public class HTMLGenerator {
 	 * @param message the String to return if either condition is true
 	 */
 	public String getDefaultIfNullOrEmpty(@Nullable String string, String message) {
-		return (string == null || string.isEmpty()) ? message : string; // Null check first otherwise NullPointerException is thrown
+		return (string == null || string.isEmpty()) ? introduceSkwipt(message) : introduceSkwipt(string); // Null check first otherwise NullPointerException is thrown
 	}
 	
 	public String[] getDefaultIfNullOrEmpty(@Nullable String[] string, String message) {
