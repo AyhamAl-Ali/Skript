@@ -371,7 +371,15 @@ public class HTMLGenerator {
 				}
 				
 				page = page.replace(page.substring(generate, nextBracket + 1), generated.toString());
-				
+
+				// skwipt
+				String ogTitle = "Skript Documentation";
+				String ogDesc = "Skript is a Bukkit plugin which allows server admins to customize their server easily, but without the hassle of programming a plugin or asking/paying someone to program a plugin for them.";
+				String exampleCode = " command /sethome:\n &nbsp;&nbsp;&nbsp;&nbsp;permission: skript.home # Permission required for this command\n &nbsp;&nbsp;&nbsp;&nbsp;description: Set your home # Description of this command\n &nbsp;&nbsp;&nbsp;&nbsp;executable by: players # Console won't be able to run this command\n &nbsp;&nbsp;&nbsp;&nbsp;trigger: # The actual trigger/code that will run when someone do /sethome\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Set a unique variable to sender's location\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set {home::%uuid of player%} to location of player\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Send a message to the sender\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message \"Set your home to &lt;grey&gt;%location of player%&lt;reset&gt;\"\n \n command /home:\n &nbsp;&nbsp;&nbsp;&nbsp;permission: skript.home\n &nbsp;&nbsp;&nbsp;&nbsp;description: Teleport yourself to your home\n &nbsp;&nbsp;&nbsp;&nbsp;trigger:\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Check if that variable we used in /sethome has been set (in other words, if player ever ran /sethome)\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if {home::%uuid of player%} is not set:\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message \"You have not set your home yet!\"\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stop trigger # stop the code here, lines below won't run\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Teleport the player to their home\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;teleport player to {home::%uuid of player%}\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;send \"&amp;aYou have been teleported.\"\n ";
+				page = page.replace(ogTitle, introduceSkwipt(ogTitle));
+				page = page.replace(ogDesc, introduceSkwipt(ogDesc));
+				page = page.replace(exampleCode, introduceSkwipt(exampleCode));
+
 				generate = page.indexOf("${generate", nextBracket);
 			}
 			
@@ -498,7 +506,7 @@ public class HTMLGenerator {
 		// RequiredPlugins
 		RequiredPlugins plugins = c.getAnnotation(RequiredPlugins.class);
 		desc = handleIf(desc, "${if required-plugins}", plugins != null);
-		desc = desc.replace("${element.required-plugins}", plugins == null ? "" : Joiner.on(", ").join((plugins != null ? plugins.value() : null)));
+		desc = desc.replace("${element.required-plugins}", plugins == null ? "" : introduceSkwipt(Joiner.on(", ").join((plugins != null ? plugins.value() : null))));
 
 		// Return Type
 		ClassInfo<?> returnType = info instanceof ExpressionInfo ? Classes.getSuperClassInfo(((ExpressionInfo<?,?>) info).getReturnType()) : null;
@@ -630,7 +638,7 @@ public class HTMLGenerator {
 		// Required Plugins
 		String[] requiredPlugins = info.getRequiredPlugins();
 		desc = handleIf(desc, "${if required-plugins}", requiredPlugins != null);
-		desc = desc.replace("${element.required-plugins}", Joiner.on(", ").join(requiredPlugins == null ? new String[0] : requiredPlugins));
+		desc = desc.replace("${element.required-plugins}", introduceSkwipt(Joiner.on(", ").join(requiredPlugins == null ? new String[0] : requiredPlugins)));
 
 		// New Elements
 		desc = handleIf(desc, "${if new-element}", NEW_TAG_PATTERN.matcher(since).find());
@@ -736,7 +744,7 @@ public class HTMLGenerator {
 		// Required Plugins
 		String[] requiredPlugins = introduceSkwipt(info.getRequiredPlugins());
 		desc = handleIf(desc, "${if required-plugins}", requiredPlugins != null);
-		desc = desc.replace("${element.required-plugins}", Joiner.on(", ").join(requiredPlugins == null ? new String[0] : requiredPlugins));
+		desc = desc.replace("${element.required-plugins}", introduceSkwipt(Joiner.on(", ").join(requiredPlugins == null ? new String[0] : requiredPlugins)));
 
 		// New Elements
 		desc = handleIf(desc, "${if new-element}", NEW_TAG_PATTERN.matcher(since).find());
