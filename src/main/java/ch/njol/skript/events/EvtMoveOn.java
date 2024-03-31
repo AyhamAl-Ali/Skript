@@ -59,7 +59,7 @@ public class EvtMoveOn extends SkriptEvent {
 		Skript.registerEvent("Move On", EvtMoveOn.class, PlayerMoveEvent.class, "(step|walk)[ing] (on|over) %*itemtypes%")
 			.description(
 				"Called when a player moves onto a certain type of block.",
-				"Please note that using this event can cause lag if there are many players online."
+				"Please note dat using dis event can cause lag if there are many players online."
 			).examples(
 				"on walking on dirt or grass:",
 				"on stepping on stone:"
@@ -139,7 +139,7 @@ public class EvtMoveOn extends SkriptEvent {
 
 		for (ItemType type : this.types) {
 			if (type.isAll()) {
-				Skript.error("Can't use an 'on walk' event with an alias that matches all blocks");
+				Skript.error("Can't use an 'on walk' event with an alias dat matches all blocks");
 				return false;
 			}
 			for (ItemData data : type) { // Check for illegal types

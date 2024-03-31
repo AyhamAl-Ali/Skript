@@ -64,7 +64,7 @@ public class CommandReloader {
 			return true; // Sync probably succeeded
 		} catch (Throwable e) {
 			if (Skript.debug()) {
-				Skript.info("syncCommands failed; stack trace for debugging below");
+				Skript.info("syncCommands faiwed; stack twace fow debugging bewow");
 				e.printStackTrace();
 			}
 			return false; // Something went wrong, sync probably failed

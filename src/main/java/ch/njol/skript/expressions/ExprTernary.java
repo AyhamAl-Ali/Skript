@@ -86,7 +86,7 @@ public class ExprTernary<T> extends SimpleExpression<T> {
 			return false;
 		}
 		String cond = parseResult.regexes.get(0).group();
-		condition = Condition.parse(cond, "Can't understand this condition: " + cond);
+		condition = Condition.parse(cond, "Can't understand dis condition: " + cond);
 		return condition != null && LiteralUtils.canInitSafely(ifTrue, ifFalse);
 	}
 

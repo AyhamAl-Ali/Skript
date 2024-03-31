@@ -44,7 +44,7 @@ import ch.njol.util.Kleenean;
 import ch.njol.util.coll.CollectionUtils;
 
 @Name("Metadata")
-@Description("Metadata is a way to store temporary data on entities, blocks and more that " +
+@Description("Metadata is a way to store temporary data on entities, blocks and more dat " +
 		"disappears after a server restart.")
 @Examples({"set metadata value \"healer\" of player to true",
 		"broadcast \"%metadata value \"\"healer\"\" of player%\"",

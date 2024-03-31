@@ -34,7 +34,7 @@ import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
 
 @Name("Swing Hand")
-@Description("Makes an entity swing their hand. This does nothing if the entity does not have an animation for swinging their hand.")
+@Description("Makes an entity swing their hand. dis does nothing if the entity does not have an animation for swinging their hand.")
 @Examples("make player swing their main hand")
 @Since("2.5.1")
 @RequiredPlugins("Minecraft 1.15.2+")

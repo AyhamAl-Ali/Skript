@@ -55,7 +55,7 @@ public class EffExit extends Effect { // TODO [code style] warn user about code 
 	static {
 		Skript.registerEffect(EffExit.class,
 				"(exit|stop) [trigger]",
-				"(exit|stop) [(1|a|the|this)] (section|1:loop|2:conditional)",
+				"(exit|stop) [(1|a|the|dis)] (section|1:loop|2:conditional)",
 				"(exit|stop) <\\d+> (section|1:loop|2:conditional)s",
 				"(exit|stop) all (section|1:loop|2:conditional)s");
 	}

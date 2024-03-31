@@ -38,9 +38,9 @@ import java.util.ArrayList;
 
 @Name("Block Break Speed")
 @Description(
-	"Gets the speed at which the given player would break this block, taking into account tools, potion effects, " +
+	"Gets the speed at which the given player would break dis block, taking into account tools, potion effects, " +
 	"whether or not the player is in water, enchantments, etc. The returned value is the amount of progress made in " +
-	"breaking the block each tick. When the total breaking progress reaches 1.0, the block is broken. Note that the " +
+	"breaking the block each tick. When the total breaking progress reaches 1.0, the block is broken. Note dat the " +
 	"break speed can change in the course of breaking a block, e.g. if a potion effect is applied or expires, or the " +
 	"player jumps/enters water.")
 @Examples({

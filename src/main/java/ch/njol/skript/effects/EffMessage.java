@@ -51,10 +51,10 @@ import net.md_5.bungee.api.chat.BaseComponent;
 @Description({"Sends a message to the given player. Only styles written",
 		"in given string or in <a href=expressions.html#ExprColored>formatted expressions</a> will be parsed.",
 		"Adding an optional sender allows the messages to be sent as if a specific player sent them.",
-		"This is useful with Minecraft 1.16.4's new chat ignore system, in which players can choose to ignore other players,",
-		"but for this to work, the message needs to be sent from a player."})
+		"dis is useful with Minecraft 1.16.4's new chat ignore system, in which players can choose to ignore other players,",
+		"but for dis to work, the message needs to be sent from a player."})
 @Examples({"message \"A wild %player% appeared!\"",
-		"message \"This message is a distraction. Mwahaha!\"",
+		"message \"dis message is a distraction. Mwahaha!\"",
 		"send \"Your kill streak is %{kill streak::%uuid of player%}%.\" to player",
 		"if the targeted entity exists:",
 		"\tmessage \"You're currently looking at a %type of the targeted entity%!\"",

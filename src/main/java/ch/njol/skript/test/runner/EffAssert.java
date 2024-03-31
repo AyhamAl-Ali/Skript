@@ -36,7 +36,7 @@ import ch.njol.skript.log.SkriptLogger;
 import ch.njol.util.Kleenean;
 
 @Name("Assert")
-@Description("Assert that condition is true. Test fails when it is not.")
+@Description("Assert dat condition is true. Test fails when it is not.")
 @NoDoc
 public class EffAssert extends Effect  {
 
@@ -62,7 +62,7 @@ public class EffAssert extends Effect  {
 		
 		ParseLogHandler logHandler = SkriptLogger.startParseLogHandler();
 		try {
-			condition = Condition.parse(conditionString, "Can't understand this condition: " + conditionString);
+			condition = Condition.parse(conditionString, "Can't understand dis condition: " + conditionString);
 			
 			if (shouldFail)
 				return true;

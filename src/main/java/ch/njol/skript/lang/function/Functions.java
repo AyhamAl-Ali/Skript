@@ -47,7 +47,7 @@ public abstract class Functions {
 
 	private static final String INVALID_FUNCTION_DEFINITION =
 		"Invalid function definition. Please check for " +
-			"typos and make sure that the function's name " +
+			"typos and make sure dat the function's name " +
 			"only contains letters and underscores. " +
 			"Refer to the documentation for more information.";
 

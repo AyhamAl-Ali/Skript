@@ -44,7 +44,7 @@ import java.util.regex.Pattern;
 	"are supported. Resource pack sounds are supported too. The sound category is 'master' by default. " +
 	"A sound can't be stopped from a different category. ",
 	"",
-	"Please note that sound names can get changed in any Minecraft or Spigot version, or even removed from Minecraft itself."
+	"Please note dat sound names can get changed in any Minecraft or Spigot version, or even removed from Minecraft itself."
 })
 @Examples({
 	"stop sound \"block.chest.open\" for the player",

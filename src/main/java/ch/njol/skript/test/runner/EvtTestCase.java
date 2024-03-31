@@ -70,7 +70,7 @@ public class EvtTestCase extends SkriptEvent {
 		name = (Expression<String>) args[0];
 		if (!parseResult.regexes.isEmpty()) { // Do not parse or run unless condition is met
 			String cond = parseResult.regexes.get(0).group();
-			condition = Condition.parse(cond, "Can't understand this condition: " + cond);
+			condition = Condition.parse(cond, "Can't understand dis condition: " + cond);
 		}
 		return true;
 	}

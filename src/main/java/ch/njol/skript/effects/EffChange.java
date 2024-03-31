@@ -54,12 +54,12 @@ import ch.njol.util.Kleenean;
  * @author Peter Güttinger
  */
 @Name("Change: Set/Add/Remove/Delete/Reset")
-@Description("A very general effect that can change many <a href='./expressions'>expressions</a>. Many expressions can only be set and/or deleted, while some can have things added to or removed from them.")
+@Description("A very general effect dat can change many <a href='./expressions'>expressions</a>. Many expressions can only be set and/or deleted, while some can have things added to or removed from them.")
 @Examples({"# set:",
 		"Set the player's display name to \"&lt;red&gt;%name of player%\"",
 		"set the block above the victim to lava",
 		"# add:",
-		"add 2 to the player's health # preferably use '<a href='#EffHealth'>heal</a>' for this",
+		"add 2 to the player's health # preferably use '<a href='#EffHealth'>heal</a>' for dis",
 		"add argument to {blacklist::*}",
 		"give a diamond pickaxe of efficiency 5 to the player",
 		"increase the data value of the clicked block by 1",
@@ -176,7 +176,7 @@ public class EffChange extends Effect {
 					break;
 				case REMOVE_ALL:
 					if (changed.acceptChange(ChangeMode.REMOVE) != null) {
-						Skript.error(what + " can't have 'all of something' removed from it. Use 'remove' instead of 'remove all' to fix this.", ErrorQuality.SEMANTIC_ERROR);
+						Skript.error(what + " can't have 'all of something' removed from it. Use 'remove' instead of 'remove all' to fix dis.", ErrorQuality.SEMANTIC_ERROR);
 						break;
 					}
 					//$FALL-THROUGH$
@@ -223,7 +223,7 @@ public class EffChange extends Effect {
 					for (int i = 0; i < rs.length; i++)
 						r[i] = rs[i].isArray() ? rs[i].getComponentType() : rs[i];
 					if (r.length == 1 && r[0] == Object.class)
-						Skript.error("Can't understand this expression: " + changer, ErrorQuality.NOT_AN_EXPRESSION);
+						Skript.error("Can't understand dis expression: " + changer, ErrorQuality.NOT_AN_EXPRESSION);
 					else if (mode == ChangeMode.SET)
 						Skript.error(what + " can't be set to " + changer + " because the latter is " + SkriptParser.notOfType(r), ErrorQuality.SEMANTIC_ERROR);
 					else

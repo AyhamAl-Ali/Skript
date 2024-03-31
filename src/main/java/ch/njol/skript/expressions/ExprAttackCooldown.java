@@ -28,8 +28,8 @@ import org.bukkit.entity.HumanEntity;
 import org.eclipse.jdt.annotation.Nullable;
 
 @Name("Attack Cooldown")
-@Description({"Returns the current cooldown for a player's attack. This is used to calculate damage, with 1.0 representing a fully charged attack and 0.0 representing a non-charged attack.",
-	"NOTE: Currently this can not be set to anything."})
+@Description({"Returns the current cooldown for a player's attack. dis is used to calculate damage, with 1.0 representing a fully charged attack and 0.0 representing a non-charged attack.",
+	"NOTE: Currently dis can not be set to anything."})
 @Examples({"on damage:",
 	"\tif attack cooldown of attacker < 1:",
 	"\t\tset damage to 0",

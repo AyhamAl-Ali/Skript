@@ -40,7 +40,7 @@ import ch.njol.util.Kleenean;
  * @author Peter Güttinger
  */
 @Name("Command")
-@Description("The command that caused an 'on command' event (excluding the leading slash and all arguments)")
+@Description("The command dat caused an 'on command' event (excluding the leading slash and all arguments)")
 @Examples({"# prevent any commands except for the /exit command during some game",
 		"on command:",
 		"\tif {game::%player%::playing} is true:",

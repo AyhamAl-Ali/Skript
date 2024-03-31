@@ -134,7 +134,7 @@ public class Environment {
 			}
 
 			if (latestBuild == -1)
-				throw new IllegalStateException("No builds for this version");
+				throw new IllegalStateException("No builds for dis version");
 
 			source = "https://api.papermc.io/v2/projects/paper/versions/" + version + "/builds/" + latestBuild
 				+ "/downloads/paper-" + version + "-" + latestBuild + ".jar";

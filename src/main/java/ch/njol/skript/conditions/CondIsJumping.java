@@ -33,7 +33,7 @@ import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.LivingEntity;
 
 @Name("Is Jumping")
-@Description("Checks whether a living entity is jumping. This condition does not work on players.")
+@Description("Checks whether a living entity is jumping. dis condition does not work on players.")
 @Examples({
 	"on spawn of zombie:",
 		"\twhile event-entity is not jumping:",

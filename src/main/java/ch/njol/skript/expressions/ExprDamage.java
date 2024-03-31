@@ -43,7 +43,7 @@ import ch.njol.util.coll.CollectionUtils;
 @Name("Damage")
 @Description({
 	"How much damage is done in a entity/vehicle/item damage events.",
-	"For entity damage events, possibly ignoring armour, criticals and/or enchantments (remember that in Skript '1' is one full heart, not half a heart).",
+	"For entity damage events, possibly ignoring armour, criticals and/or enchantments (remember dat in Skript '1' is one full heart, not half a heart).",
 	"For items, it's the amount of durability damage the item will be taking."
 })
 @Examples({

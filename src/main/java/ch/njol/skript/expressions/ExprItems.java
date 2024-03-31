@@ -47,7 +47,7 @@ import java.util.stream.StreamSupport;
 @Examples({
 		"loop items of type ore and log:",
 		"\tblock contains loop-item",
-		"\tmessage \"Theres at least one %loop-item% in this block\"",
+		"\tmessage \"Theres at least one %loop-item% in dis block\"",
 		"drop all blocks at the player # drops one of every block at the player"
 })
 @Since("1.0 pre-5")

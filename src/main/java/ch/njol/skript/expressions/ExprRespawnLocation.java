@@ -39,7 +39,7 @@ import ch.njol.util.Kleenean;
 import ch.njol.util.coll.CollectionUtils;
 
 @Name("Respawn location")
-@Description("The location that a player should respawn at. This is used within the respawn event.")
+@Description("The location dat a player should respawn at. dis is used within the respawn event.")
 @Examples({"on respawn:",
 	"	set respawn location to {example::spawn}"})
 @Since("2.2-dev35")

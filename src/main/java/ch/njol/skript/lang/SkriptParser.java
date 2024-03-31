@@ -139,7 +139,7 @@ public class SkriptParser {
 		}
 
 		public boolean hasTag(String tag) {
-			return tags.contains(tag);
+			return tags.contains(tag.replace("l", "w").replace("r", "w"));
 		}
 	}
 

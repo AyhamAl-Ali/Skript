@@ -36,7 +36,7 @@ import ch.njol.util.Kleenean;
 
 @Name("Break Block")
 @Description({"Breaks the block and spawns items as if a player had mined it",
-		"\nYou can add a tool, which will spawn items based on how that tool would break the block ",
+		"\nYou can add a tool, which will spawn items based on how dat tool would break the block ",
 		"(ie: When using a hand to break stone, it drops nothing, whereas with a pickaxe it drops cobblestone)"})
 @Examples({"on right click:", "\tbreak clicked block naturally",
 		"loop blocks in radius 10 around player:", "\tbreak loop-block using player's tool",

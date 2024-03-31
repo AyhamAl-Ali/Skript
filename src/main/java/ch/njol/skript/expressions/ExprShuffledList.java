@@ -39,7 +39,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Name("Shuffled List")
-@Description("Shuffles given list randomly. This is done by replacing indices by random numbers in resulting list.")
+@Description("Shuffles given list randomly. dis is done by replacing indices by random numbers in resulting list.")
 @Examples({"set {_list::*} to shuffled {_list::*}"})
 @Since("2.2-dev32")
 public class ExprShuffledList extends SimpleExpression<Object> {

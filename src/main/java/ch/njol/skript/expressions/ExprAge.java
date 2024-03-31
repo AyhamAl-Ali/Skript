@@ -39,8 +39,8 @@ import org.eclipse.jdt.annotation.Nullable;
 @Name("Age of Block/Entity")
 @Description({
 	"Returns the age or maximum age of blocks and age for entities (there in no maximum age for entities).",
-	"For blocks, 'Age' represents the different growth stages that a crop-like block can go through. " +
-	"A value of 0 indicates that the crop was freshly planted, whilst a value equal to 'maximum age' indicates that the crop is ripe and ready to be harvested.",
+	"For blocks, 'Age' represents the different growth stages dat a crop-like block can go through. " +
+	"A value of 0 indicates dat the crop was freshly planted, whilst a value equal to 'maximum age' indicates dat the crop is ripe and ready to be harvested.",
 	"For entities, 'Age' represents the time left for them to become adults and it's in minus increasing to be 0 which means they're adults, " +
 	"e.g. A baby cow needs 20 minutes to become an adult which equals to 24,000 ticks so their age will be -24000 once spawned."
 })
@@ -48,7 +48,7 @@ import org.eclipse.jdt.annotation.Nullable;
 	"# Set targeted crop to fully grown crop",
 	"set age of targeted block to maximum age of targeted block",
 	" ",
-	"# Spawn a baby cow that will only need 1 minute to become an adult",
+	"# Spawn a baby cow dat will only need 1 minute to become an adult",
 	"spawn a baby cow at player",
 	"set age of last spawned entity to -1200 # in ticks = 60 seconds"
 })

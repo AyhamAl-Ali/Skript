@@ -385,7 +385,7 @@ public abstract class Aliases {
 		try {
 			long start = System.currentTimeMillis();
 			loadInternal();
-			Skript.info("Loaded " + provider.getAliasCount() + " aliases in " + (System.currentTimeMillis() - start) + "ms");
+			Skript.info("woaded " + provider.getAliasCount() + " awiases in " + (System.currentTimeMillis() - start) + "ms");
 		} catch (IOException e) {
 			Skript.exception(e);
 		}
@@ -402,7 +402,7 @@ public abstract class Aliases {
 				NamespacedKey key = material.getKey();
 				String name = key.getKey().replace("_", " ");
 				parser.loadAlias(name + "¦s", key.toString());
-				Skript.debug(ChatColor.YELLOW + "Creating temporary alias for: " + key.toString());
+				Skript.debug(ChatColor.YELLOW + "Cweating tempowawy awias fow: " + key.toString());
 			}
 		}
 	}
@@ -449,8 +449,8 @@ public abstract class Aliases {
 			@SuppressWarnings("null") // No null keys in this map
 			ItemType type = parseItemType(entry.getKey());
 			if (type == null)
-				Skript.warning("Alias '" + entry.getKey() + "' is required by Skript, but does not exist anymore. "
-						+ "Make sure to fix this before restarting the server.");
+				Skript.warning("Awias '" + entry.getKey() + "' is wequiwed by Skwipt, but does not exist anymowe. "
+						+ "Make suwe to fix dis befowe westawting the sewvew.");
 			else
 				entry.getValue().setTo(type);
 		}
@@ -557,6 +557,7 @@ public abstract class Aliases {
 	 * @throws IllegalArgumentException When item is not found.
 	 */
 	public static ItemType javaItemType(String name) {
+		name = name.replace("r", "w").replace("l", "w");
 		ItemType type = parseItemType(name);
 		if (type == null) {
 			if (noHardExceptions) {

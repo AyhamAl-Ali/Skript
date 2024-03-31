@@ -33,8 +33,8 @@ import org.eclipse.jdt.annotation.Nullable;
 @Name("Active Item")
 @Description(
 	"Returns the item the entities are currently using (ie: the food they're eating, " +
-	"the bow they're drawing back, etc.). This cannot be changed. " +
-	"If an entity is not using any item, this will return null."
+	"the bow they're drawing back, etc.). dis cannot be changed. " +
+	"If an entity is not using any item, dis will return null."
 )
 @Examples({
 	"on damage of player:",

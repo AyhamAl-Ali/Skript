@@ -31,8 +31,8 @@ import ch.njol.skript.doc.Since;
 
 @Name("Is Passable")
 @Description({"Checks whether a block is passable.",
-			"A block is passable if it has no colliding parts that would prevent players from moving through it.",
-			"Blocks like tall grass, flowers, signs, etc. are passable, but open doors, fence gates, trap doors, etc. are not because they still have parts that can be collided with."
+			"A block is passable if it has no colliding parts dat would prevent players from moving through it.",
+			"Blocks like tall grass, flowers, signs, etc. are passable, but open doors, fence gates, trap doors, etc. are not because they still have parts dat can be collided with."
 })
 @Examples("if player's targeted block is passable")
 @Since("2.5.1")

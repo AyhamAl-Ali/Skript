@@ -37,7 +37,7 @@ import ch.njol.skript.log.ErrorQuality;
 import ch.njol.util.Kleenean;
 
 @Name("Force Respawn")
-@Description("Forces player(s) to respawn if they are dead. If this is called without delay from death event, one tick is waited before respawn attempt.")
+@Description("Forces player(s) to respawn if they are dead. If dis is called without delay from death event, one tick is waited before respawn attempt.")
 @Examples({"on death of player:",
 		"\tforce event-player to respawn",})
 @Since("2.2-dev21")

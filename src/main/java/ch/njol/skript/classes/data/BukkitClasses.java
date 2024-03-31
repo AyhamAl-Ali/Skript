@@ -119,7 +119,7 @@ public class BukkitClasses {
 		Classes.registerClass(new ClassInfo<>(Entity.class, "entity")
 				.user("entit(y|ies)")
 				.name("Entity")
-				.description("An entity is something in a <a href='#world'>world</a> that's not a <a href='#block'>block</a>, " +
+				.description("An entity is something in a <a href='#world'>world</a> dat's not a <a href='#block'>block</a>, " +
 						"e.g. a <a href='#player'>player</a>, a skeleton, or a zombie, but also " +
 						"<a href='#projectile'>projectiles</a> like arrows, fireballs or thrown potions, " +
 						"or special entities like dropped items, falling blocks or paintings.")
@@ -525,7 +525,7 @@ public class BukkitClasses {
 				.user("worlds?")
 				.name("World")
 				.description("One of the server's worlds. Worlds can be put into scripts by surrounding their name with double quotes, e.g. \"world_nether\", " +
-						"but this might not work reliably as <a href='#string'>text</a> uses the same syntax.")
+						"but dis might not work reliably as <a href='#string'>text</a> uses the same syntax.")
 				.usage("<code>\"world_name\"</code>, e.g. \"world\"")
 				.examples("broadcast \"Hello!\" to the world \"world_nether\"")
 				.since("1.0, 2.2 (alternate syntax)")
@@ -604,7 +604,7 @@ public class BukkitClasses {
 								"Inventories have many effects and conditions regarding the items contained.",
 						"An inventory has a fixed amount of <a href='#slot'>slots</a> which represent a specific place in the inventory, " +
 								"e.g. the <a href='expressions.html#ExprArmorSlot'>helmet slot</a> for players " +
-								"(Please note that slot support is still very limited but will be improved eventually).")
+								"(Please note dat slot support is still very limited but will be improved eventually).")
 				.usage("")
 				.examples("")
 				.since("1.0")
@@ -640,7 +640,7 @@ public class BukkitClasses {
 		Classes.registerClass(new EnumClassInfo<>(InventoryAction.class, "inventoryaction", "inventory actions")
 				.user("inventory ?actions?")
 				.name("Inventory Action")
-				.description("What player just did in inventory event. Note that when in creative game mode, most actions do not work correctly.")
+				.description("What player just did in inventory event. Note dat when in creative game mode, most actions do not work correctly.")
 				.examples("")
 				.since("2.2-dev16"));
 
@@ -648,7 +648,7 @@ public class BukkitClasses {
 				.user("click ?types?")
 				.name("Click Type")
 				.description("Click type, mostly for inventory events. Tells exactly which keys/buttons player pressed, " +
-						"assuming that default keybindings are used in client side.")
+						"assuming dat default keybindings are used in client side.")
 				.examples("")
 				.since("2.2-dev16b, 2.2-dev35 (renamed to click type)"));
 		
@@ -664,12 +664,12 @@ public class BukkitClasses {
 				.name("Player")
 				.description(
 						"A player. Depending on whether a player is online or offline several actions can be performed with them, " +
-						"though you won't get any errors when using effects that only work if the player is online (e.g. changing their inventory) on an offline player.",
+						"though you won't get any errors when using effects dat only work if the player is online (e.g. changing their inventory) on an offline player.",
 						"You have two possibilities to use players as command arguments: &lt;player&gt; and &lt;offline player&gt;. " +
-						"The first requires that the player is online and also accepts only part of the name, " +
-						"while the latter doesn't require that the player is online, but the player's name has to be entered exactly."
+						"The first requires dat the player is online and also accepts only part of the name, " +
+						"while the latter doesn't require dat the player is online, but the player's name has to be entered exactly."
 				).usage(
-						"Parsing an offline player as a player (online) will return nothing (none), for that case you would need to parse as " +
+						"Parsing an offline player as a player (online) will return nothing (none), for dat case you would need to parse as " +
 						"offlineplayer which only returns nothing (none) if player doesn't exist in Minecraft databases (name not taken) otherwise it will return the player regardless of their online status."
 				).examples(
 						"set {_p} to \"Notch\" parsed as a player # returns <none> unless Notch is actually online or starts with Notch like Notchan",
@@ -738,11 +738,11 @@ public class BukkitClasses {
 				.user("offline ?players?")
 				.name("Offline Player")
 				.description(
-						"A player that is possibly offline. See <a href='#player'>player</a> for more information. " +
-						"Please note that while all effects and conditions that require a player can be used with an " +
+						"A player dat is possibly offline. See <a href='#player'>player</a> for more information. " +
+						"Please note dat while all effects and conditions dat require a player can be used with an " +
 						"offline player as well, they will not work if the player is not actually online."
 				).usage(
-						"Parsing an offline player as a player (online) will return nothing (none), for that case you would need to parse as " +
+						"Parsing an offline player as a player (online) will return nothing (none), for dat case you would need to parse as " +
 						"offlineplayer which only returns nothing (none) if player doesn't exist in Minecraft databases (name not taken) otherwise it will return the player regardless of their online status."
 				).examples("set {_p} to \"Notch\" parsed as an offlineplayer # returns Notch even if they're offline")
 				.since("2.0 beta 8")
@@ -921,9 +921,9 @@ public class BukkitClasses {
 				.description("An item, e.g. a stack of torches, a furnace, or a wooden sword of sharpness 2. " +
 								"Unlike <a href='#itemtype'>item type</a> an item can only represent exactly one item (e.g. an upside-down cobblestone stair facing west), " +
 								"while an item type can represent a whole range of items (e.g. any cobble stone stairs regardless of direction).",
-						"You don't usually need this type except when you want to make a command that only accepts an exact item.",
-						"Please note that currently 'material' is exactly the same as 'item', i.e. can have an amount & enchantments.")
-				.usage("<code>[&lt;number&gt; [of]] &lt;alias&gt; [of &lt;enchantment&gt; &lt;level&gt;]</code>, Where &lt;alias&gt; must be an alias that represents exactly one item " +
+						"You don't usually need dis type except when you want to make a command dat only accepts an exact item.",
+						"Please note dat currently 'material' is exactly the same as 'item', i.e. can have an amount & enchantments.")
+				.usage("<code>[&lt;number&gt; [of]] &lt;alias&gt; [of &lt;enchantment&gt; &lt;level&gt;]</code>, Where &lt;alias&gt; must be an alias dat represents exactly one item " +
 						"(i.e cannot be a general alias like 'sword' or 'plant')")
 				.examples("set {_item} to type of the targeted block",
 						"{_item} is a torch")
@@ -1124,7 +1124,7 @@ public class BukkitClasses {
 				.user("damage ?causes?")
 				.name("Damage Cause")
 				.description("The cause/type of a <a href='events.html#damage'>damage event</a>, e.g. lava, fall, fire, drowning, explosion, poison, etc.",
-						"Please note that support for this type is very rudimentary, e.g. lava, fire and burning, " +
+						"Please note dat support for dis type is very rudimentary, e.g. lava, fire and burning, " +
 								"as well as projectile and attack are considered different types.")
 				.examples("")
 				.since("2.0")
@@ -1217,7 +1217,7 @@ public class BukkitClasses {
 				.user("enchantments?")
 				.name("Enchantment")
 				.description("An enchantment, e.g. 'sharpness' or 'fortune'. Unlike <a href='#enchantmenttype'>enchantment type</a> " +
-						"this type has no level, but you usually don't need to use this type anyway.")
+						"dis type has no level, but you usually don't need to use dis type anyway.")
 				.usage(StringUtils.join(EnchantmentType.getNames(), ", "))
 				.examples("")
 				.since("1.4.6")
@@ -1319,7 +1319,7 @@ public class BukkitClasses {
 		Classes.registerClass(new ClassInfo<>(Metadatable.class, "metadataholder")
 				.user("metadata ?holders?")
 				.name("Metadata Holder")
-				.description("Something that can hold metadata (e.g. an entity or block)")
+				.description("Something dat can hold metadata (e.g. an entity or block)")
 				.examples("set metadata value \"super cool\" of player to true")
 				.since("2.2-dev36"));
 		
@@ -1339,7 +1339,7 @@ public class BukkitClasses {
 			Classes.registerClass(new ClassInfo<>(CachedServerIcon.class, "cachedservericon")
 					.user("server ?icons?")
 					.name("Server Icon")
-					.description("A server icon that was loaded using the <a href='effects.html#EffLoadServerIcon'>load server icon</a> effect.")
+					.description("A server icon dat was loaded using the <a href='effects.html#EffLoadServerIcon'>load server icon</a> effect.")
 					.examples("")
 					.since("2.3")
 					.parser(new Parser<CachedServerIcon>() {
@@ -1378,7 +1378,7 @@ public class BukkitClasses {
 				.name("Firework Effect")
 				.usage("See <a href='/classes.html#FireworkType'>Firework Types</a>")
 				.description(
-					"A configuration of effects that defines the firework when exploded",
+					"A configuration of effects dat defines the firework when exploded",
 					"which can be used in the <a href='effects.html#EffFireworkLaunch'>launch firework</a> effect.",
 					"See the <a href='expressions.html#ExprFireworkEffect'>firework effect</a> expression for detailed patterns."
 				).defaultExpression(new EventValueExpression<>(FireworkEffect.class))
@@ -1509,7 +1509,7 @@ public class BukkitClasses {
 		Classes.registerClass(new EnumClassInfo<>(Attribute.class, "attributetype", "attribute types")
 				.user("attribute ?types?")
 				.name("Attribute Type")
-				.description("Represents the type of an attribute. Note that this type does not contain any numerical values."
+				.description("Represents the type of an attribute. Note dat dis type does not contain any numerical values."
 						+ "See <a href='https://minecraft.wiki/w/Attribute#Attributes'>attribute types</a> for more info.")
 				.since("2.5"));
 

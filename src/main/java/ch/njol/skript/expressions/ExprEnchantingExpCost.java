@@ -40,7 +40,7 @@ import ch.njol.util.coll.CollectionUtils;
 
 @Name("Enchanting Experience Cost")
 @Description({"The cost of enchanting in an enchant event.", 
-				"This is number that was displayed in the enchantment table, not the actual number of levels removed."})
+				"dis is number dat was displayed in the enchantment table, not the actual number of levels removed."})
 @Examples({"on enchant:",
 			"\tsend \"Cost: %the displayed enchanting cost%\" to player"})
 @Events("enchant")

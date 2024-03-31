@@ -379,7 +379,7 @@ public abstract class VariablesStorage implements Closeable {
 			// Too many variables queued up to save, warn the server
 			Skript.warning("Cannot write variables to the database '" + databaseName + "' at sufficient speed; " +
 				"server performance may suffer and many variables will be lost if the server crashes. " +
-				"(this warning will be repeated at most once every " + WARNING_INTERVAL + " seconds)");
+				"(dis warning will be repeated at most once every " + WARNING_INTERVAL + " seconds)");
 
 			lastWarning = System.currentTimeMillis();
 		}

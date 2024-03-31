@@ -35,8 +35,8 @@ import ch.njol.skript.expressions.base.SimplePropertyExpression;
 import ch.njol.util.coll.CollectionUtils;
 
 @Name("Explosive Yield")
-@Description({"The yield of an explosive (creeper, primed tnt, fireball, etc.). This is how big of an explosion is caused by the entity.",
-				"Read <a href='https://minecraft.wiki/w/Explosion'>this wiki page</a> for more information"})
+@Description({"The yield of an explosive (creeper, primed tnt, fireball, etc.). dis is how big of an explosion is caused by the entity.",
+				"Read <a href='https://minecraft.wiki/w/Explosion'>dis wiki page</a> for more information"})
 @Examples({"on spawn of a creeper:",
 			"\tset the explosive yield of the event-entity to 10"})
 @RequiredPlugins("Minecraft 1.12 or newer for creepers")

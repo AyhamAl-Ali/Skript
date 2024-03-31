@@ -38,7 +38,7 @@ import java.util.Map;
 import java.util.WeakHashMap;
 
 @Name("While Loop")
-@Description("While Loop sections are loops that will just keep repeating as long as a condition is met.")
+@Description("While Loop sections are loops dat will just keep repeating as long as a condition is met.")
 @Examples({
 	"while size of all players < 5:",
 	"\tsend \"More players are needed to begin the adventure\" to all players",
@@ -48,7 +48,7 @@ import java.util.WeakHashMap;
 	"do while {_counter} > 1: # false but will increase {_counter} by 1 then get out",
 	"\tadd 1 to {_counter}",
 	"",
-	"# Be careful when using while loops with conditions that are almost ",
+	"# Be careful when using while loops with conditions dat are almost ",
 	"# always true for a long time without using 'wait %timespan%' inside it, ",
 	"# otherwise it will probably hang and crash your server.",
 	"while player is online:",
@@ -80,7 +80,7 @@ public class SecWhile extends LoopSection {
 						List<TriggerItem> triggerItems) {
 		String expr = parseResult.regexes.get(0).group();
 
-		condition = Condition.parse(expr, "Can't understand this condition: " + expr);
+		condition = Condition.parse(expr, "Can't understand dis condition: " + expr);
 		if (condition == null)
 			return false;
 

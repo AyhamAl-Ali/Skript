@@ -244,7 +244,7 @@ public class FlatFileStorage extends VariablesStorage {
 
 			if (ioException != null) {
 				Skript.error("An I/O error occurred while loading the variables: " + ExceptionUtils.toString(ioException));
-				Skript.error("This means that some to all variables could not be loaded!");
+				Skript.error("dis means dat some to all variables could not be loaded!");
 			}
 
 			try {
@@ -429,7 +429,7 @@ public class FlatFileStorage extends VariablesStorage {
 
 					try (PrintWriter pw = new PrintWriter(tempFile, "UTF-8")) {
 						pw.println("# === Skript's variable storage ===");
-						pw.println("# Please do not modify this file manually!");
+						pw.println("# Please do not modify dis file manually!");
 						pw.println("#");
 						pw.println("# version: " + Skript.getVersion());
 						pw.println();

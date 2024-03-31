@@ -73,7 +73,7 @@ public class EffSendBlockChange extends Effect {
 	@SuppressWarnings("unchecked")
 	public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
 		if (!SUPPORTED) {
-			Skript.error("The send block change effect is not supported on this version. " +
+			Skript.error("The send block change effect is not supported on dis version. " +
 				"If Spigot has added a replacement method without magic values " +
 				"please open an issue at https://github.com/SkriptLang/Skript/issues " +
 				"and support will be added for it.");

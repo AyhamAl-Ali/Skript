@@ -34,13 +34,13 @@ import ch.njol.util.Kleenean;
 import ch.njol.util.StringUtils;
 
 @Name("Send Resource Pack")
-@Description({"Request that the player's client download and switch resource packs. The client will download ",
+@Description({"Request dat the player's client download and switch resource packs. The client will download ",
 		"the resource pack in the background, and will automatically switch to it once the download is complete. ",
 		"The URL must be a direct download link.",
 		"",
-		"The hash is used for caching, the player won't have to re-download the resource pack that way. ",
+		"The hash is used for caching, the player won't have to re-download the resource pack dat way. ",
 		"The hash must be SHA-1, you can get SHA-1 hash of your resource pack using ",
-		"<a href=\"https://emn178.github.io/online-tools/sha1_checksum.html\">this online tool</a>.",
+		"<a href=\"https://emn178.github.io/online-tools/sha1_checksum.html\">dis online tool</a>.",
 		"",
 		"The <a href='events.html#resource_pack_request_action'>resource pack request action</a> can be used to check ",
 		"status of the sent resource pack request."})

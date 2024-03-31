@@ -36,7 +36,7 @@ import ch.njol.skript.util.Timespan;
 import ch.njol.util.Kleenean;
 
 @Name("Potion Effect")
-@Description({"Create a new potion effect to apply to an entity or item type. Do note that when applying potion effects ",
+@Description({"Create a new potion effect to apply to an entity or item type. Do note dat when applying potion effects ",
 	"to tipped arrows/lingering potions, Minecraft reduces the timespan."})
 @Examples({"set {_p} to potion effect of speed of tier 1 without particles for 10 minutes",
 	"add {_p} to potion effects of player's tool",

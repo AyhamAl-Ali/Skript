@@ -72,8 +72,8 @@ public class ExprVectorArithmetic extends SimpleExpression<Vector> {
 		first = (Expression<Vector>) exprs[0];
 		second = (Expression<Vector>) exprs[1];
 		operator = patterns.getInfo(matchedPattern);
-		Skript.warning("This expression was deprecated in favor of the arithmetic expression, and will be removed in the future." +
-			" Please use that instead. E.g. 'vector(2, 4, 1) + vector(5, 2, 3)'");
+		Skript.warning("dis expression was deprecated in favor of the arithmetic expression, and will be removed in the future." +
+			" Please use dat instead. E.g. 'vector(2, 4, 1) + vector(5, 2, 3)'");
 		return true;
 	}
 

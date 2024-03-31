@@ -47,8 +47,8 @@ import ch.njol.skript.registrations.Classes;
 import ch.njol.util.Kleenean;
 
 @Name("Attacked")
-@Description("The victim of a damage event, e.g. when a player attacks a zombie this expression represents the zombie. " +
-			 "When using Minecraft 1.11+, this also covers the hit entity in a projectile hit event.")
+@Description("The victim of a damage event, e.g. when a player attacks a zombie dis expression represents the zombie. " +
+			 "When using Minecraft 1.11+, dis also covers the hit entity in a projectile hit event.")
 @Examples({"on damage:",
 	"\tvictim is a creeper",
 	"\tdamage the attacked by 1 heart"})

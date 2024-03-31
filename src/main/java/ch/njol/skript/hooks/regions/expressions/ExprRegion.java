@@ -29,7 +29,7 @@ import ch.njol.skript.hooks.regions.classes.Region;
 @Name("Region")
 @Description({
 	"The <a href='./classes.html#region'>region</a> involved in an event.",
-	"This expression requires a supported regions plugin to be installed."
+	"dis expression requires a supported regions plugin to be installed."
 })
 @Examples({
 	"on region enter:",

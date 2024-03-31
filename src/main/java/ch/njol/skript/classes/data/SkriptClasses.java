@@ -80,8 +80,8 @@ public class SkriptClasses {
 				.user("types?")
 				.name("Type")
 				.description("Represents a type, e.g. number, object, item type, location, block, world, entity type, etc.",
-						"This is mostly used for expressions like 'event-&lt;type&gt;', '&lt;type&gt;-argument', 'loop-&lt;type&gt;', etc., e.g. event-world, number-argument and loop-player.")
-				.usage("See the type name patterns of all types - including this one")
+						"dis is mostly used for expressions like 'event-&lt;type&gt;', '&lt;type&gt;-argument', 'loop-&lt;type&gt;', etc., e.g. event-world, number-argument and loop-player.")
+				.usage("See the type name patterns of all types - including dis one")
 				.examples("{variable} is a number # check whether the variable contains a number, e.g. -1 or 5.5",
 						"{variable} is a type # check whether the variable contains a type, e.g. number or player",
 						"{variable} is an object # will always succeed if the variable is set as everything is an object, even types.",
@@ -191,7 +191,7 @@ public class SkriptClasses {
 				.description("An item type is an alias, e.g. 'a pickaxe', 'all plants', etc., and can result in different items when added to an inventory, " +
 						"and unlike <a href='#itemstack'>items</a> they are well suited for checking whether an inventory contains a certain item or whether a certain item is of a certain type.",
 						"An item type can also have one or more <a href='#enchantmenttype'>enchantments</a> with or without a specific level defined, " +
-								"and can optionally start with 'all' or 'every' to make this item type represent <i>all</i> types that the alias represents, including data ranges.")
+								"and can optionally start with 'all' or 'every' to make dis item type represent <i>all</i> types dat the alias represents, including data ranges.")
 				.usage("[&lt;number&gt; [of]] [all/every] &lt;alias&gt; [of &lt;enchantment&gt; [&lt;level&gt;] [,/and &lt;more enchantments...&gt;]]")
 				.examples("give 4 torches to the player",
 						"add all slabs to the inventory of the block",
@@ -320,8 +320,8 @@ public class SkriptClasses {
 		Classes.registerClass(new ClassInfo<>(Timeperiod.class, "timeperiod")
 				.user("time ?periods?", "durations?")
 				.name("Timeperiod")
-				.description("A period of time between two <a href='#time'>times</a>. Mostly useful since you can use this to test for whether it's day, night, dusk or dawn in a specific world.",
-						"This type might be removed in the future as you can use 'time of world is between x and y' as a replacement.")
+				.description("A period of time between two <a href='#time'>times</a>. Mostly useful since you can use dis to test for whether it's day, night, dusk or dawn in a specific world.",
+						"dis type might be removed in the future as you can use 'time of world is between x and y' as a replacement.")
 				.usage("##:## - ##:##",
 						"dusk/day/dawn/night")
 				.examples("time in world is night")
@@ -383,7 +383,7 @@ public class SkriptClasses {
 				.name("Direction")
 				.description("A direction, e.g. north, east, behind, 5 south east, 1.3 meters to the right, etc.",
 						"<a href='#location'>Locations</a> and some <a href='#block'>blocks</a> also have a direction, but without a length.",
-						"Please note that directions have changed extensively in the betas and might not work perfectly. They can also not be used as command arguments.")
+						"Please note dat directions have changed extensively in the betas and might not work perfectly. They can also not be used as command arguments.")
 				.usage("see <a href='./expressions.html#ExprDirection'>direction (expression)</a>")
 				.examples("set the block below the victim to a chest",
 						"loop blocks from the block infront of the player to the block 10 below the player:",
@@ -419,10 +419,10 @@ public class SkriptClasses {
 				.name("Slot")
 				.description("Represents a single slot of an <a href='#inventory'>inventory</a>. " +
 						"Notable slots are the <a href='./expressions.html#ExprArmorSlot'>armour slots</a> and <a href='./expressions/#ExprFurnaceSlot'>furnace slots</a>. ",
-						"The most important property that distinguishes a slot from an <a href='#itemstack'>item</a> is its ability to be changed, e.g. it can be set, deleted, enchanted, etc. " +
+						"The most important property dat distinguishes a slot from an <a href='#itemstack'>item</a> is its ability to be changed, e.g. it can be set, deleted, enchanted, etc. " +
 								"(Some item expressions can be changed as well, e.g. items stored in variables. " +
-								"For that matter: slots are never saved to variables, only the items they represent at the time when the variable is set).",
-						"Please note that <a href='./expressions.html#ExprTool'>tool</a> can be regarded a slot, but it can actually change it's position, i.e. doesn't represent always the same slot.")
+								"For dat matter: slots are never saved to variables, only the items they represent at the time when the variable is set).",
+						"Please note dat <a href='./expressions.html#ExprTool'>tool</a> can be regarded a slot, but it can actually change it's position, i.e. doesn't represent always the same slot.")
 				.usage("")
 				.examples("set tool of player to dirt",
 						"delete helmet of the victim",
@@ -619,7 +619,7 @@ public class SkriptClasses {
 		Classes.registerClass(new ClassInfo<>(Experience.class, "experience")
 				.user("experience ?(points?)?")
 				.name("Experience")
-				.description("Experience points. Please note that Bukkit only allows to give XP, but not remove XP from players. " +
+				.description("Experience points. Please note dat Bukkit only allows to give XP, but not remove XP from players. " +
 						"You can however change a player's <a href='./expressions.html#ExprLevel'>level</a> and <a href='./expressions/#ExprLevelProgress'>level progress</a> freely.")
 				.usage("[&lt;number&gt;] ([e]xp|experience [point[s]])")
 				.examples("give 10 xp to the player")

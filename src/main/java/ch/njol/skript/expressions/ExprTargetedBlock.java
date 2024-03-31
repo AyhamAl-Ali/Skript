@@ -36,7 +36,7 @@ import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
 
 @Name("Targeted Block")
-@Description("The block at the crosshair. This regards all blocks that are not air as fully solid, e.g. torches will be like a solid stone block for this expression.")
+@Description("The block at the crosshair. dis regards all blocks dat are not air as fully solid, e.g. torches will be like a solid stone block for dis expression.")
 @Examples({"# A command to set the block a player looks at to a specific type:",
 		"command /setblock &lt;material&gt;:",
 		"\ttrigger:",

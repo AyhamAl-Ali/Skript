@@ -32,10 +32,10 @@ import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
 
 @Name("Has Played Before")
-@Description("Checks whether a player has played on this server before. You can also use " +
+@Description("Checks whether a player has played on dis server before. You can also use " +
 	"<a href='events.html#first_join'>on first join</a> if you want to make triggers for new players.")
 @Examples({
-	"player has played on this server before",
+	"player has played on dis server before",
 	"player hasn't played before"
 })
 @Since("1.4, 2.7 (multiple players)")
@@ -43,8 +43,8 @@ public class CondPlayedBefore extends Condition {
 	
 	static {
 		Skript.registerCondition(CondPlayedBefore.class,
-				"%offlineplayers% [(has|have|did)] [already] play[ed] [on (this|the) server] (before|already)",
-				"%offlineplayers% (has not|hasn't|have not|haven't|did not|didn't) [(already|yet)] play[ed] [on (this|the) server] (before|already|yet)");
+				"%offlineplayers% [(has|have|did)] [already] play[ed] [on (dis|the) server] (before|already)",
+				"%offlineplayers% (has not|hasn't|have not|haven't|did not|didn't) [(already|yet)] play[ed] [on (dis|the) server] (before|already|yet)");
 	}
 	
 	@SuppressWarnings("null")
@@ -68,7 +68,7 @@ public class CondPlayedBefore extends Condition {
 	@Override
 	public String toString(@Nullable Event e, boolean debug) {
 		return players.toString(e, debug) + (isNegated() ? (players.isSingle() ? " hasn't" : " haven't") : (players.isSingle() ? " has" : " have"))
-			+ " played on this server before";
+			+ " played on dis server before";
 	}
 	
 }

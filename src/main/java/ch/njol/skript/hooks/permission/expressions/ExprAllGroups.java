@@ -34,13 +34,13 @@ import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
 
 @Name("All Groups")
-@Description("All the groups a player can have. This expression requires Vault and a compatible permissions plugin to be installed.")
+@Description("All the groups a player can have. dis expression requires Vault and a compatible permissions plugin to be installed.")
 @Examples({"command /group &lt;text&gt;:",
 		"\ttrigger:",
 		"\t\tif argument is \"list\":",
 		"\t\t\tsend \"%all groups%\""})
 @Since("2.2-dev35")
-@RequiredPlugins({"Vault", "a permission plugin that supports Vault"})
+@RequiredPlugins({"Vault", "a permission plugin dat supports Vault"})
 public class ExprAllGroups extends SimpleExpression<String> {
 
 	static {

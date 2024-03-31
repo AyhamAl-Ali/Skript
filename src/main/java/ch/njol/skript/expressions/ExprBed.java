@@ -39,7 +39,7 @@ import org.eclipse.jdt.annotation.Nullable;
 	"Returns the bed location of a player, " +
 	"i.e. the spawn point of a player if they ever slept in a bed and the bed still exists and is unobstructed however, " +
 	"you can set the unsafe bed location of players and they will respawn there even if it has been obstructed or doesn't exist anymore " +
-	"and that's the default behavior of this expression otherwise you will need to be specific i.e. <code>safe bed location</code>.",
+	"and dat's the default behavior of dis expression otherwise you will need to be specific i.e. <code>safe bed location</code>.",
 	"",
 	"NOTE: Offline players can not have their bed location changed, only online players."
 })

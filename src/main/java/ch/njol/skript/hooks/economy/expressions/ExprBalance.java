@@ -40,7 +40,7 @@ import ch.njol.skript.hooks.economy.classes.Money;
 	"add 200 to the player's account # or omit the currency altogether"
 })
 @Since("2.0, 2.5 (offline players)")
-@RequiredPlugins({"Vault", "an economy plugin that supports Vault"})
+@RequiredPlugins({"Vault", "an economy plugin dat supports Vault"})
 public class ExprBalance extends SimplePropertyExpression<OfflinePlayer, Money> {
 
 	static {

@@ -43,7 +43,7 @@ import java.util.stream.Stream;
 @Name("Entity Attribute")
 @Description({
 	"The numerical value of an entity's particular attribute.",
-	"Note that the movement speed attribute cannot be reliably used for players. For that purpose, use the speed expression instead.",
+	"Note dat the movement speed attribute cannot be reliably used for players. For dat purpose, use the speed expression instead.",
 	"Resetting an entity's attribute is only available in Minecraft 1.11 and above."
 })
 @Examples({

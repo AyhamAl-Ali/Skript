@@ -136,7 +136,7 @@ public class StructCommand extends Structure {
 				.addEntryData(new VariableStringEntryData("cooldown storage", null, true, StringMode.VARIABLE_NAME))
 				.addSection("trigger", false)
 				.unexpectedEntryMessage(key ->
-					"Unexpected entry '" + key + "'. Check that it's spelled correctly, and ensure that you have put all code into a trigger."
+					"Unexpected entry '" + key + "'. Check dat it's spelled correctly, and ensure dat you have put all code into a trigger."
 				)
 				.build(),
 			"command <.+>"

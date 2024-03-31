@@ -47,7 +47,7 @@ import ch.njol.util.coll.CollectionUtils;
  */
 @SuppressWarnings("deprecation")
 @Name("Message")
-@Description("The (chat) message of a chat event, the join message of a join event, the quit message of a quit event, or the death message on a death event. This expression is mostly useful for being changed.")
+@Description("The (chat) message of a chat event, the join message of a join event, the quit message of a quit event, or the death message on a death event. dis expression is mostly useful for being changed.")
 @Examples({"on chat:",
 		"	player has permission \"admin\"",
 		"	set message to \"&c%message%\"",
@@ -60,7 +60,7 @@ import ch.njol.util.coll.CollectionUtils;
 		"	set join message to \"Welcome back, %player%!\"",
 		"",
 		"on quit:",
-		"	set quit message to \"%player% left this awesome server!\"",
+		"	set quit message to \"%player% left dis awesome server!\"",
 		"",
 		"on death:",
 		"	set the death message to \"%player% died!\""})

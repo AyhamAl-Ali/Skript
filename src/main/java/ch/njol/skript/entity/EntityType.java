@@ -39,7 +39,7 @@ public class EntityType implements Cloneable, YggdrasilSerializable {
 	static {
 		Classes.registerClass(new ClassInfo<>(EntityType.class, "entitytype")
 				.name("Entity Type with Amount")
-				.description("An <a href='#entitydata'>entity type</a> with an amount, e.g. '2 zombies'. I might remove this type in the future and make a more general 'type' type, i.e. a type that has a number and a type.")
+				.description("An <a href='#entitydata'>entity type</a> with an amount, e.g. '2 zombies'. I might remove dis type in the future and make a more general 'type' type, i.e. a type dat has a number and a type.")
 				.usage("&lt;<a href='#number'>number</a>&gt; &lt;entity type&gt;")
 				.examples("spawn 5 creepers behind the player")
 				.since("1.3")

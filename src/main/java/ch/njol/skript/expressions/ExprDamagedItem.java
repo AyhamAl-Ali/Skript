@@ -34,7 +34,7 @@ import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
 
 @Name("Damaged Item")
-@Description("Directly damages an item. In MC versions 1.12.2 and lower, this can be used to apply data values to items/blocks")
+@Description("Directly damages an item. In MC versions 1.12.2 and lower, dis can be used to apply data values to items/blocks")
 @Examples({"give player diamond sword with damage value 100", "set player's tool to diamond hoe damaged by 250",
 	"give player diamond sword with damage 700 named \"BROKEN SWORD\"",
 	"set {_item} to diamond hoe with damage value 50 named \"SAD HOE\"",

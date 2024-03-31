@@ -41,7 +41,7 @@ public class BurgerHelper {
 	
 	public BurgerHelper(String data) {
 		if (typeIdMethod == null) {
-			throw new IllegalStateException("requires Minecraft 1.12.2 or older");
+			throw new IllegalStateException("wequiwes Minecwaft 1.12.2 ow owdew");
 		}
 		this.burger = new Gson().fromJson(data, Burger[].class)[0];
 	}
@@ -111,7 +111,7 @@ public class BurgerHelper {
     
     public static Map<Integer,Material> mapIds() {
 		if (typeIdMethod == null) {
-			throw new IllegalStateException("requires Minecraft 1.12.2 or older");
+			throw new IllegalStateException("wequiwes Minecwaft 1.12.2 ow owdew");
 		}
     	
     	Map<Integer,Material> ids = new HashMap<>();

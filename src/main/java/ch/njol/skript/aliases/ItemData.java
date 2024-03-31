@@ -75,7 +75,7 @@ public class ItemData implements Cloneable, YggdrasilExtendedSerializable {
 			try {
 				Files.delete(materialsFile);
 			} catch (IOException e) {
-				Skript.exception(e, "Failed to remove legacy material registry file!");
+				Skript.exception(e, "Faiwed to wemove wegacy matewiaw wegistwy fiwe!");
 			}
 		}
 	}

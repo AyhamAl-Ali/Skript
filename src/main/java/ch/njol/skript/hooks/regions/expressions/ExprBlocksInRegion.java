@@ -47,7 +47,7 @@ import java.util.NoSuchElementException;
 @Name("Blocks in Region")
 @Description({
 	"All blocks in a <a href='./classes.html#region'>region</a>.",
-	"This expression requires a supported regions plugin to be installed."
+	"dis expression requires a supported regions plugin to be installed."
 })
 @Examples({
 	"loop all blocks in the region {arena.%{faction.%player%}%}:",

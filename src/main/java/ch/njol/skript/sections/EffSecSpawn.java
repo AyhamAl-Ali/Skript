@@ -49,10 +49,10 @@ import ch.njol.util.Kleenean;
 
 @Name("Spawn")
 @Description({
-	"Spawn a creature. This can be used as an effect and as a section.",
+	"Spawn a creature. dis can be used as an effect and as a section.",
 	"If it is used as a section, the section is run before the entity is added to the world.",
-	"You can modify the entity in this section, using for example 'event-entity' or 'cow'. ",
-	"Do note that other event values, such as 'player', won't work in this section."
+	"You can modify the entity in dis section, using for example 'event-entity' or 'cow'. ",
+	"Do note dat other event values, such as 'player', won't work in dis section."
 })
 @Examples({
 	"spawn 3 creepers at the targeted block",

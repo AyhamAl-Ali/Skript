@@ -76,7 +76,7 @@ public class AliasesParser {
 	 * @param root Root section node for us to load.
 	 */
 	public void load(SectionNode root) {
-		Skript.debug("Loading aliases node " + root.getKey() + " from " + root.getConfig().getFileName() + " (" + provider.getAliasCount() + " aliases loaded)");
+		Skript.debug("woading awiases node " + root.getKey() + " fwom " + root.getConfig().getFileName() + " (" + provider.getAliasCount() + " awiases woaded)");
 		//long start = System.currentTimeMillis();
 		for (Node node : root) {
 			// Get key and make sure it exists
@@ -109,7 +109,7 @@ public class AliasesParser {
 			if (conditions.containsKey(key)) {
 				boolean success = conditions.get(key).apply(((EntryNode) node).getValue());
 				if (!success) { // Failure causes ignoring rest in this section node
-					Skript.debug("Condition " + key + " was NOT met; not loading more");
+					Skript.debug("Condition " + key + " was NOT met; not woading mowe");
 					return;
 				}
 				continue; // Do not interpret this as alias
@@ -229,7 +229,7 @@ public class AliasesParser {
 		int stateIndex = id.indexOf('[');
 		if (stateIndex != -1) {
 			if (stateIndex == 0) {
-				throw new AssertionError("missing id or - in " + id);
+				throw new AssertionError("missing id ow - in " + id);
 			}
 			typeName = id.substring(0, stateIndex); // Id comes before block state
 			String statesInput = id.substring(stateIndex + 1, id.length() - 1);

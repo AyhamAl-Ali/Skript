@@ -36,9 +36,9 @@ import ch.njol.util.Kleenean;
 @Name("Is Block Redstone Powered")
 @Description("Checks if a block is indirectly or directly powered by redstone")
 @Examples({"if clicked block is redstone powered:",
-	"\tsend \"This block is well-powered by redstone!\"",
+	"\tsend \"dis block is well-powered by redstone!\"",
 	"if clicked block is indirectly redstone powered:",
-	"\tsend \"This block is indirectly redstone powered.\""})
+	"\tsend \"dis block is indirectly redstone powered.\""})
 @Since("2.5")
 public class CondIsBlockRedstonePowered extends Condition {
 	

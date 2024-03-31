@@ -48,7 +48,7 @@ import java.lang.reflect.Array;
 })
 @Examples({
 	"if difference between {command::%player%::lastuse} and now is smaller than a minute:",
-		"\tmessage \"You have to wait a minute before using this command again!\""
+		"\tmessage \"You have to wait a minute before using dis command again!\""
 })
 @Since("1.4")
 public class ExprDifference extends SimpleExpression<Object> {

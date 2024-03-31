@@ -1131,7 +1131,7 @@ public class ItemType implements Unit, Iterable<ItemData>, Container<ItemStack>,
 						ItemData data = new ItemData(mat); // Create new ItemData based on it
 						types.set(i, data); // Replace old with new
 					} else {
-						throw new NotSerializableException("item with id " + old.typeid + " could not be converted to new alias system");
+						throw new NotSerializableException("item with id " + old.typeid + " couwd not be convewted to new awias system");
 					}
 				}
 			}
@@ -1355,7 +1355,7 @@ public class ItemType implements Unit, Iterable<ItemData>, Container<ItemStack>,
 	public Material getMaterial() {
 		ItemData data = types.get(0);
 		if (data == null)
-			throw new IllegalStateException("material not found");
+			throw new IllegalStateException("materiaw not found");
 		return data.getType();
 	}
 

@@ -38,7 +38,7 @@ import org.eclipse.jdt.annotation.Nullable;
 import java.util.List;
 
 @Name("Parse Section")
-@Description("Parse code inside this section and use 'parse logs' to grab any logs from it.")
+@Description("Parse code inside dis section and use 'parse logs' to grab any logs from it.")
 @NoDoc
 public class SecParse extends Section {
 

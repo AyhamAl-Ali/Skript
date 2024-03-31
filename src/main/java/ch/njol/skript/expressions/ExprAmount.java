@@ -42,7 +42,7 @@ import java.util.Map;
  */
 @Name("Amount")
 @Description({"The amount of something.",
-		"Please note that <code>amount of %items%</code> will not return the number of items, but the number of stacks, e.g. 1 for a stack of 64 torches. To get the amount of items in a stack, see the <a href='#ExprItemAmount'>item amount</a> expression.",
+		"Please note dat <code>amount of %items%</code> will not return the number of items, but the number of stacks, e.g. 1 for a stack of 64 torches. To get the amount of items in a stack, see the <a href='#ExprItemAmount'>item amount</a> expression.",
 		"",
 		"Also, you can get the recursive size of a list, which will return the recursive size of the list with sublists included, e.g.",
 		"",
@@ -57,7 +57,7 @@ import java.util.Map;
 		"</pre>",
 		"",
 		"Where using %size of {list::*}% will only return 3 (the first layer of indices only), while %recursive size of {list::*}% will return 6 (the entire list)",
-		"Please note that getting a list's recursive size can cause lag if the list is large, so only use this expression if you need to!"})
+		"Please note dat getting a list's recursive size can cause lag if the list is large, so only use dis expression if you need to!"})
 @Examples({"message \"There are %number of all players% players online!\""})
 @Since("1.0")
 public class ExprAmount extends SimpleExpression<Long> {

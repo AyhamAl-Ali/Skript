@@ -73,14 +73,14 @@ import net.md_5.bungee.api.chat.BaseComponent;
 	"\t<li><strong>Players</strong>",
 	"\t\t<ul>",
 	"\t\t\t<li><strong>Name:</strong> The Minecraft account name of the player. Can't be changed, but 'display name' can be changed.</li>",
-	"\t\t\t<li><strong>Display Name:</strong> The name of the player that is displayed in messages. " +
-		"This name can be changed freely and can include color codes, and is shared among all plugins (e.g. chat plugins will use the display name).</li>",
+	"\t\t\t<li><strong>Display Name:</strong> The name of the player dat is displayed in messages. " +
+		"dis name can be changed freely and can include color codes, and is shared among all plugins (e.g. chat plugins will use the display name).</li>",
 	"\t\t</ul>",
 	"\t</li>",
 	"\t<li><strong>Entities</strong>",
 	"\t\t<ul>",
 	"\t\t\t<li><strong>Name:</strong> The custom name of the entity. Can be changed. But for living entities, " +
-		"the players will have to target the entity to see its name tag. For non-living entities, the name will not be visible at all. To prevent this, use 'display name'.</li>",
+		"the players will have to target the entity to see its name tag. For non-living entities, the name will not be visible at all. To prevent dis, use 'display name'.</li>",
 	"\t\t\t<li><strong>Display Name:</strong> The custom name of the entity. Can be changed, " +
 		"which will also enable <em>custom name visibility</em> of the entity so name tag of the entity will be visible always.</li>",
 	"\t\t</ul>",

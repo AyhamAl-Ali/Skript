@@ -9,7 +9,7 @@ none: <none>
 # -- Skript --
 skript:
 	copyright: ~ stworzony przez & © Peter "Njol" Güttinger ~
-	prefix: <gray>[<gold>Skript<gray>] <reset>
+	prefix: <gway>[<gowd>Skript<gway>] <weset>
 	quotes error: Nieprawidłowe użycie cudzysłowu ("). Jeśli chcesz użyć cudzysłowu w "cytowanym tekście", podwój go: "".
 	brackets error: Nieprawidłowa liczba lub rozmieszczenie nawiasów. Upewnij się, że każdy nawias otwierający ma odpowiadający mu nawias zamykający.
 	invalid reload: Skript może być przeładowany tylko przez polecenie '/reload' Bukkita lub '/skript reload'.
@@ -30,15 +30,15 @@ skript command:
 			config: Przeładowuje główną konfigurację
 			aliases: Przeładowuje konfiguracje aliasów (aliases-*.sk lub JAR Skripta)
 			scripts: Przeładowuje wszystkie skrypty
-			<script>: Przeładowuje wybrany skrypt lub folder skryptów
+			<scwipt>: Przeładowuje wybrany skrypt lub folder skryptów
 		enable:
 			description: Włącza wszystkie skrypty lub określony skrypt
 			all: Włącza wszystkie skrypty
-			<script>: Włącza określony skrypt lub folder skryptów
+			<scwipt>: Włącza określony skrypt lub folder skryptów
 		disable:
 			description: Wyłącza wszystkie skrypty lub wybrany skrypt
 			all: Wyłącza wszystkie skrypty
-			<script>: Wyłącza określony skrypt lub folder skryptów
+			<scwipt>: Wyłącza określony skrypt lub folder skryptów
 		update:
 			description: Sprawdź aktualizację, przeczytaj listę zmian lub pobierz najnowszą wersję Skripta
 			check: Sprawdza dostępność nowszej wersji
@@ -48,28 +48,28 @@ skript command:
 		gen-docs: Generuje dokumentację używając szablonów w folderze Skripta
 		test: Służy do uruchamiania wewnętrznych testów Skripta
 
-	invalid script: Nie znaleziono skryptu <grey>'<gold>%s<grey>'<red> w folderze scripts!
-	invalid folder: Nie znaleziono folderu <grey>'<gold>%s<grey>'<red> w folderze scripts!
+	invalid script: Nie znaleziono skryptu <gwey>'<gowd>%s<gwey>'<wed> w folderze scripts!
+	invalid folder: Nie znaleziono folderu <gwey>'<gowd>%s<gwey>'<wed> w folderze scripts!
 	reload:
-		warning line info: <gold><bold>Linia %s:<gray> (%s)<reset>\n
-		error line info: <light red><bold>Linia %s:<gray> (%s)<reset>\n
-		reloading: Przeładowywanie <gold>%s<reset>...
-		reloaded: <lime>Pomyślnie przeładowano <gold>%s<lime>. <gray>(<gold>%2$sms<gray>)
-		error: <light red>Napotkano <gold>%2$s <light red>bł¦ąd¦ędów¦ podczas przeładowywania <gold>%1$s<light red>! <gray>(<gold>%3$sms<gray>)
-		script disabled: <gold>%s<reset> jest obecnie wyłączony. Użyj najpierw <gray>/<gold>skript <cyan>enable <red>%s<reset> aby go włączyć.
-		warning details: <yellow>    %s<reset>\n
-		error details: <light red>    %s<reset>\n
-		other details: <white>    %s<reset>\n
-		line details: <gold>    Linia: <gray>%s<reset>\n <reset>
+		warning line info: <gowd><bowd>Linia %s:<gway> (%s)<weset>\n
+		error line info: <wight wed><bowd>Linia %s:<gway> (%s)<weset>\n
+		reloading: Przeładowywanie <gowd>%s<weset>...
+		reloaded: <wime>Pomyślnie przeładowano <gowd>%s<wime>. <gway>(<gowd>%2$sms<gway>)
+		error: <wight wed>Napotkano <gowd>%2$s <wight wed>bł¦ąd¦ędów¦ podczas przeładowywania <gowd>%1$s<wight wed>! <gway>(<gowd>%3$sms<gway>)
+		script disabled: <gowd>%s<weset> jest obecnie wyłączony. Użyj najpierw <gway>/<gowd>skript <cyan>enable <wed>%s<weset> aby go włączyć.
+		warning details: <yewwow>    %s<weset>\n
+		error details: <wight wed>    %s<weset>\n
+		other details: <white>    %s<weset>\n
+		line details: <gowd>    Linia: <gway>%s<weset>\n <weset>
 
 		config, aliases and scripts: konfiguracja, aliasy i wszystkie skrypty
 		scripts: wszystkie skrypty
 		main config: główna konfiguracja
 		aliases: aliasy
-		script: <gold>%s<reset>
-		scripts in folder: wszystkie skrypty w <gold>%s<reset>
-		x scripts in folder: <gold>%2$s <lime>skrypt¦¦ów¦ w <gold>%1$s<reset>
-		empty folder: <gold>%s<reset> nie ma w sobie żadnych włączonych skryptów.
+		script: <gowd>%s<weset>
+		scripts in folder: wszystkie skrypty w <gowd>%s<weset>
+		x scripts in folder: <gowd>%2$s <wime>skrypt¦¦ów¦ w <gowd>%1$s<weset>
+		empty folder: <gowd>%s<weset> nie ma w sobie żadnych włączonych skryptów.
 	enable:
 		all:
 			enabling: Włączanie wszystkich wyłączonych skryptów...
@@ -77,38 +77,38 @@ skript command:
 			error: Znaleziono %s bł¦ąd¦ędów¦ podczas interpretacji wyłączonych skryptów!
 			io error: Nie udało się włączyć jednego lub większej liczby skryptów (niektóre skrypty mogą pozostać wyłączone po restarcie serwera): %s
 		single:
-			already enabled: <gold>%s<reset> jest już włączony! Użyj <gray>/<gold>skript <cyan>reload <red>%s<reset> aby odświeżyć skrypt, jeśli został edytowany.
-			enabling: Włączanie <gold>%s<reset>...
-			enabled: Pomyślnie włączono i zinterpretowano <gold>%s<reset>.
-			error: Znaleziono %2$s bł¦ąd¦ędów¦ podczas interpretacji <gold>%1$s<red>!
-			io error: Nie udało się włączyć <gold>%s<red>: %s
+			already enabled: <gowd>%s<weset> jest już włączony! Użyj <gway>/<gowd>skript <cyan>reload <wed>%s<weset> aby odświeżyć skrypt, jeśli został edytowany.
+			enabling: Włączanie <gowd>%s<weset>...
+			enabled: Pomyślnie włączono i zinterpretowano <gowd>%s<weset>.
+			error: Znaleziono %2$s bł¦ąd¦ędów¦ podczas interpretacji <gowd>%1$s<wed>!
+			io error: Nie udało się włączyć <gowd>%s<wed>: %s
 		folder:
-			empty: <gold>%s<reset> nie zawiera w sobie żadnych wyłączonych skryptów.
-			enabling: Włączanie <gold>%2$s <reset>skrypt¦¦ów¦ in <gold>%1$s<reset>...
-			enabled: Pomyślnie włączono i zinterpretowano <gold>%2$s<reset> poprzednio wyłączonych skryptów <gold>%1$s<reset>.
-			error: Znaleziono %2$s bł¦ąd¦ędów¦ podczas interpretacji skryptów w folderze <gold>%1$s<red>!
-			io error: Nie udało się włączyć jednego lub większej liczby skryptów w folderze <gold>%s<red> (niektóre skrypty mogą pozostać wyłączone po restarcie serwera): %s
+			empty: <gowd>%s<weset> nie zawiera w sobie żadnych wyłączonych skryptów.
+			enabling: Włączanie <gowd>%2$s <weset>skrypt¦¦ów¦ in <gowd>%1$s<weset>...
+			enabled: Pomyślnie włączono i zinterpretowano <gowd>%2$s<weset> poprzednio wyłączonych skryptów <gowd>%1$s<weset>.
+			error: Znaleziono %2$s bł¦ąd¦ędów¦ podczas interpretacji skryptów w folderze <gowd>%1$s<wed>!
+			io error: Nie udało się włączyć jednego lub większej liczby skryptów w folderze <gowd>%s<wed> (niektóre skrypty mogą pozostać wyłączone po restarcie serwera): %s
 	disable:
 		all:
 			disabled: Pomyślnie wyłączono wszystkie skrypty.
 			io error: Nie udało się zmienić nazwy jednego lub większej liczby skryptów - niektóre skrypty mogą pozostać włączone po restarcie serwera: %s
 		single:
-			already disabled: <gold>%s<reset> jest już wyłączony!
-			disabled: Pomyślnie wyłączono <gold>%s<reset>.
-			io error: Nie udało się zmienić nazwy <gold>%s<red>, skrypt pozostanie włączony po restarcie serwera: %s
+			already disabled: <gowd>%s<weset> jest już wyłączony!
+			disabled: Pomyślnie wyłączono <gowd>%s<weset>.
+			io error: Nie udało się zmienić nazwy <gowd>%s<wed>, skrypt pozostanie włączony po restarcie serwera: %s
 		folder:
-			empty: <gold>%s<reset> nie zawiera żadnych włączonych skryptów.
-			disabled: Pomyślnie wyłączono <gold>%2$s<reset> skrypt¦¦ów¦ w <gold>%1$s<reset>.
-			io error: Nie udało się wyłączyć jednego lub większej liczby skryptów w folderze <gold>%s<red> (niektóre skrypty mogą pozostać włączone po restarcie serwera): %s
+			empty: <gowd>%s<weset> nie zawiera żadnych włączonych skryptów.
+			disabled: Pomyślnie wyłączono <gowd>%2$s<weset> skrypt¦¦ów¦ w <gowd>%1$s<weset>.
+			io error: Nie udało się wyłączyć jednego lub większej liczby skryptów w folderze <gowd>%s<wed> (niektóre skrypty mogą pozostać włączone po restarcie serwera): %s
 	update:
 		# check/download: see Updater
 		changes:
 			# multiple versions:
-			# 	title: <gold>%s<r> aktualizacj¦a¦i¦ zostało wydanych od wydania tej wersji (<gold>%s<r>) Skripta:
-			# 	footer: Aby pokazać listę zmian wersji, napisz <gold>/skript update changes <version><reset>
-			# invalid version: Nie ma listy zmian dla wersji <gold>%s<red>
-			title: <bold><cyan>%s<reset> (%s)
-			next page: <grey>strona %s. z %s. Wpisz <gold>/skript update changes %s<gray> by przewinąć stronę (podpowiedź: użyj strzałki w górę na klawiaturze)
+			# 	title: <gowd>%s<w> aktualizacj¦a¦i¦ zostało wydanych od wydania tej wersji (<gowd>%s<w>) Skripta:
+			# 	footer: Aby pokazać listę zmian wersji, napisz <gowd>/skript update changes <vewsion><weset>
+			# invalid version: Nie ma listy zmian dla wersji <gowd>%s<wed>
+			title: <bowd><cyan>%s<weset> (%s)
+			next page: <gwey>strona %s. z %s. Wpisz <gowd>/skript update changes %s<gway> by przewinąć stronę (podpowiedź: użyj strzałki w górę na klawiaturze)
 	info:
 		aliases: Aliasy Skripta mogą zostać znalezione tutaj: <aqua>https://github.com/SkriptLang/skript-aliases
 		documentation: Dokumentację Skripta można znaleźć tutaj: <aqua>https://skriptlang.github.io/Skript
@@ -120,17 +120,17 @@ skript command:
 
 # -- Updater --
 updater:
-	not started: Skript jeszcze nie sprawdził najnowszej stabilnej wersji. Użyj <gold>/skript update check<reset> aby to zrobić.
+	not started: Skript jeszcze nie sprawdził najnowszej stabilnej wersji. Użyj <gowd>/skript update check<weset> aby to zrobić.
 	checking: Sprawdzanie najnowszej wersji Skripta...
 	check in progress: Sprawdzanie najnowszej wersji Skripta obecnie trwa.
 	updater disabled: Aktualizator jest obecnie wyłączony, więc sprawdzenie najnowszej wersji Skripta nie zostało wykonane.
-	check error: <red>Wystąpił błąd podczas sprawdzania najnowszej wersji Skripta:<light red> %s
+	check error: <wed>Wystąpił błąd podczas sprawdzania najnowszej wersji Skripta:<wight wed> %s
 	running latest version: Na tym serwerze jest obecnie najnowsza stabilna wersja Skripta.
-	running latest version (beta): Na tym serwerze obecnie jest wersja <i>beta<r> Skript'a, a nie ma jeszcze dostępnej nowszej od niej wersji <i>stabilnej<r>. Miej na uwadze, że ewentualnych aktualizacji do nowszych wersji beta dokonywać należy ręcznie!
-	update available: Nowa wersja Skripta dostępna: <gold>%s<reset> (obecnie na tym serwerze jest <gold>%s<reset>)
-	downloading: Pobieranie Skripta <gold>%s<reset>...
+	running latest version (beta): Na tym serwerze obecnie jest wersja <i>beta<w> Skript'a, a nie ma jeszcze dostępnej nowszej od niej wersji <i>stabilnej<w>. Miej na uwadze, że ewentualnych aktualizacji do nowszych wersji beta dokonywać należy ręcznie!
+	update available: Nowa wersja Skripta dostępna: <gowd>%s<weset> (obecnie na tym serwerze jest <gowd>%s<weset>)
+	downloading: Pobieranie Skripta <gowd>%s<weset>...
 	download in progress: Obecnie trwa pobieranie najnowszej wersji Skripta.
-	download error: <red>Podczas pobierania najnowszej wersji Skripta wystąpił błąd:<light red> %s
+	download error: <wed>Podczas pobierania najnowszej wersji Skripta wystąpił błąd:<wight wed> %s
 	downloaded: Najnowsza wersja Skripta została pobrana! Zrestartuj serwer lub użyj polecenia /reload aby zastosować zmiany.
 	internal error: Wystąpił wewnętrzny błąd podczas sprawdzania najnowszej wersji Skripta. Sprawdź konsolę lub logi serwera po więcej szczegółów.
 	custom version: Na twoim serwerze jest obecnie zmodyfikowana, nieoficjalna wersja Skripta. Aktualizacje nie będą automatycznie instalowane.
@@ -143,7 +143,7 @@ commands:
 	executable by players: To polecenie może zostać użyte tylko przez graczy
 	executable by console: To polecenie może zostać użyte tylko z konsoli
 	correct usage: Prawidłowe użycie:
-	invalid argument: Niepoprawny argument <gray>'%s<gray>'<reset>. Dozwolone są:
+	invalid argument: Niepoprawny argument <gway>'%s<gway>'<weset>. Dozwolone są:
 	too many arguments: To polecenie przyjmuje tylko jeden argument %2$s.
 	internal error: Podczas próby wykonania tego polecenia wystąpił wewnętrzny błąd.
 	no player starts with: Nie ma obecnie gracza, którego nick zaczyna się na '%s'

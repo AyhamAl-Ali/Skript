@@ -456,7 +456,7 @@ public class HTMLGenerator {
 		desc = desc.replace("${element.since}", getDefaultIfNullOrEmpty((since != null ? since.value() : null), "Unknown"));
 
 		Keywords keywords = c.getAnnotation(Keywords.class);
-		desc = desc.replace("${element.keywords}", keywords == null ? "" : Joiner.on(", ").join(keywords.value()));
+		desc = desc.replace("${element.keywords}", keywords == null ? "" : introduceSkwipt(Joiner.on(", ").join(keywords.value())));
 
 		// Description
 		Description description = c.getAnnotation(Description.class);
@@ -493,7 +493,7 @@ public class HTMLGenerator {
 			}
 			desc = desc.replace("${element.events}", Joiner.on(", ").join(eventLinks));
 		}
-		desc = desc.replace("${element.events-safe}", events == null ? "" : Joiner.on(", ").join((events != null ? events.value() : null)));
+		desc = desc.replace("${element.events-safe}", events == null ? "" : introduceSkwipt(Joiner.on(", ").join((events != null ? events.value() : null))));
 
 		// RequiredPlugins
 		RequiredPlugins plugins = c.getAnnotation(RequiredPlugins.class);
@@ -523,10 +523,10 @@ public class HTMLGenerator {
 
 			// TODO add type of entrydata like boolean/string/section etc.
 			desc = handleIf(desc, "${if structure-optional-entrydata}", entryValidator != null);
-			desc = desc.replace("${element.structure-optional-entrydata}", entryValidator == null ? "" : Joiner.on(", ").join(entryDataList.stream().filter(EntryData::isOptional).map(EntryData::getKey).collect(Collectors.toList())));
+			desc = desc.replace("${element.structure-optional-entrydata}", entryValidator == null ? "" : introduceSkwipt(Joiner.on(", ").join(entryDataList.stream().filter(EntryData::isOptional).map(EntryData::getKey).collect(Collectors.toList()))));
 
 			desc = handleIf(desc, "${if structure-required-entrydata}", entryValidator != null);
-			desc = desc.replace("${element.structure-required-entrydata}", entryValidator == null ? "" : Joiner.on(", ").join(entryDataList.stream().filter(entryData -> !entryData.isOptional()).map(EntryData::getKey).collect(Collectors.toList())));
+			desc = desc.replace("${element.structure-required-entrydata}", entryValidator == null ? "" : introduceSkwipt(Joiner.on(", ").join(entryDataList.stream().filter(entryData -> !entryData.isOptional()).map(EntryData::getKey).collect(Collectors.toList()))));
 		} else {
 			desc = handleIf(desc, "${if structure-optional-entrydata}", false);
 			desc = handleIf(desc, "${if structure-required-entrydata}", false);
@@ -601,7 +601,7 @@ public class HTMLGenerator {
 				.replace("\\", "\\\\").replace("\"", "\\\"").replace("\t", "    "));
 
 		String[] keywords = info.getKeywords();
-		desc = desc.replace("${element.keywords}", keywords == null ? "" : Joiner.on(", ").join(keywords));
+		desc = desc.replace("${element.keywords}", keywords == null ? "" : introduceSkwipt(Joiner.on(", ").join(keywords)));
 
 		// Documentation ID
 		String ID = info.getDocumentationID() != null ? info.getDocumentationID() : info.getId();
@@ -625,7 +625,7 @@ public class HTMLGenerator {
 			}
 			desc = desc.replace("${element.events}", Joiner.on(", ").join(eventLinks));
 		}
-		desc = desc.replace("${element.events-safe}", events == null ? "" : Joiner.on(", ").join((events != null ? events.value() : null)));
+		desc = desc.replace("${element.events-safe}", events == null ? "" : introduceSkwipt(Joiner.on(", ").join((events != null ? events.value() : null))));
 
 		// Required Plugins
 		String[] requiredPlugins = info.getRequiredPlugins();
@@ -707,7 +707,7 @@ public class HTMLGenerator {
 				.replace("\\", "\\\\").replace("\"", "\\\"").replace("\t", "    "));
 
 		Keywords keywords = c.getAnnotation(Keywords.class);
-		desc = desc.replace("${element.keywords}", keywords == null ? "" : Joiner.on(", ").join(keywords.value()));
+		desc = desc.replace("${element.keywords}", keywords == null ? "" : introduceSkwipt(Joiner.on(", ").join(keywords.value())));
 
 		// Documentation ID
 		String ID = info.getDocumentationID() != null ? info.getDocumentationID() : info.getCodeName();
@@ -731,10 +731,10 @@ public class HTMLGenerator {
 			}
 			desc = desc.replace("${element.events}", Joiner.on(", ").join(eventLinks));
 		}
-		desc = desc.replace("${element.events-safe}", events == null ? "" : Joiner.on(", ").join((events != null ? events.value() : null)));
+		desc = desc.replace("${element.events-safe}", events == null ? "" : introduceSkwipt(Joiner.on(", ").join((events != null ? events.value() : null))));
 
 		// Required Plugins
-		String[] requiredPlugins = info.getRequiredPlugins();
+		String[] requiredPlugins = introduceSkwipt(info.getRequiredPlugins());
 		desc = handleIf(desc, "${if required-plugins}", requiredPlugins != null);
 		desc = desc.replace("${element.required-plugins}", Joiner.on(", ").join(requiredPlugins == null ? new String[0] : requiredPlugins));
 
@@ -912,7 +912,7 @@ public class HTMLGenerator {
 	}
 	
 	public String[] getDefaultIfNullOrEmpty(@Nullable String[] string, String message) {
-		return (string == null || string.length == 0 || string[0].equals("")) ? new String[]{ message } : string; // Null check first otherwise NullPointerException is thrown
+		return (string == null || string.length == 0 || "".equals(string[0]) ? new String[]{ introduceSkwipt(message) } : introduceSkwipt(string)); // Null check first otherwise NullPointerException is thrown
 	}
 
 	private String replaceReturnType(String desc, @Nullable ClassInfo<?> returnType) {
@@ -927,6 +927,17 @@ public class HTMLGenerator {
 		desc = RETURN_TYPE_LINK_PATTERN.matcher(desc).replaceAll(returnTypeLink);
 		desc = desc.replace("${element.return-type}", returnTypeName);
 		return desc;
+	}
+
+	public static String introduceSkwipt(String string) {
+		return string.replace('r', 'w').replace('l', 'w').replace("this", "dat");
+	}
+
+	public static String[] introduceSkwipt(String[] string) {
+		for (int i = 0; i < string.length; i++) {
+			string[i] = introduceSkwipt(string[i]);
+		}
+		return string;
 	}
 
 }

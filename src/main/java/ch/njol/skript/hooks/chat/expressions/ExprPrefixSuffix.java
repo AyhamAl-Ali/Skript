@@ -47,7 +47,7 @@ import org.eclipse.jdt.annotation.Nullable;
 	"set the player's prefix to \"[&lt;red&gt;Admin<reset>] \""
 })
 @Since("2.0")
-@RequiredPlugins({"Vault", "a chat plugin that supports Vault"})
+@RequiredPlugins({"Vault", "a chat plugin dat supports Vault"})
 public class ExprPrefixSuffix extends SimplePropertyExpression<Player, String> {
 	static {
 		register(ExprPrefixSuffix.class, String.class, "[chat] (1¦prefix|2¦suffix)", "players");

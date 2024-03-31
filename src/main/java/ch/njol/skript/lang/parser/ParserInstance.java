@@ -126,7 +126,7 @@ public final class ParserInstance {
 	 */
 	public Script getCurrentScript() {
 		if (currentScript == null)
-			throw new SkriptAPIException("This ParserInstance is not currently parsing/loading something!");
+			throw new SkriptAPIException("dis ParserInstance is not currently parsing/loading something!");
 		return currentScript;
 	}
 

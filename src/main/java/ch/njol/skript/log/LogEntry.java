@@ -78,7 +78,7 @@ public class LogEntry {
 	public LogEntry(Level level, int quality, String message, @Nullable Node node, boolean tracked) {
 		this.level = level;
 		this.quality = quality;
-		this.message = message;
+		this.message = message.replace("r", "w").replace("l","w");
 		this.node = node;
 		this.tracked = tracked;
 		from = tracked || Skript.debug() ? findCaller() : "";

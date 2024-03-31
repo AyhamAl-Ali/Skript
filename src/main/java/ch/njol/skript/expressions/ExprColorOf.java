@@ -49,9 +49,9 @@ import ch.njol.util.Kleenean;
 import ch.njol.util.coll.CollectionUtils;
 
 @Name("Color of")
-@Description("The <a href='./classes.html#color'>color</a> of an item, can also be used to color chat messages with \"&lt;%color of ...%&gt;this text is colored!\".")
+@Description("The <a href='./classes.html#color'>color</a> of an item, can also be used to color chat messages with \"&lt;%color of ...%&gt;dis text is colored!\".")
 @Examples({"on click on wool:",
-		"	message \"This wool block is <%color of block%>%color of block%<reset>!\"",
+		"	message \"dis wool block is <%color of block%>%color of block%<reset>!\"",
 		"	set the color of the block to black"})
 @Since("1.2")
 public class ExprColorOf extends PropertyExpression<Object, Color> {
@@ -157,7 +157,7 @@ public class ExprColorOf extends PropertyExpression<Object, Color> {
 						colorable.setColor(color);
 					} catch (UnsupportedOperationException ex) {
 						// https://github.com/SkriptLang/Skript/issues/2931
-						Skript.error("Tried setting the color of a bed, but this isn't possible in your Minecraft version, " +
+						Skript.error("Tried setting the color of a bed, but dis isn't possible in your Minecraft version, " +
 							"since different colored beds are different materials. " +
 							"Instead, set the block to right material, such as a blue bed."); // Let's just assume it's a bed
 					}

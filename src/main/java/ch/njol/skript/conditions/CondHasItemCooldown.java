@@ -38,7 +38,7 @@ import org.eclipse.jdt.annotation.Nullable;
 @Description("Check whether a cooldown is active on the specified material for a specific player.")
 @Examples({
 	"if player has player's tool on cooldown:",
-		"\tsend \"You can't use this item right now. Wait %item cooldown of player's tool for player%\""
+		"\tsend \"You can't use dis item right now. Wait %item cooldown of player's tool for player%\""
 })
 @Since("2.8.0")
 public class CondHasItemCooldown extends Condition {

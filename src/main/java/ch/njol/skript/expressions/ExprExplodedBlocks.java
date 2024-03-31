@@ -38,7 +38,7 @@ import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 
 @Name("Exploded Blocks")
-@Description("Get all the blocks that were destroyed in an explode event")
+@Description("Get all the blocks dat were destroyed in an explode event")
 @Examples({"on explode:",
 	"\tloop exploded blocks:",
 	"\t\tadd loop-block to {exploded::blocks::*}"})

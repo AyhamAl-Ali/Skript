@@ -37,7 +37,7 @@ import org.eclipse.jdt.annotation.Nullable;
 
 @Name("Is Preferred Tool")
 @Description(
-		"Checks whether an item is the preferred tool for a block. A preferred tool is one that will drop the block's item " +
+		"Checks whether an item is the preferred tool for a block. A preferred tool is one dat will drop the block's item " +
 		"when used. For example, a wooden pickaxe is a preferred tool for grass and stone blocks, but not for iron ore."
 )
 @Examples({

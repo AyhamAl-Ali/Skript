@@ -38,7 +38,7 @@ import ch.njol.util.Kleenean;
 @Description("Checks state of the resource pack in a <a href='events.html#resource_pack_request_action'>resource pack request response</a> event.")
 @Examples({"on resource pack response:",
 		"	if the resource pack wasn't accepted:",
-		"		kick the player due to \"You have to install the resource pack to play in this server!\""})
+		"		kick the player due to \"You have to install the resource pack to play in dis server!\""})
 @Since("2.4")
 @Events("resource pack request response")
 public class CondResourcePack extends Condition {

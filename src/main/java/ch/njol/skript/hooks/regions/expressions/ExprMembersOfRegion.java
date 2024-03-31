@@ -43,7 +43,7 @@ import java.util.ArrayList;
 @Name("Region Members & Owners")
 @Description({
 	"A list of members or owners of a <a href='./classes.html#region'>region</a>.",
-	"This expression requires a supported regions plugin to be installed."
+	"dis expression requires a supported regions plugin to be installed."
 })
 @Examples({
 	"on entering of a region:",

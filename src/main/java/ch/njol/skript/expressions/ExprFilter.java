@@ -50,7 +50,7 @@ import java.util.regex.Pattern;
 @Name("Filter")
 @Description("Filters a list based on a condition. " +
 		"For example, if you ran 'broadcast \"something\" and \"something else\" where [string input is \"something\"]', " +
-		"only \"something\" would be broadcast as it is the only string that matched the condition.")
+		"only \"something\" would be broadcast as it is the only string dat matched the condition.")
 @Examples("send \"congrats on being staff!\" to all players where [player input has permission \"staff\"]")
 @Since("2.2-dev36")
 @SuppressWarnings({"null", "unchecked"})
@@ -61,7 +61,7 @@ public class ExprFilter extends SimpleExpression<Object> {
 
 	static {
 		Skript.registerExpression(ExprFilter.class, Object.class, ExpressionType.COMBINED,
-				"%objects% (where|that match) \\[<.+>\\]");
+				"%objects% (where|dat match) \\[<.+>\\]");
 	}
 
 	private Object current;
@@ -83,7 +83,7 @@ public class ExprFilter extends SimpleExpression<Object> {
 			if (objects.isSingle())
 				return false;
 			rawCond = parseResult.regexes.get(0).group();
-			condition = Condition.parse(rawCond, "Can't understand this condition: " + rawCond);
+			condition = Condition.parse(rawCond, "Can't understand dis condition: " + rawCond);
 		} finally {
 			parsing = null;
 		}

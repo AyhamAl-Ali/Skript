@@ -31,7 +31,7 @@ import ch.njol.skript.expressions.base.SimplePropertyExpression;
 import ch.njol.util.coll.CollectionUtils;
 
 @Name("No Damage Ticks")
-@Description("The number of ticks that an entity is invulnerable to damage for.")
+@Description("The number of ticks dat an entity is invulnerable to damage for.")
 @Examples({"on damage:",
 		"	set victim's invulnerability ticks to 20 #Victim will not take damage for the next second"})
 @Since("2.5")

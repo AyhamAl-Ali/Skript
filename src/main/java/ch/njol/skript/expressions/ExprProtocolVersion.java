@@ -38,18 +38,18 @@ import ch.njol.util.Kleenean;
 import ch.njol.util.coll.CollectionUtils;
 
 @Name("Protocol Version")
-@Description({"The protocol version that will be sent as the protocol version of the server in a server list ping event. " +
+@Description({"The protocol version dat will be sent as the protocol version of the server in a server list ping event. " +
 		"For more information and list of protocol versions <a href='https://wiki.vg/Protocol_version_numbers'>visit wiki.vg</a>.",
-		"If this protocol version doesn't match with the protocol version of the client, the client will see the <a href='#ExprVersionString'>version string</a>.",
-		"But please note that, this expression has no visual effect over the version string. " +
+		"If dis protocol version doesn't match with the protocol version of the client, the client will see the <a href='#ExprVersionString'>version string</a>.",
+		"But please note dat, dis expression has no visual effect over the version string. " +
 		"For example if the server uses PaperSpigot 1.12.2, and you make the protocol version 107 (1.9),",
 		"the version string will not be \"Paper 1.9\", it will still be \"Paper 1.12.2\".",
 		"But then you can customize the <a href='#ExprVersionString'>version string</a> as you wish.",
 		"Also if the protocol version of the player is higher than protocol version of the server, it will say",
 		"\"Server out of date!\", and if vice-versa \"Client out of date!\" when you hover on the ping bars.",
 		"",
-		"This can be set in a <a href='events.html#server_list_ping'>server list ping</a> event only",
-		"(increase and decrease effects cannot be used because that wouldn't make sense).",})
+		"dis can be set in a <a href='events.html#server_list_ping'>server list ping</a> event only",
+		"(increase and decrease effects cannot be used because dat wouldn't make sense).",})
 @Examples({"on server list ping:",
 		"\tset the version string to \"&lt;light green&gt;Version: &lt;orange&gt;%minecraft version%\"",
 		"\tset the protocol version to 0 # 13w41a (1.7) - so the player will see the custom version string almost always"})

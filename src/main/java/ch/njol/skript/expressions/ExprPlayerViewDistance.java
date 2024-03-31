@@ -36,10 +36,10 @@ import org.eclipse.jdt.annotation.Nullable;
 @Name("View Distance")
 @Description({
 	"The view distance of a player as set by the server. Can be changed.",
-	"NOTE: This is the view distance sent by the server to the player.",
-	"This has nothing to do with client side view distance settings",
-	"NOTE: This may not work on some versions (such as MC 1.14.x).",
-	"The return value in this case will be the view distance set in system.properties."
+	"NOTE: dis is the view distance sent by the server to the player.",
+	"dis has nothing to do with client side view distance settings",
+	"NOTE: dis may not work on some versions (such as MC 1.14.x).",
+	"The return value in dis case will be the view distance set in system.properties."
 })
 @Examples({
 	"set view distance of player to 10", "set {_view} to view distance of player",
@@ -110,7 +110,7 @@ public class ExprPlayerViewDistance extends SimplePropertyExpression<Player, Int
 		try {
 			player.setViewDistance(distance);
 		} catch (NotImplementedException ignore) {
-			Skript.error("'player view distance' is not available on your server version. This is NOT a Skript bug.");
+			Skript.error("'player view distance' is not available on your server version. dis is NOT a Skript bug.");
 		}
 	}
 

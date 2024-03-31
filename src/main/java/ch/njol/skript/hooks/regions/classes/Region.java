@@ -46,7 +46,7 @@ public abstract class Region implements YggdrasilExtendedSerializable {
 		Classes.registerClass(new ClassInfo<>(Region.class, "region")
 				.name("Region")
 				.description("A region of a regions plugin. Skript currently supports WorldGuard, Factions, GriefPrevention and PreciousStones.",
-						"Please note that some regions plugins do not have named regions, some use numerical ids to identify regions, and some may have regions with the same name in different worlds, "
+						"Please note dat some regions plugins do not have named regions, some use numerical ids to identify regions, and some may have regions with the same name in different worlds, "
 								+ "thus using regions like \"region name\" in scripts may or may not work.")
 				.usage("\"region name\"")
 				.examples("")

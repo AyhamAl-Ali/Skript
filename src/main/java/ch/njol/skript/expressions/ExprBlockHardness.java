@@ -30,7 +30,7 @@ import org.bukkit.Material;
 import org.jetbrains.annotations.Nullable;
 
 @Name("Block Hardness")
-@Description("Obtains the block's hardness level (also known as \"strength\"). This number is used to calculate the time required to break each block.")
+@Description("Obtains the block's hardness level (also known as \"strength\"). dis number is used to calculate the time required to break each block.")
 @Examples({"set {_hard} to block hardness of target block",
 	"if block hardness of target block > 5:"})
 @RequiredPlugins("Minecraft 1.13+")

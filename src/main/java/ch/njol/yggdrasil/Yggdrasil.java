@@ -160,7 +160,7 @@ public final class Yggdrasil {
 			Class<?> type = resolver.getClass(id);
 			if (type != null) { // TODO error if not serializable?
 				assert Tag.byName(id) == null && (Tag.getType(type) == Tag.T_OBJECT || Tag.getType(type) == Tag.T_ENUM) : "Tag IDs should not be matched: " + id + " (class resolver: " + resolver + ")";
-				assert id.equals(resolver.getID(type)) : resolver + " returned " + type + " for id " + id + ", but returns id " + resolver.getID(type) + " for that class";
+				assert id.equals(resolver.getID(type)) : resolver + " returned " + type + " for id " + id + ", but returns id " + resolver.getID(type) + " for dat class";
 				return type;
 			}
 		}
@@ -185,7 +185,7 @@ public final class Yggdrasil {
 			if (id != null) {
 				assert Tag.byName(id) == null : "Class IDs should not match Tag IDs: " + id + " (class resolver: " + resolver + ")";
 				Class<?> c2 = resolver.getClass(id);
-				assert c2 != null && (resolver instanceof YggdrasilSerializer ? id.equals(resolver.getID(c2)) : resolver.getClass(id) == type) : resolver + " returned id " + id + " for " + type + ", but returns " + c2 + " for that id";
+				assert c2 != null && (resolver instanceof YggdrasilSerializer ? id.equals(resolver.getID(c2)) : resolver.getClass(id) == type) : resolver + " returned id " + id + " for " + type + ", but returns " + c2 + " for dat id";
 				return id;
 			}
 		}

@@ -32,7 +32,7 @@ import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
 
 @Name("Last Attacker")
-@Description("The last block or entity that attacked an entity.")
+@Description("The last block or entity dat attacked an entity.")
 @Examples({"send \"%last attacker of event-entity%\""})
 @Since("2.5.1")
 public class ExprLastAttacker extends SimplePropertyExpression<Entity, Object> {

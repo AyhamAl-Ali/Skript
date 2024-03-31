@@ -47,7 +47,7 @@ import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.util.Kleenean;
 
 @Name("Equip")
-@Description("Equips or unequips an entity with some given armor. This will replace any armor that the entity is wearing.")
+@Description("Equips or unequips an entity with some given armor. dis will replace any armor dat the entity is wearing.")
 @Examples({
 		"equip player with diamond helmet",
 		"equip player with all diamond armor",

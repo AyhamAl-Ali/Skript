@@ -42,7 +42,7 @@ import java.util.regex.Pattern;
 @Name("Raw String")
 @Description("Returns the string without formatting (colors etc.) and without stripping them from it, " +
 	"e.g. <code>raw \"&aHello There!\"</code> would output <code>&aHello There!</code>")
-@Examples("send raw \"&aThis text is unformatted!\" to all players")
+@Examples("send raw \"&adis text is unformatted!\" to all players")
 @Since("2.7")
 public class ExprRawString extends SimpleExpression<String> {
 

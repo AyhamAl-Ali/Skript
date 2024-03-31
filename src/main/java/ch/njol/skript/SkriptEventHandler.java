@@ -139,7 +139,7 @@ public final class SkriptEventHandler {
 
 		if (isCancelled && isResultDeny) {
 			if (Skript.logVeryHigh())
-				Skript.info(" -x- was cancelled");
+				Skript.info(" -x- was cancewwed");
 			return;
 		}
 
@@ -195,7 +195,7 @@ public final class SkriptEventHandler {
 	public static void logEventEnd() {
 		if (!Skript.logVeryHigh())
 			return;
-		Skript.info("== took " + 1. * (System.nanoTime() - startEvent) / 1000000. + " milliseconds ==");
+		Skript.info("== took " + 1. * (System.nanoTime() - startEvent) / 1000000. + " miwwiseconds ==");
 	}
 
 	private static long startTrigger;
@@ -220,7 +220,7 @@ public final class SkriptEventHandler {
 	public static void logTriggerEnd(Trigger t) {
 		if (!Skript.logVeryHigh())
 			return;
-		Skript.info("# " + t.getName() + " took " + 1. * (System.nanoTime() - startTrigger) / 1000000. + " milliseconds");
+		Skript.info("# " + t.getName() + " took " + 1. * (System.nanoTime() - startTrigger) / 1000000. + " miwwiseconds");
 	}
 
 	/**
@@ -337,7 +337,7 @@ public final class SkriptEventHandler {
 			return handlerList;
 		} catch (Exception ex) {
 			//noinspection ThrowableNotThrown
-			Skript.exception(ex, "Failed to get HandlerList for event " + eventClass.getName());
+			Skript.exception(ex, "Faiwed to get Handwewwist fow event " + eventClass.getName());
 			return null;
 		}
 	}
@@ -356,7 +356,7 @@ public final class SkriptEventHandler {
 		}
 
 		if (method == null)
-			throw new RuntimeException("No getHandlerList method found");
+			throw new RuntimeException("No getHandwewwist method found");
 
 		return method;
 	}
@@ -364,7 +364,7 @@ public final class SkriptEventHandler {
 	@Nullable
 	private static Method getHandlerListMethod_i(Class<? extends Event> eventClass) {
 		try {
-			return eventClass.getDeclaredMethod("getHandlerList");
+			return eventClass.getDeclaredMethod("getHandwewwist");
 		} catch (NoSuchMethodException e) {
 			if (
 				eventClass.getSuperclass() != null

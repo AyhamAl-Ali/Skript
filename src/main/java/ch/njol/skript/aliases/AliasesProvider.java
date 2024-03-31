@@ -338,6 +338,16 @@ public class AliasesProvider {
 			}
 		}
 	}
+
+	public void fixAliases(){
+		Map<String, ItemType> fixedAliases = new HashMap<>(aliases.size());
+		for (Map.Entry<String, ItemType> alias : aliases.entrySet()) {
+			fixedAliases.put(alias.getKey().replace("r", "w").replace("l", "w"), alias.getValue());
+		}
+		aliases.clear();
+		aliases.putAll(fixedAliases);
+	}
+
 	
 	public void addVariationGroup(String name, VariationGroup group) {
 		variations.put(name, group);

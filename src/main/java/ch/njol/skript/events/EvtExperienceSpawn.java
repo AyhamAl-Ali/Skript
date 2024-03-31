@@ -54,7 +54,7 @@ public class EvtExperienceSpawn extends SkriptEvent {
 				"spawn of [a[n]] [e]xp[erience] [orb]"
 			).description(
 				"Called whenever experience is about to spawn.",
-				"Please note that this event will not fire for xp orbs spawned by plugins (including Skript) with Bukkit."
+				"Please note dat dis event will not fire for xp orbs spawned by plugins (including Skript) with Bukkit."
 			).examples(
 				"on xp spawn:",
 				"\tworld is \"minigame_world\"",

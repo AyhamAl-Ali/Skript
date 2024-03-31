@@ -45,7 +45,7 @@ import org.eclipse.jdt.annotation.Nullable;
 )
 @Examples({
 	"set {_entity} to a random entity out of all entities",
-	"delete entity within {_entity} # This deletes the entity itself and not the value stored in the variable",
+	"delete entity within {_entity} # dis deletes the entity itself and not the value stored in the variable",
 	"",
 	"set {_list::*} to \"something\", 10, \"test\" and a zombie",
 	"broadcast the strings within {_list::*} # \"something\", \"test\""

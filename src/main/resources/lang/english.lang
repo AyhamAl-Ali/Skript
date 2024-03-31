@@ -8,183 +8,183 @@ none: <none>
 
 # -- Skript --
 skript:
-	copyright: ~ created by & © Peter Güttinger aka Njol ~
-	prefix: <gray>[<gold>Skript<gray>] <reset>
-	quotes error: Invalid use of quotes ("). If you want to use quotes in "quoted text", double them: "".
-	brackets error: Invalid amount or placement of brackets. Please make sure that each opening bracket has a corresponding closing bracket.
-	invalid reload: Skript may only be reloaded by either Bukkit's '/reload' or Skript's '/skript reload' command.
-	no scripts: No scripts were found, maybe you should write some ;)
-	no errors: All scripts loaded without errors.
-	scripts loaded: Loaded %s script¦¦s¦ with a total of %s structure¦¦s¦ in %s
-	finished loading: Finished loading.
+	copyright: ~ cweated by & © Petew Güttingew aka Njow ~
+	prefix: <gway>[<gowd>Skwipt<gway>] <weset>
+	quotes error: Invawid use of quotes ("). If you want to use quotes in "quoted text", doubwe them: "".
+	brackets error: Invawid amount ow pwacement of bwackets. Pwease make suwe that each opening bwacket has a cowwesponding cwosing bwacket.
+	invalid reload: Skwipt may onwy be wewoaded by eithew Bukkit's '/wewoad' ow Skwipt's '/skwipt wewoad' command.
+	no scripts: No scwipts wewe found, maybe you shouwd wwite some ;)
+	no errors: Aww scwipts woaded without ewwows.
+	scripts loaded: woaded %s scwipt¦¦s¦ with a totaw of %s stwuctuwe¦¦s¦ in %s
+	finished loading: Finished woading.
 
 # -- Skript command --
 skript command:
 	usage: Usage:
 	help:
-		description: Skript's main command
-		help: Prints this help message. Use '/skript reload/enable/disable/update' to get more info
+		description: Skwipt's main command
+		help: Pwints this hewp message. Use '/skwipt wewoad/enabwe/disabwe/update' to get mowe info
 		reload:
-			description: Reloads a specific script, all scripts, the config, or everything
-			all: Reloads the config, all aliases configs and all scripts
-			config: Reloads the main config
-			aliases: Reloads the aliases configs (aliases-english.zip or plugin jar)
-			scripts: Reloads all scripts
-			<script>: Reloads a specific script or a folder of scripts
+			description: Rewoads a specific scwipt, aww scwipts, the config, ow evewything
+			all: Rewoads the config, aww awiases configs and aww scwipts
+			config: Rewoads the main config
+			aliases: Rewoads the awiases configs (awiases-engwish.zip ow pwugin jaw)
+			scripts: Rewoads aww scwipts
+			<scwipt>: Rewoads a specific scwipt ow a fowdew of scwipts
 		enable:
-			description: Enables all scripts or a specific one
-			all: Enables all scripts
-			<script>: Enables a specific script or a folder of scripts
+			description: Enabwes aww scwipts ow a specific one
+			all: Enabwes aww scwipts
+			<scwipt>: Enabwes a specific scwipt ow a fowdew of scwipts
 		disable:
-			description: Disables all scripts or a specific one
-			all: Disables all scripts
-			<script>: Disables a specific script or a folder of scripts
+			description: Disabwes aww scwipts ow a specific one
+			all: Disabwes aww scwipts
+			<scwipt>: Disabwes a specific scwipt ow a fowdew of scwipts
 		update:
-			description: Check for updates, read the changelog, or download the latest version of Skript
-			check: Checks for a new version
-			changes: Lists all changes since the current version
-			download: Download the newest version
-		info: Prints a message with links to Skript's aliases and documentation
-		gen-docs: Generates documentation using docs/templates in plugin folder
-		test: Used for running internal Skript tests
+			description: Check fow updates, wead the changewog, ow downwoad the watest vewsion of Skwipt
+			check: Checks fow a new vewsion
+			changes: Lists aww changes since the cuwwent vewsion
+			download: Downwoad the newest vewsion
+		info: Pwints a message with winks to Skwipt's awiases and documentation
+		gen-docs: Genewates documentation using docs/tempwates in pwugin fowdew
+		test: Used fow wunning intewnaw Skwipt tests
 
-	invalid script: Can't find the script <grey>'<gold>%s<grey>'<red> in the scripts folder!
-	invalid folder: Can't find the folder <grey>'<gold>%s<grey>'<red> in the scripts folder!
+	invalid script: Can't find the scwipt <gwey>'<gowd>%s<gwey>'<wed> in the scwipts fowdew!
+	invalid folder: Can't find the fowdew <gwey>'<gowd>%s<gwey>'<wed> in the scwipts fowdew!
 	reload:
-		warning line info: <gold><bold>Line %s:<gray> (%s)<reset>\n
-		error line info: <light red><bold>Line %s:<gray> (%s)<reset>\n
-		reloading: Reloading <gold>%s<reset>...
-		reloaded: <lime>Successfully reloaded <gold>%s<lime>. <gray>(<gold>%2$sms<gray>)
-		error: <light red>Encountered <gold>%2$s <light red>error¦¦s¦ while reloading <gold>%1$s<light red>! <gray>(<gold>%3$sms<gray>)
-		script disabled: <gold>%s<reset> is currently disabled. Use <gray>/<gold>skript <cyan>enable <red>%s<reset> to enable it.
-		warning details: <yellow>    %s<reset>\n
-		error details: <light red>    %s<reset>\n
-		other details: <white>    %s<reset>\n
-		line details: <gold>    Line: <gray>%s<reset>\n <reset>
+		warning line info: <gowd><bowd>Wine %s:<gway> (%s)<weset>\n
+		error line info: <wight wed><bowd>Wine %s:<gway> (%s)<weset>\n
+		reloading: Rewoading <gowd>%s<weset>...
+		reloaded: <wime>Successfuwwy wewoaded <gowd>%s<wime>. <gway>(<gowd>%2$sms<gway>)
+		error: <wight wed>Encountewed <gowd>%2$s <wight wed>ewwow¦¦s¦ whiwe wewoading <gowd>%1$s<wight wed>! <gway>(<gowd>%3$sms<gway>)
+		script disabled: <gowd>%s<weset> is cuwwentwy disabwed. Use <gway>/<gowd>skwipt <cyan>enabwe <wed>%s<weset> to enabwe it.
+		warning details: <yewwow>    %s<weset>\n
+		error details: <wight wed>    %s<weset>\n
+		other details: <white>    %s<weset>\n
+		line details: <gowd>    Wine: <gway>%s<weset>\n <weset>
 
-		config, aliases and scripts: the config, aliases and all scripts
-		scripts: all scripts
-		main config: the main configuration
-		aliases: the aliases
-		script: <gold>%s<reset>
-		scripts in folder: all scripts in <gold>%s<reset>
-		x scripts in folder: <gold>%2$s <lime>script¦¦s¦ in <gold>%1$s<reset>
-		empty folder: <gold>%s<reset> does not contain any enabled scripts.
+		config, aliases and scripts: the config, awiases and aww scwipts
+		scripts: aww scwipts
+		main config: the main configuwation
+		aliases: the awiases
+		script: <gowd>%s<weset>
+		scripts in folder: aww scwipts in <gowd>%s<weset>
+		x scripts in folder: <gowd>%2$s <wime>scwipt¦¦s¦ in <gowd>%1$s<weset>
+		empty folder: <gowd>%s<weset> does not contain any enabwed scwipts.
 	enable:
 		all:
-			enabling: Enabling all disabled scripts...
-			enabled: Successfully enabled & parsed all previously disabled scripts.
-			error: Encountered %s error¦¦s¦ while parsing disabled scripts!
-			io error: Could not load one or more scripts - some scripts might have been renamed already and will be enabled when the server restarts: %s
+			enabling: Enabwing aww disabwed scwipts...
+			enabled: Successfuwwy enabwed & pawsed aww pweviouswy disabwed scwipts.
+			error: Encountewed %s ewwow¦¦s¦ whiwe pawsing disabwed scwipts!
+			io error: Couwd not woad one ow mowe scwipts - some scwipts might have been wenamed awweady and wiww be enabwed when the sewvew westawts: %s
 		single:
-			already enabled: <gold>%s<reset> is already enabled! Use <gray>/<gold>skript <cyan>reload <red>%s<reset> to reload it if it was changed.
-			enabling: Enabling <gold>%s<reset>...
-			enabled: Successfully enabled & parsed <gold>%s<reset>.
-			error: Encountered %2$s error¦¦s¦ while parsing <gold>%1$s<red>!
-			io error: Could not enable <gold>%s<red>: %s
+			already enabled: <gowd>%s<weset> is awweady enabwed! Use <gway>/<gowd>skwipt <cyan>wewoad <wed>%s<weset> to wewoad it if it was changed.
+			enabling: Enabwing <gowd>%s<weset>...
+			enabled: Successfuwwy enabwed & pawsed <gowd>%s<weset>.
+			error: Encountewed %2$s ewwow¦¦s¦ whiwe pawsing <gowd>%1$s<wed>!
+			io error: Couwd not enabwe <gowd>%s<wed>: %s
 		folder:
-			empty: <gold>%s<reset> does not contain any disabled scripts.
-			enabling: Enabling <gold>%2$s <reset>script¦¦s¦ in <gold>%1$s<reset>...
-			enabled: Successfully enabled & parsed <gold>%2$s<reset> previously disabled scripts in <gold>%1$s<reset>.
-			error: Encountered %2$s error¦¦s¦ while parsing scripts in <gold>%1$s<red>!
-			io error: Error while enabling one or more scripts in <gold>%s<red> (some scripts might get enabled when the server restarts): %s
+			empty: <gowd>%s<weset> does not contain any disabwed scwipts.
+			enabling: Enabwing <gowd>%2$s <weset>scwipt¦¦s¦ in <gowd>%1$s<weset>...
+			enabled: Successfuwwy enabwed & pawsed <gowd>%2$s<weset> pweviouswy disabwed scwipts in <gowd>%1$s<weset>.
+			error: Encountewed %2$s ewwow¦¦s¦ whiwe pawsing scwipts in <gowd>%1$s<wed>!
+			io error: Ewwow whiwe enabwing one ow mowe scwipts in <gowd>%s<wed> (some scwipts might get enabwed when the sewvew westawts): %s
 	disable:
 		all:
-			disabled: Successfully disabled all scripts.
-			io error: Could not rename one or more scripts - some scripts might have been renamed already and will be disabled when the server restarts: %s
+			disabled: Successfuwwy disabwed aww scwipts.
+			io error: Couwd not wename one ow mowe scwipts - some scwipts might have been wenamed awweady and wiww be disabwed when the sewvew westawts: %s
 		single:
-			already disabled: <gold>%s<reset> is already disabled!
-			disabled: Successfully disabled <gold>%s<reset>.
-			io error: Could not rename <gold>%s<red>, it will be enabled again when you restart the server: %s
+			already disabled: <gowd>%s<weset> is awweady disabwed!
+			disabled: Successfuwwy disabwed <gowd>%s<weset>.
+			io error: Couwd not wename <gowd>%s<wed>, it wiww be enabwed again when you westawt the sewvew: %s
 		folder:
-			empty: <gold>%s<reset> does not contain any enabled scripts.
-			disabled: Successfully disabled <gold>%2$s<reset> script(s) in <gold>%1$s<reset>.
-			io error: Could not disable one or more scripts in <gold>%s<red> (some scripts might get disabled when the server restarts): %s
+			empty: <gowd>%s<weset> does not contain any enabwed scwipts.
+			disabled: Successfuwwy disabwed <gowd>%2$s<weset> scwipt(s) in <gowd>%1$s<weset>.
+			io error: Couwd not disabwe one ow mowe scwipts in <gowd>%s<wed> (some scwipts might get disabwed when the sewvew westawts): %s
 	update:
-		# check/download: see Updater
+		# check/download: see Updatew
 		changes:
 			# multiple versions:
-			# 	title: <gold>%s<r> update¦ has¦s have¦ been released since this version (<gold>%s<r>) of Skript:
-			# 	footer: To show the changelog of a version type <gold>/skript update changes <version><reset>
-			# invalid version: No changelog for the version <gold>%s<red> available
-			title: <bold><cyan>%s<reset> (%s)
-			next page: <grey>page %s of %s. Type <gold>/skript update changes %s<gray> for the next page (hint: use the up arrow key)
+			# 	title: <gowd>%s<w> update¦ has¦s have¦ been weweased since this vewsion (<gowd>%s<w>) of Skwipt:
+			# 	footer: To show the changewog of a vewsion type <gowd>/skwipt update changes <vewsion><weset>
+			# invalid version: No changewog fow the vewsion <gowd>%s<wed> avaiwabwe
+			title: <bowd><cyan>%s<weset> (%s)
+			next page: <gwey>page %s of %s. Type <gowd>/skwipt update changes %s<gway> fow the next page (hint: use the up awwow key)
 	info:
-		aliases: Skript's aliases can be found here: <aqua>https://github.com/SkriptLang/skript-aliases
-		documentation: Skript's documentation can be found here: <aqua>https://docs.skriptlang.org/
-		tutorials: Skript's tutorials can be found here: <aqua>https://docs.skriptlang.org/tutorials
-		version: Skript Version: <aqua>%s
-		server: Server Version: <aqua>%s
-		addons: Installed Skript Addons: <aqua>%s
-		dependencies: Installed dependencies: <aqua>%s
+		aliases: Skwipt's awiases can be found hewe: <aqua>https://github.com/SkriptLang/skript-aliases
+		documentation: Skwipt's documentation can be found hewe: <aqua>https://docs.skriptlang.org/
+		tutorials: Skwipt's tutowiaws can be found hewe: <aqua>https://docs.skriptlang.org/tutorials
+		version: Skwipt Vewsion: <aqua>%s
+		server: Sewvew Vewsion: <aqua>%s
+		addons: Instawwed Skwipt Addons: <aqua>%s
+		dependencies: Instawwed dependencies: <aqua>%s
 
 # -- Updater --
 updater:
-	not started: Skript has not yet checked for the latest version. Use <gold>/skript update check<reset> to do so.
-	checking: Checking for the latest version of Skript...
-	check in progress: Checking for a new version is currently in progress.
-	updater disabled: The updater is disabled, so a check for the latest version of Skript was not performed.
-	check error: <red>There was an error checking for the latest version of Skript:<light red> %s
-	running latest version: You're currently running the latest stable version of Skript.
-	running latest version (beta): You're currently running a <i>beta<r> version of Skript, and no new <i>stable<r> version is available. Please note that you have to update to newer beta versions manually!
-	update available: A new version of Skript is available: <gold>%s<reset> (you're currently running <gold>%s<reset>)
-	downloading: Downloading Skript <gold>%s<reset>...
-	download in progress: The latest version of Skript is currently being downloaded.
-	download error: <red>There was an error downloading the latest version of Skript:<light red> %s
-	downloaded: The latest version of Skript has been downloaded! Restart the server or use /reload to apply the changes.
-	internal error: An internal error occurred while checking for the latest version of Skript. Please refer to the server log for details.
-	custom version: You're currently running a custom Skript version. No updates will be automatically installed.
-	nightly build: You're currently running a development build of Skript. No updates will be automatically installed.
+	not started: Skwipt has not yet checked fow the watest vewsion. Use <gowd>/skwipt update check<weset> to do so.
+	checking: Checking fow the watest vewsion of Skwipt...
+	check in progress: Checking fow a new vewsion is cuwwentwy in pwogwess.
+	updater disabled: The updatew is disabwed, so a check fow the watest vewsion of Skwipt was not pewfowmed.
+	check error: <wed>Thewe was an ewwow checking fow the watest vewsion of Skwipt:<wight wed> %s
+	running latest version: You'we cuwwentwy wunning the watest stabwe vewsion of Skwipt.
+	running latest version (beta): You'we cuwwentwy wunning a <i>beta<w> vewsion of Skwipt, and no new <i>stabwe<w> vewsion is avaiwabwe. Pwease note that you have to update to newew beta vewsions manuawwy!
+	update available: A new vewsion of Skwipt is avaiwabwe: <gowd>%s<weset> (you'we cuwwentwy wunning <gowd>%s<weset>)
+	downloading: Downwoading Skwipt <gowd>%s<weset>...
+	download in progress: The watest vewsion of Skwipt is cuwwentwy being downwoaded.
+	download error: <wed>Thewe was an ewwow downwoading the watest vewsion of Skwipt:<wight wed> %s
+	downloaded: The watest vewsion of Skwipt has been downwoaded! Restawt the sewvew ow use /wewoad to appwy the changes.
+	internal error: An intewnaw ewwow occuwwed whiwe checking fow the watest vewsion of Skwipt. Pwease wefew to the sewvew wog fow detaiws.
+	custom version: You'we cuwwentwy wunning a custom Skwipt vewsion. No updates wiww be automaticawwy instawwed.
+	nightly build: You'we cuwwentwy wunning a devewopment buiwd of Skwipt. No updates wiww be automaticawwy instawwed.
 
 # -- Commands --
 commands:
-	no permission message: You don't have the required permission to use this command
-	cooldown message: You are using this command too often, please try again later
-	executable by players: This command can only be used by players
-	executable by console: This command can only be used by the console
-	correct usage: Correct usage:
-	invalid argument: Invalid argument <gray>'%s<gray>'<reset>. Allowed are:
-	too many arguments: This command can only accept a single %2$s.
-	internal error: An internal error occurred while attempting to perform this command.
-	no player starts with: There is no player online whose name starts with '%s'
-	multiple players start with: There are several players online whose names start with '%s'
+	no permission message: You don't have the wequiwed pewmission to use this command
+	cooldown message: You awe using this command too often, pwease twy again watew
+	executable by players: This command can onwy be used by pwayews
+	executable by console: This command can onwy be used by the consowe
+	correct usage: Cowwect usage:
+	invalid argument: Invawid awgument <gway>'%s<gway>'<weset>. Awwowed awe:
+	too many arguments: This command can onwy accept a singwe %2$s.
+	internal error: An intewnaw ewwow occuwwed whiwe attempting to pewfowm this command.
+	no player starts with: Thewe is no pwayew onwine whose name stawts with '%s'
+	multiple players start with: Thewe awe sevewaw pwayews onwine whose names stawt with '%s'
 
 # -- Hooks --
 hooks:
-	hooked: Successfully hooked into %s
-	error: Could not hook into %1$s. This can happen if Skript doesn't support the installed version of %1$s
+	hooked: Successfuwwy hooked into %s
+	error: Couwd not hook into %1$s. This can happen if Skwipt doesn't suppowt the instawwed vewsion of %1$s
 
 # -- Aliases --
 aliases:
 	# Errors and warnings
 	empty string: '' is not an item type
 	invalid item type: '%s' is not an item type
-	empty name: An alias must have name
-	brackets error: Invalid use of brackets
-	not enough brackets: Section starting at character %s ('%s') must be closed
-	too many brackets: Character %s ('%s') closes a nonexistent section
-	unknown variation: The variation %s has not been defined before
-	missing aliases: Following Minecraft ids do not have any aliases:
-	empty alias: Alias has no Minecraft id or tags defined
-	invalid minecraft id: Minecraft id %s is not valid
-	useless variation: Variation has no Minecraft id or tags specified, so it is useless
-	invalid tags: Specified tags are not defined in valid JSON
-	unexpected section: Sections are not allowed here
-	invalid variation section: A section should be variation section, but %s is not valid variation name
-	outside section: Aliases must be put in sections
+	empty name: An awias must have name
+	brackets error: Invawid use of bwackets
+	not enough brackets: Section stawting at chawactew %s ('%s') must be cwosed
+	too many brackets: Chawactew %s ('%s') cwoses a nonexistent section
+	unknown variation: The vawiation %s has not been defined befowe
+	missing aliases: Fowwowing Minecwaft ids do not have any awiases:
+	empty alias: Awias has no Minecwaft id ow tags defined
+	invalid minecraft id: Minecwaft id %s is not vawid
+	useless variation: Vawiation has no Minecwaft id ow tags specified, so it is usewess
+	invalid tags: Specified tags awe not defined in vawid JSON
+	unexpected section: Sections awe not awwowed hewe
+	invalid variation section: A section shouwd be vawiation section, but %s is not vawid vawiation name
+	outside section: Awiases must be put in sections
 
 	# Other messages
-	loaded x aliases from: Loaded %s english aliases from %s
-	loaded x aliases: Loaded a total of %s english aliases
+	loaded x aliases from: Loaded %s engwish awiases fwom %s
+	loaded x aliases: Loaded a totaw of %s engwish awiases
 
 # -- Time --
 time:
 	errors:
-		24 hours: A day only has 24 hours
-		12 hours: Using 12-hour format does not allow more than 12 hours
-		60 minutes: An hour only has 60 minutes
+		24 hours: A day onwy has 24 houws
+		12 hours: Using 12-houw fowmat does not awwow mowe than 12 houws
+		60 minutes: An houw onwy has 60 minutes
 
 # -- IO Exceptions --
 io exceptions:
 	unknownhostexception: Cannot connect to %s
-	accessdeniedexception: Access denied for %s
+	accessdeniedexception: Access denied fow %s

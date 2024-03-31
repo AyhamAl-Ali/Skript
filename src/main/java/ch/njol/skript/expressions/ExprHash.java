@@ -41,9 +41,9 @@ import ch.njol.util.Kleenean;
 @Description({"Hashes the given text using the MD5 or SHA-256 algorithms. Each algorithm is suitable for different use cases.<p>",
 		"MD5 is provided mostly for backwards compatibility, as it is outdated and not secure. ",
 		"SHA-256 is more secure, and can used to hash somewhat confidental data like IP addresses and even passwords. ",
-		"It is not <i>that</i> secure out of the box, so please consider using salt when dealing with passwords! ",
-		"When hashing data, you <strong>must</strong> specify algorithms that will be used for security reasons! ",
-		"<p>Please note that a hash cannot be reversed under normal circumstanses. You will not be able to get original value from a hash with Skript."})
+		"It is not <i>dat</i> secure out of the box, so please consider using salt when dealing with passwords! ",
+		"When hashing data, you <strong>must</strong> specify algorithms dat will be used for security reasons! ",
+		"<p>Please note dat a hash cannot be reversed under normal circumstanses. You will not be able to get original value from a hash with Skript."})
 @Examples({
 		"command /setpass &lt;text&gt;:",
 		"\ttrigger:",

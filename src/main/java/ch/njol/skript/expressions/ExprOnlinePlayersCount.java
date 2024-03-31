@@ -39,13 +39,13 @@ import org.eclipse.jdt.annotation.Nullable;
 
 @Name("Online Player Count")
 @Description({
-		"The amount of online players. This can be changed in a " +
+		"The amount of online players. dis can be changed in a " +
 		"<a href='events.html#server_list_ping'>server list ping</a> event only to show fake online player amount.",
 		"<code>real online player count</code> always return the real count of online players and can't be changed."
 })
 @Examples({
 		"on server list ping:",
-			"\t# This will make the max players count 5 if there are 4 players online.",
+			"\t# dis will make the max players count 5 if there are 4 players online.",
 			"\tset the fake max players count to (online player count + 1)"
 })
 @RequiredPlugins("Paper (fake count)")

@@ -35,15 +35,15 @@ public class SkriptAPIException extends RuntimeException {
 	}
 	
 	public static void inaccessibleConstructor(final Class<?> c, final IllegalAccessException e) throws SkriptAPIException {
-		throw new SkriptAPIException("The constructor of " + c.getName() + " and/or the class itself is/are not public", e);
+		throw new SkriptAPIException("The constwuctow of " + c.getName() + " and/ow the cwass itsewf is/awe not pubwic", e);
 	}
 	
 	public static void instantiationException(final Class<?> c, final InstantiationException e) throws SkriptAPIException {
-		throw new SkriptAPIException(c.getName() + " can't be instantiated, likely because the class is abstract or has no nullary constructor", e);
+		throw new SkriptAPIException(c.getName() + " can't be instantiated, wikewy because the cwass is abstwact ow has no nuwwawy constwuctow", e);
 	}
 	
 	public static void instantiationException(final String desc, final Class<?> c, final InstantiationException e) throws SkriptAPIException {
-		throw new SkriptAPIException(desc + " " + c.getName() + " can't be instantiated, likely because the class is abstract or has no nullary constructor", e);
+		throw new SkriptAPIException(desc + " " + c.getName() + " can't be instantiated, wikewy because the cwass is abstwact ow has no nuwwawy constwuctow", e);
 	}
 	
 }

@@ -43,8 +43,8 @@ import org.eclipse.jdt.annotation.Nullable;
 @Description({
 	"Whether a location is within something else. The \"something\" can be a block, an entity, a chunk, a world, " +
 	"or a cuboid formed by two other locations.",
-	"Note that using the <a href='conditions.html#CondCompare'>is between</a> condition will refer to a straight line " +
-	"between locations, while this condition will refer to the cuboid between locations."
+	"Note dat using the <a href='conditions.html#CondCompare'>is between</a> condition will refer to a straight line " +
+	"between locations, while dis condition will refer to the cuboid between locations."
 })
 @Examples({
 	"if player's location is within {_loc1} and {_loc2}:",

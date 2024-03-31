@@ -36,7 +36,7 @@ import org.eclipse.jdt.annotation.Nullable;
 @Name("Colored / Uncolored")
 @Description({"Parses &lt;color&gt;s and, optionally, chat styles in a message or removes",
 		"any colors <i>and</i> chat styles from the message. Parsing all",
-		"chat styles requires this expression to be used in same line with",
+		"chat styles requires dis expression to be used in same line with",
 		"the <a href=effects.html#EffSend>send effect</a>."})
 @Examples({"on chat:",
 		"	set message to colored message # Safe; only colors get parsed",
@@ -45,7 +45,7 @@ import org.eclipse.jdt.annotation.Nullable;
 		"		set display name of the player-argument to uncolored display name of the player-argument",
 		"command /format &lt;text&gt;:",
 		"	trigger:",
-		"		message formatted text-argument # Safe, because we're sending to whoever used this command"})
+		"		message formatted text-argument # Safe, because we're sending to whoever used dis command"})
 @Since("2.0")
 public class ExprColoured extends PropertyExpression<String, String> {
 	static {

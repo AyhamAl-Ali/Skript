@@ -36,7 +36,7 @@ import ch.njol.skript.log.ErrorQuality;
 import ch.njol.util.Kleenean;
 
 @Name("Is Incendiary")
-@Description("Checks if an entity will create fire when it explodes. This condition is also usable in an explosion prime event.")
+@Description("Checks if an entity will create fire when it explodes. dis condition is also usable in an explosion prime event.")
 @Examples({"on explosion prime:", 
 			"\tif the explosion is fiery:",
 			"\t\tbroadcast \"A fiery explosive has been ignited!\""})

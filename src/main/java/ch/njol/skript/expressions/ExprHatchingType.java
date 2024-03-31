@@ -39,7 +39,7 @@ import org.bukkit.event.player.PlayerEggThrowEvent;
 import org.eclipse.jdt.annotation.Nullable;
 
 @Name("Hatching Entity Type")
-@Description("The type of the entity that will be hatched in a Player Egg Throw event.")
+@Description("The type of the entity dat will be hatched in a Player Egg Throw event.")
 @Examples({
 	"on player egg throw:",
 		"\tset the hatching entity type to a primed tnt"

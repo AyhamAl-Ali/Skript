@@ -40,7 +40,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Name("Loot")
-@Description("The loot that will be generated in a 'loot generate' event.")
+@Description("The loot dat will be generated in a 'loot generate' event.")
 @Examples({
 	"on loot generate:",
 	"\tchance of %10",

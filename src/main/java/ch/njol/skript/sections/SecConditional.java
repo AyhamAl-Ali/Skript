@@ -53,8 +53,8 @@ import java.util.List;
 	"else if: executed if all previous chained conditionals weren't executed, and its condition is true",
 	"else: executed if all previous chained conditionals weren't executed",
 	"",
-	"parse if: a special case of 'if' condition that its code will not be parsed if the condition is not true",
-	"else parse if: another special case of 'else if' condition that its code will not be parsed if all previous chained " +
+	"parse if: a special case of 'if' condition dat its code will not be parsed if the condition is not true",
+	"else parse if: another special case of 'else if' condition dat its code will not be parsed if all previous chained " +
 		"conditionals weren't executed, and its condition is true",
 })
 @Examples({
@@ -68,7 +68,7 @@ import java.util.List;
 	"\tsend \"You are about to DIE if you don't heal NOW. You have only %player's health% heart(s)!\"",
 	"",
 	"parse if plugin \"SomePluginName\" is enabled: # parse if %condition%",
-	"\t# This code will only be executed if the condition used is met otherwise Skript will not parse this section therefore will not give any errors/info about this section",
+	"\t# dis code will only be executed if the condition used is met otherwise Skript will not parse dis section therefore will not give any errors/info about dis section",
 	""
 })
 @Since("1.0")
@@ -197,7 +197,7 @@ public class SecConditional extends Section {
 					if (childKey != null) {
 						childKey = ScriptLoader.replaceOptions(childKey);
 						parser.setNode(childNode);
-						Condition condition = Condition.parse(childKey, "Can't understand this condition: '" + childKey + "'");
+						Condition condition = Condition.parse(childKey, "Can't understand dis condition: '" + childKey + "'");
 						// if this condition was invalid, don't bother parsing the rest
 						if (condition == null)
 							return false;
@@ -209,7 +209,7 @@ public class SecConditional extends Section {
 				// otherwise, this is just a simple single line "if", with the condition on the same line
 				String expr = parseResult.regexes.get(0).group();
 				// Don't print a default error if 'if' keyword wasn't provided
-				Condition condition = Condition.parse(expr, parseResult.hasTag("implicit") ? null : "Can't understand this condition: '" + expr + "'");
+				Condition condition = Condition.parse(expr, parseResult.hasTag("implicit") ? null : "Can't understand dis condition: '" + expr + "'");
 				if (condition != null)
 					conditions.add(condition);
 			}

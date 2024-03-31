@@ -36,15 +36,15 @@ import ch.njol.skript.expressions.base.SimplePropertyExpression;
  */
 @Name("UUID")
 @Description({"The UUID of a player, entity or world.",
-		"In the future there will be an option to use a player's UUID instead of the name in variable names (i.e. when %player% is used), but for now this can be used.",
-		"<em>Please note that this expression does not work for offline players if you are under 1.8!</em>"}) 
+		"In the future there will be an option to use a player's UUID instead of the name in variable names (i.e. when %player% is used), but for now dis can be used.",
+		"<em>Please note dat dis expression does not work for offline players if you are under 1.8!</em>"}) 
 // TODO [UUID] update documentation after release. Add note about requiring Bukkit 1.7.(9/10)?
 @Examples({"# prevents people from joining the server if they use the name of a player",
-		"# who has played on this server at least once since this script has been added",
+		"# who has played on dis server at least once since dis script has been added",
 		"on login:",
 		"	if {uuid::%name of player%} exists:",
 		"		{uuid::%name of player%} is not uuid of player",
-		"		kick player due to \"Someone with your name has played on this server before\"",
+		"		kick player due to \"Someone with your name has played on dis server before\"",
 		"	else:",
 		"		set {uuid::%name of player%} to uuid of player"})
 @Since("2.1.2, 2.2 (offline players' UUIDs), 2.2-dev24 (other entities' UUIDs)")

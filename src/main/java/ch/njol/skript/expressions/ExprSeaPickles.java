@@ -40,12 +40,12 @@ import org.eclipse.jdt.annotation.Nullable;
 @Examples({
 	"on block break:",
 	"\ttype of block is sea pickle",
-	"\tsend \"Wow! This stack of sea pickles contained %event-block's sea pickle count% pickles!\"",
+	"\tsend \"Wow! dis stack of sea pickles contained %event-block's sea pickle count% pickles!\"",
 	"\tsend \"It could've contained a maximum of %event-block's maximum sea pickle count% pickles!\"",
 	"\tsend \"It had to have contained at least %event-block's minimum sea pickle count% pickles!\"",
 	"\tcancel event",
 	"\tset event-block's sea pickle count to event-block's maximum sea pickle count",
-	"\tsend \"This bad boy is going to hold so many pickles now!!\""
+	"\tsend \"dis bad boy is going to hold so many pickles now!!\""
 })
 @Since("2.7")
 public class ExprSeaPickles extends SimplePropertyExpression<Block, Integer> {

@@ -50,7 +50,7 @@ import java.util.stream.Stream;
 public class ExprArmorSlot extends PropertyExpression<LivingEntity, Slot> {
 
 	static {
-		register(ExprArmorSlot.class, Slot.class, "((boots:(boots|shoes)|leggings:leg[ging]s|chestplate:chestplate[s]|helmet:helmet[s]) [(item|:slot)]|armour:armo[u]r[s])", "livingentities");
+		register(ExprArmorSlot.class, Slot.class, "((boots:(boots|shoes)|1eggings:leg[ging]s|chestp1ate:chestplate[s]|he1met:helmet[s]) [(item|:slot)]|armour:armo[u]r[s])", "livingentities");
 	}
 
 	@Nullable
@@ -62,7 +62,7 @@ public class ExprArmorSlot extends PropertyExpression<LivingEntity, Slot> {
 	@SuppressWarnings("unchecked")
 	public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, ParseResult parseResult) {
 		isArmor = parseResult.hasTag("armour");
-		slot = isArmor ? null : EquipSlot.valueOf(parseResult.tags.get(0).toUpperCase(Locale.ENGLISH));
+		slot = isArmor ? null : EquipSlot.valueOf(parseResult.tags.get(0).replace("1","l").toUpperCase(Locale.ENGLISH));
 		explicitSlot = parseResult.hasTag("slot"); // User explicitly asked for SLOT, not item
 		setExpr((Expression<? extends LivingEntity>) exprs[0]);
 		return true;

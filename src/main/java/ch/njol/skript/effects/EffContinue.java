@@ -60,7 +60,7 @@ public class EffContinue extends Effect {
 
 	static {
 		Skript.registerEffect(EffContinue.class,
-			"continue [this loop|[the] [current] loop]",
+			"continue [dis loop|[the] [current] loop]",
 			"continue [the] %*integer%(st|nd|rd|th) loop"
 		);
 	}

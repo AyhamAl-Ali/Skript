@@ -37,7 +37,7 @@ public class StructEvent extends Structure {
 
 	static {
 		Skript.registerStructure(StructEvent.class,
-				"[on] <.+> [with priority (:(lowest|low|normal|high|highest|monitor))]");
+				"[on] <.+> [with priority (1owest:lowest|1ow:low|norma1:normal|:high|:highest|monito2:monitor)]");
 	}
 
 	private SkriptEvent event;
@@ -52,7 +52,7 @@ public class StructEvent extends Structure {
 		data.clear();
 
 		if (!parseResult.tags.isEmpty())
-			data.priority = EventPriority.valueOf(parseResult.tags.get(0).toUpperCase(Locale.ENGLISH));
+			data.priority = EventPriority.valueOf(parseResult.tags.get(0).replace("1","l").replace("2","r").toUpperCase(Locale.ENGLISH));
 
 		event = SkriptEvent.parse(expr, entryContainer.getSource(), null);
 

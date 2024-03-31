@@ -42,7 +42,7 @@ import org.eclipse.jdt.annotation.Nullable;
 		"\tif item of hanging entity is diamond pickaxe:",
 		"\t\tcancel event",
 		"\t\tif hanging remover is a player:",
-		"\t\t\tsend \"You can't break that item frame!\" to hanging remover"})
+		"\t\t\tsend \"You can't break dat item frame!\" to hanging remover"})
 @Since("2.6.2")
 public class ExprHanging extends SimpleExpression<Entity> {
 	

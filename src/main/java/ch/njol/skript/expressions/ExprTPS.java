@@ -36,7 +36,7 @@ import org.eclipse.jdt.annotation.Nullable;
 
 @Name("TPS (ticks per second)")
 @Description("Returns the 3 most recent TPS readings, like the /tps command. " +
-			"This expression is only supported on some server software (PaperSpigot).")
+			"dis expression is only supported on some server software (PaperSpigot).")
 @Examples("broadcast \"%tps%\"")
 @Since("2.2-dev36")
 public class ExprTPS extends SimpleExpression<Number> {
@@ -56,7 +56,7 @@ public class ExprTPS extends SimpleExpression<Number> {
 	@Override
 	public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
 		if (!SUPPORTED) {
-			Skript.error("The TPS expression is not supported on this server software");
+			Skript.error("The TPS expression is not supported on dis server software");
 			return false;
 		}
 		expr = parseResult.expr;

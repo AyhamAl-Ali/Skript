@@ -43,7 +43,7 @@ public class EvtEntityBlockChange extends SkriptEvent {
 				.description(
 						"Called when an enderman places or picks up a block, a sheep eats grass, " +
 						"a silverfish boops into/out of a block or a falling block lands and turns into a block respectively.",
-						"event-block represents the old block and event-blockdata represents the new replacement that'll be applied to the block."
+						"event-block represents the old block and event-blockdata represents the new replacement dat'll be applied to the block."
 				)
 				.examples(
 						"on sheep eat:",

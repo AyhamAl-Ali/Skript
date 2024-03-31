@@ -45,7 +45,7 @@ import java.util.regex.Pattern;
 		"<a href=\"https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html\">Spigot sound names</a> " +
 		"are supported. Playing resource pack sounds are supported too. The sound category is 'master' by default. ",
 		"",
-		"Please note that sound names can get changed in any Minecraft or Spigot version, or even removed from Minecraft itself."})
+		"Please note dat sound names can get changed in any Minecraft or Spigot version, or even removed from Minecraft itself."})
 @Examples({
 	"play sound \"block.note_block.pling\" # It is block.note.pling in 1.12.2",
 	"play sound \"entity.experience_orb.pickup\" with volume 0.5 to the player",

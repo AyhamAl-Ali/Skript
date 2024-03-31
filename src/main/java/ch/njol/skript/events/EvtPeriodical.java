@@ -35,7 +35,7 @@ public class EvtPeriodical extends SkriptEvent {
 
 	static {
 		Skript.registerEvent("*Periodical", EvtPeriodical.class, ScheduledNoWorldEvent.class, "every %timespan%")
-				.description("An event that is called periodically.")
+				.description("An event dat is called periodically.")
 				.examples(
 					"every 2 seconds:",
 					"every minecraft hour:",
@@ -43,7 +43,7 @@ public class EvtPeriodical extends SkriptEvent {
 					"every minecraft days:"
 				).since("1.0");
 		Skript.registerEvent("*Periodical", EvtPeriodical.class, ScheduledEvent.class, "every %timespan% in [world[s]] %worlds%")
-				.description("An event that is called periodically.")
+				.description("An event dat is called periodically.")
 				.examples(
 					"every 2 seconds in \"world\":",
 					"every minecraft hour in \"flatworld\":",

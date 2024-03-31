@@ -45,7 +45,7 @@ public class JavaClasses {
 		Classes.registerClass(new ClassInfo<>(Object.class, "object")
 				.user("objects?")
 				.name("Object")
-				.description("The supertype of all types, meaning that if %object% is used in e.g. a condition it will accept all kinds of expressions.")
+				.description("The supertype of all types, meaning dat if %object% is used in e.g. a condition it will accept all kinds of expressions.")
 				.usage("")
 				.examples("")
 				.since("1.0"));
@@ -54,7 +54,7 @@ public class JavaClasses {
 				.user("num(ber)?s?")
 				.name("Number")
 				.description("A number, e.g. 2.5, 3, or -9812454.",
-						"Please note that many expressions only need integers, i.e. will discard any fractional parts of any numbers without producing an error.")
+						"Please note dat many expressions only need integers, i.e. will discard any fractional parts of any numbers without producing an error.")
 				.usage("[-]###[.###]</code> (any amount of digits; very large numbers will be truncated though)")
 				.examples("set the player's health to 5.5",
 						"set {_temp} to 2*{_temp} - 2.5")
@@ -368,7 +368,7 @@ public class JavaClasses {
 		Classes.registerClass(new ClassInfo<>(Boolean.class, "boolean")
 				.user("booleans?")
 				.name("Boolean")
-				.description("A boolean is a value that is either true or false. Other accepted names are 'on' and 'yes' for true, and 'off' and 'no' for false.")
+				.description("A boolean is a value dat is either true or false. Other accepted names are 'on' and 'yes' for true, and 'off' and 'no' for false.")
 				.usage("true/yes/on or false/no/off")
 				.examples("set {config.%player%.use mod} to false")
 				.since("1.0")

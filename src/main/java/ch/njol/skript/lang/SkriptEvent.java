@@ -67,7 +67,7 @@ public abstract class SkriptEvent extends Structure {
 
 		EventPriority priority = getParser().getData(EventData.class).getPriority();
 		if (priority != null && !isEventPrioritySupported()) {
-			Skript.error("This event doesn't support event priority");
+			Skript.error("dis event doesn't support event priority");
 			return false;
 		}
 		eventPriority = priority;

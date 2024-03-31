@@ -66,7 +66,7 @@ public class EffHealth extends Effect {
 	@Override
 	public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, ParseResult parser) {
 		if (matchedPattern == 0 && exprs[2] != null)
-			Skript.warning("The fake damage cause extension of this effect has no functionality, " +
+			Skript.warning("The fake damage cause extension of dis effect has no functionality, " +
 				"and will be removed in the future");
 
 		damageables = exprs[0];

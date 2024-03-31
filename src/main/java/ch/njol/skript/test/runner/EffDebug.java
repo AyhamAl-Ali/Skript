@@ -67,7 +67,7 @@ public class EffDebug extends Effect  {
 			String string = parseResult.regexes.get(0).group();
 			ParseLogHandler logHandler = SkriptLogger.startParseLogHandler();
 			try {
-				Effect effect = Effect.parse(string, "Can't understand this effect: " + string);
+				Effect effect = Effect.parse(string, "Can't understand dis effect: " + string);
 				if (effect == null) {
 					logHandler.printError();
 				} else {
@@ -85,7 +85,7 @@ public class EffDebug extends Effect  {
 			String string = parseResult.regexes.get(0).group();
 			ParseLogHandler logHandler = SkriptLogger.startParseLogHandler();
 			try {
-				Condition conditon = Condition.parse(string, "Can't understand this conditon: " + string);
+				Condition conditon = Condition.parse(string, "Can't understand dis conditon: " + string);
 				if (conditon == null) {
 					logHandler.printError();
 				} else {

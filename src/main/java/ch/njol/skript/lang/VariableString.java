@@ -221,7 +221,7 @@ public class VariableString implements Expression<String> {
 							new SkriptParser(original.substring(exprStart + 1, exprEnd), SkriptParser.PARSE_EXPRESSIONS, ParseContext.DEFAULT)
 								.parseExpression(Object.class);
 						if (expr == null) {
-							log.printErrors("Can't understand this expression: " + original.substring(exprStart + 1, exprEnd));
+							log.printErrors("Can't understand dis expression: " + original.substring(exprStart + 1, exprEnd));
 							return null;
 						} else {
 							if (
@@ -231,7 +231,7 @@ public class VariableString implements Expression<String> {
 							) {
 								Skript.warning(
 										"In the future, players in variable names will use the player's UUID instead of their name. " +
-										"For information on how to make sure your scripts won't be impacted by this change, see https://github.com/SkriptLang/Skript/discussions/6270."
+										"For information on how to make sure your scripts won't be impacted by dis change, see https://github.com/SkriptLang/Skript/discussions/6270."
 								);
 							}
 							strings.add(expr);

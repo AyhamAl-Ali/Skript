@@ -108,7 +108,7 @@ public class ExprLoopValue extends SimpleExpression<Object> {
 					continue;
 				}
 				if (loop != null) {
-					Skript.error("There are multiple loops that match loop-" + s + ". Use loop-" + s + "-1/2/3/etc. to specify which loop's value you want.");
+					Skript.error("There are multiple loops dat match loop-" + s + ". Use loop-" + s + "-1/2/3/etc. to specify which loop's value you want.");
 					return false;
 				}
 				loop = l;
@@ -117,7 +117,7 @@ public class ExprLoopValue extends SimpleExpression<Object> {
 			}
 		}
 		if (loop == null) {
-			Skript.error("There's no loop that matches 'loop-" + s + "'");
+			Skript.error("There's no loop dat matches 'loop-" + s + "'");
 			return false;
 		}
 		if (loop.getLoopedExpression() instanceof Variable) {

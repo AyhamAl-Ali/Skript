@@ -78,7 +78,7 @@ public class EffReturn extends Effect {
 		function = f;
 		ClassInfo<?> returnType = function.getReturnType();
 		if (returnType == null) {
-			Skript.error("This function doesn't return any value. Please use 'stop' or 'exit' if you want to stop the function.");
+			Skript.error("dis function doesn't return any value. Please use 'stop' or 'exit' if you want to stop the function.");
 			return false;
 		}
 		
@@ -87,7 +87,7 @@ public class EffReturn extends Effect {
 		try {
 			convertedExpr = exprs[0].getConvertedExpression(returnType.getC());
 			if (convertedExpr == null) {
-				log.printErrors("This function is declared to return " + returnType.getName().withIndefiniteArticle() + ", but " + exprs[0].toString(null, false) + " is not of that type.");
+				log.printErrors("dis function is declared to return " + returnType.getName().withIndefiniteArticle() + ", but " + exprs[0].toString(null, false) + " is not of dat type.");
 				return false;
 			}
 			log.printLog();
@@ -96,7 +96,7 @@ public class EffReturn extends Effect {
 		}
 		
 		if (f.isSingle() && !convertedExpr.isSingle()) {
-			Skript.error("This function is defined to only return a single " + returnType.toString() + ", but this return statement can return multiple values.");
+			Skript.error("dis function is defined to only return a single " + returnType.toString() + ", but dis return statement can return multiple values.");
 			return false;
 		}
 		value = convertedExpr;

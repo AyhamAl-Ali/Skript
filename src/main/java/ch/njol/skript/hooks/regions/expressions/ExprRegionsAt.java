@@ -44,16 +44,16 @@ import java.util.ArrayList;
 @Name("Regions At")
 @Description({
 	"All <a href='./classes.html#region'>regions</a> at a particular <a href='./classes/#location'>location</a>.",
-	"This expression requires a supported regions plugin to be installed."
+	"dis expression requires a supported regions plugin to be installed."
 })
 @Examples({
 	"On click on a sign:",
 	"\tline 1 of the clicked block is \"[region info]\"",
 	"\tset {_regions::*} to regions at the clicked block",
 	"\tif {_regions::*} is empty:",
-	"\t\tmessage \"No regions exist at this sign.\"",
+	"\t\tmessage \"No regions exist at dis sign.\"",
 	"\telse:",
-	"\t\tmessage \"Regions containing this sign: &lt;gold&gt;%{_regions::*}%<r>.\""
+	"\t\tmessage \"Regions containing dis sign: &lt;gold&gt;%{_regions::*}%<r>.\""
 })
 @Since("2.1")
 @RequiredPlugins("Supported regions plugin")

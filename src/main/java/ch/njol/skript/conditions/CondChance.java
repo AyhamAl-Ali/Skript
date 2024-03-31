@@ -35,7 +35,7 @@ import ch.njol.util.Kleenean;
  * @author Peter Güttinger
  */
 @Name("Chance")
-@Description({"A condition that randomly succeeds or fails.",
+@Description({"A condition dat randomly succeeds or fails.",
 		"Valid values are between 0% and 100%, or if the percent sign is omitted between 0 and 1."})
 @Examples({"chance of 50%:",
 		"\tdrop a diamond",

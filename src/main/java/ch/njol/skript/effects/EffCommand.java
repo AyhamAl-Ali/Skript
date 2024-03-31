@@ -39,7 +39,7 @@ import ch.njol.util.Kleenean;
 
 @Name("Command")
 @Description({
-	"Executes a command. This can be useful to use other plugins in triggers.",
+	"Executes a command. dis can be useful to use other plugins in triggers.",
 	"If the command is a bungeecord side command, " +
 	"you can use the [bungeecord] option to execute command on the proxy."
 })

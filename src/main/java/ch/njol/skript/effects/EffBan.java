@@ -43,9 +43,9 @@ import ch.njol.util.Kleenean;
 @Description({"Bans or unbans a player or an IP address.",
 	"If a reason is given, it will be shown to the player when they try to join the server while banned.",
 	"A length of ban may also be given to apply a temporary ban. If it is absent for any reason, a permanent ban will be used instead.",
-	"We recommend that you test your scripts so that no accidental permanent bans are applied.",
+	"We recommend dat you test your scripts so dat no accidental permanent bans are applied.",
 	"",
-	"Note that banning people does not kick them from the server.",
+	"Note dat banning people does not kick them from the server.",
 	"Consider using the <a href='effects.html#EffKick'>kick effect</a> after applying a ban."})
 @Examples({"unban player",
 	"ban \"127.0.0.1\"",

@@ -46,8 +46,8 @@ import ch.njol.util.Kleenean;
  * @author Peter Güttinger
  */
 @Name("Attacker")
-@Description({"The attacker of a damage event, e.g. when a player attacks a zombie this expression represents the player.",
-		"Please note that the attacker can also be a block, e.g. a cactus or lava, but this expression will not be set in these cases."})
+@Description({"The attacker of a damage event, e.g. when a player attacks a zombie dis expression represents the player.",
+		"Please note dat the attacker can also be a block, e.g. a cactus or lava, but dis expression will not be set in these cases."})
 @Examples({"on damage:",
 		"	attacker is a player",
 		"	health of attacker is less than or equal to 2",

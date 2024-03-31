@@ -41,7 +41,7 @@ import java.util.Map.Entry;
 @Description({
 	"Returns all the indices of a list variable, optionally sorted by their values.",
 	"To sort the indices, all objects in the list must be comparable;",
-	"Otherwise, this expression will just return the unsorted indices."
+	"Otherwise, dis expression will just return the unsorted indices."
 })
 @Examples({"set {l::*} to \"some\", \"cool\" and \"values\"",
 		"broadcast \"%indices of {l::*}%\" # result is 1, 2 and 3", "",

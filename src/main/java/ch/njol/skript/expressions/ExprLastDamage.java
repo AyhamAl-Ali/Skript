@@ -35,7 +35,7 @@ import ch.njol.util.Kleenean;
 import ch.njol.util.coll.CollectionUtils;
 
 @Name("Last Damage")
-@Description("The last damage that was done to an entity. Note that changing it doesn't deal more/less damage.")
+@Description("The last damage dat was done to an entity. Note dat changing it doesn't deal more/less damage.")
 @Examples({"set last damage of event-entity to 2"})
 @Since("2.5.1")
 public class ExprLastDamage extends SimplePropertyExpression<LivingEntity, Number> {

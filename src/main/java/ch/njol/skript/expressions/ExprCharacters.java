@@ -34,9 +34,9 @@ import org.eclipse.jdt.annotation.Nullable;
 
 @Name("Characters Between")
 @Description({
-	"All characters between two given characters, useful for generating random strings. This expression uses the Unicode numerical code " +
+	"All characters between two given characters, useful for generating random strings. dis expression uses the Unicode numerical code " +
 	"of a character to determine which characters are between the two given characters. The <a href=\"https://www.asciitable.com/\">ASCII table linked here</a> " +
-	"shows this ordering for the first 256 characters.",
+	"shows dis ordering for the first 256 characters.",
 	"If you would like only alphanumeric characters you can use the 'alphanumeric' option in the expression.",
 	"If strings of more than one character are given, only the first character of each is used."
 })

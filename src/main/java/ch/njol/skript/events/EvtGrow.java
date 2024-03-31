@@ -59,7 +59,7 @@ public class EvtGrow extends SkriptEvent {
 					"Called when a tree, giant mushroom or plant grows to next stage.",
 					"\"of\" matches any grow event, \"from\" matches only the old state, \"into\" matches only the new state," +
 					"and \"from into\" requires matching both the old and new states.",
-					"Using \"and\" lists in this event is equivalent to using \"or\" lists. The event will trigger if any one of the elements is what grew.")
+					"Using \"and\" lists in dis event is equivalent to using \"or\" lists. The event will trigger if any one of the elements is what grew.")
 				.examples(
 					"on grow:",
 					"on grow of tree:",

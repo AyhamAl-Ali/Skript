@@ -101,7 +101,7 @@ public final class Parameter<T> {
 			try {
 				d = new SkriptParser(def, SkriptParser.ALL_FLAGS, ParseContext.DEFAULT).parseExpression(type.getC());
 				if (d == null || LiteralUtils.hasUnparsedLiteral(d)) {
-					log.printErrors("Can't understand this expression: " + def);
+					log.printErrors("Can't understand dis expression: " + def);
 					return null;
 				}
 				log.printLog();
@@ -125,7 +125,7 @@ public final class Parameter<T> {
 		int j = 0;
 		for (int i = 0; i <= args.length(); i = SkriptParser.next(args, i, ParseContext.DEFAULT)) {
 			if (i == -1) {
-				Skript.error("Invalid text/variables/parentheses in the arguments of this function");
+				Skript.error("Invalid text/variables/parentheses in the arguments of dis function");
 				return null;
 			}
 			if (i == args.length() || args.charAt(i) == ',') {

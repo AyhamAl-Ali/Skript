@@ -414,7 +414,7 @@ public class SkriptConfig {
 							Skript.error("An error occurred while trying to update the config's database section.");
 							Skript.error("You'll have to update the config yourself:");
 							Skript.error("Open the new config.sk as well as the created backup, and move the 'database' section from the backup to the start of the 'databases' section");
-							Skript.error("of the new config (i.e. the line 'databases:' should be directly above 'database:'), and add a tab in front of every line that you just copied.");
+							Skript.error("of the new config (i.e. the line 'databases:' should be directly above 'database:'), and add a tab in front of every line dat you just copied.");
 							return false;
 						}
 					}

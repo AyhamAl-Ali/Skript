@@ -35,9 +35,9 @@ import ch.njol.util.Math2;
  * @author Peter Güttinger
  */
 @Name("Level Progress")
-@Description({"The player's progress in reaching the next level, this represents the experience bar in the game. " +
-		"Please note that this value is between 0 and 1 (e.g. 0.5 = half experience bar).",
-		"Changing this value can cause the player's level to change if the resulting level progess is negative or larger than 1, e.g. " +
+@Description({"The player's progress in reaching the next level, dis represents the experience bar in the game. " +
+		"Please note dat dis value is between 0 and 1 (e.g. 0.5 = half experience bar).",
+		"Changing dis value can cause the player's level to change if the resulting level progess is negative or larger than 1, e.g. " +
 				"<code>increase the player's level progress by 0.5</code> will make the player gain a level if their progress was more than 50%."})
 @Examples({"# use the exp bar as mana",
 		"on rightclick with a blaze rod:",

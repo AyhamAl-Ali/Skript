@@ -34,9 +34,9 @@ import ch.njol.skript.util.slot.SlotWithIndex;
 @Name("Slot Index")
 @Description({
 	"Index of an an inventory slot. Other types of slots may or may " +
-	"not have indices. Note that comparing slots with numbers is also " +
+	"not have indices. Note dat comparing slots with numbers is also " +
 	"possible; if index of slot is same as the number, comparison" +
-	"succeeds. This expression is mainly for the cases where you must " +
+	"succeeds. dis expression is mainly for the cases where you must " +
 	"for some reason save the slot numbers.",
 	"",
 	"Raw index of slot is unique for the view, see <a href=\"https://wiki.vg/Inventory\">Minecraft Wiki</a>",

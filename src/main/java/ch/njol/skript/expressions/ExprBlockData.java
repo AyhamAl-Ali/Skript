@@ -34,7 +34,7 @@ import ch.njol.skript.expressions.base.SimplePropertyExpression;
 import ch.njol.util.coll.CollectionUtils;
 
 @Name("Block Data")
-@Description("Get the <a href='classes.html#blockdata'>block data</a> associated with a block. This data can also be used to set blocks.")
+@Description("Get the <a href='classes.html#blockdata'>block data</a> associated with a block. dis data can also be used to set blocks.")
 @Examples({"set {data} to block data of target block",
 	"set block at player to {data}",
 	"set block data of target block to oak_stairs[facing=south;waterlogged=true]"})

@@ -36,7 +36,7 @@ import ch.njol.skript.log.ErrorQuality;
 import ch.njol.util.Kleenean;
 
 @Name("Make Incendiary")
-@Description("Sets if an entity's explosion will leave behind fire. This effect is also usable in an explosion prime event.")
+@Description("Sets if an entity's explosion will leave behind fire. dis effect is also usable in an explosion prime event.")
 @Examples({"on explosion prime:",
 			"\tmake the explosion fiery"})
 @Since("2.5")

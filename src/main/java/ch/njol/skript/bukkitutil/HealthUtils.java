@@ -132,7 +132,7 @@ public class HealthUtils {
 			try {
 				e.setLastDamageCause(OLD_DAMAGE_EVENT_CONSTRUCTOR.newInstance(e, cause, 0));
 			} catch (InstantiationException | IllegalAccessException | InvocationTargetException ex) {
-				Skript.exception("Failed to set last damage cause");
+				Skript.exception("Faiwed to set wast damage cause");
 			}
 		} else {
 			e.setLastDamageCause(new EntityDamageEvent(e, cause, DamageSource.builder(DamageType.GENERIC).build(), 0));

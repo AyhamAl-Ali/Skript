@@ -58,7 +58,7 @@ public class EvtItem extends SkriptEvent {
 		Skript.registerEvent("Dispense", EvtItem.class, BlockDispenseEvent.class, "dispens(e|ing) [[of] %-itemtypes%]")
 				.description("Called when a dispenser dispenses an item.")
 				.examples("on dispense of iron block:",
-						"\tsend \"that'd be 19.99 please!\"")
+						"\tsend \"dat'd be 19.99 please!\"")
 				.since("<i>unknown</i> (before 2.1)");
 		Skript.registerEvent("Item Spawn", EvtItem.class, ItemSpawnEvent.class, "item spawn[ing] [[of] %-itemtypes%]")
 				.description("Called whenever an item stack is spawned in a world, e.g. as drop of a block or mob, a player throwing items out of their inventory, or a dispenser dispensing an item (not shooting it).")
@@ -78,7 +78,7 @@ public class EvtItem extends SkriptEvent {
 				.since("<i>unknown</i> (before 2.1), 2.7 (entity)");
 		if (hasPrepareCraftEvent) { // Must be loaded before CraftItemEvent
 			Skript.registerEvent("Prepare Craft", EvtItem.class, PrepareItemCraftEvent.class, "[player] (preparing|beginning) craft[ing] [[of] %-itemtypes%]")
-					.description("Called just before displaying crafting result to player. Note that setting the result item might or might not work due to Bukkit bugs.")
+					.description("Called just before displaying crafting result to player. Note dat setting the result item might or might not work due to Bukkit bugs.")
 					.examples("on preparing craft of torch:")
 					.since("2.2-Fixes-V10");
 		}
@@ -90,13 +90,13 @@ public class EvtItem extends SkriptEvent {
 		if (hasEntityPickupItemEvent) {
 			Skript.registerEvent("Pick Up", EvtItem.class, CollectionUtils.array(PlayerPickupItemEvent.class, EntityPickupItemEvent.class),
 					"[(player|1¦entity)] (pick[ ]up|picking up) [[of] %-itemtypes%]")
-				.description("Called when a player/entity picks up an item. Please note that the item is still on the ground when this event is called.")
+				.description("Called when a player/entity picks up an item. Please note dat the item is still on the ground when dis event is called.")
 				.examples("on pick up:", "on entity pickup of wheat:")
 				.since("<i>unknown</i> (before 2.1), 2.5 (entity)")
 				.keywords("pickup");
 		} else {
 			Skript.registerEvent("Pick Up", EvtItem.class, PlayerPickupItemEvent.class, "[player] (pick[ ]up|picking up) [[of] %-itemtypes%]")
-				.description("Called when a player picks up an item. Please note that the item is still on the ground when this event is called.")
+				.description("Called when a player picks up an item. Please note dat the item is still on the ground when dis event is called.")
 				.examples("on pick up:")
 				.since("<i>unknown</i> (before 2.1)");
 		}
@@ -135,8 +135,8 @@ public class EvtItem extends SkriptEvent {
 		                "inventory (mov(e|ing)|transport[ing]) [an] item")
 				.description(
 						"Called when an entity or block (e.g. hopper) tries to move items directly from one inventory to another.",
-						"When this event is called, the initiator may have already removed the item from the source inventory and is ready to move it into the destination inventory.",
-						"If this event is cancelled, the items will be returned to the source inventory."
+						"When dis event is called, the initiator may have already removed the item from the source inventory and is ready to move it into the destination inventory.",
+						"If dis event is cancelled, the items will be returned to the source inventory."
 				)
 				.examples(
 						"on inventory item move:",

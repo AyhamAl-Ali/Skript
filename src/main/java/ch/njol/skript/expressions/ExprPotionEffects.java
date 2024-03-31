@@ -44,7 +44,7 @@ import ch.njol.util.coll.CollectionUtils;
 @Name("Potion Effects")
 @Description({"Represents the active potion effects of entities and itemtypes.",
 	"You can clear all potion effects of an entity/itemtype and add/remove a potion effect/type to/from an entity/itemtype.",
-	"Do note you will not be able to clear the base potion effects of a potion item. In that case, just set the item to a water bottle.",
+	"Do note you will not be able to clear the base potion effects of a potion item. In dat case, just set the item to a water bottle.",
 	"When adding a potion effect type (rather than a potion effect), it will default to 15 seconds with tier 1."})
 @Examples({"set {_p::*} to active potion effects of player",
 	"clear all the potion effects of player",

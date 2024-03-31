@@ -39,13 +39,13 @@ public class EvtResourcePackResponse extends SkriptEvent {
 						"The <a href='conditions.html#CondResourcePack'>resource pack</a> condition can be used ",
 						"to check the resource pack state.",
 						"",
-						"This event will be triggered once when the player accepts or declines the resource pack request, ",
+						"dis event will be triggered once when the player accepts or declines the resource pack request, ",
 						"and once when the resource pack is successfully installed or failed to download.")
 				.examples("on resource pack request response:",
 						"	if the resource pack was declined or failed to download:",
 						"",
 						"on resource pack deny:",
-						"	kick the player due to \"You have to install the resource pack to play in this server!\"")
+						"	kick the player due to \"You have to install the resource pack to play in dis server!\"")
 				.since("2.4");
 	}
 

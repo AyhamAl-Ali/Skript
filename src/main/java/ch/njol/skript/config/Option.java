@@ -101,7 +101,7 @@ public class Option<T> {
 		final String oldValue = value;
 		value = config.getByPath(path + key);
 		if (value == null && !optional)
-			Skript.error("Required entry '" + path + key + "' is missing in " + config.getFileName() + ". Please make sure that you have the latest version of the config.");
+			Skript.error("Required entry '" + path + key + "' is missing in " + config.getFileName() + ". Please make sure dat you have the latest version of the config.");
 		if ((value == null ^ oldValue == null) || value != null && !value.equals(oldValue)) {
 			T parsedValue = value != null ? parser.convert(value) : defaultValue;
 			if (parsedValue == null)

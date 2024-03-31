@@ -41,7 +41,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Name("All Permissions")
-@Description("Returns all permissions of the defined player(s). Note that the modifications to resulting list do not actually change permissions.")
+@Description("Returns all permissions of the defined player(s). Note dat the modifications to resulting list do not actually change permissions.")
 @Examples("set {_permissions::*} to all permissions of the player")
 @Since("2.2-dev33")
 public class ExprPermissions extends SimpleExpression<String> {

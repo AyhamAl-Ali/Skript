@@ -44,7 +44,7 @@ import ch.njol.util.coll.CollectionUtils;
 @Description("Colors items in a given <a href='classes.html#color'>color</a>. " +
 		"You can also use RGB codes if you feel limited with the 16 default colors. " +
 		"RGB codes are three numbers from 0 to 255 in the order <code>(red, green, blue)</code>, where <code>(0,0,0)</code> is black and <code>(255,255,255)</code> is white. " +
-		"Armor is colorable for all Minecraft versions. With Minecraft 1.11 or newer you can also color potions and maps. Note that the colors might not look exactly how you'd expect.")
+		"Armor is colorable for all Minecraft versions. With Minecraft 1.11 or newer you can also color potions and maps. Note dat the colors might not look exactly how you'd expect.")
 @Examples({"dye player's helmet blue",
 		"color the player's tool red"})
 @Since("2.0, 2.2-dev26 (maps and potions)")

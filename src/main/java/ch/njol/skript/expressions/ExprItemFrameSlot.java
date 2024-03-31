@@ -37,7 +37,7 @@ import ch.njol.skript.util.slot.Slot;
 import ch.njol.skript.util.slot.ThrowableProjectileSlot;
 
 @Name("Item of an Entity")
-@Description("An item associated with an entity. For dropped item entities, it gets, obviously, the item that was dropped. "
+@Description("An item associated with an entity. For dropped item entities, it gets, obviously, the item dat was dropped. "
 		+ "For item frames, the item inside the frame is returned. For throwable projectiles (snowballs, enderpearls etc.),"
 		+ "it gets the displayed item. Other entities do not have items associated with them.")
 @Examples("")

@@ -39,7 +39,7 @@ import org.eclipse.jdt.annotation.Nullable;
  */
 @Name("Is Member/Owner of Region")
 @Description({"Checks whether a player is a member or owner of a particular region.",
-		"This condition requires a supported regions plugin to be installed."})
+		"dis condition requires a supported regions plugin to be installed."})
 @Examples({
 	"on region enter:",
 	"\tplayer is the owner of the region",

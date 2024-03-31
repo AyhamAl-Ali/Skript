@@ -35,9 +35,9 @@ public class EvtEntityTransform extends SkriptEvent {
 		Skript.registerEvent("Entity Transform", EvtEntityTransform.class, EntityTransformEvent.class, "(entit(y|ies)|%*-entitydatas%) transform[ing] [due to %-transformreasons%]")
 				.description("Called when an entity is about to be replaced by another entity.",
 						"Examples when it's called include; when a zombie gets cured and a villager spawns, " +
-						"an entity drowns in water like a zombie that turns to a drown, " +
-						"an entity that gets frozen in powder snow, " +
-						"a mooshroom that when sheared, spawns a new cow.")
+						"an entity drowns in water like a zombie dat turns to a drown, " +
+						"an entity dat gets frozen in powder snow, " +
+						"a mooshroom dat when sheared, spawns a new cow.")
 				.examples("on a zombie transforming due to curing:", "on mooshroom transforming:", "on zombie, skeleton or slime transform:")
 				.keywords("entity transform")
 				.since("2.8.0");

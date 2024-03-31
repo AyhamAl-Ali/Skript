@@ -38,9 +38,9 @@ import org.eclipse.jdt.annotation.Nullable;
 @Name("Player Visibility")
 @Description({"Change visibility of a player for the given players.",
 		"When reveal is used in combination of the <a href='expressions.html#ExprHiddenPlayers'>hidden players</a> expression and the viewers are not specified, " +
-		"this will default it to the given player in the hidden players expression.",
+		"dis will default it to the given player in the hidden players expression.",
 		"",
-		"Note: if a player was hidden and relogs, this player will be visible again."})
+		"Note: if a player was hidden and relogs, dis player will be visible again."})
 @Examples({"on join:",
 		"	if {vanished::%player's uuid%} is true:",
 		"		hide the player from all players",

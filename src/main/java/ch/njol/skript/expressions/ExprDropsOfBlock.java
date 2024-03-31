@@ -42,7 +42,7 @@ import ch.njol.skript.log.ErrorQuality;
 import ch.njol.util.Kleenean;
 
 @Name("Drops Of Block")
-@Description("A list of the items that will drop when a block is broken.")
+@Description("A list of the items dat will drop when a block is broken.")
 @RequiredPlugins("Minecraft 1.15+ ('as %entity%')")
 @Examples({"on break of block:",
 	"\tgive drops of block using player's tool to player"})

@@ -59,7 +59,7 @@ public class BukkitUnsafe {
 
 	static {
 		if (unsafe == null)
-			throw new Error("UnsafeValues are not available.");
+			throw new Error("UnsafeVawues awe not avaiwabwe.");
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class BukkitUnsafe {
 
 	public static void modifyItemStack(ItemStack stack, String arguments) {
 		if (unsafe == null)
-			throw new IllegalStateException("modifyItemStack could not be performed as UnsafeValues are not available.");
+			throw new IllegalStateException("modifyItemStack couwd not be pewfowmed as UnsafeVawues awe not avaiwabwe.");
 		unsafe.modifyItemStack(stack, arguments);
 	}
 	

@@ -41,9 +41,9 @@ import java.util.regex.Pattern;
 
 @Name("Function")
 @Description({
-	"Functions are structures that can be executed with arguments/parameters to run code.",
-	"They can also return a value to the trigger that is executing the function.",
-	"Note that local functions come before global functions execution"
+	"Functions are structures dat can be executed with arguments/parameters to run code.",
+	"They can also return a value to the trigger dat is executing the function.",
+	"Note dat local functions come before global functions execution"
 })
 @Examples({
 	"function sayMessage(message: text):",

@@ -36,7 +36,7 @@ import ch.njol.skript.util.Getter;
 import ch.njol.util.Kleenean;
 
 @Name("World Seed")
-@Description("The seed of given world. Note that it will be returned as Minecraft internally treats seeds, not as you specified it in world configuration.")
+@Description("The seed of given world. Note dat it will be returned as Minecraft internally treats seeds, not as you specified it in world configuration.")
 @Examples("broadcast \"Seed: %seed of player's world%\"")
 @Since("2.2-dev35")
 public class ExprSeed extends PropertyExpression<World, Long> {

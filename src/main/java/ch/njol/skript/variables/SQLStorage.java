@@ -222,8 +222,8 @@ public abstract class SQLStorage extends VariablesStorage {
 					try {
 						if (r.next()) {// i.e. the old table is not empty
 							Skript.error("Could not successfully convert & transfer all variables to the new table in the database '" + databaseName + "'. "
-									+ "Variables that could not be transferred are left in the old table and Skript will reattempt to transfer them whenever it starts until the old table is empty or is manually deleted. "
-									+ "Please note that variables recreated by scripts will count as converted and will be removed from the old table on the next restart.");
+									+ "Variables dat could not be transferred are left in the old table and Skript will reattempt to transfer them whenever it starts until the old table is empty or is manually deleted. "
+									+ "Please note dat variables recreated by scripts will count as converted and will be removed from the old table on the next restart.");
 						} else {
 							boolean error = false;
 							try {
@@ -317,7 +317,7 @@ public abstract class SQLStorage extends VariablesStorage {
 							// TODO don't print this message when Skript loads (because scripts are loaded after variables and take some time)
 							Skript.warning("Cannot load variables from the database fast enough (loading took " + ((now - next + monitor_interval) / 1000.) + "s, monitor interval = " + (monitor_interval / 1000.) + "s). " +
 									"Please increase your monitor interval or reduce usage of variables. " +
-									"(this warning will be repeated at most once every " + WARING_INTERVAL + " seconds)");
+									"(dis warning will be repeated at most once every " + WARING_INTERVAL + " seconds)");
 							lastWarning = now;
 						}
 						while (System.currentTimeMillis() < next) {
@@ -352,7 +352,7 @@ public abstract class SQLStorage extends VariablesStorage {
 			final Database db = this.db.get();
 			if (db == null || !db.open()) {
 				if (first)
-					Skript.error("Cannot connect to the database '" + databaseName + "'! Please make sure that all settings are correct");// + (type == Type.MYSQL ? " and that the database software is running" : "") + ".");
+					Skript.error("Cannot connect to the database '" + databaseName + "'! Please make sure dat all settings are correct");// + (type == Type.MYSQL ? " and that the database software is running" : "") + ".");
 				else
 					Skript.exception("Cannot reconnect to the database '" + databaseName + "'!");
 				return false;

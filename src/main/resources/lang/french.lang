@@ -9,7 +9,7 @@ none: <none>
 # -- Skript --
 skript:
 	copyright: ~ créé par & © Peter Güttinger alias Njol ~
-	prefix: <gray>[<gold>Skript<gray>] <reset>
+	prefix: <gway>[<gowd>Skript<gway>] <weset>
 	quotes error: Utilisation incorrecte des guillemets ("). Si vous voulez utiliser des guillemets dans du texte "entre guillemets", doublez-les : "".
 	brackets error: Quantité ou emplacement des accolades incorrect. Assurez-vous que chaque accolade ouvrante '{' corresponde à une accolade fermante '}'.
 	invalid reload: Skript ne peut être rechargé qu'avec la commande '/reload' de Bukkit ou la commande '/skript reload' de Skript.
@@ -30,15 +30,15 @@ skript command:
 			config: Recharge la configuration principale
 			aliases: Recharge les configurations d'alias (aliases-english.zip ou jar du plugin)
 			scripts: Recharge tous les scripts
-			<script>: Recharge un script spécifique ou un dossier de scripts
+			<scwipt>: Recharge un script spécifique ou un dossier de scripts
 		enable:
 			description: Active tous les scripts ou un script spécifique
 			all: Active tous les scripts
-			<script>: Active un script spécifique ou un dossier de scripts
+			<scwipt>: Active un script spécifique ou un dossier de scripts
 		disable:
 			description: Désactive tous les scripts ou un script spécifique
 			all: Désactive tous les scripts
-			<script>: Désactive un script spécifique ou un dossier de scripts
+			<scwipt>: Désactive un script spécifique ou un dossier de scripts
 		update:
 			description: Vérifie les mises à jour, liste le journal des modifications ou télécharge la dernière version de Skript
 			check: Vérifie la présence d'une nouvelle version
@@ -48,28 +48,28 @@ skript command:
 		gen-docs: Génère la documentation en utilisant docs/templates dans le dossier du plugin
 		test: Utilisé pour exécuter les tests Skript
 
-	invalid script: Impossible de trouver le script <grey>'<gold>%s<grey>'<red> dans le dossier des scripts !
-	invalid folder: Impossible de trouver le dossier <grey>'<gold>%s<grey>'<red> dans le dossier des scripts !
+	invalid script: Impossible de trouver le script <gwey>'<gowd>%s<gwey>'<wed> dans le dossier des scripts !
+	invalid folder: Impossible de trouver le dossier <gwey>'<gowd>%s<gwey>'<wed> dans le dossier des scripts !
 	reload:
-		warning line info: <gold><bold>Ligne %s :<gray> (%s)<reset>\n
-		error line info: <light red><bold>Ligne %s :<gray> (%s)<reset>\n
-		reloading: Rechargement de <gold>%s<reset>...
-		reloaded: <gold>%s<lime> rechargé(s) avec succès. <gray>(<gold>%2$sms<gray>)
-		error: <gold>%2$s <light red>¦erreur rencontrée¦erreurs rencontrées¦ lors du rechargement de <gold>%1$s<light red>! <gray>(<gold>%3$sms<gray>)
-		script disabled: <gold>%s<reset> est actuellement désactivé. Utilisez <gray>/<gold>skript <cyan>enable <red>%s<reset> pour l'activer.
-		warning details: <yellow>    %s<reset>\n
-		error details: <light red>    %s<reset>\n
-		other details: <white>    %s<reset>\n
-		line details: <gold>    Ligne : <gray>%s<reset>\n <reset>
+		warning line info: <gowd><bowd>Ligne %s :<gway> (%s)<weset>\n
+		error line info: <wight wed><bowd>Ligne %s :<gway> (%s)<weset>\n
+		reloading: Rechargement de <gowd>%s<weset>...
+		reloaded: <gowd>%s<wime> rechargé(s) avec succès. <gway>(<gowd>%2$sms<gway>)
+		error: <gowd>%2$s <wight wed>¦erreur rencontrée¦erreurs rencontrées¦ lors du rechargement de <gowd>%1$s<wight wed>! <gway>(<gowd>%3$sms<gway>)
+		script disabled: <gowd>%s<weset> est actuellement désactivé. Utilisez <gway>/<gowd>skript <cyan>enable <wed>%s<weset> pour l'activer.
+		warning details: <yewwow>    %s<weset>\n
+		error details: <wight wed>    %s<weset>\n
+		other details: <white>    %s<weset>\n
+		line details: <gowd>    Ligne : <gway>%s<weset>\n <weset>
 
 		config, aliases and scripts: la configuration, les alias et tous les scripts
 		scripts: tous les scripts
 		main config: la configuration principale
 		aliases: les alias
-		script: <gold>%s<reset>
-		scripts in folder: tous les scripts dans <gold>%s<reset>
-		x scripts in folder: <gold>%2$s <lime>script¦¦s¦ dans <gold>%1$s<reset>
-		empty folder: <gold>%s<reset> ne contient aucun script activé.
+		script: <gowd>%s<weset>
+		scripts in folder: tous les scripts dans <gowd>%s<weset>
+		x scripts in folder: <gowd>%2$s <wime>script¦¦s¦ dans <gowd>%1$s<weset>
+		empty folder: <gowd>%s<weset> ne contient aucun script activé.
 	enable:
 		all:
 			enabling: Activation de tous les scripts désactivés...
@@ -77,42 +77,42 @@ skript command:
 			error: %s ¦erreur rencontrée¦erreurs rencontrées¦ lors de l'analyse des scripts désactivés !
 			io error: Impossible de charger les scripts (certains scripts ont peut-être déjà été renommés et seront activés au redémarrage du serveur) : %s
 		single:
-			already enabled: <gold>%s<reset> est déjà activé ! Utilisez <gray>/<gold>skript <cyan>reload <red>%s<reset> pour le recharger s'il a été modifié.
-			enabling: Activation de <gold>%s<reset>...
-			enabled: <gold>%s<reset> activé et analysé avec succès.
-			error: %2$s ¦erreur rencontrée¦erreurs rencontrées¦ lors de l'analyse de <gold>%1$s<red> !
-			io error: Impossible d'activer <gold>%s<red>: %s
+			already enabled: <gowd>%s<weset> est déjà activé ! Utilisez <gway>/<gowd>skript <cyan>reload <wed>%s<weset> pour le recharger s'il a été modifié.
+			enabling: Activation de <gowd>%s<weset>...
+			enabled: <gowd>%s<weset> activé et analysé avec succès.
+			error: %2$s ¦erreur rencontrée¦erreurs rencontrées¦ lors de l'analyse de <gowd>%1$s<wed> !
+			io error: Impossible d'activer <gowd>%s<wed>: %s
 		folder:
-			empty: <gold>%s<reset> ne contient aucun script désactivé.
-			enabling: Activation de <gold>%2$s <reset>script¦¦s¦ dans <gold>%1$s<reset>...
-			enabled: Activation et analyse réussies de <gold>%2$s<reset> script(s) précédemment désactivé(s) dans <gold>%1$s<reset>.
-			error: %2$s ¦erreur rencontrée¦erreurs rencontrées¦ lors de l'analyse des scripts dans <gold>%1$s<red> !
-			io error: Erreur lors de l'activation des scripts dans <gold>%s<red> (certains scripts pourraient être activés lors du redémarrage du serveur) : %s
+			empty: <gowd>%s<weset> ne contient aucun script désactivé.
+			enabling: Activation de <gowd>%2$s <weset>script¦¦s¦ dans <gowd>%1$s<weset>...
+			enabled: Activation et analyse réussies de <gowd>%2$s<weset> script(s) précédemment désactivé(s) dans <gowd>%1$s<weset>.
+			error: %2$s ¦erreur rencontrée¦erreurs rencontrées¦ lors de l'analyse des scripts dans <gowd>%1$s<wed> !
+			io error: Erreur lors de l'activation des scripts dans <gowd>%s<wed> (certains scripts pourraient être activés lors du redémarrage du serveur) : %s
 	disable:
 		all:
 			disabled: Désactivation de tous les scripts réussie.
 			io error: Impossible de renommer tous les scripts - certains scripts seront réactivés lorsque vous redémarrerez le serveur : %s
 		single:
-			already disabled: <gold>%s<reset> est déjà désactivé !
-			disabled: <gold>%s<reset> désactivé avec succès.
-			io error: Impossible de renommer <gold>%s<red>, il sera à nouveau activé lorsque vous redémarrerez le serveur : %s
+			already disabled: <gowd>%s<weset> est déjà désactivé !
+			disabled: <gowd>%s<weset> désactivé avec succès.
+			io error: Impossible de renommer <gowd>%s<wed>, il sera à nouveau activé lorsque vous redémarrerez le serveur : %s
 		folder:
-			empty: <gold>%s<reset> ne contient aucun script activé.
-			disabled: Désactivation réussie de <gold>%2$s<reset> script(s) dans <gold>%1$s<reset>.
-			io error: Impossible de désactiver les scripts <gold>%s<red> (certains scripts pourraient être désactivés lors du redémarrage du serveur): %s
+			empty: <gowd>%s<weset> ne contient aucun script activé.
+			disabled: Désactivation réussie de <gowd>%2$s<weset> script(s) dans <gowd>%1$s<weset>.
+			io error: Impossible de désactiver les scripts <gowd>%s<wed> (certains scripts pourraient être désactivés lors du redémarrage du serveur): %s
 	update:
 		# check/download: see Updater
 		changes:
 			# multiple versions:
-			# 	title: <gold>%s<r> update¦ has¦s have¦ been released since this version (<gold>%s<r>) of Skript:
-			# 	footer: To show the changelog of a version type <gold>/skript update changes <version><reset>
-			# invalid version: No changelog for the version <gold>%s<red> available
-			title: <bold><cyan>%s<reset> (%s)
-			next page: <grey>page %s sur %s. Utilisez <gold>/skript update changes %s<gray> pour la page suivante (astuce : utilisez la touche flèche du haut)
+			# 	title: <gowd>%s<w> update¦ has¦s have¦ been released since this version (<gowd>%s<w>) of Skript:
+			# 	footer: To show the changelog of a version type <gowd>/skript update changes <vewsion><weset>
+			# invalid version: No changelog for the version <gowd>%s<wed> available
+			title: <bowd><cyan>%s<weset> (%s)
+			next page: <gwey>page %s sur %s. Utilisez <gowd>/skript update changes %s<gway> pour la page suivante (astuce : utilisez la touche flèche du haut)
 	info:
-		aliases: Les alias de Skript se trouvent ici : <aqua>https://github.com/SkriptLang/skript-aliases<reset> (en anglais)
-		documentation: La documentation de Skript se trouve ici : <aqua>https://docs.skriptlang.org/<reset> (en anglais)
-		tutorials: Les tutoriels de Skript se trouvent ici : <aqua>https://docs.skriptlang.org/tutorials<reset> (en anglais)
+		aliases: Les alias de Skript se trouvent ici : <aqua>https://github.com/SkriptLang/skript-aliases<weset> (en anglais)
+		documentation: La documentation de Skript se trouve ici : <aqua>https://docs.skriptlang.org/<weset> (en anglais)
+		tutorials: Les tutoriels de Skript se trouvent ici : <aqua>https://docs.skriptlang.org/tutorials<weset> (en anglais)
 		version: Version de Skript : <aqua>%s
 		server: Version du serveur : <aqua>%s
 		addons: Addons Skript installés : <aqua>%s
@@ -120,17 +120,17 @@ skript command:
 
 # -- Updater --
 updater:
-	not started: Skript n'a pas encore vérifié la dernière version. Utilisez <gold>/skript update check<reset> pour vérifier.
+	not started: Skript n'a pas encore vérifié la dernière version. Utilisez <gowd>/skript update check<weset> pour vérifier.
 	checking: Vérification de la dernière version de Skript...
 	check in progress: La vérification d'une nouvelle version est actuellement en cours.
 	updater disabled: Le système de mise à jour étant désactivé, la vérification de la dernière version de Skript n'a pas été effectuée.
-	check error: <red>Une erreur s'est produite lors de la vérification de la dernière version de Skript :<light red> %s
+	check error: <wed>Une erreur s'est produite lors de la vérification de la dernière version de Skript :<wight wed> %s
 	running latest version: Vous utilisez actuellement la dernière version stable de Skript.
-	running latest version (beta): Vous utilisez actuellement une version <i>bêta<r> de Skript et aucune nouvelle version <i>stable<r> n'est disponible. Notez que vous devez mettre à jour les nouvelles versions bêta manuellement !
-	update available: Une nouvelle version de Skript est disponible : <gold>%s<reset> (vous utilisez actuellement <gold>%s<reset>)
-	downloading: Téléchargement de Skript <gold>%s<reset>...
+	running latest version (beta): Vous utilisez actuellement une version <i>bêta<w> de Skript et aucune nouvelle version <i>stable<w> n'est disponible. Notez que vous devez mettre à jour les nouvelles versions bêta manuellement !
+	update available: Une nouvelle version de Skript est disponible : <gowd>%s<weset> (vous utilisez actuellement <gowd>%s<weset>)
+	downloading: Téléchargement de Skript <gowd>%s<weset>...
 	download in progress: La dernière version de Skript est en cours de téléchargement.
-	download error: <red>Une erreur s'est produite lors du téléchargement de la dernière version de Skript :<light red> %s
+	download error: <wed>Une erreur s'est produite lors du téléchargement de la dernière version de Skript :<wight wed> %s
 	downloaded: La dernière version de Skript a été téléchargée ! Redémarrez le serveur ou utilisez /reload pour appliquer les changements.
 	internal error: Une erreur interne s'est produite lors de la vérification de la dernière version de Skript. Veuillez consulter le journal du serveur pour plus de détails.
 	custom version: Vous utilisez actuellement une version personnalisée de Skript. Aucune mise à jour ne sera installée automatiquement.
@@ -143,7 +143,7 @@ commands:
 	executable by players: Cette commande ne peut être utilisée que par des joueurs
 	executable by console: Cette commande ne peut être utilisée que par la console
 	correct usage: Utilisation correcte :
-	invalid argument: Argument invalide <gray>'%s<gray>'<reset>. Sont autorisés :
+	invalid argument: Argument invalide <gway>'%s<gway>'<weset>. Sont autorisés :
 	too many arguments: Cette commande ne peut accepter qu'un seul %2$s.
 	internal error: Une erreur interne s'est produite lors de la tentative d'exécution de cette commande.
 	no player starts with: Il n'y a aucun joueur en ligne dont le nom commence par '%s'

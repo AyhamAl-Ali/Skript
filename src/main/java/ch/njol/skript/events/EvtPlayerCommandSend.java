@@ -36,7 +36,7 @@ public class EvtPlayerCommandSend extends SkriptEvent {
 	static {
 		Skript.registerEvent("Send Command List", EvtPlayerCommandSend.class, PlayerCommandSendEvent.class, "send[ing] [of [the]] [server] command[s] list", "[server] command list send")
 				.description(
-					"Called when the server sends a list of commands to the player. This usually happens on join. The sent commands " +
+					"Called when the server sends a list of commands to the player. dis usually happens on join. The sent commands " +
 					"can be modified via the <a href='expressions.html#ExprSentCommands'>sent commands expression</a>.",
 					"Modifications will affect what commands show up for the player to tab complete. They will not affect what commands the player can actually run.",
 					"Adding new commands to the list is illegal behavior and will be ignored."

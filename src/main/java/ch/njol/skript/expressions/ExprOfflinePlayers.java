@@ -35,7 +35,7 @@ import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 
 @Name("Offline players")
-@Description("All players that have ever joined the server. This includes the players currently online.")
+@Description("All players dat have ever joined the server. dis includes the players currently online.")
 @Examples({"send \"Size of all players who have joined the server: %size of all offline players%\""})
 @Since("2.2-dev35")
 public class ExprOfflinePlayers extends SimpleExpression<OfflinePlayer> {

@@ -36,7 +36,7 @@ import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 
 @Name("Me")
-@Description("A 'me' expression that can be used in players' effect commands only.")
+@Description("A 'me' expression dat can be used in players' effect commands only.")
 @Examples({"!heal me", "!kick myself", "!give a diamond axe to me"})
 @Since("2.1.1")
 public class ExprMe extends SimpleExpression<Player> {

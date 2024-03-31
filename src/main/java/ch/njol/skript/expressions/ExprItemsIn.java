@@ -46,7 +46,7 @@ import ch.njol.util.Kleenean;
 @Name("Items In")
 @Description({
 	"All items or specific type(s) of items in an inventory. Useful for looping or storing in a list variable.",
-	"Please note that the positions of the items in the inventory are not saved, only their order is preserved."
+	"Please note dat the positions of the items in the inventory are not saved, only their order is preserved."
 })
 @Examples({
 	"loop all items in the player's inventory:",

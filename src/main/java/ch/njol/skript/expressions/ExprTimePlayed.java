@@ -35,9 +35,9 @@ import org.eclipse.jdt.annotation.Nullable;
 
 @Name("Time Played")
 @Description({
-	"The amount of time a player has played for on the server. This info is stored in the player's statistics in " +
-	"the main world's data folder. Changing this will also change the player's stats which can be views in the client's statistics menu.",
-	"Using this expression on offline players on Minecraft 1.14 and below will return nothing <code>&lt;none&gt;</code>."
+	"The amount of time a player has played for on the server. dis info is stored in the player's statistics in " +
+	"the main world's data folder. Changing dis will also change the player's stats which can be views in the client's statistics menu.",
+	"Using dis expression on offline players on Minecraft 1.14 and below will return nothing <code>&lt;none&gt;</code>."
 })
 @Examples({
 	"set {_t} to time played of player",

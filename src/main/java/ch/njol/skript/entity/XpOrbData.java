@@ -79,7 +79,7 @@ public class XpOrbData extends EntityData<ExperienceOrb> {
 		return orb;
 	}
 
-	private final static ArgsMessage format = new ArgsMessage("entities.xp-orb.format");
+	private final static ArgsMessage format = new ArgsMessage("entities.xp-owb.format");
 	
 	@Override
 	public String toString(final int flags) {

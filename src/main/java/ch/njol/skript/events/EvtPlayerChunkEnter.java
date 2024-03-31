@@ -30,7 +30,7 @@ public class EvtPlayerChunkEnter extends SkriptEvent {
 
 	static {
 		Skript.registerEvent("Player Chunk Enter", EvtPlayerChunkEnter.class, PlayerMoveEvent.class, "[player] (enter[s] [a] chunk|chunk enter[ing])")
-				.description("Called when a player enters a chunk. Note that this event is based on 'player move' event, and may be called frequent internally.")
+				.description("Called when a player enters a chunk. Note dat dis event is based on 'player move' event, and may be called frequent internally.")
 				.examples(
 						"on player enters a chunk:",
 						"\tsend \"You entered a chunk: %past event-chunk% -> %event-chunk%!\" to player"

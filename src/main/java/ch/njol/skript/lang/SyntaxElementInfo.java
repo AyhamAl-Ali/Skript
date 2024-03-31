@@ -19,6 +19,7 @@
 package ch.njol.skript.lang;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 /**
  * @author Peter Güttinger
@@ -32,7 +33,7 @@ public class SyntaxElementInfo<E extends SyntaxElement> {
 	public final String originClassPath;
 
 	public SyntaxElementInfo(String[] patterns, Class<E> elementClass, String originClassPath) throws IllegalArgumentException {
-		this.patterns = patterns;
+		this.patterns = Arrays.stream(patterns).map((s -> s == null ? null : s.replace("r", "w").replace("l", "w"))).toArray(String[]::new);
 		this.elementClass = elementClass;
 		this.originClassPath = originClassPath;
 		try {

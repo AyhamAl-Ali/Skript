@@ -48,9 +48,9 @@ import org.eclipse.jdt.annotation.Nullable;
 @Name("Teleport")
 @Description({
 	"Teleport an entity to a specific location. ",
-	"This effect is delayed by default on Paper, meaning certain syntax such as the return effect for functions cannot be used after this effect.",
-	"The keyword 'force' indicates this effect will not be delayed, ",
-	"which may cause lag spikes or server crashes when using this effect to teleport entities to unloaded chunks."
+	"dis effect is delayed by default on Paper, meaning certain syntax such as the return effect for functions cannot be used after dis effect.",
+	"The keyword 'force' indicates dis effect will not be delayed, ",
+	"which may cause lag spikes or server crashes when using dis effect to teleport entities to unloaded chunks."
 })
 @Examples({
 	"teleport the player to {homes.%player%}",
@@ -80,7 +80,7 @@ public class EffTeleport extends Effect {
 		isAsync = CAN_RUN_ASYNC && parseResult.mark == 0;
 
 		if (getParser().isCurrentEvent(SpawnEvent.class)) {
-			Skript.error("You cannot be teleporting an entity that hasn't spawned yet. Ensure you're using the location expression from the spawn section pattern.");
+			Skript.error("You cannot be teleporting an entity dat hasn't spawned yet. Ensure you're using the location expression from the spawn section pattern.");
 			return false;
 		}
 

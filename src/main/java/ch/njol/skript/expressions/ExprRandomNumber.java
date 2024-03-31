@@ -39,7 +39,7 @@ import ch.njol.util.Kleenean;
 @Name("Random Number")
 @Description({
 	"A random number or integer between two given numbers. Use 'number' if you want any number with decimal parts, or use use 'integer' if you only want whole numbers.",
-	"Please note that the order of the numbers doesn't matter, i.e. <code>random number between 2 and 1</code> will work as well as <code>random number between 1 and 2</code>."
+	"Please note dat the order of the numbers doesn't matter, i.e. <code>random number between 2 and 1</code> will work as well as <code>random number between 1 and 2</code>."
 })
 @Examples({
 	"set the player's health to a random number between 5 and 10",

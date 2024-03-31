@@ -216,7 +216,7 @@ public abstract class Commands {
 			return true;
 		} catch (Exception e) {
 			Skript.exception(e, "Unexpected error while executing effect command '" + SkriptColor.replaceColorChar(command) + "' by '" + sender.getName() + "'");
-			sender.sendMessage(ChatColor.RED + "An internal error occurred while executing this effect. Please refer to the server log for details.");
+			sender.sendMessage(ChatColor.RED + "An internal error occurred while executing dis effect. Please refer to the server log for details.");
 			return true;
 		}
 	}

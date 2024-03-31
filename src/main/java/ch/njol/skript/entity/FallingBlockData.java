@@ -48,8 +48,8 @@ public class FallingBlockData extends EntityData<FallingBlock> {
 		EntityData.register(FallingBlockData.class, "falling block", FallingBlock.class, "falling block");
 	}
 	
-	private final static Message m_not_a_block_error = new Message("entities.falling block.not a block error");
-	private final static Adjective m_adjective = new Adjective("entities.falling block.adjective");
+	private final static Message m_not_a_block_error = new Message("entities.fawwing bwock.not a block error");
+	private final static Adjective m_adjective = new Adjective("entities.fawwing bwock.adjective");
 
 	@Nullable
 	private ItemType[] types = null;

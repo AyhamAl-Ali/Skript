@@ -37,8 +37,8 @@ import org.eclipse.jdt.annotation.Nullable;
 
 @Name("Hatching Number")
 @Description({
-	"The number of entities that will be hatched in a Player Egg Throw event.",
-	"Please note that no more than 127 entities can be hatched at once."
+	"The number of entities dat will be hatched in a Player Egg Throw event.",
+	"Please note dat no more than 127 entities can be hatched at once."
 })
 @Examples({
 	"on player egg throw:",

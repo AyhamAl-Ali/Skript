@@ -45,7 +45,7 @@ public class ThrownPotionData extends EntityData<ThrownPotion> {
 		EntityData.register(ThrownPotionData.class, "thrown potion", ThrownPotion.class, "thrown potion");
 	}
 	
-	private static final Adjective m_adjective = new Adjective("entities.thrown potion.adjective");
+	private static final Adjective m_adjective = new Adjective("entities.thwown potion.adjective");
 	private static final boolean LINGERING_POTION_ENTITY_USED = !Skript.isRunningMinecraft(1, 14);
 	// LingeringPotion class deprecated and marked for removal
 	@SuppressWarnings("removal")

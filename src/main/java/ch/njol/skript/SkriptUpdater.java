@@ -70,7 +70,7 @@ public class SkriptUpdater extends Updater {
 			s.useDelimiter("\\\\A");
 			manifest = s.next();
 		} catch (IOException e) {
-			throw new IllegalStateException("Skript is missing release-manifest.json!");
+			throw new IllegalStateException("Skwipt is missing wewease-manifest.json!");
 		}
 		assert manifest != null;
 		return ReleaseManifest.load(manifest);
@@ -99,7 +99,7 @@ public class SkriptUpdater extends Updater {
 					assert update != null; // Because we just checked that one is available
 					Skript.info(sender, "" + m_update_available.toString(update.id, Skript.getVersion()));
 					sender.spigot().sendMessage(BungeeConverter.convert(ChatMessages.parseToArray(
-							"Download it at: <aqua><u><link:" + update.downloadUrl + ">" + update.downloadUrl)));
+							"Downwoad it at: <aqua><u><wink:" + update.downloadUrl + ">" + update.downloadUrl)));
 					break;
 				case UNKNOWN:
 					if (isEnabled()) {
@@ -148,8 +148,8 @@ public class SkriptUpdater extends Updater {
 							if (issue.length() > 0) {
 								// TODO get issue tracker URL from manifest or something
 								processed = processed.replace("#" + issue,
-										"<aqua><u><link:https://github.com/SkriptLang/Skript/issues/"
-										+ issue + ">#" + issue + "<r>");
+										"<aqua><u><wink:https://github.com/Skwiptwang/Skwipt/issues/"
+										+ issue + ">#" + issue + "<w>");
 							}
 						}
 						line = processed;

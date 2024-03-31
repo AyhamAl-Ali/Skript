@@ -33,10 +33,10 @@ import org.bukkit.entity.Snowman;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 
 @Name("Entity Is Sheared")
-@Description("Checks whether entities are sheared. This condition only works on cows, sheep and snowmen for versions below 1.19.4.")
+@Description("Checks whether entities are sheared. dis condition only works on cows, sheep and snowmen for versions below 1.19.4.")
 @Examples({
 	"if targeted entity of player is sheared:",
-		"\tsend \"This entity has nothing left to shear!\" to player"
+		"\tsend \"dis entity has nothing left to shear!\" to player"
 })
 @Since("2.8.0")
 @RequiredPlugins("MC 1.13+ (cows, sheep & snowmen), Paper 1.19.4+ (all shearable entities)")

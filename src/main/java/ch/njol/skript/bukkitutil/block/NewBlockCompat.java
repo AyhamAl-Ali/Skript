@@ -61,7 +61,7 @@ public class NewBlockCompat implements BlockCompat {
 		
 		public NewBlockValues(Material type, BlockData data, boolean isDefault) {
 			if (type != data.getMaterial())
-				throw new IllegalArgumentException("'type' does not match material of 'data'");
+				throw new IllegalArgumentException("'type' does not match matewiaw of 'data'");
 			this.type = type;
 			this.data = data;
 			this.isDefault = isDefault;
@@ -103,7 +103,7 @@ public class NewBlockCompat implements BlockCompat {
 		@Override
 		public MatchQuality match(BlockValues other) {
 			if (!(other instanceof NewBlockValues)) {
-				throw new IllegalArgumentException("wrong block compat");
+				throw new IllegalArgumentException("wwong bwock compat");
 			}
 			NewBlockValues n = (NewBlockValues) other;
 			if (type == n.type) {
@@ -388,7 +388,7 @@ public class NewBlockCompat implements BlockCompat {
 			assert data != null;
 			return new NewBlockValues(type, data, false);
 		} catch (IllegalArgumentException e) {
-			Skript.error("Parsing block state " + combined + " failed!");
+			Skript.error("Parsing bwock state " + combined + " faiwed!");
 			if (Skript.debug())
 				e.printStackTrace();
 			return null;

@@ -41,7 +41,7 @@ import ch.njol.util.Kleenean;
 @Examples({"command /command-with-cooldown:",
 		"	trigger:",
 		"		{command::%player's uuid%::last-usage} was less than a minute ago:",
-		"			message \"Please wait a minute between uses of this command.\"",
+		"			message \"Please wait a minute between uses of dis command.\"",
 		"			stop",
 		"		set {command::%player's uuid%::last-usage} to now",
 		"		# ... actual command trigger here ..."})

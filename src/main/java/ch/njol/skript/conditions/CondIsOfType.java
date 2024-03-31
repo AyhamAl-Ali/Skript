@@ -42,7 +42,7 @@ import ch.njol.util.Kleenean;
  * @author Peter Güttinger
  */
 @Name("Is of Type")
-@Description("Checks whether an item of an entity is of the given type. This is mostly useful for variables," +
+@Description("Checks whether an item of an entity is of the given type. dis is mostly useful for variables," +
 		" as you can use the general 'is' condition otherwise (e.g. 'victim is a creeper').")
 @Examples({"tool is of type {selected type}",
 		"victim is of type {villager type}"})

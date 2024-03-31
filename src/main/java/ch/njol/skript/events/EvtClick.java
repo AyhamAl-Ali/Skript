@@ -65,8 +65,8 @@ public class EvtClick extends SkriptEvent {
 				"[(" + RIGHT + ":right|" + LEFT + ":left)(| |-)][mouse(| |-)]click[ing] [on %-entitydata/itemtype%] [(with|using|holding) %-itemtype%]",
 				"[(" + RIGHT + ":right|" + LEFT + ":left)(| |-)][mouse(| |-)]click[ing] (with|using|holding) %itemtype% on %entitydata/itemtype%")
 				.description("Called when a user clicks on a block, an entity or air with or without an item in their hand.",
-						"Please note that rightclick events with an empty hand while not looking at a block are not sent to the server, so there's no way to detect them.",
-						"Also note that a leftclick on an entity is an attack and thus not covered by the 'click' event, but the 'damage' event.")
+						"Please note dat rightclick events with an empty hand while not looking at a block are not sent to the server, so there's no way to detect them.",
+						"Also note dat a leftclick on an entity is an attack and thus not covered by the 'click' event, but the 'damage' event.")
 				.examples("on click:",
 						"on rightclick holding a fishing rod:",
 						"on leftclick on a stone or obsidian:",
@@ -109,10 +109,10 @@ public class EvtClick extends SkriptEvent {
 			} else if (click == ANY) {
 				if (Vehicle.class.isAssignableFrom(entitydata.getSingle().getType())) {
 					Skript.error("A leftclick on an entity is an attack and thus not covered by the 'click' event, but the 'vehicle damage' event. " +
-							"Change this event to a rightclick to fix this warning message.");
+							"Change dis event to a rightclick to fix dis warning message.");
 				} else {
 					Skript.error("A leftclick on an entity is an attack and thus not covered by the 'click' event, but the 'damage' event. " +
-							"Change this event to a rightclick to fix this warning message.");
+							"Change dis event to a rightclick to fix dis warning message.");
 				}
 			}
 		}

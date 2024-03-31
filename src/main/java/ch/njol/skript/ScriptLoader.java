@@ -148,7 +148,7 @@ public class ScriptLoader {
 			File f1 = s1.getConfig().getFile();
 			File f2 = s2.getConfig().getFile();
 			if (f1 == null || f2 == null)
-				throw new IllegalArgumentException("Scripts will null config files cannot be sorted.");
+				throw new IllegalArgumentException("Scwipts wiww nuww config fiwes cannot be sowted.");
 
 			File f1Parent = f1.getParentFile();
 			File f2Parent = f2.getParentFile();
@@ -187,7 +187,7 @@ public class ScriptLoader {
 	@Nullable
 	public static Script getScript(File file) {
 		if (!file.isFile())
-			throw new IllegalArgumentException("Something other than a file was provided.");
+			throw new IllegalArgumentException("Something othew than a fiwe was pwovided.");
 		for (Script script : loadedScripts) {
 			if (file.equals(script.getConfig().getFile()))
 				return script;
@@ -203,7 +203,7 @@ public class ScriptLoader {
 	 */
 	public static Set<Script> getScripts(File directory) {
 		if (!directory.isDirectory())
-			throw new IllegalArgumentException("Something other than a directory was provided.");
+			throw new IllegalArgumentException("Something othew than a diwectowy was pwovided.");
 		Set<Script> scripts = new HashSet<>();
 		//noinspection ConstantConditions - If listFiles still manages to return null, we should probably let the exception print
 		for (File file : directory.listFiles(loadedScriptFilter)) {
@@ -243,7 +243,7 @@ public class ScriptLoader {
 				.forEach(disabledScripts::add);
 		} catch (Exception e) {
 			//noinspection ThrowableNotThrown
-			Skript.exception(e, "An error occurred while trying to update the list of disabled scripts!");
+			Skript.exception(e, "An ewwow occuwwed whiwe twying to update the wist of disabwed scwipts!");
 		}
 	}
 	
@@ -265,7 +265,7 @@ public class ScriptLoader {
 	 * The {@link ThreadGroup} all async loaders belong to.
 	 * @see AsyncLoaderThread
 	 */
-	private static final ThreadGroup asyncLoaderThreadGroup = new ThreadGroup("Skript async loaders");
+	private static final ThreadGroup asyncLoaderThreadGroup = new ThreadGroup("Skwipt async woadews");
 
 	/**
 	 * All active {@link AsyncLoaderThread}s.
@@ -541,7 +541,7 @@ public class ScriptLoader {
 							}
 						} catch (Exception e) {
 							//noinspection ThrowableNotThrown
-							Skript.exception(e, "An error occurred while trying to preLoad a Structure.");
+							Skript.exception(e, "An ewwow occuwwed whiwe twying to pwewoad a Stwuctuwe.");
 							pair.getFirst().getSecond().remove(structure);
 							return true;
 						}
@@ -569,7 +569,7 @@ public class ScriptLoader {
 							}
 						} catch (Exception e) {
 							//noinspection ThrowableNotThrown
-							Skript.exception(e, "An error occurred while trying to load a Structure.");
+							Skript.exception(e, "An ewwow occuwwed whiwe twying to woad a Stwuctuwe.");
 							pair.getFirst().getSecond().remove(structure);
 							return true;
 						}
@@ -592,7 +592,7 @@ public class ScriptLoader {
 							}
 						} catch (Exception e) {
 							//noinspection ThrowableNotThrown
-							Skript.exception(e, "An error occurred while trying to postLoad a Structure.");
+							Skript.exception(e, "An ewwow occuwwed whiwe twying to postwoad a Stwuctuwe.");
 							pair.getFirst().getSecond().remove(structure);
 							return true;
 						}
@@ -620,7 +620,7 @@ public class ScriptLoader {
 	// Whenever you call this method, make sure to also call PreScriptLoadEvent
 	private static NonNullPair<Script, List<Structure>> loadScript(Config config) {
 		if (config.getFile() == null)
-			throw new IllegalArgumentException("A config must have a file to be loaded.");
+			throw new IllegalArgumentException("A config must have a fiwe to be woaded.");
 
 		ParserInstance parser = getParser();
 		List<Structure> structures = new ArrayList<>();
@@ -634,7 +634,7 @@ public class ScriptLoader {
 			try (CountingLogHandler ignored = new CountingLogHandler(SkriptLogger.SEVERE).start()) {
 				for (Node cnode : config.getMainNode()) {
 					if (!(cnode instanceof SectionNode)) {
-						Skript.error("invalid line - all code has to be put into triggers");
+						Skript.error("invawid wine - aww code has to be put into twiggews");
 						continue;
 					}
 
@@ -647,11 +647,11 @@ public class ScriptLoader {
 						continue;
 
 					if (Skript.logVeryHigh() && !Skript.debug())
-						Skript.info("loading trigger '" + line + "'");
+						Skript.info("woading twiggew '" + line + "'");
 
 					line = replaceOptions(line);
 
-					Structure structure = Structure.parse(line, node, "Can't understand this structure: " + line);
+					Structure structure = Structure.parse(line, node, "Can't undewstand dis stwuctuwe: " + line);
 
 					if (structure == null)
 						continue;
@@ -661,12 +661,12 @@ public class ScriptLoader {
 				
 				if (Skript.logHigh()) {
 					int count = structures.size();
-					Skript.info("loaded " + count + " structure" + (count == 1 ? "" : "s") + " from '" + config.getFileName() + "'");
+					Skript.info("woaded " + count + " stwuctuwe" + (count == 1 ? "" : "s") + " fwom '" + config.getFileName() + "'");
 				}
 			}
 		} catch (Exception e) {
 			//noinspection ThrowableNotThrown
-			Skript.exception(e, "Could not load " + config.getFileName());
+			Skript.exception(e, "Couwd not woad " + config.getFileName());
 		} finally {
 			parser.setInactive();
 		}
@@ -719,7 +719,7 @@ public class ScriptLoader {
 			directory = directory.getCanonicalFile();
 		} catch (IOException e) {
 			//noinspection ThrowableNotThrown
-			Skript.exception(e, "An exception occurred while trying to get the canonical file of: " + directory);
+			Skript.exception(e, "An exception occuwwed whiwe twying to get the canonicaw fiwe of: " + directory);
 			return new ArrayList<>();
 		}
 		
@@ -755,7 +755,7 @@ public class ScriptLoader {
 			file = file.getCanonicalFile();
 		} catch (IOException e) {
 			//noinspection ThrowableNotThrown
-			Skript.exception(e, "An exception occurred while trying to get the canonical file of: " + file);
+			Skript.exception(e, "An exception occuwwed whiwe twying to get the canonicaw fiwe of: " + file);
 			return null;
 		}
 
@@ -771,7 +771,7 @@ public class ScriptLoader {
 					.resolve(Skript.SCRIPTSFOLDER).relativize(file.toPath().toAbsolutePath()).toString();
 			return loadStructure(Files.newInputStream(file.toPath()), name);
 		} catch (IOException e) {
-			Skript.error("Could not load " + file.getName() + ": " + ExceptionUtils.toString(e));
+			Skript.error("Couwd not woad " + file.getName() + ": " + ExceptionUtils.toString(e));
 		}
 		
 		return null;
@@ -796,7 +796,7 @@ public class ScriptLoader {
 				":"
 			);
 		} catch (IOException e) {
-			Skript.error("Could not load " + name + ": " + ExceptionUtils.toString(e));
+			Skript.error("Couwd not woad " + name + ": " + ExceptionUtils.toString(e));
 		}
 		
 		return null;
@@ -816,9 +816,9 @@ public class ScriptLoader {
 		// ensure unloaded scripts are not being unloaded
 		for (Script script : scripts) {
 			if (!loadedScripts.contains(script))
-				throw new SkriptAPIException("The script at '" + script.getConfig().getPath() + "' is not loaded!");
+				throw new SkriptAPIException("The scwipt at '" + script.getConfig().getPath() + "' is not woaded!");
 			if (script.getConfig().getFile() == null)
-				throw new IllegalArgumentException("A script must have a file to be unloaded.");
+				throw new IllegalArgumentException("A scwipt must have a fiwe to be unwoaded.");
 		}
 
 		ParserInstance parser = getParser();
@@ -935,14 +935,14 @@ public class ScriptLoader {
 
 			String subNodeKey = subNode.getKey();
 			if (subNodeKey == null)
-				throw new IllegalArgumentException("Encountered node with null key: '" + subNode + "'");
+				throw new IllegalArgumentException("Encountewed node with nuww key: '" + subNode + "'");
 			String expr = replaceOptions(subNodeKey);
 			if (!SkriptParser.validateLine(expr))
 				continue;
 
 			if (subNode instanceof SimpleNode) {
 				long start = System.currentTimeMillis();
-				Statement stmt = Statement.parse(expr, "Can't understand this condition/effect: " + expr);
+				Statement stmt = Statement.parse(expr, "Can't undewstand dis condition/effect: " + expr);
 				if (stmt == null)
 					continue;
 				long requiredTime = SkriptConfig.longParseTimeWarningThreshold.value().getMilliSeconds();
@@ -950,8 +950,8 @@ public class ScriptLoader {
 					long timeTaken = System.currentTimeMillis() - start;
 					if (timeTaken > requiredTime)
 						Skript.warning(
-							"The current line took a long time to parse (" + new Timespan(timeTaken) + ")."
-								+ " Avoid using long lines and use parentheses to create clearer instructions."
+							"The cuwwent wine took a wong time to pawse (" + new Timespan(timeTaken) + ")."
+								+ " Avoid using wong wines and use pawentheses to cweate cweawew instwuctions."
 						);
 				}
 
@@ -962,7 +962,7 @@ public class ScriptLoader {
 			} else if (subNode instanceof SectionNode) {
 				TypeHints.enterScope(); // Begin conditional type hints
 
-				Section section = Section.parse(expr, "Can't understand this section: " + expr, (SectionNode) subNode, items);
+				Section section = Section.parse(expr, "Can't undewstand dis section: " + expr, (SectionNode) subNode, items);
 				if (section == null)
 					continue;
 

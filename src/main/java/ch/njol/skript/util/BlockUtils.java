@@ -122,7 +122,7 @@ public class BlockUtils {
 			} catch (StringIndexOutOfBoundsException alsoIgnored) {
 				return null;
 			} catch (IllegalArgumentException alsoIgnored) {
-				Skript.error("Block data '" + errorData + "' is not valid for this material");
+				Skript.error("Block data '" + errorData + "' is not valid for dis material");
 				return null;
 			}
 		}

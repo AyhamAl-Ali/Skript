@@ -52,7 +52,7 @@ import net.kyori.adventure.text.serializer.bungeecord.BungeeComponentSerializer;
 @Description({
 	"The pages of a book (Supports Skript's chat format)",
 	"Note: In order to modify the pages of a new written book, you must have the title and author",
-	"of the book set. Skript will do this for you, but if you want your own, please set those values."
+	"of the book set. Skript will do dis for you, but if you want your own, please set those values."
 })
 @Examples({
 	"on book sign:",

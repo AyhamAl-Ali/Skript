@@ -92,7 +92,7 @@ public abstract class Classes {
 		try {
 			Skript.checkAcceptRegistrations();
 			if (classInfosByCodeName.containsKey(info.getCodeName()))
-				throw new IllegalArgumentException("Can't register " + info.getC().getName() + " with the code name " + info.getCodeName() + " because that name is already used by " + classInfosByCodeName.get(info.getCodeName()));
+				throw new IllegalArgumentException("Can't register " + info.getC().getName() + " with the code name " + info.getCodeName() + " because dat name is already used by " + classInfosByCodeName.get(info.getCodeName()));
 			if (exactClassInfos.containsKey(info.getC()))
 				throw new IllegalArgumentException("Can't register the class info " + info.getCodeName() + " because the class " + info.getC().getName() + " is already registered");
 			if (info.getCodeName().length() > SQLStorage.MAX_CLASS_CODENAME_LENGTH)

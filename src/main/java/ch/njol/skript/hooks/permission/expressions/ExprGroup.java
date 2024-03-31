@@ -43,14 +43,14 @@ import java.util.concurrent.CompletableFuture;
 
 @Name("Group")
 @Description({
-	"The primary group or all groups of a player. This expression requires Vault and a compatible permissions plugin to be installed.",
+	"The primary group or all groups of a player. dis expression requires Vault and a compatible permissions plugin to be installed.",
 	"If you have LuckPerms, ensure you have vault integration enabled in the luck perms configurations."
 })
 @Examples({"on join:",
-			"\tbroadcast \"%group of player%\" # this is the player's primary group",
-			"\tbroadcast \"%groups of player%\" # this is all of the player's groups"})
+			"\tbroadcast \"%group of player%\" # dis is the player's primary group",
+			"\tbroadcast \"%groups of player%\" # dis is all of the player's groups"})
 @Since("2.2-dev35")
-@RequiredPlugins({"Vault", "a permission plugin that supports Vault"})
+@RequiredPlugins({"Vault", "a permission plugin dat supports Vault"})
 public class ExprGroup extends SimpleExpression<String> {
 
 	static {

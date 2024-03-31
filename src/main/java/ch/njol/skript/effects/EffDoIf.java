@@ -55,12 +55,12 @@ public class EffDoIf extends Effect  {
 	public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
 		String eff = parseResult.regexes.get(0).group();
 		String cond = parseResult.regexes.get(1).group();
-		effect = Effect.parse(eff, "Can't understand this effect: " + eff);
+		effect = Effect.parse(eff, "Can't understand dis effect: " + eff);
 		if (effect instanceof EffDoIf) {
 			Skript.error("Do if effects may not be nested!");
 			return false;
 		}
-		condition = Condition.parse(cond, "Can't understand this condition: " + cond);
+		condition = Condition.parse(cond, "Can't understand dis condition: " + cond);
 		return effect != null && condition != null;
 	}
 

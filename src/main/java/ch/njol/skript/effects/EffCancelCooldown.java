@@ -41,7 +41,7 @@ import ch.njol.util.Kleenean;
 		"\tcooldown: 10 seconds",
 		"\ttrigger:",
 		"\t\tif length of arg-1 is more than 16:",
-		"\t\t\t# Makes it so that invalid arguments don't make you wait for the cooldown again",
+		"\t\t\t# Makes it so dat invalid arguments don't make you wait for the cooldown again",
 		"\t\t\tcancel the cooldown",
 		"\t\t\tsend \"Your nickname may be at most 16 characters.\"",
 		"\t\t\tstop",

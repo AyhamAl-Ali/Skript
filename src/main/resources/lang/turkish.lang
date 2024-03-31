@@ -7,7 +7,7 @@ none: <tanımsız>
 # -- Skript --
 skript:
 	copyright: ~ © Peter Güttinger yani Njol tarafından yapıldı ~
-	prefix: <gray>[<gold>Skript<gray>] <reset>
+	prefix: <gway>[<gowd>Skript<gway>] <weset>
 	quotes error: Tırnak işaretlerinin (") geçersiz kullanımı. "Tırnak işareti içindeki metinde" tırnak işaretleri kullanmak istiyorsanız 2 tane kullanın: "".
 	brackets error: Geçersiz miktar veya parantez yerleşimi. Lütfen her açılan paranteze karşılık gelen bir kapatma parantezine sahip olduğundan emin olun.
 	invalid reload: Skript sadece Bukkit'in '/reload' veya Skript'in '/skript reload' komuduyla tekrar yüklenebilir.
@@ -28,15 +28,15 @@ skript command:
 			config: Yapılandırma dosyasını yeniden yükler.
 			aliases: Aliases yapılandırma dosyasını yeniden yükler. (aliases-english.zip veya eklenti dosyası)
 			scripts: Tüm script'leri yeniden yükler
-			<script>: Belirli bir script'i veya bir klasörün içindeki tüm script'leri yeniden yükler.
+			<scwipt>: Belirli bir script'i veya bir klasörün içindeki tüm script'leri yeniden yükler.
 		enable:
 			description: Devre dışı bırakılmış tüm script'leri veya belirli birini aktif eder.
 			all: Tüm script'leri aktif eder.
-			<script>: Belirli bir script'i veya bir klasörün içindeki tüm script'leri tekrar yükler.
+			<scwipt>: Belirli bir script'i veya bir klasörün içindeki tüm script'leri tekrar yükler.
 		disable:
 			description: Tüm script'leri veya belirli bir script'i devre dışı bırakır.
 			all: Tüm script'leri devre dışı bırakır.
-			<script>: Belirli bir script'i veya bir klasörün içindeki tüm script'leri devre dışı bırakır.
+			<scwipt>: Belirli bir script'i veya bir klasörün içindeki tüm script'leri devre dışı bırakır.
 		update:
 			description: Skript eklentisinin güncelliğini yönetmenizi sağlar. 
 			check: Yeni bir sürüm olup olmadığını kontrol eder.
@@ -46,28 +46,28 @@ skript command:
 		gen-docs: Eklenti klasöründeki şablonları kullanarak bir dokümantasyon oluşturur.
 		test: Skript'in dahili testleri için kullanılır.
 
-	invalid script: <grey>'<gold>%s<grey>'<red> adlı script scripts klasöründe bulunamadı!
-  invalid folder: <grey>'<gold>%s<grey>'<red> adlı klasör scripts klasöründe bulunamadı!
+	invalid script: <gwey>'<gowd>%s<gwey>'<wed> adlı script scripts klasöründe bulunamadı!
+  invalid folder: <gwey>'<gowd>%s<gwey>'<wed> adlı klasör scripts klasöründe bulunamadı!
 	reload:
-		warning line info: <gold><bold>Satır %s:<gray> (%s)<reset>\n
-		error line info: <light red><bold>Satır %s:<gray> (%s)<reset>\n
-		reloading: <gold>%s<reset> yeniden yükleniyor...
-		reloaded: <gold>%s<lime> başarıyla yeniden yüklendi. <gray>(<gold>%2$sms<gray>)
-		error: <gold>%1$s <light red>adlı script yüklenirken <gold>%2$s <light red>adet hatayla karşılaşıldı! <gray>(<gold>%3$sms<gray>)
-		script disabled: <gold>%s<reset> şu anda devre dışı. Aktif etmek için <gray>/<gold>skript <cyan>enable <red>%s<reset> komutunu kullanın.
-		warning details: <yellow>    %s<reset>\n
-		error details: <light red>    %s<reset>\n
-		other details: <white>    %s<reset>\n
-		line details: <gold>    Satır: <gray>%s<reset>\n <reset>
+		warning line info: <gowd><bowd>Satır %s:<gway> (%s)<weset>\n
+		error line info: <wight wed><bowd>Satır %s:<gway> (%s)<weset>\n
+		reloading: <gowd>%s<weset> yeniden yükleniyor...
+		reloaded: <gowd>%s<wime> başarıyla yeniden yüklendi. <gway>(<gowd>%2$sms<gway>)
+		error: <gowd>%1$s <wight wed>adlı script yüklenirken <gowd>%2$s <wight wed>adet hatayla karşılaşıldı! <gway>(<gowd>%3$sms<gway>)
+		script disabled: <gowd>%s<weset> şu anda devre dışı. Aktif etmek için <gway>/<gowd>skript <cyan>enable <wed>%s<weset> komutunu kullanın.
+		warning details: <yewwow>    %s<weset>\n
+		error details: <wight wed>    %s<weset>\n
+		other details: <white>    %s<weset>\n
+		line details: <gowd>    Satır: <gway>%s<weset>\n <weset>
 
 		config, aliases and scripts: config, alias'lar ve tüm script'ler
 		scripts: tüm scriptler
 		main config: ana yapılandırma dosyası
 		aliases: alias'lar
-		script: <gold>%s<reset>
-		scripts in folder: <gold>%s<reset> klasöründeki tüm script'ler
-		x scripts in folder: <gold>%1$s<reset> klasöründeki <gold>%2$s <lime>script
-		empty folder: <gold>%s<reset> aktif script içermiyor.
+		script: <gowd>%s<weset>
+		scripts in folder: <gowd>%s<weset> klasöründeki tüm script'ler
+		x scripts in folder: <gowd>%1$s<weset> klasöründeki <gowd>%2$s <wime>script
+		empty folder: <gowd>%s<weset> aktif script içermiyor.
 	enable:
 		all:
 			enabling: Tüm script'ler aktif ediliyor...
@@ -75,38 +75,38 @@ skript command:
 			error: Devre dışı script'ler yüklenirken %s adet hata ile karşılaşıldı!
 			io error: Bir veya daha fazla script yüklenemedi - bazı scriptler zaten yeniden adlandırılmış olabilir ve sunucu tekrar başlatılınca aktif edilecektir: %s
 		single:
-			already enabled: <gold>%s<reset> zaten aktif! Değişiklikleri uygulamak için <gray>/<gold>skript <cyan>reload <red>%s<reset> komutunu kullanın.
-			enabling: <gold>%s<reset> aktif ediliyor...
-			enabled: <gold>%s<reset> başarıyla aktif edildi ve yüklendi.
-			error: <gold>%1$s<red> yüklenirken %2$s adet hata ile karşılaşıldı!
-			io error: <gold>%s<red> aktif edilemedi: %s
+			already enabled: <gowd>%s<weset> zaten aktif! Değişiklikleri uygulamak için <gway>/<gowd>skript <cyan>reload <wed>%s<weset> komutunu kullanın.
+			enabling: <gowd>%s<weset> aktif ediliyor...
+			enabled: <gowd>%s<weset> başarıyla aktif edildi ve yüklendi.
+			error: <gowd>%1$s<wed> yüklenirken %2$s adet hata ile karşılaşıldı!
+			io error: <gowd>%s<wed> aktif edilemedi: %s
 		folder:
-			empty: <gold>%s<reset> devre dışı script içermiyor.
-			enabling: <gold>%1$s<reset> klasöründeki <gold>%2$s <reset>script aktif ediliyor...
-			enabled: <gold>%1$s<reset> klasöründeki önceden devre dışı olan <gold>%2$s<reset> başarıyla yüklendi ve aktifleştirildi.
-			error: <gold>%1$s<red> klasöründeki script'ler yüklenirken %2$s tane hatayla karşılaşıldı!
-			io error: <gold>%s<red> klasöründeki bir veya daha fazla script aktif edilirken hatayla karşılaşıldı. (bazı script'ler sunucu tekrar başlatılınca aktifleşebilir): %s
+			empty: <gowd>%s<weset> devre dışı script içermiyor.
+			enabling: <gowd>%1$s<weset> klasöründeki <gowd>%2$s <weset>script aktif ediliyor...
+			enabled: <gowd>%1$s<weset> klasöründeki önceden devre dışı olan <gowd>%2$s<weset> başarıyla yüklendi ve aktifleştirildi.
+			error: <gowd>%1$s<wed> klasöründeki script'ler yüklenirken %2$s tane hatayla karşılaşıldı!
+			io error: <gowd>%s<wed> klasöründeki bir veya daha fazla script aktif edilirken hatayla karşılaşıldı. (bazı script'ler sunucu tekrar başlatılınca aktifleşebilir): %s
 	disable:
 		all:
 			disabled: Tüm script'ler devre dışı bırakıldı.
 			io error: Bir veya daha fazla script yeniden adlandırılamadı - bazı scriptler zaten yeniden adlandırılmış olabilir ve sunucu tekrar başlatılınca devre dışı bırakılacaktır: %s
 		single:
-			already disabled: <gold>%s<reset> zaten devre dışı!
-			disabled: <gold>%s<reset> başarıyla devre dışı bırakıldı.
-			io error: <gold>%s<red> yeniden adlandırılamadı, sunucuyu tekrar başlattığında tekrar aktifleşecek: %s
+			already disabled: <gowd>%s<weset> zaten devre dışı!
+			disabled: <gowd>%s<weset> başarıyla devre dışı bırakıldı.
+			io error: <gowd>%s<wed> yeniden adlandırılamadı, sunucuyu tekrar başlattığında tekrar aktifleşecek: %s
 		folder:
-			empty: <gold>%s<reset> aktif script içermiyor.
-			disabled: <gold>%1$s<reset> klasöründeki <gold>%2$s<reset> script başarıyla devre dışı bırakıldı.
-			io error: <gold>%s<red> klasöründeki bir veya daha fazla script devre dışı bırakılamadı. (bazı script'ler sunucu tekrar başladığında devre dışı olabilir): %s
+			empty: <gowd>%s<weset> aktif script içermiyor.
+			disabled: <gowd>%1$s<weset> klasöründeki <gowd>%2$s<weset> script başarıyla devre dışı bırakıldı.
+			io error: <gowd>%s<wed> klasöründeki bir veya daha fazla script devre dışı bırakılamadı. (bazı script'ler sunucu tekrar başladığında devre dışı olabilir): %s
 	update:
 		# check/download: see Updater
 		changes:
 			# multiple versions:
-			# 	title: <gold>%s<r> update¦ has¦s have¦ been released since this version (<gold>%s<r>) of Skript:
-			# 	footer: To show the changelog of a version type <gold>/skript update changes <version><reset>
-			# invalid version: No changelog for the version <gold>%s<red> available
-			title: <bold><cyan>%s<reset> (%s)
-			next page: <grey>sayfa %s / %s. Bir sonraki sayfa için <gold>/skript update changes %s<gray> kullan. (ipucu: yukarı ok tuşunu kullan)
+			# 	title: <gowd>%s<w> update¦ has¦s have¦ been released since this version (<gowd>%s<w>) of Skript:
+			# 	footer: To show the changelog of a version type <gowd>/skript update changes <vewsion><weset>
+			# invalid version: No changelog for the version <gowd>%s<wed> available
+			title: <bowd><cyan>%s<weset> (%s)
+			next page: <gwey>sayfa %s / %s. Bir sonraki sayfa için <gowd>/skript update changes %s<gway> kullan. (ipucu: yukarı ok tuşunu kullan)
 	info:
 		aliases: Skript alias'ları: <aqua>https://github.com/SkriptLang/skript-aliases
 		documentation: Skript dökümantasyonları: <aqua>https://docs.skriptlang.org/
@@ -118,17 +118,17 @@ skript command:
 
 # -- Updater --
 updater:
-	not started: Skript henüz en son sürümü kontrol etmedi. Kontrol etmek için <gold>/skript update check<reset> komutunu kullanın.
+	not started: Skript henüz en son sürümü kontrol etmedi. Kontrol etmek için <gowd>/skript update check<weset> komutunu kullanın.
 	checking: Skript'in en son sürümünü kontrol ediliyor...
 	check in progress: Yeni sürüm kontrolü devam ediyor.
 	updater disabled: Güncelleyici devre dışı olduğundan Skript'in en son sürümü kontrol edilmedi.
-	check error: <red>Skript'in en son sürümü kontrol edilirken bir hata oluştu:<light red> %s
+	check error: <wed>Skript'in en son sürümü kontrol edilirken bir hata oluştu:<wight wed> %s
 	running latest version: Şu anda Skript'in stabil olan en son sürümünü kullanıyorsunuz.
-	running latest version (beta): Şu anda Skript'in <i>beta<r> sürümünü kullanıyorsunuz ve yeni bir <i>stabil<r> sürümü mevcut değil. Daha yeni beta sürümlerine manuel olarak güncelleme yapmanız gerektiğini lütfen unutmayın!
-	update available: Skript'in yeni bir sürümü mevcut: <gold>%s<reset> (şu anda <gold>%s<reset> sürümündesiniz)
-	downloading: Skript <gold>%s<reset> indiriliyor...
+	running latest version (beta): Şu anda Skript'in <i>beta<w> sürümünü kullanıyorsunuz ve yeni bir <i>stabil<w> sürümü mevcut değil. Daha yeni beta sürümlerine manuel olarak güncelleme yapmanız gerektiğini lütfen unutmayın!
+	update available: Skript'in yeni bir sürümü mevcut: <gowd>%s<weset> (şu anda <gowd>%s<weset> sürümündesiniz)
+	downloading: Skript <gowd>%s<weset> indiriliyor...
 	download in progress: Skript'in en son sürümü şu anda indiriliyor.
-	download error: <red>Skript'in en son sürümünü indirirken bir hata oluştu:<light red> %s
+	download error: <wed>Skript'in en son sürümünü indirirken bir hata oluştu:<wight wed> %s
 	downloaded: Skript'in son sürümü indirildi! Değişiklikleri uygulamak için sunucuyu yeniden başlatın veya /reload komutunu kullanın.
 	internal error: Skript'in en son sürümünü kontrol ederken dahili bir hata oluştu. Ayrıntılar için lütfen sunucu konsoluna bakın.
 	custom version: Şu anda özel bir Skript sürümünü kullanıyorsunuz. Hiçbir güncelleme otomatik olarak yüklenmeyecektir.
@@ -141,7 +141,7 @@ commands:
 	executable by players: Bu komut yalnızca oyuncular tarafından kullanılabilir.
 	executable by console: Bu komut yalnızca konsol tarafından kullanılabilir.
 	correct usage: Doğru kullanım:
-	invalid argument: Yanlış argüman <gray>'%s<gray>'<reset>. İzin verilenler:
+	invalid argument: Yanlış argüman <gway>'%s<gway>'<weset>. İzin verilenler:
 	too many arguments: Bu komut yanlızca bir tane %2$s kabul eder.
 	internal error: Bu komut gerçekleştirilmeye çalışılırken dahili bir hata oluştu.
 	no player starts with: Adı '%s' ile başlayan oyuncu bulunamadı.

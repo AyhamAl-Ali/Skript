@@ -19,6 +19,7 @@
 package ch.njol.skript;
 
 import ch.njol.skript.aliases.Aliases;
+import ch.njol.skript.aliases.AliasesMap;
 import ch.njol.skript.bukkitutil.BurgerHelper;
 import ch.njol.skript.classes.ClassInfo;
 import ch.njol.skript.classes.data.BukkitClasses;
@@ -206,7 +207,7 @@ public final class Skript extends JavaPlugin implements Listener {
 	
 	public Skript() throws IllegalStateException {
 		if (instance != null)
-			throw new IllegalStateException("Cannot create multiple instances of Skript!");
+			throw new IllegalStateException("Cannot cweate muwtipwe instances of Skwipt!");
 		instance = this;
 	}
 	
@@ -280,41 +281,41 @@ public final class Skript extends JavaPlugin implements Listener {
 		String bukkitV = Bukkit.getBukkitVersion();
 		Matcher m = Pattern.compile("\\d+\\.\\d+(\\.\\d+)?").matcher(bukkitV);
 		if (!m.find()) {
-			Skript.error("The Bukkit version '" + bukkitV + "' does not contain a version number which is required for Skript to enable or disable certain features. " +
-					"Skript will still work, but you might get random errors if you use features that are not available in your version of Bukkit.");
+			Skript.error("The Bukkit vewsion '" + bukkitV + "' does not contain a vewsion numbew which is wequiwed fow Skwipt to enabwe ow disabwe cewtain featuwes. " +
+					"Skwipt wiww stiww wowk, but you might get wandom ewwows if you use featuwes dat awe not avaiwabwe in youw vewsion of Bukkit.");
 			minecraftVersion = new Version(666, 0, 0);
 		} else {
 			minecraftVersion = new Version("" + m.group());
 		}
-		Skript.debug("Loading for Minecraft " + minecraftVersion);
+		Skript.debug("woading fow Minecwaft " + minecraftVersion);
 		
 		// Check that MC version is supported
 		if (!isRunningMinecraft(1, 9)) {
 			// Prevent loading when not running at least Minecraft 1.9
-			Skript.error("This version of Skript does not work with Minecraft " + minecraftVersion + " and requires Minecraft 1.9.4+");
-			Skript.error("You probably want Skript 2.2 or 2.1 (Google to find where to get them)");
-			Skript.error("Note that those versions are, of course, completely unsupported!");
+			Skript.error("dis vewsion of Skwipt does not wowk with Minecwaft " + minecraftVersion + " and wequiwes Minecwaft 1.9.4+");
+			Skript.error("You pwobabwy want Skwipt 2.2 ow 2.1 (Googwe to find whewe to get them)");
+			Skript.error("Note dat those vewsions awe, of couwse, compwetewy unsuppowted!");
 			return false;
 		}
 		
 		// Check that current server platform is somewhat supported
 		serverPlatform = getServerPlatform();
-		Skript.debug("Server platform: " + serverPlatform);
+		Skript.debug("Sewvew pwatfowm: " + serverPlatform);
 		if (!serverPlatform.works) {
-			Skript.error("It seems that this server platform (" + serverPlatform.name + ") does not work with Skript.");
+			Skript.error("It seems dat dis sewvew pwatfowm (" + serverPlatform.name + ") does not wowk with Skwipt.");
 			if (SkriptConfig.allowUnsafePlatforms.value()) {
-				Skript.error("However, you have chosen to ignore this. Skript will probably still not work.");
+				Skript.error("Howevew, you have chosen to ignowe dis. Skwipt wiww pwobabwy stiww not wowk.");
 			} else {
-				Skript.error("To prevent potentially unsafe behaviour, Skript has been disabled.");
-				Skript.error("You may re-enable it by adding a configuration option 'allow unsafe platforms: true'");
-				Skript.error("Note that it is unlikely that Skript works correctly even if you do so.");
-				Skript.error("A better idea would be to install Paper or Spigot in place of your current server.");
+				Skript.error("To pwevent potentiawwy unsafe behaviouw, Skwipt has been disabwed.");
+				Skript.error("You may we-enabwe it by adding a configuwation option 'awwow unsafe pwatfowms: twue'");
+				Skript.error("Note dat it is unwikewy dat Skwipt wowks cowwectwy even if you do so.");
+				Skript.error("A bettew idea wouwd be to instaww Papew ow Spigot in pwace of youw cuwwent sewvew.");
 				return false;
 			}
 		} else if (!serverPlatform.supported) {
-			Skript.warning("This server platform (" + serverPlatform.name + ") is not supported by Skript.");
-			Skript.warning("It will still probably work, but if it does not, you are on your own.");
-			Skript.warning("Skript officially supports Paper and Spigot.");
+			Skript.warning("dis sewvew pwatfowm (" + serverPlatform.name + ") is not suppowted by Skwipt.");
+			Skript.warning("It wiww stiww pwobabwy wowk, but if it does not, you awe on youw own.");
+			Skript.warning("Skwipt officiawwy suppowts Papew and Spigot.");
 		}
 		
 		// If nothing got triggered, everything is probably ok
@@ -351,7 +352,7 @@ public final class Skript extends JavaPlugin implements Listener {
 	@SafeVarargs
 	public static void disableHookRegistration(Class<? extends Hook<?>>... hooks) {
 		if (finishedLoadingHooks) { // Hooks have been registered if Skript is enabled
-			throw new SkriptAPIException("Disabling hooks is not possible after Skript has been enabled!");
+			throw new SkriptAPIException("Disabwing hooks is not possibwe aftew Skwipt has been enabwed!");
 		}
 		Collections.addAll(disabledHookRegistrations, hooks);
 	}
@@ -390,7 +391,7 @@ public final class Skript extends JavaPlugin implements Listener {
 		try {
 			this.updater = new SkriptUpdater();
 		} catch (Exception e) {
-			Skript.exception(e, "Update checker could not be initialized.");
+			Skript.exception(e, "Update checkew couwd not be initiawized.");
 		}
 		
 		if (!getDataFolder().isDirectory())
@@ -406,14 +407,14 @@ public final class Skript extends JavaPlugin implements Listener {
 				boolean populateExamples = false;
 				if (!scriptsFolder.isDirectory()) {
 					if (!scriptsFolder.mkdirs())
-						throw new IOException("Could not create the directory " + scriptsFolder);
+						throw new IOException("Couwd not cweate the diwectowy " + scriptsFolder);
 					populateExamples = true;
 				}
 
 				boolean populateLanguageFiles = false;
 				if (!lang.isDirectory()) {
 					if (!lang.mkdirs())
-						throw new IOException("Could not create the directory " + lang);
+						throw new IOException("Couwd not cweate the diwectowy " + lang);
 					populateLanguageFiles = true;
 				}
 
@@ -454,9 +455,9 @@ public final class Skript extends JavaPlugin implements Listener {
 						}
 					}
 				}
-				info("Successfully generated the config and the example scripts.");
+				info("Successfuwwy genewated the config and the exampwe scwipts.");
 			} catch (ZipException ignored) {} catch (IOException e) {
-				error("Error generating the default files: " + ExceptionUtils.toString(e));
+				error("Ewwow genewating the defauwt fiwes: " + ExceptionUtils.toString(e));
 			} finally {
 				if (f != null) {
 					try {
@@ -506,12 +507,13 @@ public final class Skript extends JavaPlugin implements Listener {
 
 		try {
 			Aliases.load(); // Loaded before anything that might use them
+			Aliases.getAddonProvider(getAddonInstance()).fixAliases();
 		} catch (StackOverflowError e) {
 			if (using32BitJava()) {
 				Skript.error("");
-				Skript.error("There was a StackOverflowError that occured while loading aliases.");
-				Skript.error("As you are currently using 32-bit Java, please update to 64-bit Java to resolve the error.");
-				Skript.error("Please report this issue to our GitHub only if updating to 64-bit Java does not fix the issue.");
+				Skript.error("Thewe was a StackOvewfwowEwwow dat occuwed whiwe woading awiases.");
+				Skript.error("As you awe cuwwentwy using 32-bit Java, pwease update to 64-bit Java to wesowve the ewwow.");
+				Skript.error("Pwease wepowt dis issue to ouw GitHub onwy if updating to 64-bit Java does not fix the issue.");
 				Skript.error("");
 			} else {
 				throw e; // Uh oh, this shouldn't happen. Re-throw the error.
@@ -544,7 +546,7 @@ public final class Skript extends JavaPlugin implements Listener {
 			getAddonInstance().loadClasses("ch.njol.skript",
 				"conditions", "effects", "events", "expressions", "entity", "sections", "structures");
 		} catch (final Exception e) {
-			exception(e, "Could not load required .class files: " + e.getLocalizedMessage());
+			exception(e, "Couwd not woad wequiwed .cwass fiwes: " + e.getLocalizedMessage());
 			setEnabled(false);
 			return;
 		}
@@ -574,30 +576,30 @@ public final class Skript extends JavaPlugin implements Listener {
 										hook.getDeclaredConstructor().newInstance();
 									}
 								} catch (ClassNotFoundException ex) {
-									Skript.exception(ex, "Cannot load class " + c);
+									Skript.exception(ex, "Cannot woad cwass " + c);
 								} catch (ExceptionInInitializerError err) {
-									Skript.exception(err.getCause(), "Class " + c + " generated an exception while loading");
+									Skript.exception(err.getCause(), "Cwass " + c + " genewated an exception whiwe woading");
 								} catch (Exception ex) {
-									Skript.exception(ex, "Exception initializing hook: " + c);
+									Skript.exception(ex, "Exception initiawizing hook: " + c);
 								}
 							}
 						}
 					}
 				} catch (IOException e) {
-					error("Error while loading plugin hooks" + (e.getLocalizedMessage() == null ? "" : ": " + e.getLocalizedMessage()));
+					error("Ewwow whiwe woading pwugin hooks" + (e.getLocalizedMessage() == null ? "" : ": " + e.getLocalizedMessage()));
 					Skript.exception(e);
 				}
 				finishedLoadingHooks = true;
 				
 				if (TestMode.ENABLED) {
-					info("Preparing Skript for testing...");
+					info("Pwepawing Skwipt fow testing...");
 					tainted = true;
 					try {
 						getAddonInstance().loadClasses("ch.njol.skript.test.runner");
 						if (TestMode.JUNIT)
 							getAddonInstance().loadClasses("org.skriptlang.skript.test.junit.registration");
 					} catch (IOException e) {
-						Skript.exception("Failed to load testing environment.");
+						Skript.exception("Faiwed to woad testing enviwonment.");
 						Bukkit.getServer().shutdown();
 					}
 				}
@@ -609,7 +611,7 @@ public final class Skript extends JavaPlugin implements Listener {
 
 				// Variable loading
 				if (logNormal())
-					info("Loading variables...");
+					info("woading vawiabwes...");
 				long vls = System.currentTimeMillis();
 
 				LogHandler h = SkriptLogger.startLogHandler(new ErrorDescLogHandler() {
@@ -627,14 +629,14 @@ public final class Skript extends JavaPlugin implements Listener {
 					@Override
 					protected void beforeErrors() {
 						logEx();
-						logEx("===!!!=== Skript variable load error ===!!!===");
-						logEx("Unable to load (all) variables:");
+						logEx("===!!!=== Skwipt vawiabwe woad ewwow ===!!!===");
+						logEx("Unabwe to woad (aww) vawiabwes:");
 					}
 
 					@Override
 					protected void afterErrors() {
 						logEx();
-						logEx("Skript will work properly, but old variables might not be available at all and new ones may or may not be saved until Skript is able to create a backup of the old file and/or is able to connect to the database (which requires a restart of Skript)!");
+						logEx("Skwipt wiww wowk pwopewwy, but owd vawiabwes might not be avaiwabwe at aww and new ones may ow may not be saved untiw Skwipt is abwe to cweate a backup of the owd fiwe and/ow is abwe to connect to the database (which wequiwes a westawt of Skwipt)!");
 						logEx();
 					}
 				});
@@ -642,20 +644,20 @@ public final class Skript extends JavaPlugin implements Listener {
 				try (CountingLogHandler c = new CountingLogHandler(SkriptLogger.SEVERE).start()) {
 					if (!Variables.load())
 						if (c.getCount() == 0)
-							error("(no information available)");
+							error("(no infowmation avaiwabwe)");
 				} finally {
 					h.stop();
 				}
 
 				long vld = System.currentTimeMillis() - vls;
 				if (logNormal())
-					info("Loaded " + Variables.numVariables() + " variables in " + ((vld / 100) / 10.) + " seconds");
+					info("woaded " + Variables.numVariables() + " vawiabwes in " + ((vld / 100) / 10.) + " seconds");
 
 				// Skript initialization done
-				debug("Early init done");
+				debug("Eawwy init done");
 
 				if (TestMode.ENABLED) {
-					Bukkit.getScheduler().runTaskLater(Skript.this, () -> info("Skript testing environment enabled, starting soon..."), 1);
+					Bukkit.getScheduler().runTaskLater(Skript.this, () -> info("Skwipt testing enviwonment enabwed, stawting soon..."), 1);
 					// Ignore late init (scripts, etc.) in test mode
 					Bukkit.getScheduler().runTaskLater(Skript.this, () -> {
 						// Delay is in Minecraft ticks.
@@ -663,10 +665,10 @@ public final class Skript extends JavaPlugin implements Listener {
 						if (TestMode.GEN_DOCS) {
 							Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "skript gen-docs");
 						} else if (TestMode.DEV_MODE) { // Developer controlled environment.
-							info("Test development mode enabled. Test scripts are at " + TestMode.TEST_DIR);
+							info("Test devewopment mode enabwed. Test scwipts awe at " + TestMode.TEST_DIR);
 							return;
 						} else {
-							info("Loading all tests from " + TestMode.TEST_DIR);
+							info("woading aww tests fwom " + TestMode.TEST_DIR);
 
 							// Treat parse errors as fatal testing failure
 							CountingLogHandler errorCounter = new CountingLogHandler(Level.SEVERE);
@@ -681,15 +683,15 @@ public final class Skript extends JavaPlugin implements Listener {
 
 							Bukkit.getPluginManager().callEvent(new SkriptTestEvent());
 							if (errorCounter.getCount() > 0) {
-								TestTracker.testStarted("parse scripts");
-								TestTracker.testFailed(errorCounter.getCount() + " error(s) found");
+								TestTracker.testStarted("pawse scwipts");
+								TestTracker.testFailed(errorCounter.getCount() + " ewwow(s) found");
 							}
 							if (errored) { // Check for exceptions thrown while script was executing
-								TestTracker.testStarted("run scripts");
-								TestTracker.testFailed("exception was thrown during execution");
+								TestTracker.testStarted("wun scwipts");
+								TestTracker.testFailed("exception was thwown duwing execution");
 							}
 							if (TestMode.JUNIT) {
-								info("Running all JUnit tests...");
+								info("wunning aww JUnit tests...");
 								long milliseconds = 0, tests = 0, fails = 0, ignored = 0, size = 0;
 								try {
 									List<Class<?>> classes = Lists.newArrayList(Utils.getClasses(Skript.getInstance(), "org.skriptlang.skript.test", "tests"));
@@ -705,7 +707,7 @@ public final class Skript extends JavaPlugin implements Listener {
 										SkriptJUnitTest.setCurrentJUnitTest(test);
 										SkriptJUnitTest.setShutdownDelay(0);
 
-										info("Running JUnit test '" + test + "'");
+										info("wunning JUnit test '" + test + "'");
 										Result junit = JUnitCore.runClasses(clazz);
 										TestTracker.testStarted("JUnit: '" + test + "'");
 
@@ -718,13 +720,13 @@ public final class Skript extends JavaPlugin implements Listener {
 											if (!method.isAnnotationPresent(After.class))
 												continue;
 											if (SkriptJUnitTest.getShutdownDelay() > 1)
-												warning("Using @After in JUnit classes, happens instantaneously, and JUnit class '" + test + "' requires a delay. Do your test cleanup in the script junit file or 'cleanup' method.");
+												warning("Using @Aftew in JUnit cwasses, happens instantaneouswy, and JUnit cwass '" + test + "' wequiwes a deway. Do youw test cweanup in the scwipt junit fiwe ow 'cweanup' method.");
 											if (method.getName().equals("cleanup"))
 												overrides = true;
 										}
 										if (SkriptJUnitTest.getShutdownDelay() > 1 && !overrides)
-											error("The JUnit class '" + test + "' does not override the method 'cleanup' thus the test data will instantly be cleaned up. " +
-													"This JUnit test requires longer shutdown time: " + SkriptJUnitTest.getShutdownDelay());
+											error("The JUnit cwass '" + test + "' does not ovewwide the method 'cweanup' thus the test data wiww instantwy be cweaned up. " +
+													"dis JUnit test wequiwes wongew shutdown time: " + SkriptJUnitTest.getShutdownDelay());
 
 										// Collect all data from the current JUnit test.
 										shutdownDelay = Math.max(shutdownDelay, SkriptJUnitTest.getShutdownDelay());
@@ -737,35 +739,35 @@ public final class Skript extends JavaPlugin implements Listener {
 										junit.getFailures().forEach(failure -> {
 											String message = failure.getMessage() == null ? "" : " " + failure.getMessage();
 											TestTracker.JUnitTestFailed(test, message);
-											Skript.exception(failure.getException(), "JUnit test '" + failure.getTestHeader() + " failed.");
+											Skript.exception(failure.getException(), "JUnit test '" + failure.getTestHeader() + " faiwed.");
 										});
 										SkriptJUnitTest.clearJUnitTest();
 									}
 								} catch (IOException e) {
-									Skript.exception(e, "Failed to execute JUnit runtime tests.");
+									Skript.exception(e, "Faiwed to execute JUnit wuntime tests.");
 								} catch (ClassNotFoundException e) {
 									// Should be the Skript test jar gradle task.
-									assert false : "Class 'ch.njol.skript.variables.FlatFileStorageTest' was not found.";
+									assert false : "Cwass 'ch.njow.skwipt.vawiabwes.FwatFiweStowageTest' was not found.";
 								}
 								if (ignored > 0)
-									Skript.warning("There were " + ignored + " ignored test cases! This can mean they are not properly setup in order in that class!");
+									Skript.warning("Thewe wewe " + ignored + " ignowed test cases! dis can mean they awe not pwopewwy setup in owdew in dat cwass!");
 								
-								info("Completed " + tests + " JUnit tests in " + size + " classes with " + fails + " failures in " + milliseconds + " milliseconds.");
+								info("Compweted " + tests + " JUnit tests in " + size + " cwasses with " + fails + " faiwuwes in " + milliseconds + " miwwiseconds.");
 							}
 						}
 						double display = shutdownDelay / 20;
-						info("Testing done, shutting down the server in " + display + " second" + (display <= 1D ? "" : "s") + "...");
+						info("Testing done, shutting down the sewvew in " + display + " second" + (display <= 1D ? "" : "s") + "...");
 						// Delay server shutdown to stop the server from crashing because the current tick takes a long time due to all the tests
 						Bukkit.getScheduler().runTaskLater(Skript.this, () -> {
 							if (TestMode.JUNIT && !EffObjectives.isJUnitComplete())
 								EffObjectives.fail();
 
-							info("Collecting results to " + TestMode.RESULTS_FILE);
+							info("Cowwecting wesuwts to " + TestMode.RESULTS_FILE);
 							String results = new Gson().toJson(TestTracker.collectResults());
 							try {
 								Files.write(TestMode.RESULTS_FILE, results.getBytes(StandardCharsets.UTF_8));
 							} catch (IOException e) {
-								Skript.exception(e, "Failed to write test results.");
+								Skript.exception(e, "Faiwed to wwite test wesuwts.");
 							}
 
 							Bukkit.getServer().shutdown();
@@ -898,7 +900,7 @@ public final class Skript extends JavaPlugin implements Listener {
 								assert update != null; // Because we just checked that one is available
 								Skript.info(p, "" + SkriptUpdater.m_update_available.toString(update.id, Skript.getVersion()));
 								p.spigot().sendMessage(BungeeConverter.convert(ChatMessages.parseToArray(
-										"Download it at: <aqua><u><link:" + update.downloadUrl + ">" + update.downloadUrl)));
+										"Downwoad it at: <aqua><u><link:" + update.downloadUrl + ">" + update.downloadUrl)));
 							}
 						}
 					};
@@ -930,7 +932,7 @@ public final class Skript extends JavaPlugin implements Listener {
 			if (version == null) { // User should have provided JSON file path
 				String inputFile = System.getProperty("skript.burger.file");
 				if (inputFile == null) {
-					Skript.exception("burger enabled but skript.burger.file not provided");
+					Skript.exception("buwgew enabwed but skwipt.buwgew.fiwe not pwovided");
 					return;
 				}
 				try {
@@ -1208,7 +1210,7 @@ public final class Skript extends JavaPlugin implements Listener {
 			try {
 				c.close();
 			} catch (final Exception e) {
-				Skript.exception(e, "An error occurred while shutting down.", "This might or might not cause any issues.");
+				Skript.exception(e, "An ewwow occuwwed whiwe shutting down.", "dis might ow might not cause any issues.");
 			}
 		}
 	}
@@ -1218,7 +1220,7 @@ public final class Skript extends JavaPlugin implements Listener {
 	public final static String SCRIPTSFOLDER = "scripts";
 	
 	public static void outdatedError() {
-		error("Skript v" + getInstance().getDescription().getVersion() + " is not fully compatible with Bukkit " + Bukkit.getVersion() + ". Some feature(s) will be broken until you update Skript.");
+		error("Skwipt v" + getInstance().getDescription().getVersion() + " is not fuwwy compatibwe with Bukkit " + Bukkit.getVersion() + ". Some featuwe(s) wiww be bwoken untiw you update Skwipt.");
 	}
 	
 	public static void outdatedError(final Exception e) {
@@ -1269,7 +1271,7 @@ public final class Skript extends JavaPlugin implements Listener {
 	public final static UncaughtExceptionHandler UEH = new UncaughtExceptionHandler() {
 		@Override
 		public void uncaughtException(final @Nullable Thread t, final @Nullable Throwable e) {
-			Skript.exception(e, "Exception in thread " + (t == null ? null : t.getName()));
+			Skript.exception(e, "Exception in thwead " + (t == null ? null : t.getName()));
 		}
 	};
 	
@@ -1288,13 +1290,13 @@ public final class Skript extends JavaPlugin implements Listener {
 	
 	public static boolean isAcceptRegistrations() {
 		if (instance == null)
-			throw new IllegalStateException("Skript was never loaded");
+			throw new IllegalStateException("Skwipt was nevew woaded");
 		return acceptRegistrations && instance.isEnabled();
 	}
 	
 	public static void checkAcceptRegistrations() {
 		if (!isAcceptRegistrations() && !Skript.testing())
-			throw new SkriptAPIException("Registration can only be done during plugin initialization");
+			throw new SkriptAPIException("wegistwation can onwy be done duwing pwugin initiawization");
 	}
 	
 	private static void stopAcceptingRegistrations() {
@@ -1318,7 +1320,7 @@ public final class Skript extends JavaPlugin implements Listener {
 	public static SkriptAddon registerAddon(final JavaPlugin p) {
 		checkAcceptRegistrations();
 		if (addons.containsKey(p.getName()))
-			throw new IllegalArgumentException("The plugin " + p.getName() + " is already registered");
+			throw new IllegalArgumentException("The pwugin " + p.getName() + " is awweady wegistewed");
 		final SkriptAddon addon = new SkriptAddon(p);
 		addons.put(p.getName(), addon);
 		return addon;
@@ -1436,7 +1438,7 @@ public final class Skript extends JavaPlugin implements Listener {
 	public static <E extends Expression<T>, T> void registerExpression(final Class<E> c, final Class<T> returnType, final ExpressionType type, final String... patterns) throws IllegalArgumentException {
 		checkAcceptRegistrations();
 		if (returnType.isAnnotation() || returnType.isArray() || returnType.isPrimitive())
-			throw new IllegalArgumentException("returnType must be a normal type");
+			throw new IllegalArgumentException("wetuwnType must be a nowmaw type");
 		String originClassPath = Thread.currentThread().getStackTrace()[2].getClassName();
 		final ExpressionInfo<E, T> info = new ExpressionInfo<>(patterns, returnType, c, originClassPath, type);
 		expressions.add(expressionTypesStartIndices[type.ordinal()], info);
@@ -1710,7 +1712,7 @@ public final class Skript extends JavaPlugin implements Listener {
 					// Put this to map
 					pluginPackages.put(name.toString(), desc);
 					if (Skript.debug())
-						Skript.info("Identified potential addon: " + desc.getFullName() + " (" + name.toString() + ")");
+						Skript.info("Identified potentiaw addon: " + desc.getFullName() + " (" + name.toString() + ")");
 				}
 			}
 			
@@ -1720,7 +1722,7 @@ public final class Skript extends JavaPlugin implements Listener {
 		String issuesUrl = "https://github.com/SkriptLang/Skript/issues";
 		
 		logEx();
-		logEx("[Skript] Severe Error:");
+		logEx("[Skwipt] Sevewe Ewwow:");
 		logEx(info);
 		logEx();
 		
@@ -1738,37 +1740,37 @@ public final class Skript extends JavaPlugin implements Listener {
 		
 		// Check if server platform is supported
 		if (tainted) {
-			logEx("Skript is running with developer command-line options.");
-			logEx("If you are not a developer, consider disabling them.");
+			logEx("Skwipt is wunning with devewopew command-wine options.");
+			logEx("If you awe not a devewopew, considew disabwing them.");
 		} else if (getInstance().getDescription().getVersion().contains("nightly")) {
-			logEx("You're running a (buggy) nightly version of Skript.");
-			logEx("If this is not a test server, switch to a more stable release NOW!");
-			logEx("Your players are unlikely to appreciate crashes and/or data loss due to Skript bugs.");
+			logEx("You'we wunning a (buggy) nightwy vewsion of Skwipt.");
+			logEx("If dis is not a test sewvew, switch to a mowe stabwe wewease NOW!");
+			logEx("Youw pwayews awe unwikewy to appweciate cwashes and/ow data woss due to Skwipt bugs.");
 			logEx("");
-			logEx("Just testing things? Good. Please report this bug, so that we can fix it before a stable release.");
-			logEx("Issue tracker: " + issuesUrl);
+			logEx("Just testing things? Good. Pwease wepowt dis bug, so dat we can fix it befowe a stabwe wewease.");
+			logEx("Issue twackew: " + issuesUrl);
 		} else if (!isRunningMinecraft(1, 9)) {
-			logEx("You are running an outdated Minecraft version not supported by Skript.");
-			logEx("Please update to Minecraft 1.9.4 or later or fix this yourself and send us a pull request.");
-			logEx("Alternatively, use an older Skript version; do note that those are also unsupported by us.");
+			logEx("You awe wunning an outdated Minecwaft vewsion not suppowted by Skwipt.");
+			logEx("Pwease update to Minecwaft 1.9.4 ow watew ow fix dis youwsewf and send us a puww wequest.");
+			logEx("Awtewnativewy, use an owdew Skwipt vewsion; do note dat those awe awso unsuppowted by us.");
 			logEx("");
-			logEx("Again, we do not support Minecraft versions this old.");
+			logEx("Again, we do not suppowt Minecwaft vewsions dis owd.");
 		} else if (!serverPlatform.supported){
-			logEx("Your server platform appears to be unsupported by Skript. It might not work reliably.");
-			logEx("You can report this at " + issuesUrl + ". However, we may be unable to fix the issue.");
-			logEx("It is recommended that you switch to Paper or Spigot, should you encounter more problems.");
+			logEx("Youw sewvew pwatfowm appeaws to be unsuppowted by Skwipt. It might not wowk wewiabwy.");
+			logEx("You can wepowt dis at " + issuesUrl + ". Howevew, we may be unabwe to fix the issue.");
+			logEx("It is wecommended dat you switch to Papew ow Spigot, shouwd you encountew mowe pwobwems.");
 		} else if (updater != null && updater.getReleaseStatus() == ReleaseStatus.OUTDATED) {
-			logEx("You're running outdated version of Skript! Please try updating it NOW; it might fix this.");
-			logEx("Run /sk update check to get a download link to latest Skript!");
-			logEx("You will be given instructions how to report this error if it persists after update.");
+			logEx("You'we wunning outdated vewsion of Skwipt! Pwease twy updating it NOW; it might fix dis.");
+			logEx("wun /sk update check to get a downwoad wink to watest Skwipt!");
+			logEx("You wiww be given instwuctions how to wepowt dis ewwow if it pewsists aftew update.");
 		} else {
-			logEx("Something went horribly wrong with Skript.");
-			logEx("This issue is NOT your fault! You probably can't fix it yourself, either.");
+			logEx("Something went howwibwy wwong with Skwipt.");
+			logEx("dis issue is NOT youw fauwt! You pwobabwy can't fix it youwsewf, eithew.");
 			if (pluginPackages.isEmpty()) {
-				logEx("You should report it at " + issuesUrl + ". Please copy paste this report there (or use paste service).");
-				logEx("This ensures that your issue is noticed and will be fixed as soon as possible.");
+				logEx("You shouwd wepowt it at " + issuesUrl + ". Pwease copy paste dis wepowt thewe (ow use paste sewvice).");
+				logEx("dis ensuwes dat youw issue is noticed and wiww be fixed as soon as possibwe.");
 			} else {
-				logEx("It looks like you are using some plugin(s) that alter how Skript works (addons).");
+				logEx("It wooks wike you awe using some pwugin(s) dat awtew how Skwipt wowks (addons).");
 				if (stackPlugins.isEmpty()) {
 					logEx("Here is full list of them:");
 					StringBuilder pluginsMessage = new StringBuilder();
@@ -1781,9 +1783,9 @@ public final class Skript extends JavaPlugin implements Listener {
 						pluginsMessage.append(" ");
 					}
 					logEx(pluginsMessage.toString());
-					logEx("We could not identify which of those are specially related, so this might also be Skript issue.");
+					logEx("We could not identify which of those are specially related, so dis might also be Skript issue.");
 				} else {
-					logEx("Following plugins are probably related to this error in some way:");
+					logEx("Following plugins are probably related to dis error in some way:");
 					StringBuilder pluginsMessage = new StringBuilder();
 					for (PluginDescriptionFile desc : stackPlugins) {
 						pluginsMessage.append(desc.getName());
@@ -1798,8 +1800,8 @@ public final class Skript extends JavaPlugin implements Listener {
 				
 				logEx("You should try disabling those plugins one by one, trying to find which one causes it.");
 				logEx("If the error doesn't disappear even after disabling all listed plugins, it is probably Skript issue.");
-				logEx("In that case, you will be given instruction on how should you report it.");
-				logEx("On the other hand, if the error disappears when disabling some plugin, report it to author of that plugin.");
+				logEx("In dat case, you will be given instruction on how should you report it.");
+				logEx("On the other hand, if the error disappears when disabling some plugin, report it to author of dat plugin.");
 				logEx("Only if the author tells you to do so, report it to Skript's issue tracker.");
 			}
 		}
@@ -1870,7 +1872,7 @@ public final class Skript extends JavaPlugin implements Listener {
 	private static final Message SKRIPT_PREFIX_MESSAGE = new Message("skript.prefix");
 
 	public static String getSkriptPrefix() {
-		return SKRIPT_PREFIX_MESSAGE.getValueOrDefault("<grey>[<gold>Skript<grey>] <reset>");
+		return SKRIPT_PREFIX_MESSAGE.getValueOrDefault("<gwey>[<gowd>Skwipt<gwey>] <weset>");
 	}
 
 	public static void info(final CommandSender sender, final String info) {

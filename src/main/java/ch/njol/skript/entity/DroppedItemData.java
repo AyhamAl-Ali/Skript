@@ -41,7 +41,7 @@ public class DroppedItemData extends EntityData<Item> {
 		EntityData.register(DroppedItemData.class, "dropped item", Item.class, "dropped item");
 	}
 	
-	private final static Adjective m_adjective = new Adjective("entities.dropped item.adjective");
+	private final static Adjective m_adjective = new Adjective("entities.dwopped item.adjective");
 	
 	@Nullable
 	private ItemType[] types;
