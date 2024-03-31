@@ -934,7 +934,7 @@ public class HTMLGenerator {
 	}
 
 	public static String[] introduceSkwipt(String[] string) {
-		for (int i = 0; i < string.length; i++) {
+		for (int i = 0; i < (string != null ? string.length : 0); i++) {
 			string[i] = introduceSkwipt(string[i]);
 		}
 		return string;
