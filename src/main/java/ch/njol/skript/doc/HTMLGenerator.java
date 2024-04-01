@@ -51,6 +51,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
@@ -374,11 +375,15 @@ public class HTMLGenerator {
 
 				// skwipt
 				String ogTitle = "Skript Documentation";
-				String ogDesc = "Skript is a Bukkit plugin which allows server admins to customize their server easily, but without the hassle of programming a plugin or asking/paying someone to program a plugin for them.";
-				String exampleCode = " command /sethome:\n &nbsp;&nbsp;&nbsp;&nbsp;permission: skript.home # Permission required for this command\n &nbsp;&nbsp;&nbsp;&nbsp;description: Set your home # Description of this command\n &nbsp;&nbsp;&nbsp;&nbsp;executable by: players # Console won't be able to run this command\n &nbsp;&nbsp;&nbsp;&nbsp;trigger: # The actual trigger/code that will run when someone do /sethome\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Set a unique variable to sender's location\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set {home::%uuid of player%} to location of player\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Send a message to the sender\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message \"Set your home to &lt;grey&gt;%location of player%&lt;reset&gt;\"\n \n command /home:\n &nbsp;&nbsp;&nbsp;&nbsp;permission: skript.home\n &nbsp;&nbsp;&nbsp;&nbsp;description: Teleport yourself to your home\n &nbsp;&nbsp;&nbsp;&nbsp;trigger:\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Check if that variable we used in /sethome has been set (in other words, if player ever ran /sethome)\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if {home::%uuid of player%} is not set:\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;message \"You have not set your home yet!\"\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stop trigger # stop the code here, lines below won't run\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Teleport the player to their home\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;teleport player to {home::%uuid of player%}\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;send \"&amp;aYou have been teleported.\"\n ";
+				String ogDesc = "is a Bukkit plugin which allows server admins to customize their server easily, but without the hassle of programming a plugin or asking/paying someone to program a plugin for them.";
+				Pattern exampleCode = Pattern.compile("command /sethome:.*?You have been teleported.");
+				Pattern skriptPattern = Pattern.compile("(?<=[a-zA-Z0-9]|^|>)([Ss]kript)");
 				page = page.replace(ogTitle, introduceSkwipt(ogTitle));
 				page = page.replace(ogDesc, introduceSkwipt(ogDesc));
-				page = page.replace(exampleCode, introduceSkwipt(exampleCode));
+				Matcher exampleMatcher = exampleCode.matcher(page);
+				Matcher skriptMatcher = skriptPattern.matcher(page);
+				page = exampleMatcher.replaceAll(introduceSkwipt(exampleMatcher.group(0)));
+				page = skriptMatcher.replaceAll(introduceSkwipt(skriptMatcher.group(1)));
 
 				generate = page.indexOf("${generate", nextBracket);
 			}
