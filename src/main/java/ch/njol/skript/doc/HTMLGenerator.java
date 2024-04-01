@@ -375,11 +375,15 @@ public class HTMLGenerator {
 
 				// skwipt
 				String ogTitle = "Skript Documentation";
-				String ogDesc = "is a Bukkit plugin which allows server admins to customize their server easily, but without the hassle of programming a plugin or asking/paying someone to program a plugin for them.";
+				String ogDesc = "Skript is a Bukkit plugin which allows server admins to customize their server easily, but without the hassle of programming a plugin or asking/paying someone to program a plugin for them.";
+				String homepageDesc = "is (surprise, surprise) a scripting plugin for the Bukkit platform. It is easy to use for simple tasks, but you can also create really complex things with it. The syntax of Skript is close to English, but it is still not magic. While you might succeed with experimentation for simple tasks, for anything more complex you will need some guidance.";
+				String homepageDesc2 = "This is Skript's documentation. You will find all supported features of the plugin here, along with some useful examples. We don't have tutorials yet, but you can find good ones using whatever search engine you prefer.";
 				Pattern exampleCode = Pattern.compile("command /sethome:.*?You have been teleported.");
 				Pattern skriptPattern = Pattern.compile("(?<=[a-zA-Z0-9]|^|>)([Ss]kript)");
 				page = page.replace(ogTitle, introduceSkwipt(ogTitle));
 				page = page.replace(ogDesc, introduceSkwipt(ogDesc));
+				page = page.replace(homepageDesc, introduceSkwipt(homepageDesc));
+				page = page.replace(homepageDesc2, introduceSkwipt(homepageDesc2));
 				Matcher exampleMatcher = exampleCode.matcher(page);
 				Matcher skriptMatcher = skriptPattern.matcher(page);
 				page = exampleMatcher.replaceAll(introduceSkwipt(exampleMatcher.group(0)));
