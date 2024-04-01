@@ -382,7 +382,7 @@ public class HTMLGenerator {
 				assert page != null;
 				page = minifyHtml(page);
 			}
-			
+
 			// skwipt
 			String ogTitle = "Skript Documentation";
 			String ogDesc = "Skript is a Bukkit plugin which allows server admins to customize their server easily, but without the hassle of programming a plugin or asking/paying someone to program a plugin for them.";
@@ -395,9 +395,11 @@ public class HTMLGenerator {
 			page = page.replace(homepageDesc, introduceSkwipt(homepageDesc));
 			page = page.replace(homepageDesc2, introduceSkwipt(homepageDesc2));
 			Matcher exampleMatcher = exampleCode.matcher(page);
-			page = exampleMatcher.replaceAll(introduceSkwipt(exampleMatcher.group(0)));
+			if (exampleMatcher.find())
+				page = exampleMatcher.replaceAll(introduceSkwipt(exampleMatcher.group(0)));
 			Matcher skriptMatcher = skriptPattern.matcher(page);
-			page = skriptMatcher.replaceAll(introduceSkwipt(skriptMatcher.group(1)));
+			if (skriptMatcher.find())
+				page = skriptMatcher.replaceAll(introduceSkwipt(skriptMatcher.group(1)));
 
 			assert page != null;
 			writeFile(new File(output + File.separator + name), page);
